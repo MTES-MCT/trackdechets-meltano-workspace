@@ -1,7 +1,43 @@
 version: 1
 default_environment: dev
 environments:
-- name: dev
-- name: staging
-- name: prod
+  - name: dev
+  - name: prod
+    config:
+      plugins:
+        extractors:
+          - name: tap-postgres--td-database
+            config:
+              ssl: true
+        loaders:
+          - name: target-postgres--dwh
+            config:
+              ssl: true
+
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
+plugins:
+  extractors:
+    - name: tap-postgres--td-database
+      inherit_from: tap-postgres
+      variant: transferwise
+      pip_url: pipelinewise-tap-postgres==1.8.3
+      select:
+        - default$default-Company.*
+      metadata:
+        "*":
+          replication-method: INCREMENTAL
+          replication-key: "updatedAt"
+
+  loaders:
+    - name: target-postgres--dwh
+      inherit_from: target-postgres
+      variant: transferwise
+      pip_url: pipelinewise-target-postgres==2.1.1
+jobs:
+  - name: sync-td-database
+    tasks:
+      - tap-postgres--td-database target-postgres--dwh
+schedules:
+  - name: daily-td-db-sync
+    interval: "@daily"
+    job: sync-td-database
