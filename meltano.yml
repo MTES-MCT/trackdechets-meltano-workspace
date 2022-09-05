@@ -23,6 +23,8 @@ plugins:
       pip_url: pipelinewise-tap-postgres==1.8.3
       select:
         - default$default-Company.*
+        - default$default-User.*
+        - default$default-Form.*
       metadata:
         "*":
           replication-method: INCREMENTAL
