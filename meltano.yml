@@ -16,7 +16,7 @@ environments:
         transformers:
           - name: dbt-postgres
             config:
-              sslmode: true
+              sslmode: prefer
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
 plugins:
   extractors:
