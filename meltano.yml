@@ -13,6 +13,10 @@ environments:
           - name: target-postgres--dwh
             config:
               ssl: true
+        transformers:
+          - name: dbt-postgres
+            config:
+              sslmode: true
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
 plugins:
   extractors:
@@ -32,8 +36,8 @@ plugins:
       metadata:
         "*":
           replication-method: INCREMENTAL
-          replication-key: "updatedAt"
-        "default$default-CompanyAssociation":
+          replication-key: updatedAt
+        default$default-CompanyAssociation:
           replication-method: FULL_TABLE
 
   loaders:
@@ -41,6 +45,10 @@ plugins:
       inherit_from: target-postgres
       variant: transferwise
       pip_url: pipelinewise-target-postgres==2.1.1
+  transformers:
+    - name: dbt-postgres
+      variant: dbt-labs
+      pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
 jobs:
   - name: sync-td-database
     tasks:

@@ -1,0 +1,108 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-postgres",
+  "namespace": "tap_postgres",
+  "variant": "transferwise",
+  "label": "PostgreSQL",
+  "docs": "https://hub.meltano.com/extractors/tap-postgres",
+  "repo": "https://github.com/transferwise/pipelinewise-tap-postgres",
+  "pip_url": "pipelinewise-tap-postgres",
+  "capabilities": [
+    "catalog",
+    "discover",
+    "state"
+  ],
+  "settings_group_validation": [
+    [
+      "host",
+      "port",
+      "user",
+      "password",
+      "dbname"
+    ]
+  ],
+  "settings": [
+    {
+      "name": "host",
+      "value": "localhost",
+      "label": "Host",
+      "description": "PostgreSQL host"
+    },
+    {
+      "name": "port",
+      "kind": "integer",
+      "value": 5432,
+      "label": "Port",
+      "description": "PostgreSQL port"
+    },
+    {
+      "name": "user",
+      "label": "User",
+      "description": "PostgreSQL user"
+    },
+    {
+      "name": "password",
+      "kind": "password",
+      "label": "Password",
+      "description": "PostgreSQL password"
+    },
+    {
+      "name": "dbname",
+      "label": "Database Name",
+      "description": "PostgreSQL database name"
+    },
+    {
+      "name": "ssl",
+      "kind": "boolean",
+      "value": false,
+      "label": "SSL",
+      "description": "Using SSL via postgres `sslmode='require'` option. If the server does not accept SSL connections or the client certificate is not recognized the connection will fail",
+      "value_post_processor": "stringify"
+    },
+    {
+      "name": "filter_schemas",
+      "label": "Filter Schemas",
+      "description": "Scan only the specified comma-separated schemas to improve the performance of data extraction"
+    },
+    {
+      "name": "default_replication_method",
+      "kind": "options",
+      "label": "Default Replication Method",
+      "options": [
+        {
+          "label": "Log-based Incremental Replication",
+          "value": "LOG_BASED"
+        },
+        {
+          "label": "Key-based Incremental Replication",
+          "value": "INCREMENTAL"
+        },
+        {
+          "label": "Full Table Replication",
+          "value": "FULL_TABLE"
+        }
+      ]
+    },
+    {
+      "name": "max_run_seconds",
+      "kind": "integer",
+      "value": 43200,
+      "label": "Max Run Seconds",
+      "description": "Stop running the tap after certain number of seconds"
+    },
+    {
+      "name": "logical_poll_total_seconds",
+      "kind": "integer",
+      "value": 10800,
+      "label": "Logical Poll Total Seconds",
+      "description": "Stop running the tap when no data received from wal after certain number of seconds"
+    },
+    {
+      "name": "break_at_end_lsn",
+      "kind": "boolean",
+      "value": true,
+      "label": "Break At End LSN",
+      "description": "Stop running the tap if the newly received lsn is after the max lsn that was detected when the tap started"
+    }
+  ]
+}
