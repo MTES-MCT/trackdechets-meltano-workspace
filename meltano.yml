@@ -13,7 +13,6 @@ environments:
           - name: target-postgres--dwh
             config:
               ssl: true
-
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
 plugins:
   extractors:
@@ -23,12 +22,19 @@ plugins:
       pip_url: pipelinewise-tap-postgres==1.8.3
       select:
         - default$default-Company.*
+        - default$default-CompanyAssociation.*
         - default$default-User.*
         - default$default-Form.*
+        - default$default-Bsda.*
+        - default$default-Bsdasri.*
+        - default$default-Bsff.*
+        - default$default-Bsvhu.*
       metadata:
         "*":
           replication-method: INCREMENTAL
           replication-key: "updatedAt"
+        "default$default-CompanyAssociation":
+          replication-method: FULL_TABLE
 
   loaders:
     - name: target-postgres--dwh
