@@ -1,5 +1,10 @@
 SELECT
-    ic.*,
+    DISTINCT
+    ON (
+        "codeS3ic",
+        "siret_clean",
+        id_ref_nomencla_ic
+    ) ic.*,
     nomen.rubrique_ic,
     nomen.alinea,
     etabs."s3icNumeroSiret" AS siret_icpe,
