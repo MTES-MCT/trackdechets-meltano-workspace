@@ -16,3 +16,10 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: cd /opt/trackdechets-meltano-workspace && git pull
+      - name: executing meltano install
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: cd /opt/trackdechets-data-platform && docker compose exec meltano meltano install
