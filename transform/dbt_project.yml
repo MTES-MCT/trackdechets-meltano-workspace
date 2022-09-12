@@ -30,3 +30,7 @@ models:
         +materialized: table
       etablissements_par_departements:
         +materialized: table
+    icpe:
+      +materialized: ephemeral
+      icpe_stats:
+        +materialized: table

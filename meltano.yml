@@ -37,6 +37,16 @@ plugins:
         default$default-CompanyAssociation:
           replication-method: FULL_TABLE
 
+    - name: tap-google-sheets
+      variant: singer-io
+      pip_url: git+https://github.com/singer-io/tap-google-sheets.git
+
+    - name: tap-google-sheets--gerep
+      inherit_from: tap-google-sheets
+      config:
+        spreadsheet_id: 1uzcWPJhpcQCbbVbW7f6UA2XpD0zJ7Iqb
+        start_date: "2021/01/01"
+
   loaders:
     - name: target-postgres--dwh
       inherit_from: target-postgres
@@ -50,6 +60,7 @@ jobs:
   - name: sync-td-database
     tasks:
       - tap-postgres--td-database target-postgres--dwh
+      - dbt-postgres:run
 schedules:
   - name: daily-td-db-sync
     interval: "@daily"
