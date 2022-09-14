@@ -56,12 +56,26 @@ plugins:
     - name: dbt-postgres
       variant: dbt-labs
       pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
+      commands:
+        run_analytics:
+          args: run --select analytics
+          description: Run dbt 'analytics' package
+        run_icpe:
+          args: run --select icpe
+          description: Run dbt 'icpe' package
+
 jobs:
   - name: sync-td-database
     tasks:
       - tap-postgres--td-database target-postgres--dwh
-      - dbt-postgres:run
+      - dbt-postgres:run_analytics
+  - name: transform-icpe
+    tasks:
+      - dbt-postgres:run_icpe
 schedules:
   - name: daily-td-db-sync
     interval: "@daily"
     job: sync-td-database
+  - name: weekly-transform-icpe
+    interval: "0 0 1 * *"
+    job: transform-icpe

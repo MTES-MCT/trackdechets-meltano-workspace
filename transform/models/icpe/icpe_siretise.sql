@@ -1,10 +1,17 @@
+{{ config(
+    materialized = 'incremental',
+    unique_key='inserted_at'
+) }}
+
 SELECT
     DISTINCT
     ON (
         "codeS3ic",
         "siret_clean",
         id_ref_nomencla_ic
-    ) ic.*,
+    ) ic.inserted_at,
+    ic."codeS3ic",
+    ic.id_ref_nomencla_ic,
     nomen.rubrique_ic,
     nomen.alinea,
     etabs."s3icNumeroSiret" AS siret_icpe,
@@ -19,12 +26,10 @@ SELECT
         ELSE FALSE
     END AS inscrit_sur_td
 FROM
-    {{ ref('ic_installations_classes') }}
-    ic
+    raw_zone.ic_installation_classee ic
     LEFT JOIN raw_zone.ic_ref_nomenclature_ic nomen
     ON ic."id_ref_nomencla_ic" = nomen."id"
-    LEFT JOIN {{ ref('ic_etablissements') }}
-    etabs
+    LEFT JOIN raw_zone.ic_etablissement etabs
     ON ic."codeS3ic" = etabs."codeS3ic"
     LEFT JOIN {{ ref('gerep') }}
     gerep
@@ -39,3 +44,41 @@ FROM
         etabs."s3icNumeroSiret",
         gerep."numero_siret"
     ) = td_etabs.siret
+WHERE
+    (
+        ic."date_fin_validite" IS NULL
+        OR TO_DATE(
+            ic."date_fin_validite",
+            'DD/MM/YYYY'
+        ) >= CURRENT_DATE
+    )
+    AND (
+        etabs."s3icNumeroSiret" IS NULL
+        OR LENGTH(
+            etabs."s3icNumeroSiret"
+        ) = 14
+    )
+
+{% if is_incremental() %}
+-- this filter will only be applied on an incremental run
+AND (
+    ic."inserted_at" > (
+        SELECT
+            MAX("inserted_at")
+        FROM
+            {{ this }}
+    )
+    AND etabs."inserted_at" > (
+        SELECT
+            MAX("inserted_at")
+        FROM
+            {{ this }}
+    )
+    AND nomen."inserted_at" > (
+        SELECT
+            MAX("inserted_at")
+        FROM
+            {{ this }}
+    )
+)
+{% endif %}

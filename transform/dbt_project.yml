@@ -31,6 +31,7 @@ models:
       etablissements_par_departements:
         +materialized: table
     icpe:
-      +materialized: ephemeral
-      icpe_stats:
+      icpe_siretise:
+        +materialized: table
+      icpe_stats_rubriques_alinea:
         +materialized: table
