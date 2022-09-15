@@ -44,7 +44,7 @@ data_ AS (
                 ) THEN "siret_clean"
                 ELSE NULL
             END
-        ) AS "Nombre d'établissements actifs aprés siretisations",
+        ) AS "Nombre d'établissements actifs aprés siretisation",
         COUNT(
             DISTINCT CASE
                 WHEN (
@@ -54,7 +54,7 @@ data_ AS (
                 ) THEN "siret_clean"
                 ELSE NULL
             END
-        ) AS "Nombre d'établissements actifs aprés siretisations et inscrits"
+        ) AS "Nombre d'établissements actifs aprés siretisation et inscrits"
     FROM
         incremental_data
     GROUP BY
@@ -62,7 +62,7 @@ data_ AS (
 )
 SELECT
     data_.*,
-    100 * "Nombre d'établissements actifs aprés siretisations et inscrits" / NULLIF(
+    100 * "Nombre d'établissements actifs aprés siretisation et inscrits" / NULLIF(
         "Nombre d'établissements aprés siretisation",
         0
     ) AS "Pourcentage d'établissements inscrits sur TD"
