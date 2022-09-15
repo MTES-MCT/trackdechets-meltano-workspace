@@ -25,7 +25,7 @@ WHERE
 data_ AS (
     SELECT
         MAX("inserted_at") AS "inserted_at",
-        "rubrique_ic",
+        "rubrique_ic" as "rubrique",
         "alinea",
         COUNT(
             DISTINCT "codeS3ic"
