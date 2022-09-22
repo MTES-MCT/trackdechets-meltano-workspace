@@ -26,20 +26,20 @@ SELECT
         ELSE FALSE
     END AS inscrit_sur_td
 FROM
-    raw_zone_gsheet_icpe.ic_installation_classee ic
-    LEFT JOIN raw_zone_gsheet_icpe.ic_ref_nomenclature_ic nomen
+    raw_zone_icpe.ic_installation_classee ic
+    LEFT JOIN raw_zone_icpe.ic_ref_nomenclature_ic nomen
     ON ic."id_ref_nomencla_ic" = nomen."id"
-    LEFT JOIN raw_zone_gsheet_icpe.ic_etablissement etabs
+    LEFT JOIN raw_zone_icpe.ic_etablissement etabs
     ON ic."codeS3ic" = etabs."codeS3ic"
     LEFT JOIN {{ ref('gerep') }}
     gerep
     ON ic."codeS3ic" = gerep."codeS3ic"
-    LEFT JOIN raw_zone_gsheet_insee.stock_etablissement AS sirene
+    LEFT JOIN raw_zone_insee.stock_etablissement AS sirene
     ON COALESCE(
         etabs."s3icNumeroSiret",
         gerep."numero_siret"
     ) = sirene.siret
-    LEFT JOIN raw_zone_gsheet_trackdechets.company td_etabs
+    LEFT JOIN raw_zone_trackdechets.company td_etabs
     ON COALESCE(
         etabs."s3icNumeroSiret",
         gerep."numero_siret"

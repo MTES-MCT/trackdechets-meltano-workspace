@@ -63,10 +63,10 @@ plugins:
       pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
       commands:
         run_analytics:
-          args: run --select analytics
+          args: run --select refined_zone.analytics
           description: Run dbt 'analytics' package
         run_icpe:
-          args: run --select icpe
+          args: run --select refined_zone.icpe
           description: Run dbt 'icpe' package
 
 jobs:
