@@ -7,11 +7,8 @@
 
     {%- else -%}
 
-        {%- if custom_schema_name == 'trusted_zone' -%}
-            trusted_zone
-        {%- else -%}
-
-            {{ default_schema }}_{{ custom_schema_name | trim }}
+        {%- if custom_schema_name -%}
+           {{ custom_schema_name | trim }}
 
         {%- endif -%}
     {%- endif -%}

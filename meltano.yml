@@ -52,6 +52,11 @@ plugins:
       inherit_from: target-postgres
       variant: transferwise
       pip_url: pipelinewise-target-postgres==2.1.1
+    - name: target-postgres--dwh-trackdechets
+      inherit_from: target-postgres--dwh
+      config:
+        default_target_schema: "raw_zone_trackdechets"
+
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
@@ -67,7 +72,7 @@ plugins:
 jobs:
   - name: sync-td-database
     tasks:
-      - tap-postgres--td-database target-postgres--dwh
+      - tap-postgres--td-database target-postgres--dwh-trackdechets
       - dbt-postgres:run_analytics
   - name: transform-icpe
     tasks:

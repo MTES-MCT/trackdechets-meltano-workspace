@@ -5,7 +5,7 @@ with gerep_producteurs as(
         "numero_siret",
         row_number () over (partition by "code_etablissement","numero_siret" order by annee desc)
     from
-        raw_zone.gerep_2016_2017_producteurs gp
+        raw_zone_gsheet.gerep_2016_2017_producteurs gp
 ),
 gerep_traiteurs as (
     select
@@ -14,7 +14,7 @@ gerep_traiteurs as (
         "numero_siret",
         row_number () over (partition by "code_etablissement","numero_siret" order by annee desc)
     from
-        raw_zone.gerep_2016_2017_traiteurs gp
+        raw_zone_gsheet.gerep_2016_2017_traiteurs gp
 ),
 gerep_producteurs_dedup as (
     select

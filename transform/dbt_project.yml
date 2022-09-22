@@ -24,16 +24,26 @@ clean-targets:
   - logs
 models:
   trackdechets_data_platform:
-    analytics:
-      +materialized: view
-      etablissements_inscrits_par_departements:
-        +materialized: table
-      etablissements_par_departements:
-        +materialized: table
-    icpe:
-      gerep:
-        +materialized: ephemeral
-      icpe_siretise:
-        +materialized: table
-      icpe_stats_rubriques_alinea:
-        +materialized: table
+    refined_zone:
+      analytics:
+        +materialized: view
+        +schema: refined_zone_analytics
+        etablissements_inscrits_par_departements:
+          +materialized: table
+        etablissements_par_departements:
+          +materialized: table
+      icpe:
+        +schema: refined_zone_icpe
+        gerep:
+          +materialized: ephemeral
+        icpe_siretise:
+          +materialized: table
+        icpe_stats_rubriques_alinea:
+          +materialized: table
+    trusted_zone:
+      gsheet:
+        +schema: trusted_zone_gsheet
+      insee:
+        +schema: trusted_zone_insee
+      trackdechets:
+        +schema: trusted_zone_trackdechets
