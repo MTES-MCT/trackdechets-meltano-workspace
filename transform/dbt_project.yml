@@ -40,6 +40,10 @@ models:
           +materialized: table
         icpe_stats_rubriques_alinea:
           +materialized: table
+      enriched:
+        +schema: refined_zone_enriched
+        company_enriched:
+          +materialized: table
     trusted_zone:
       gsheet:
         +schema: trusted_zone_gsheet
