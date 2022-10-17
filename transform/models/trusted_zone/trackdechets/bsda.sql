@@ -102,7 +102,6 @@ SELECT
     brokerrecepissedepartment as "broker_recepisse_department",
     brokerrecepissenumber as "broker_recepisse_number",
     brokerrecepissevaliditylimit as "broker_recepisse_validity_limit",
-    childbsdaid as "child_bsda_id",
     forwardingid as "forwarding_id",
     groupedinid as "grouped_in_id"
 FROM
