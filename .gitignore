@@ -3,3 +3,4 @@
 .env
 .env.docker
 .DS_Store
+.vscode/settings.json

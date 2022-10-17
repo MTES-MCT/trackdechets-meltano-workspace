@@ -1,0 +1,79 @@
+version: 2
+
+sources:
+  - name: raw_zone_trackdechets
+    description: Replica de la base applicative Trackdéchets
+    loader: meltano
+    freshness:
+      warn_after:
+        count: 36
+        period: hour
+      error_after:
+        count: 72
+        period: hour
+    loaded_at_field: "_sdc_batched_at"
+    tables:
+      - name: bsdd
+        identifier: form
+        description: >
+          Une ligne par BSDD, les BSDD supprimés restent dans la table.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: bsda
+        description: >
+          Une ligne par BSDA, les BSDA supprimés restent dans la table.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: bsdasri
+        description: >
+          Une ligne par BSDASRI, les BSDASRI supprimés restent dans la table.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: bsff
+        description: >
+          Une ligne par BSFF, les BSFF supprimés restent dans la table.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: bsvhu
+        description: >
+          Une ligne par BSVHU, les BSVHU supprimés restent dans la table.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: user
+        description: >
+          Une ligne par compte utilisateur.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: company
+        description: >
+          Une ligne par compte établissement.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null

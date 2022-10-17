@@ -22,6 +22,8 @@ clean-targets:
   - ../.meltano/transformers/dbt/target
   - dbt_packages
   - logs
+tests:
+  +store_failures: true
 models:
   trackdechets_data_platform:
     refined_zone:
