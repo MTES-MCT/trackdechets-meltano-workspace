@@ -77,3 +77,12 @@ sources:
             tests:
               - unique
               - not_null
+      - name: companyassociation
+        description: >
+          Une ligne par paire (company,user).
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
