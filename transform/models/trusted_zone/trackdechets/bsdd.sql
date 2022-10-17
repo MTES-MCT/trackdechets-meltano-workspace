@@ -113,6 +113,6 @@ SELECT
     ecoorganismesiret as "eco_organisme_siret",
     ecoorganismename as "eco_organisme_name",
     isimportedfrompaper as "is_imported_from_paper",
-    forwardedinid as "forwarded_in_id",
+    forwardedinid as "forwarded_in_id"
 FROM
    {{ source("raw_zone_trackdechets", "bsdd") }}

@@ -6,7 +6,6 @@ SELECT
     isdraft as "is_draft",
     status as "status",
     "type",
-    packagingsjson as "packagings_json",
     wastecode as "waste_code",
     wastedescription as "waste_description",
     wasteadr as "waste_adr",
@@ -63,7 +62,6 @@ SELECT
     destinationoperationnextdestinationcompanyvatnumber as "destination_operation_next_destination_company_vat_number",
     forwardingid as "forwarding_id",
     groupedinid as "grouped_in_id",
-    nextbsffid as "next_bsff_id",
     repackagedinid as "repackaged_in_id"
 FROM
    {{ source("raw_zone_trackdechets", "bsff") }}

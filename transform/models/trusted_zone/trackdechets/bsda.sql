@@ -15,7 +15,6 @@ SELECT
     wastesealnumbers as "waste_seal_numbers",
     weightisestimate as "weight_is_estimate",
     weightvalue as "weight_value",
-    quantitytype as "quantity_type",
     packagings as "packagings",
     repackagedinid as "repackaged_in_id",
     emittercompanysiret as "emitter_company_siret",
