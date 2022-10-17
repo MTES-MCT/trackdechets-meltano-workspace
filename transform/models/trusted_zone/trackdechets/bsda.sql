@@ -38,9 +38,16 @@ SELECT
     workercompanyaddress as "worker_company_address",
     workercompanycontact as "worker_company_contact",
     workercompanyphone as "worker_company_phone",
+    workercompanymail as "worker_company_mail"
+    workercertificationorganisation as "worker_certification_organisation"
+    workercertificationcertificationnumber as "worker_certification_certification_number",
+    workercertificationhassubsectionthree AS "worker_certification_has_subsection_three"
+    workercertificationhassubsectionfour as "worker_certification_has_subsection_four",
+    workercertificationvaliditylimit as "worker_certificationvalidity_limit",
     workerworkhasemitterpapersignature as "worker_work_has_emitter_paper_signature",
     workerworksignatureauthor as "worker_work_signature_author",
     workerworksignaturedate as "worker_work_signature_date",
+    workerisdisabled as "worker_is_disabled",
     transportercompanysiret as "transporter_company_siret",
     transportercompanyname as "transporter_company_name",
     transportercompanyaddress as "transporter_company_address",

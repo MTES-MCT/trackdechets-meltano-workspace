@@ -90,6 +90,7 @@ SELECT
     nextdestinationcompanycontact as "next_destination_company_contact",
     nextdestinationcompanymail as "next_destination_company_mail",
     nextdestinationcompanyphone as "next_destination_company_phone",
+    nextdestinationcompanyvatnumber as "next_destination_company_vat_number",
     nextdestinationprocessingoperation as "next_destination_processing_operation",
     brokercompanysiret as "broker_company_siret",
     brokercompanyname as "broker_company_name",
@@ -112,6 +113,7 @@ SELECT
     ecoorganismesiret as "eco_organisme_siret",
     ecoorganismename as "eco_organisme_name",
     isimportedfrompaper as "is_imported_from_paper",
-    forwardedinid as "forwarded_in_id"
+    forwardedinid as "forwarded_in_id",
+    temporarystoragedetailid as "temporary_storage_detail_id"
 FROM
    {{ source("raw_zone_trackdechets", "bsdd") }}
