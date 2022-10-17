@@ -114,6 +114,5 @@ SELECT
     ecoorganismename as "eco_organisme_name",
     isimportedfrompaper as "is_imported_from_paper",
     forwardedinid as "forwarded_in_id",
-    temporarystoragedetailid as "temporary_storage_detail_id"
 FROM
    {{ source("raw_zone_trackdechets", "bsdd") }}
