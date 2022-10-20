@@ -88,7 +88,7 @@ SELECT
     destinationoperationnextdestinationcompanyname as "destination_operation_next_destination_company_name",
     destinationoperationnextdestinationcompanyaddress as "destination_operation_next_destination_company_address",
     destinationoperationnextdestinationcompanycontact as "destination_operation_next_destination_company_contact",
-    destinationoperationnextdestinationcompanymail as "destination_operation_next_destination_companymail",
+    destinationoperationnextdestinationcompanymail as "destination_operation_next_destination_company_mail",
     destinationoperationnextdestinationcompanyphone as "destination_operation_next_destination_company_phone",
     destinationoperationnextdestinationcompanyvatnumber as "destination_operation_next_destination_company_vat_number",
     destinationoperationnextdestinationcap as "destination_operation_next_destination_cap",
