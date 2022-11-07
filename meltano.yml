@@ -62,31 +62,39 @@ plugins:
       variant: dbt-labs
       pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0
       commands:
-        source__raw_zone_trackdechets:
+        source__raw_zone:
           args: source freshness
           description: Check the freshness of raw_zone_trackdechets
         run__trusted_zone_trackdechets:
           args: run --select trusted_zone.trackdechets
           description: Run trusted_zone_trackdechets models
+        run__trusted_zone_insee:
+          args: run --select trusted_zone.insee
+          description: Run dbt 'trusted_zone.insee' package
+        run__refined_zone_analytics:
+          args: run --select refined_zone.analytics
+          description: Run dbt 'analytics' package
+        run__refined_zone_icpe:
+          args: run --select refined_zone.icpe
+          description: Run dbt 'refined_zone.icpe' package
         test__trusted_zone_trackdechets:
           args: test --select *.trackdechets
           description: Run trusted_zone_trackdechets models
-        run_analytics:
-          args: run --select refined_zone.analytics
-          description: Run dbt 'analytics' package
-        run_icpe:
-          args: run --select refined_zone.icpe
-          description: Run dbt 'icpe' package
+
 jobs:
   - name: elt--td-database
     tasks:
       - tap-postgres--td-database target-postgres--dwh-trackdechets
-      - dbt-postgres:source__raw_zone_trackdechets
+      - dbt-postgres:source__raw_zone
       - dbt-postgres:run__trusted_zone_trackdechets
       - dbt-postgres:test__trusted_zone_trackdechets
   - name: transform-icpe
     tasks:
-      - dbt-postgres:run_icpe
+      - dbt-postgres:run__refined_zone_icpe
+  - name: transform-insee
+    tasks:
+      - dbt-postgres:source__raw_zone
+      - dbt-postgres:run__trusted_zone_insee
 schedules:
   - name: daily-elt-td-database
     interval: "@daily"
@@ -94,3 +102,6 @@ schedules:
   - name: weekly-transform-icpe
     interval: "0 3 * * *"
     job: transform-icpe
+  - name: monthly-transform-insee
+    interval: "0 20 1 * *"
+    job: transform-insee

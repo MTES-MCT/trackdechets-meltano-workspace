@@ -86,3 +86,89 @@ sources:
             tests:
               - unique
               - not_null
+  - name: raw_zone_insee
+    description: Données issues de l'open data INSEE
+    loader: meltano
+    freshness:
+      warn_after:
+        count: 31
+        period: day
+      error_after:
+        count: 60
+        period: day
+    loaded_at_field: "_sdc_batched_at"
+    tables:
+      - name: naf2008
+        description: >
+          Une ligne par code sous-classe 
+          de la nomenclature des activités françaises édition 2008.
+        columns:
+          - name: code_sous_classe
+            description: Clé unique
+            tests:
+              - unique
+              - not_null
+      - name: arrondissement
+        description: >
+          Données géographiques INSEE des arrondissements français.
+          Une ligne par code arrondissement.
+        columns:
+          - name: arr
+            description: Code arrondissement
+            tests:
+              - unique
+              - not_null
+      - name: canton
+        description: >
+          Données géographiques INSEE des cantons français.
+          Une ligne par identifiant canton.
+        columns:
+          - name: id_canton
+            description: Code canton
+            tests:
+              - unique
+              - not_null
+      - name: commune
+        description: >
+          Données géographiques INSEE des communes françaises.
+          Une ligne par code commune.
+        columns:
+          - name: comm
+            description: Code commune
+            tests:
+              - unique
+              - not_null
+      - name: departement
+        description: >
+          Données géographiques INSEE des département français.
+          Une ligne par code département.
+        columns:
+          - name: dep
+            description: Code département
+            tests:
+              - unique
+              - not_null
+      - name: pays
+        description: >
+          Données géographiques INSEE des pays du monde.
+          Une ligne par pays.
+      - name: region
+        description: >
+          Données géographiques INSEE des régions françaises.
+          Une ligne par région.
+        columns:
+          - name: reg
+            description: Code région
+            tests:
+              - unique
+              - not_null
+      - name: stock_etablissement
+        description: >
+          Données des établissements français.
+          Une ligne par établissement.
+        columns:
+          - name: siret
+            description: Code région
+            tests:
+              - unique
+              - not_null
