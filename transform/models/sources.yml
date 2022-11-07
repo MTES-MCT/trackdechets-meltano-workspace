@@ -88,15 +88,7 @@ sources:
               - not_null
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE
-    loader: meltano
-    freshness:
-      warn_after:
-        count: 31
-        period: day
-      error_after:
-        count: 60
-        period: day
-    loaded_at_field: "_sdc_batched_at"
+    loader: airflow
     tables:
       - name: naf2008
         description: >
