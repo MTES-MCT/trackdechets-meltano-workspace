@@ -33,7 +33,7 @@ SELECT
     "libelleCommune2Etablissement" as libelle_commune_2_etablissement,
     "libelleCommuneEtranger2Etablissement" as libelle_commune_etranger_2_etablissement,
     "distributionSpeciale2Etablissement" as distribution_speciale_2_etablissement,
-    cast("codeCommune2Etablissement" as integer) as code_commune_2_etablissement,
+    "codeCommune2Etablissement" as code_commune_2_etablissement,
     "codeCedex2Etablissement" as code_cedex_2_etablissement,
     "libelleCedex2Etablissement" as libelle_cedex_2_etablissement,
     cast("codePaysEtranger2Etablissement" as integer) as code_pays_etranger_2_etablissement,
