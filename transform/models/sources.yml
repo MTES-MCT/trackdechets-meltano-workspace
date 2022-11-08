@@ -125,7 +125,7 @@ sources:
           Données géographiques INSEE des communes françaises.
           Une ligne par code commune.
         columns:
-          - name: comm
+          - name: com
             description: Code commune
             tests:
               - unique
