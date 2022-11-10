@@ -63,7 +63,7 @@ FROM
     LEFT JOIN {{ ref('nomenclature_activites_francaises') }}
     naf
     ON REPLACE(
-        C.code_naf,
+        COALESCE(etabs.activite_principale_etablissement,C.code_naf),
         '.',
         ''
     ) = REPLACE(
