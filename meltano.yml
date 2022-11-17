@@ -30,11 +30,14 @@ plugins:
         - default$default-Bsdasri.*
         - default$default-Bsff.*
         - default$default-Bsvhu.*
+        - default$default-EcoOrganisme.*
       metadata:
         "*":
           replication-method: INCREMENTAL
           replication-key: updatedAt
         default$default-CompanyAssociation:
+          replication-method: FULL_TABLE
+        default$default-EcoOrganisme:
           replication-method: FULL_TABLE
 
     - name: tap-google-sheets
@@ -99,6 +102,7 @@ jobs:
     tasks:
       - dbt-postgres:source__raw_zone
       - dbt-postgres:run__trusted_zone_insee
+
 schedules:
   - name: daily-elt-td-database
     interval: "@daily"

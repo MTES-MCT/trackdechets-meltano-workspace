@@ -86,6 +86,16 @@ sources:
             tests:
               - unique
               - not_null
+      - name: eco_organisme
+        identifier: ecoorganisme
+        description: >
+          Table entrée en dur, Eco-Organismes qui nous sont connus.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE
     loader: airflow
