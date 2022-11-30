@@ -25,10 +25,10 @@ WHERE
 data_ AS (
     SELECT
         MAX("inserted_at") AS "inserted_at",
-        "rubrique_ic" as "rubrique",
+        "rubrique",
         "alinea",
         COUNT(
-            DISTINCT "codeS3ic"
+            DISTINCT code_s3ic
         ) AS "Nombre d'installations classées",
         COUNT(
             DISTINCT CASE
@@ -40,7 +40,7 @@ data_ AS (
             DISTINCT CASE
                 WHEN (
                     "siret_clean" IS NOT NULL
-                    AND "etatAdministratifEtablissement" = 'A'
+                    AND "etat_administratif_etablissement" = 'A'
                 ) THEN "siret_clean"
                 ELSE NULL
             END
@@ -49,7 +49,7 @@ data_ AS (
             DISTINCT CASE
                 WHEN (
                     "siret_clean" IS NOT NULL
-                    AND "etatAdministratifEtablissement" = 'A'
+                    AND "etat_administratif_etablissement" = 'A'
                     AND inscrit_sur_td
                 ) THEN "siret_clean"
                 ELSE NULL
@@ -58,7 +58,7 @@ data_ AS (
     FROM
         incremental_data
     GROUP BY
-        "rubrique_ic","alinea"
+        "rubrique","alinea"
 )
 SELECT
     data_.*,

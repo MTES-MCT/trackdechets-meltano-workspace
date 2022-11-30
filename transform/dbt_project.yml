@@ -55,3 +55,5 @@ models:
         +schema: trusted_zone_insee
       trackdechets:
         +schema: trusted_zone_trackdechets
+      icpe:
+        +schema: trusted_zone_icpe

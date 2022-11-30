@@ -74,6 +74,9 @@ plugins:
         run__trusted_zone_insee:
           args: run --select trusted_zone.insee
           description: Run dbt 'trusted_zone.insee' models
+        run__trusted_zone_icpe:
+          args: run --select trusted_zone.icpe
+          description: Run dbt 'trusted_zone.icpe' models
         run__refined_zone_analytics:
           args: run --select refined_zone.analytics
           description: Run dbt 'refined_zone.analytics' models
@@ -97,6 +100,7 @@ jobs:
       - dbt-postgres:run__refined_zone_enriched
   - name: transform-icpe
     tasks:
+      - dbt-postgres:run__trusted_zone_icpe
       - dbt-postgres:run__refined_zone_icpe
   - name: transform-insee
     tasks:
