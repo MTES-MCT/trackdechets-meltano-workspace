@@ -1,8 +1,3 @@
-{{ config(
-    materialized = 'incremental',
-    unique_key = 'inserted_at'
-) }}
-
 SELECT
     DISTINCT
     ON (
