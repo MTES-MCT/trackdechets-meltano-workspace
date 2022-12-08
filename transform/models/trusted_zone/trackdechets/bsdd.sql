@@ -37,7 +37,7 @@ SELECT
     emittedbyecoorganisme as "emitted_by_eco_organisme",
     emitterisforeignship as "emitter_is_foreignship",
     emitterisprivateindividual as "emitter_is_private_individual",
-    emittedat as "emmited_at",
+    emittedat as "emitted_at",
     emittedby as "emitted_by",
     emittertype as "emitter_type",
     signedat as "signed_at",
