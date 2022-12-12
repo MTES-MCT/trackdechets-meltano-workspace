@@ -14,6 +14,8 @@ SELECT
     nomen.rubrique,
     nomen.alinea,
     nomen.libelle_court_activite,
+    nomen.en_vigueur,
+    nomen.id_regime,
     etabs.siret AS siret_icpe,
     gerep."numero_siret" AS siret_gerep,
     COALESCE(
