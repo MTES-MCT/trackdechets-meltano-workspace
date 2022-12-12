@@ -1,6 +1,6 @@
 SELECT
     id as "id",
-    customid as "customid",
+    customid as "custom_id",
     readableid as "readable_id",
     createdat as "created_at",
     updatedat as "updated_at",
