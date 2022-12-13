@@ -11,6 +11,7 @@ SELECT
     ic.date_fin_validite,
     ic.volume,
     ic.unite,
+    ic.statut_ic,
     nomen.rubrique,
     nomen.alinea,
     nomen.libelle_court_activite,
