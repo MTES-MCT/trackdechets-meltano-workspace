@@ -18,6 +18,7 @@ SELECT
     nomen.en_vigueur,
     nomen.id_regime,
     etabs.siret AS siret_icpe,
+    etabs.nom_etablissement as nom_etablissement_icpe,
     gerep."numero_siret" AS siret_gerep,
     COALESCE(
         etabs.siret,
