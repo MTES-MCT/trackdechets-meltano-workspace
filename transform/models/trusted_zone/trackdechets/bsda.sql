@@ -14,7 +14,7 @@ SELECT
     wasteadr as "waste_adr",
     wastesealnumbers as "waste_seal_numbers",
     weightisestimate as "weight_is_estimate",
-    weightvalue as "weight_value",
+    weightvalue/1000 as "weight_value", -- Passage en tonnes
     packagings as "packagings",
     repackagedinid as "repackaged_in_id",
     emittercompanysiret as "emitter_company_siret",
@@ -81,7 +81,7 @@ SELECT
     destinationoperationsignatureauthor as "destination_operation_signature_author",
     destinationoperationsignaturedate as "destination_operation_signature_date",
     destinationreceptionrefusalreason as "destination_reception_refusal_reason",
-    destinationreceptionweight as "destination_reception_weight",
+    destinationreceptionweight/1000 as "destination_reception_weight", -- Passage en tonnes
     ecoorganismesiret as "eco_organisme_siret",
     ecoorganismename as "eco_organisme_name",
     destinationoperationnextdestinationcompanysiret as "destination_operation_next_destination_company_siret",

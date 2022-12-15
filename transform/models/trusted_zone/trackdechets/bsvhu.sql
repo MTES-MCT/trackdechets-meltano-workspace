@@ -7,7 +7,7 @@ SELECT
     status as "status",
     wastecode as "waste_code",
     quantity as "quantity",
-    weightvalue as "weight_value",
+    weightvalue/1000 as "weight_value", -- Passage en tonnes
     weightisestimate as "weight_is_estimate",
     packaging as "packaging",
     emittercompanysiret as "emitter_company_siret",
@@ -44,7 +44,7 @@ SELECT
     destinationcustominfo as "destination_custom_info",
     destinationagrementnumber as "destination_agrement_number",
     destinationreceptiondate as "destination_reception_date",
-    destinationreceptionweight as "destination_reception_weight",
+    destinationreceptionweight/1000 as "destination_reception_weight", -- Passage en tonnes
     destinationreceptionquantity as "destination_reception_quantity",
     destinationreceptionidentificationnumbers as "destination_reception_identification_numbers",
     destinationreceptionidentificationtype as "destination_reception_identification_type",
