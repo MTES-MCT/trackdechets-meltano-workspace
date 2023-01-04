@@ -43,22 +43,35 @@ plugins:
     - name: tap-google-sheets
       variant: singer-io
       pip_url: git+https://github.com/singer-io/tap-google-sheets.git
-
     - name: tap-google-sheets--gerep
       inherit_from: tap-google-sheets
       config:
         spreadsheet_id: 1uzcWPJhpcQCbbVbW7f6UA2XpD0zJ7Iqb
-        start_date: "2021/01/01"
+        start_date: 2021/01/01
+
+    - name: tap-zammad
+      namespace: tap_zammad
+      pip_url: git+https://github.com/Lawiss/tap-zammad.git
+      executable: tap-zammad
+      config:
+        auth_token:
+        api_base_url:
 
   loaders:
     - name: target-postgres--dwh
       inherit_from: target-postgres
       variant: transferwise
       pip_url: pipelinewise-target-postgres==2.1.1
+
     - name: target-postgres--dwh-trackdechets
       inherit_from: target-postgres--dwh
       config:
-        default_target_schema: "raw_zone_trackdechets"
+        default_target_schema: raw_zone_trackdechets
+
+    - name: target-postgres--dwh-zammad
+      inherit_from: target-postgres--dwh
+      config:
+        default_target_schema: raw_zone_zammad
 
   transformers:
     - name: dbt-postgres
@@ -69,13 +82,13 @@ plugins:
           args: source freshness
           description: Check the freshness of raw_zone_trackdechets
         run__trusted_zone_trackdechets:
-          args: run --select trusted_zone.trackdechets+
+          args: run --select +trusted_zone.trackdechets+
           description: Run trusted_zone_trackdechets models
         run__trusted_zone_insee:
-          args: run --select trusted_zone.insee+
+          args: run --select +trusted_zone.insee+
           description: Run dbt 'trusted_zone.insee' models
         run__trusted_zone_icpe:
-          args: run --select trusted_zone.icpe+
+          args: run --select +trusted_zone.icpe+
           description: Run dbt 'trusted_zone.icpe' models
         test__trusted_zone_trackdechets:
           args: test --select trusted_zone.trackdechets
@@ -102,8 +115,8 @@ schedules:
     interval: "@daily"
     job: elt--td-database
   - name: weekly-transform-icpe
-    interval: "0 3 * * *"
+    interval: 0 3 * * *
     job: transform-icpe
   - name: monthly-transform-insee
-    interval: "0 20 1 * *"
+    interval: 0 20 1 * *
     job: transform-insee
