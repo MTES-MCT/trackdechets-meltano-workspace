@@ -56,6 +56,13 @@ plugins:
       config:
         auth_token:
         api_base_url:
+      metadata:
+        tickets:
+          replication-method: INCREMENTAL
+          replication-key: updated_at
+        users:
+          replication-method: INCREMENTAL
+          replication-key: updated_at
 
   loaders:
     - name: target-postgres--dwh
