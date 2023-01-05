@@ -116,6 +116,9 @@ jobs:
     tasks:
       - dbt-postgres:source__raw_zone
       - dbt-postgres:run__trusted_zone_insee
+  - name: elt--zammad
+    tasks:
+      - tap-zammad target-postgres--dwh-zammad
 
 schedules:
   - name: daily-elt-td-database
@@ -127,3 +130,6 @@ schedules:
   - name: monthly-transform-insee
     interval: 0 20 1 * *
     job: transform-insee
+  - name: daily-elt-zammad
+    interval: "@daily"
+    job: elt--zammad
