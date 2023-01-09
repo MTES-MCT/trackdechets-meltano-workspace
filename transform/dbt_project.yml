@@ -57,3 +57,5 @@ models:
         +schema: trusted_zone_trackdechets
       icpe:
         +schema: trusted_zone_icpe
+      zammad:
+        +schema: trusted_zone_zammad
