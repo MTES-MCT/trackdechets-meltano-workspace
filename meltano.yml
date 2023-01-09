@@ -89,7 +89,7 @@ plugins:
           args: source freshness
           description: Check the freshness of raw_zone_trackdechets
         run__trusted_zone_trackdechets:
-          args: run --select +trusted_zone.trackdechets+
+          args: NO_COLOR=1 run --select +trusted_zone.trackdechets+
           description: Run trusted_zone_trackdechets models
         run__trusted_zone_insee:
           args: run --select +trusted_zone.insee+
@@ -122,7 +122,7 @@ jobs:
   - name: elt--zammad
     tasks:
       - tap-zammad target-postgres--dwh-zammad
-      - run__trusted_zone_zammad
+      - dbt-postgres:run__trusted_zone_zammad
 
 schedules:
   - name: daily-elt-td-database
