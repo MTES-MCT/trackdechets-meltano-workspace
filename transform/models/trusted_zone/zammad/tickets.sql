@@ -4,7 +4,7 @@ SELECT
     created_at,
     created_by_id,
     updated_at,
-    updated_by_id
+    updated_by_id,
     title,
     article_count,
     article_ids,
