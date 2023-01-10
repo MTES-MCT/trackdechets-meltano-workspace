@@ -89,7 +89,7 @@ plugins:
           args: source freshness
           description: Check the freshness of raw_zone_trackdechets
         run__trusted_zone_trackdechets:
-          args: NO_COLOR=1 run --select +trusted_zone.trackdechets+
+          args: run --select +trusted_zone.trackdechets+
           description: Run trusted_zone_trackdechets models
         run__trusted_zone_insee:
           args: run --select +trusted_zone.insee+
