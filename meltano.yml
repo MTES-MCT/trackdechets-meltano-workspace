@@ -56,6 +56,8 @@ plugins:
       config:
         auth_token:
         api_base_url:
+      select:
+        - "*.*"
       metadata:
         tickets:
           replication-method: INCREMENTAL
@@ -63,6 +65,8 @@ plugins:
         users:
           replication-method: INCREMENTAL
           replication-key: updated_at
+        groups:
+          replication-method: FULL_TABLE
 
   loaders:
     - name: target-postgres--dwh

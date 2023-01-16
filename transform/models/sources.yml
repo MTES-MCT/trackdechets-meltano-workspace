@@ -230,11 +230,20 @@ sources:
               - not_null
       - name: users
         description: >
-          Données des utilisateurs Zammad. un utilisateur peut être aussi bien un utilisateur interne (membre de l'équipe)
+          Données des utilisateurs Zammad. Un utilisateur peut être aussi bien un utilisateur interne (membre de l'équipe)
           qu'un utilisateur externe (utilisateur de Trackdéchets ayant créé un ticket support).
         columns:
           - name: id
             description: identifiant unique de l'utilisateur
+            tests:
+              - unique
+              - not_null
+      - name: groups
+        description: >
+          Données groupes Zammad.
+        columns:
+          - name: id
+            description: identifiant unique du groupe
             tests:
               - unique
               - not_null
