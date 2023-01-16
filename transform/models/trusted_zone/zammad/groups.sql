@@ -16,4 +16,4 @@ SELECT
     signature_id,
     user_ids
 FROM
-    {{ source("raw_zone_zammad", "groups") }};
+    {{ source("raw_zone_zammad", "groups") }}
