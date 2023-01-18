@@ -51,11 +51,16 @@ plugins:
 
     - name: tap-zammad
       namespace: tap_zammad
-      pip_url: git+https://github.com/Lawiss/tap-zammad.git
+      pip_url: tap-zammad==0.0.2
       executable: tap-zammad
+      capabilities:
+        - state
+        - catalog
+        - discover
       config:
         auth_token:
         api_base_url:
+        start_date:
       select:
         - "*.*"
       metadata:
