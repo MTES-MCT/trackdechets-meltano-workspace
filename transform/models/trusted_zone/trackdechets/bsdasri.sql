@@ -83,4 +83,4 @@ SELECT
     groupedinid as "grouped_in_id",
     synthesizedinid as "synthesized_in_id"
 FROM
-   {{ source("raw_zone_trackdechets", "bsdasri") }}
+   {{ source("raw_zone_trackdechets", "bsdasri_raw") }}

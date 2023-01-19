@@ -105,4 +105,4 @@ SELECT
     forwardingid as "forwarding_id",
     groupedinid as "grouped_in_id"
 FROM
-   {{ source("raw_zone_trackdechets", "bsda") }}
+   {{ source("raw_zone_trackdechets", "bsda_raw") }}

@@ -13,7 +13,7 @@ sources:
         period: hour
     loaded_at_field: "_sdc_batched_at"
     tables:
-      - name: bsdd
+      - name: bsdd_raw
         identifier: form
         description: >
           Une ligne par BSDD, les BSDD supprimés restent dans la table.
@@ -23,7 +23,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: bsda
+      - name: bsda_raw
         description: >
           Une ligne par BSDA, les BSDA supprimés restent dans la table.
         columns:
@@ -32,7 +32,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: bsdasri
+      - name: bsdasri_raw
         description: >
           Une ligne par BSDASRI, les BSDASRI supprimés restent dans la table.
         columns:
@@ -41,7 +41,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: bsff
+      - name: bsff_raw
         description: >
           Une ligne par BSFF, les BSFF supprimés restent dans la table.
         columns:
@@ -50,7 +50,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: bsvhu
+      - name: bsvhu_raw
         description: >
           Une ligne par BSVHU, les BSVHU supprimés restent dans la table.
         columns:
@@ -59,7 +59,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: user
+      - name: user_raw
         description: >
           Une ligne par compte utilisateur.
         columns:
@@ -68,7 +68,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: company
+      - name: company_raw
         description: >
           Une ligne par compte établissement.
         columns:
@@ -77,7 +77,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: companyassociation
+      - name: companyassociation_raw
         description: >
           Une ligne par paire (company,user).
         columns:
@@ -86,7 +86,7 @@ sources:
             tests:
               - unique
               - not_null
-      - name: eco_organisme
+      - name: eco_organisme_raw
         identifier: ecoorganisme
         description: >
           Table entrée en dur, Eco-Organismes qui nous sont connus.

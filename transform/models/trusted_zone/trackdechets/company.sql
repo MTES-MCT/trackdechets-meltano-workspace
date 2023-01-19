@@ -32,4 +32,4 @@ SELECT
     codedepartement as "code_departement",
     workercertificationid as "worker_certification_id"
 FROM
-    {{ source("raw_zone_trackdechets", "company") }}
+    {{ source("raw_zone_trackdechets", "company_raw") }}

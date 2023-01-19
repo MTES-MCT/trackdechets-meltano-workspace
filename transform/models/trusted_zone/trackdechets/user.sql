@@ -11,4 +11,4 @@ SELECT
     isadmin as "is_admin",
     isregistrenational as "is_registre_national"
 FROM
-    {{ source("raw_zone_trackdechets", "user") }}
+    {{ source("raw_zone_trackdechets", "user_raw") }}

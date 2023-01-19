@@ -66,4 +66,4 @@ SELECT
     identificationnumbers as "identification_numbers",
     identificationtype as "identification_type"
 FROM
-   {{ source("raw_zone_trackdechets", "bsvhu") }}
+   {{ source("raw_zone_trackdechets", "bsvhu_raw") }}

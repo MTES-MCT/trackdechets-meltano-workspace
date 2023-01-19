@@ -64,4 +64,4 @@ SELECT
     groupedinid as "grouped_in_id",
     repackagedinid as "repackaged_in_id"
 FROM
-   {{ source("raw_zone_trackdechets", "bsff") }}
+   {{ source("raw_zone_trackdechets", "bsff_raw") }}
