@@ -24,6 +24,7 @@ sources:
               - unique
               - not_null
       - name: bsda_raw
+        identifier: bsda
         description: >
           Une ligne par BSDA, les BSDA supprimés restent dans la table.
         columns:
@@ -33,6 +34,7 @@ sources:
               - unique
               - not_null
       - name: bsdasri_raw
+        identifier: bsdasri
         description: >
           Une ligne par BSDASRI, les BSDASRI supprimés restent dans la table.
         columns:
@@ -42,6 +44,7 @@ sources:
               - unique
               - not_null
       - name: bsff_raw
+        identifier: bsff
         description: >
           Une ligne par BSFF, les BSFF supprimés restent dans la table.
         columns:
@@ -51,6 +54,7 @@ sources:
               - unique
               - not_null
       - name: bsvhu_raw
+        identifier: bsvhu
         description: >
           Une ligne par BSVHU, les BSVHU supprimés restent dans la table.
         columns:
@@ -60,6 +64,7 @@ sources:
               - unique
               - not_null
       - name: user_raw
+        identifier: user
         description: >
           Une ligne par compte utilisateur.
         columns:
@@ -69,6 +74,7 @@ sources:
               - unique
               - not_null
       - name: company_raw
+        identifier: company
         description: >
           Une ligne par compte établissement.
         columns:
@@ -77,7 +83,8 @@ sources:
             tests:
               - unique
               - not_null
-      - name: companyassociation_raw
+      - name: company_association_raw
+        identifier: companyassociation
         description: >
           Une ligne par paire (company,user).
         columns:
