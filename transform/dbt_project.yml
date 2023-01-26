@@ -42,6 +42,8 @@ models:
           +materialized: table
         icpe_stats_rubriques_alinea:
           +materialized: table
+        reconciliation_exutoires_georisques_td:
+          +materialized: table
       enriched:
         +schema: refined_zone_enriched
         company_enriched:

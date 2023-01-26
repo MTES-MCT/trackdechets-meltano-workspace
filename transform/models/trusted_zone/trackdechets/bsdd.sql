@@ -78,7 +78,6 @@ SELECT
     processedby as "processed_by",
     quantityreceived as "quantity_received",
     quantityreceivedtype as "quantity_received_type",
-    quantitygrouped as "quantity_grouped",
     processingoperationdone as "processing_operation_done",
     processingoperationdescription as "processing_operation_description",
     notraceability as "no_traceability",
