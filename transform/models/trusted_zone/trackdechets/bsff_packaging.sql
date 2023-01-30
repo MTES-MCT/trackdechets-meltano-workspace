@@ -1,6 +1,6 @@
 SELECT
     id,
-    "bsffid" as bsffId,
+    "bsffid" as bsff_id,
     numero,
     "type",
     volume,
