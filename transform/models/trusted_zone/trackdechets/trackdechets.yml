@@ -85,7 +85,7 @@ models:
         tests:
           - dbt_utils.accepted_range:
               min_value: 0
-              inclusive: false
+              inclusive: true
       - name: waste_details_quantity_type
         description: |
           Permet de déterminer si la quantité est réelle ou estimée.

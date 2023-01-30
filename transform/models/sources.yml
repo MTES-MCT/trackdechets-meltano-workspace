@@ -103,6 +103,21 @@ sources:
             tests:
               - unique
               - not_null
+      - name: bsff_packaging_raw
+        identifier: BsffPackaging
+        description: >
+          Table avec les données des contenants BSFF. Une ligne par contenant.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: bsffId
+            description: ID du BSFF auquel le contenant est associé
+            tests:
+              - not_null
+
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE
     loader: airflow

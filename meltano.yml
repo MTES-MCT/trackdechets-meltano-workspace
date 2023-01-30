@@ -31,6 +31,7 @@ plugins:
         - default$default-Bsff.*
         - default$default-Bsvhu.*
         - default$default-EcoOrganisme.*
+        - default$default-BsffPackaging.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -39,6 +40,8 @@ plugins:
           replication-method: FULL_TABLE
         default$default-EcoOrganisme:
           replication-method: FULL_TABLE
+        default$default-BsffPackaging:
+          replication-method: FULL_TABLE
 
     - name: tap-google-sheets
       variant: singer-io
@@ -46,7 +49,6 @@ plugins:
     - name: tap-google-sheets--gerep
       inherit_from: tap-google-sheets
       config:
-        spreadsheet_id: 1uzcWPJhpcQCbbVbW7f6UA2XpD0zJ7Iqb
         start_date: 2021/01/01
 
     - name: tap-zammad
