@@ -104,7 +104,7 @@ sources:
               - unique
               - not_null
       - name: bsff_packaging_raw
-        identifier: BsffPackaging
+        identifier: bsffpackaging
         description: >
           Table avec les données des contenants BSFF. Une ligne par contenant.
         columns:
