@@ -4,7 +4,7 @@ SELECT
     numero,
     "type",
     volume,
-    weight,
+    weight/1000 as "weight",
     "acceptationstatus" as acceptation_status,
     "acceptationdate" as acceptation_date,
     "acceptationsignaturedate" as acceptation_signature_date,
