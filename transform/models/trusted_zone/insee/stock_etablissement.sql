@@ -1,6 +1,3 @@
-{{ config(
-  pre_hook = "{{ create_indexes_for_source(['siret']) }}"
-) }}
 SELECT
     siren,
     nic,

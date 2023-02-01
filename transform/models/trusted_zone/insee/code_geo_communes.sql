@@ -1,6 +1,3 @@
-{{ config(
-  pre_hook = "{{ create_indexes_for_source(['com']) }}"
-) }}
 select
     typecom as "type_commune",
     cast(reg as integer) as "code_region",
