@@ -1,3 +1,7 @@
+
+{{ config(
+  pre_hook = "{{ create_indexes_for_source(['createdat','siret']) }}"
+) }}
 SELECT
     id as "id",
     siret as "siret",

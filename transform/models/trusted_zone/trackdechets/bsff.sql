@@ -1,3 +1,6 @@
+{{ config(
+  pre_hook = "{{ create_indexes_for_source(['createdat','emittercompanysiret','transportercompanysiret','destinationcompanysiret']) }}"
+) }}
 SELECT
     id ,
     createdat as "created_at",

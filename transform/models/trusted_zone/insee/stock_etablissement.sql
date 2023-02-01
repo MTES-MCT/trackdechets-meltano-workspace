@@ -1,9 +1,12 @@
+{{ config(
+  pre_hook = "{{ create_indexes_for_source(['siret']) }}"
+) }}
 SELECT
     siren,
     nic,
     siret,
     "statutDiffusionEtablissement" as statut_diffusion_etablissement,
-    cast("dateCreationEtablissement" as date) as dateCreationEtablissement,
+    cast("dateCreationEtablissement" as date) as date_creation_etablissement,
     "trancheEffectifsEtablissement" as tranche_effectifs_etablissement,
     cast("anneeEffectifsEtablissement" as integer) as annee_effectifs_etablissement,
     "activitePrincipaleRegistreMetiersEtablissement" as activite_principale_registre_metiers_etablissement,

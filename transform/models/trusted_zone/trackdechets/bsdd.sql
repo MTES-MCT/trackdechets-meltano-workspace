@@ -1,3 +1,6 @@
+{{ config(
+  pre_hook = "{{ create_indexes_for_source(['createdat','emittercompanysiret','transportercompanysiret','recipientcompanysiret']) }}"
+) }}
 SELECT
     id as "id",
     customid as "custom_id",
@@ -43,8 +46,8 @@ SELECT
     signedat as "signed_at",
     signedby as "signed_by",
     signedbytransporter as "signed_by_transporter",
-    takenoverat as "taken_over_at",
-    takenoverby as "taken_over_by",
+    sentat as "sent_at",
+    sentby as "sent_by",
     transportercompanysiret as "transporter_company_siret",
     transportercompanyname as "transporter_company_name",
     transportercompanyaddress as "transporter_company_address",
@@ -60,9 +63,9 @@ SELECT
     transportercustominfo as "transporter_custom_info",
     transporterisexemptedofreceipt as "transporter_is_exempted_of_receipt",
     currenttransportersiret as "current_transporter_siret",
-    sentat as "sent_at",
-    sentby as "sent_by",
     nexttransportersiret as "next_transporter_siret",
+    takenoverat as "taken_over_at",
+    takenoverby as "taken_over_by",
     recipientcompanysiret as "recipient_company_siret",
     recipientcompanyname as "recipient_company_name",
     recipientcompanyaddress as "recipient_company_address",

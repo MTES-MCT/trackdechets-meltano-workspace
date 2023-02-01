@@ -1,3 +1,6 @@
+{{ config(
+  pre_hook = "{{ create_indexes_for_source(['number','created_at']) }}"
+) }}
 SELECT
     id,
     "number",
