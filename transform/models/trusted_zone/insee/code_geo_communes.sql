@@ -1,5 +1,5 @@
 {{ config(
-  pre_hook = "{{ create_indexes_for_source(['code_commune']) }}"
+  pre_hook = "{{ create_indexes_for_source(['com']) }}"
 ) }}
 select
     typecom as "type_commune",
