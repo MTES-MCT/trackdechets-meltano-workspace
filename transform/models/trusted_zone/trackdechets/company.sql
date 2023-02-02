@@ -28,7 +28,7 @@ SELECT
     verificationmode as "verification_mode",
     verificationcomment as "verification_comment",
     verifiedat as "verified_at",
-    vhuagrementdemolisseurid as "vhuagrement_demolisseur_id",
+    vhuagrementdemolisseurid as "vhu_agrement_demolisseur_id",
     vhuagrementbroyeurid as "vhu_agrement_broyeur_id",
     allowbsdasritakeoverwithoutsignature as "allow_bsdasri_take_over_without_signature",
     vatnumber as "vat_number",
