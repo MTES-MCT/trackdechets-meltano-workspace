@@ -3,7 +3,7 @@ select
     cast(reg as integer) as "code_region",
     dep as "code_departement",
     com as "code_commune",
-    cast(can as integer) as "code_canton",
+    can as "code_canton",
     arr as "code_arrondissement",
     ctcd as "code_ctcd",
     cast(tncc as integer) as "type_nom_en_clair",
