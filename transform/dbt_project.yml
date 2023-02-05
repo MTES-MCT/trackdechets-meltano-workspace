@@ -48,6 +48,18 @@ models:
         +schema: refined_zone_enriched
         company_enriched:
           +materialized: table
+        bsdd_enriched_temp:
+          +materialized: table
+          +indexes:
+            - columns: ["recipient_company_siret"]
+        bsdd_enriched:
+          +materialized: table
+          +post-hook: "DROP TABLE IF EXISTS refined_zone_enriched.bsdd_enriched_temp"
+          +indexes:
+            - columns: ["created_at"]
+            - columns: ["emitter_company_siret"]
+            - columns: ["recipient_company_siret"]
+            - columns: ["transporter_company_siret"]
       stats_publiques:
         +schema: refined_zone_stats_publiques
     trusted_zone:
