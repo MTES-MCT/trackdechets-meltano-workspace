@@ -13,7 +13,7 @@ with communes as (
     group by cgc.code_commune
 )
 SELECT
-    c.*
+    c.*,
     etabs.etat_administratif_etablissement,
     comm.code_commune,
     comm.code_departement,
