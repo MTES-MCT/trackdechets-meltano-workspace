@@ -13,11 +13,11 @@ with communes as (
     group by cgc.code_commune
 )
 SELECT
-    c.*,
+    C.*,
     etabs.etat_administratif_etablissement,
-    comm.code_commune,
-    comm.code_departement,
-    comm.code_region,
+    comm.code_commune as "code_commune_insee",
+    comm.code_departement as "code_departement_insee",
+    comm.code_region as "code_region_insee",
     naf.*
 FROM
     {{ ref('company') }} C
