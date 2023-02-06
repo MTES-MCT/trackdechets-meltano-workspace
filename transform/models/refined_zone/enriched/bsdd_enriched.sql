@@ -1,4 +1,14 @@
+{{ config(
+    materialized = 'table',
+    indexes = [ {'columns': ['created_at'] },
+    { 'columns': ['emitter_company_siret'] },
+    { 'columns' :['recipient_company_siret'] },
+    { 'columns' :['transporter_company_siret'] }],
+    post_hook='DROP TABLE IF EXISTS refined_zone_enriched.bsdd_enriched_temp'
+) }}
+
 WITH etabs AS (
+
     SELECT
         se.siret,
         cgc.*

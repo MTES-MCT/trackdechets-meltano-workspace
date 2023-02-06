@@ -1,7 +1,7 @@
 {{
   config(
     materialized = 'table',
-    indexes = [ {'columns': ['recipient_company_siret'] }]
+    indexes = [ {'columns': ['destination_company_siret'] }]
     )
 }}
 WITH etabs AS (
@@ -22,7 +22,7 @@ SELECT
     e.code_departement AS "emitter_departement",
     e.code_region AS "emitter_region"
 FROM
-    {{ ref('bsdd') }}
+    {{ ref('bsff') }}
     b
     LEFT JOIN etabs e
     ON b.emitter_company_siret = e.siret

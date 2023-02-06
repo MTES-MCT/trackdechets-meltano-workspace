@@ -51,6 +51,7 @@ models:
                   "NO_TRACEABILITY",
                   "SENT",
                   "RESENT",
+                  "CANCELED",
                 ]
       - name: is_deleted
         description: |
@@ -59,9 +60,14 @@ models:
         description: |
           Identifiant du user qui est owner du BSDD.
         tests:
-          - relationships:
+          - dbt_utils.relationships_where:
               to: ref('user')
               field: id
+              from_condition: owner_id <> 'owner_id'
+        meta:
+          metabase.semantic_type: type/FK
+          metabase.fk_target_table: trusted_zone_trackdechets.users
+          metabase.fk_target_field: id
       - name: waste_details_code
         description: |
           Rubrique déchet au format "00 00 00*". 
