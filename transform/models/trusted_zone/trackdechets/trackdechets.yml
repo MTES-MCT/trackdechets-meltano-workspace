@@ -63,7 +63,7 @@ models:
           - dbt_utils.relationships_where:
               to: ref('user')
               field: id
-              from_condition: owner_id <> 'ckfxolz8u2nrp0742z6rri2bg'
+              from_condition: owner_id != 'ckfxolz8u2nrp0742z6rri2bg'
         meta:
           metabase.semantic_type: type/FK
           metabase.fk_target_table: trusted_zone_trackdechets.users
