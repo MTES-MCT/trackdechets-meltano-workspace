@@ -1,27 +1,27 @@
 SELECT
     u.*,
-    C.id as "company_id",
-    C.siret,
-    C.created_at as "company_created_at",
-    C.updated_at as "company_updated_at",
-    C.security_code,
-    C."name" as "company_name",
-    C.gerep_id,
-    C.code_naf,
-    C.given_name,
-    C.contact_email,
-    C.contact_phone,
-    C.website,
-    C.transporter_receipt_id,
-    C.trader_receipt_id,
-    C.eco_organisme_agreements,
-    C.company_types,
-    C.address,
-    C.latitude,
-    C.longitude,
-    C.broker_receipt_id,
-    C.verification_code,
-    C.verification_status,
+    c.id AS "company_id",
+    c.siret,
+    c.created_at AS "company_created_at",
+    c.updated_at AS "company_updated_at",
+    c.security_code,
+    c."name" AS "company_name",
+    c.gerep_id,
+    c.code_naf,
+    c.given_name,
+    c.contact_email,
+    c.contact_phone,
+    c.website,
+    c.transporter_receipt_id,
+    c.trader_receipt_id,
+    c.eco_organisme_agreements,
+    c.company_types,
+    c.address,
+    c.latitude,
+    c.longitude,
+    c.broker_receipt_id,
+    c.verification_code,
+    c.verification_status,
     c.verification_mode,
     c.verification_comment,
     c.verified_at,
@@ -48,9 +48,10 @@ SELECT
     c.libelle_sous_classe
 FROM
     {{ ref('user') }}
-    u
-    INNER JOIN {{ ref('company_association') }}
-    ca
+    AS u
+INNER JOIN
+    {{ ref('company_association') }}
+    AS ca
     ON u.id = ca.user_id
-    LEFT JOIN {{ ref('company_enriched') }} C
-    ON ca.company_id = C.id
+LEFT JOIN {{ ref('company_enriched') }} AS c
+    ON ca.company_id = c.id

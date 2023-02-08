@@ -42,4 +42,4 @@ SELECT
     update_escalation_at,
     update_in_min
 FROM
-   {{ source("raw_zone_zammad", "tickets") }}
+    {{ source("raw_zone_zammad", "tickets") }}

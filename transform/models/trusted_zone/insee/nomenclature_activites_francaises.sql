@@ -11,4 +11,3 @@ select
     libelle_sous_classe
 from
     {{ source('raw_zone_insee', 'naf2008') }}
-    

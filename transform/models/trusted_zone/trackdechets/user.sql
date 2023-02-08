@@ -1,14 +1,14 @@
 SELECT
-    id as "id",
-    email as "email",
+    id AS "id",
+    email AS "email",
     "name",
-    phone as "phone",
-    createdat as "created_at",
-    updatedat as "updated_at",
-    isactive as "is_active",
-    activatedat as "activated_at",
-    firstassociationdate as "first_association_date",
-    isadmin as "is_admin",
-    isregistrenational as "is_registre_national"
+    phone AS "phone",
+    createdat AS "created_at",
+    updatedat AS "updated_at",
+    isactive AS "is_active",
+    activatedat AS "activated_at",
+    firstassociationdate AS "first_association_date",
+    isadmin AS "is_admin",
+    isregistrenational AS "is_registre_national"
 FROM
     {{ source("raw_zone_trackdechets", "user_raw") }}

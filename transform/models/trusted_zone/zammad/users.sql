@@ -38,4 +38,4 @@ SELECT
     web,
     zip
 FROM
-   {{ source("raw_zone_zammad", "users") }}
+    {{ source("raw_zone_zammad", "users") }}

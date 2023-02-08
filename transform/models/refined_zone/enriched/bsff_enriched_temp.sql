@@ -6,23 +6,25 @@
 }}
 WITH etabs AS (
     SELECT
-        se.siret,
-        cgc.*
+        cgc.*,
+        se.siret
     FROM
         {{ ref('stock_etablissement') }}
-        se
-        INNER JOIN {{ ref('code_geo_communes') }}
-        cgc
+        AS se
+    INNER JOIN
+        {{ ref('code_geo_communes') }}
+        AS cgc
         ON se.code_commune_etablissement = cgc.code_commune
     WHERE
         cgc.type_commune = 'COM'
 )
+
 SELECT
     b.*,
-    e.code_departement AS "emitter_departement",
-    e.code_region AS "emitter_region"
+    etabs.code_departement AS "emitter_departement",
+    etabs.code_region AS "emitter_region"
 FROM
     {{ ref('bsff') }}
-    b
-    LEFT JOIN etabs e
-    ON b.emitter_company_siret = e.siret
+    AS b
+LEFT JOIN etabs
+    ON b.emitter_company_siret = etabs.siret

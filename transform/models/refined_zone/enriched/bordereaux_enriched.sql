@@ -47,7 +47,7 @@ select
     destination_company_name
 from
     {{ ref('bsda_enriched') }}
-union all 
+union all
 select
     'BSFF' as "_bs_type",
     id,

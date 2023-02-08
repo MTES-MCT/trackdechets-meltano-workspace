@@ -4,7 +4,7 @@ select
     famille_ic as famille,
     sfamille_ic as s_famille,
     ssfamille_ic as ss_famille,
-    alinea, 
+    alinea,
     libellecourt_activite as libelle_court_activite,
     id_regime,
     envigueur::bool as en_vigueur,
