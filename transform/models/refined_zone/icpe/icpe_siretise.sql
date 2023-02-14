@@ -14,6 +14,7 @@ ON (
     ic.statut_ic,
     nomen.rubrique,
     nomen.alinea,
+    nomen.rubrique || coalesce('-' || alinea, '') as "rubrique_alinea",
     nomen.libelle_court_activite,
     nomen.en_vigueur,
     nomen.id_regime,
