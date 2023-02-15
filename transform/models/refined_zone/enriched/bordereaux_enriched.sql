@@ -12,14 +12,16 @@ select
     "waste_details_pop" as "waste_pop",
     emitter_company_siret,
     emitter_company_name,
+    emitter_company_address,
     emitter_departement,
     emitter_region,
     transporter_company_siret,
     transporter_company_name,
     recipient_company_siret as "destination_company_siret",
+    recipient_company_name as "destination_company_name",
+    recipient_company_address as "destination_company_address",
     recipient_departement as "destination_departement",
-    recipient_region as "destination_region",
-    recipient_company_name as "destination_company_name"
+    recipient_region as "destination_region"
 from
     {{ ref('bsdd_enriched') }}
 union all
@@ -37,14 +39,16 @@ select
     "waste_pop",
     emitter_company_siret,
     emitter_company_name,
+    emitter_company_address,
     emitter_departement,
     emitter_region,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
+    destination_company_name,
+    destination_company_address,
     destination_departement,
-    destination_region,
-    destination_company_name
+    destination_region
 from
     {{ ref('bsda_enriched') }}
 union all
@@ -62,14 +66,16 @@ select
     null as "waste_pop",
     emitter_company_siret,
     emitter_company_name,
+    emitter_company_address,
     emitter_departement,
     emitter_region,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
+    destination_company_name,
+    destination_company_address,
     destination_departement,
-    destination_region,
-    destination_company_name
+    destination_region
 from
     {{ ref('bsff_enriched') }}
 union all
@@ -87,14 +93,16 @@ select
     null as "waste_pop",
     emitter_company_siret,
     emitter_company_name,
+    emitter_company_address,
     emitter_departement,
     emitter_region,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
+    destination_company_name,
+    destination_company_address,
     destination_departement,
-    destination_region,
-    destination_company_name
+    destination_region
 from
     {{ ref('bsdasri_enriched') }}
 union all
@@ -112,13 +120,15 @@ select
     null as "waste_pop",
     emitter_company_siret,
     emitter_company_name,
+    emitter_company_address,
     emitter_departement,
     emitter_region,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
+    destination_company_name,
+    destination_company_address,
     destination_departement,
-    destination_region,
-    destination_company_name
+    destination_region
 from
     {{ ref('bsvhu_enriched') }}

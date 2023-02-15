@@ -1,7 +1,7 @@
 {{ config(
     materialized = 'table',
     indexes = [ {'columns': ['created_at'] },{ 'columns': ['emitter_company_siret'] },{ 'columns' :['destination_company_siret'] },{ 'columns' :['transporter_company_siret'] }],
-    post_hook = 'DROP TABLE IF EXISTS refined_zone_enriched.bsdasri_enriched_temp'
+    post_hook = after_commit('DROP TABLE IF EXISTS refined_zone_enriched.bsdasri_enriched_temp')
 ) }}
 
 WITH etabs AS (
