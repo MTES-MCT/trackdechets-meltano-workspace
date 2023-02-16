@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: bsdd_created_by_week
+    config:
+      materialized: table
+  - name: bsdd_emitted_by_week
+    config:
+      materialized: table
+  - name: bsdd_sent_by_week
+    config:
+      materialized: table
+  - name: bsdd_received_by_week
+    config:
+      materialized: table

@@ -34,6 +34,7 @@ models:
           +materialized: table
         etablissements_par_departements:
           +materialized: table
+
       icpe:
         +schema: refined_zone_icpe
         gerep:
@@ -44,12 +45,15 @@ models:
           +materialized: table
         reconciliation_exutoires_georisques_td:
           +materialized: table
+
       enriched:
         +schema: refined_zone_enriched
         company_enriched:
           +materialized: table
+
       stats_publiques:
         +schema: refined_zone_stats_publiques
+
     trusted_zone:
       gsheet:
         +schema: trusted_zone_gsheet
