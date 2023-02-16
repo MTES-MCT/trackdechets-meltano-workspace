@@ -4,4 +4,4 @@
     )
 }}
 
-{{create_bordereaux_counts("bsdd","received_at", "received")}}
+{{ create_bordereaux_counts("bsdd","received_at", "received") }}

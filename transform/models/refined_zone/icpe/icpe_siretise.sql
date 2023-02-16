@@ -14,7 +14,6 @@ ON (
     ic.statut_ic,
     nomen.rubrique,
     nomen.alinea,
-    nomen.rubrique || coalesce('-' || alinea, '') as "rubrique_alinea",
     nomen.libelle_court_activite,
     nomen.en_vigueur,
     nomen.id_regime,
@@ -22,11 +21,12 @@ ON (
     etabs.nom_etablissement AS nom_etablissement_icpe,
     gerep."numero_siret" AS siret_gerep,
     sirene.etat_administratif_etablissement,
-    COALESCE(
+    nomen.rubrique || coalesce('-' || alinea, '') AS "rubrique_alinea",
+    coalesce(
         etabs.siret,
         gerep."numero_siret"
     ) AS siret_clean,
-    COALESCE(td_etabs.siret IS NOT NULL, FALSE) AS inscrit_sur_td
+    coalesce(td_etabs.siret IS NOT NULL, FALSE) AS inscrit_sur_td
 FROM
     {{ ref('installations_classees') }}
     AS ic
@@ -43,21 +43,21 @@ LEFT JOIN
     AS gerep
     ON ic.code_s3ic = gerep."codeS3ic"
 LEFT JOIN {{ ref('stock_etablissement') }} AS sirene
-    ON COALESCE(
+    ON coalesce(
         etabs.siret,
         gerep."numero_siret"
     ) = sirene.siret
 LEFT JOIN
     {{ ref('company') }}
     AS td_etabs
-    ON COALESCE(
+    ON coalesce(
         etabs.siret,
         gerep."numero_siret"
     ) = td_etabs.siret
 WHERE
     (
         etabs.siret IS NULL
-        OR LENGTH(
+        OR length(
             etabs.siret
         ) = 14
     )
