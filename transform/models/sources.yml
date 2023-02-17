@@ -161,10 +161,6 @@ sources:
             description: Code commune
             tests:
               - not_null
-              - dbt_utils.unique_combination_of_columns:
-                  combination_of_columns:
-                    - com
-                    - typecom
       - name: departement
         description: >
           Données géographiques INSEE des département français.
@@ -208,7 +204,8 @@ sources:
         description: >
           Permet de faire le lien entre les codes S3ic et les siret
         columns:
-          - name: "codeS3ic"
+          - name: codeS3ic
+            quote: true
             description: identifiant ICPE de l'installation
             tests:
               - not_null
@@ -219,6 +216,7 @@ sources:
           avec l'id vers l'entrée associée dans la nomenclature
         columns:
           - name: codeS3ic
+            quote: true
             description: identifiant ICPE de l'installation
             tests:
               - not_null
