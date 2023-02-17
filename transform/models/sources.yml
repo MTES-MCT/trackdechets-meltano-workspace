@@ -162,9 +162,9 @@ sources:
             tests:
               - not_null
               - dbt_utils.unique_combination_of_columns:
-                combination_of_columns:
-                  - com
-                  - typecom
+                  combination_of_columns:
+                    - com
+                    - typecom
       - name: departement
         description: >
           Données géographiques INSEE des département français.
