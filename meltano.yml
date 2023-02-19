@@ -53,7 +53,7 @@ plugins:
 
     - name: tap-zammad
       namespace: tap_zammad
-      pip_url: "tap-zammad==0.0.3"
+      pip_url: "tap-zammad==0.0.4"
       executable: tap-zammad
       capabilities:
         - state
