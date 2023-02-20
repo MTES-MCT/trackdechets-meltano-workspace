@@ -3,5 +3,5 @@
 .env
 .env.docker
 .DS_Store
-.vscode/settings.json
+.vscode/*
 logs/dbt.log
