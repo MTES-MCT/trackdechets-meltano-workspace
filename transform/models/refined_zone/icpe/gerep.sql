@@ -67,7 +67,7 @@ select
             )
         else
             lpad(code_etablissement, 10, '0')
-    end as "code_etablissement"
+    end                  as "code_etablissement"
 from
     all_data
 where length("numero_siret") = 14

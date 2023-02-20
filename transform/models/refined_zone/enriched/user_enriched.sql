@@ -1,11 +1,11 @@
 SELECT
     u.*,
-    c.id AS "company_id",
+    c.id         AS "company_id",
     c.siret,
     c.created_at AS "company_created_at",
     c.updated_at AS "company_updated_at",
     c.security_code,
-    c."name" AS "company_name",
+    c."name"     AS "company_name",
     c.gerep_id,
     c.code_naf,
     c.given_name,

@@ -5,7 +5,7 @@ with communes as (
         cgc.code_commune,
         max(
             coalesce(cgc.code_departement, cgc2.code_departement)
-        ) as code_departement,
+        )                                                as code_departement,
         max(coalesce(cgc.code_region, cgc2.code_region)) as code_region
     from
         {{ ref('code_geo_communes') }} as cgc
@@ -19,9 +19,9 @@ select
     c.*,
     naf.*,
     etabs.etat_administratif_etablissement,
-    communes.code_commune as "code_commune_insee",
+    communes.code_commune     as "code_commune_insee",
     communes.code_departement as "code_departement_insee",
-    communes.code_region as "code_region_insee"
+    communes.code_region      as "code_region_insee"
 from
     {{ ref('company') }} as c
 left join

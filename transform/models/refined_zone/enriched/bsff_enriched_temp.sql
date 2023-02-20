@@ -22,7 +22,7 @@ WITH etabs AS (
 SELECT
     b.*,
     etabs.code_departement AS "emitter_departement",
-    etabs.code_region AS "emitter_region"
+    etabs.code_region      AS "emitter_region"
 FROM
     {{ ref('bsff') }}
     AS b

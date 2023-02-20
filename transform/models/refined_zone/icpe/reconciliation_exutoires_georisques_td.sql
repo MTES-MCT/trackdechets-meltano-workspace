@@ -1,11 +1,11 @@
 with icpe_data as (
     select
-        siret_clean as siret,
+        siret_clean                   as siret,
         array_agg(distinct code_s3ic) as codes_s3ic,
-        max(nom_etablissement_icpe) as nom_etablissement,
+        max(nom_etablissement_icpe)   as nom_etablissement,
         array_agg(
             distinct rubrique || coalesce('-' || alinea, '')
-        ) as rubriques_autorises
+        )                             as rubriques_autorises
     from
         {{ ref('icpe_siretise') }}
     where
@@ -27,11 +27,11 @@ with icpe_data as (
 
 bsdd_data as (
     select
-        b.recipient_company_siret as siret,
-        max(b.recipient_company_name) as company_name,
+        b.recipient_company_siret                       as siret,
+        max(b.recipient_company_name)                   as company_name,
         array_agg(distinct b.processing_operation_done) as code_operation,
-        count(id) as nombre_bordereaux,
-        sum(quantity_received) as quantite
+        count(id)                                       as nombre_bordereaux,
+        sum(quantity_received)                          as quantite
     from
         {{ ref('bsdd') }} as b
     where
@@ -55,11 +55,13 @@ bsdd_data as (
 
 bsda_data as (
     select
-        bsda.destination_company_siret as siret,
-        max(bsda.destination_company_name) as company_name,
+        bsda.destination_company_siret                      as siret,
+        max(bsda.destination_company_name)                  as company_name,
         array_agg(distinct bsda.destination_operation_code) as code_operation,
-        count(id) as nombre_bordereaux,
-        sum(destination_reception_weight) as quantite
+        count(
+            id
+        )                                                   as nombre_bordereaux,
+        sum(destination_reception_weight)                   as quantite
     from
         {{ ref('bsda') }}
     where
@@ -74,13 +76,13 @@ select
     max(case
         when trusted_zone_trackdechets.company.siret is not null then 1
         else 0
-    end)::bool as "inscrit_sur_trackdechets",
+    end)::bool                         as "inscrit_sur_trackdechets",
     coalesce(
         icpe_data.siret,
         bsdd_data.siret,
         bsda_data.siret,
         trusted_zone_trackdechets.company.siret
-    ) as siret,
+    )                                  as siret,
     max(
         coalesce(
             icpe_data.nom_etablissement,
@@ -88,15 +90,15 @@ select
             bsdd_data.company_name,
             bsda_data.company_name
         )
-    ) as nom_etablissement,
-    max(icpe_data.codes_s3ic) as codes_s3ic,
+    )                                  as nom_etablissement,
+    max(icpe_data.codes_s3ic)          as codes_s3ic,
     max(icpe_data.rubriques_autorises) as rubriques_autorises,
-    max(bsdd_data.nombre_bordereaux) as "num_bsdd",
-    max(bsdd_data.quantite) as "tonnage_bsdd",
-    max(bsdd_data.code_operation) as "operations_effectues_bsdd",
-    max(bsda_data.nombre_bordereaux) as "num_bsda",
-    max(bsda_data.quantite) as "tonnage_bsda",
-    max(bsda_data.code_operation) as "operations_effectues_bsda"
+    max(bsdd_data.nombre_bordereaux)   as "num_bsdd",
+    max(bsdd_data.quantite)            as "tonnage_bsdd",
+    max(bsdd_data.code_operation)      as "operations_effectues_bsdd",
+    max(bsda_data.nombre_bordereaux)   as "num_bsda",
+    max(bsda_data.quantite)            as "tonnage_bsda",
+    max(bsda_data.code_operation)      as "operations_effectues_bsda"
 from
     icpe_data
 full outer join bsdd_data on

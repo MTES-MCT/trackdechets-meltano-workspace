@@ -23,7 +23,7 @@ WITH etabs AS (
 SELECT
     b.*,
     etabs.code_departement AS "destination_departement",
-    etabs.code_region AS "destination_region"
+    etabs.code_region      AS "destination_region"
 FROM
     {{ ref('bsdasri_enriched_temp') }}
     AS b

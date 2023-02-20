@@ -131,7 +131,7 @@ plugins:
   utilities:
     - name: sqlfluff
       variant: sqlfluff
-      pip_url: sqlfluff==1.4.5 sqlfluff-templater-dbt==1.4.5 dbt-core dbt-postgres
+      pip_url: sqlfluff==2.0.0a4 sqlfluff-templater-dbt==2.0.0a4 dbt-core dbt-postgres
       settings:
         - name: user
         - name: password

@@ -26,7 +26,7 @@ WITH etabs AS (
 SELECT
     b.*,
     etabs.code_departement AS "recipient_departement",
-    etabs.code_region AS "recipient_region"
+    etabs.code_region      AS "recipient_region"
 FROM
     {{ ref('bsdd_enriched_temp') }}
     AS b

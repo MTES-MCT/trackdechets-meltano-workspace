@@ -17,16 +17,16 @@ ON (
     nomen.libelle_court_activite,
     nomen.en_vigueur,
     nomen.id_regime,
-    etabs.siret AS siret_icpe,
-    etabs.nom_etablissement AS nom_etablissement_icpe,
-    gerep."numero_siret" AS siret_gerep,
+    etabs.siret                                   AS siret_icpe,
+    etabs.nom_etablissement                       AS nom_etablissement_icpe,
+    gerep."numero_siret"                          AS siret_gerep,
     sirene.etat_administratif_etablissement,
     nomen.rubrique || coalesce('-' || alinea, '') AS "rubrique_alinea",
     coalesce(
         etabs.siret,
         gerep."numero_siret"
-    ) AS siret_clean,
-    coalesce(td_etabs.siret IS NOT NULL, FALSE) AS inscrit_sur_td
+    )                                             AS siret_clean,
+    coalesce(td_etabs.siret IS NOT NULL, FALSE)   AS inscrit_sur_td
 FROM
     {{ ref('installations_classees') }}
     AS ic
