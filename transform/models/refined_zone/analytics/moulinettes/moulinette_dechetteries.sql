@@ -101,16 +101,16 @@ joined_2 AS (
 final_ AS (
     SELECT
         coalesce(joined.siret,joined_2.siret) as siret,
-        joined.num_bsdd_destinataire,
-        joined.num_bsda_destinataire,
-        joined.num_bsff_destinataire,
-        joined.num_bsdasri_destinataire,
-        joined.num_bsvhu_destinataire,
-        joined_2.num_bsdd_emetteur,
-        joined_2.num_bsda_emetteur,
-        joined_2.num_bsff_emetteur,
-        joined_2.num_bsdasri_emetteur,
-        joined_2.num_bsvhu_emetteur,
+        coalesce(joined.num_bsdd_destinataire,0) as num_bsdd_destinataire,
+        coalesce(joined.num_bsda_destinataire,0) as num_bsda_destinataire,
+        coalesce(joined.num_bsff_destinataire,0) as num_bsff_destinataire,
+        coalesce(joined.num_bsdasri_destinataire,0) as num_bsdasri_destinataire,
+        coalesce(joined.num_bsvhu_destinataire,0) as num_bsvhu_destinataire,
+        coalesce(joined_2.num_bsdd_emetteur,0) as num_bsdd_emetteur,
+        coalesce(joined_2.num_bsda_emetteur,0) as num_bsda_emetteur,
+        coalesce(joined_2.num_bsff_emetteur,0) as num_bsff_emetteur,
+        coalesce(joined_2.num_bsdasri_emetteur,0) as num_bsdasri_emetteur,
+        coalesce(joined_2.num_bsvhu_emetteur,0) as num_bsvhu_emetteur,
         COALESCE(
             num_bsdd_destinataire,
             0
