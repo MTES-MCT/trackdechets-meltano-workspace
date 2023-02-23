@@ -117,6 +117,98 @@ sources:
             description: ID du BSFF auquel le contenant est associé
             tests:
               - not_null
+      - name: broker_receipt_raw
+        identifier: brokerreceipt
+        description: >
+          Table avec les données des récépissés "Courtier". Une ligne par récépissé.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: receiptnumber
+            description: Numéro du récépissé
+            tests:
+              - not_null
+      - name: trader_receipt_raw
+        identifier: traderreceipt
+        description: >
+          Table avec les données des récépissés "Négociant". Une ligne par récépissé.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: receiptnumber
+            description: Numéro du récépissé
+            tests:
+              - not_null
+      - name: transporter_receipt_raw
+        identifier: transporterreceipt
+        description: >
+          Table avec les données des récépissés "Transporteur". Une ligne par récépissé.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: receiptnumber
+            description: Numéro du récépissé
+            tests:
+              - not_null
+      - name: vhu_agrement_raw
+        identifier: vhuagrement
+        description: >
+          Table avec les données des agréments VHU. Une ligne par agrément.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: agrementnumber
+            description: Numéro de l'agrément
+            tests:
+              - not_null
+      - name: bsda_revision_request_raw
+        identifier: bsdarevisionrequest
+        description: >
+          Table avec les demande de révision des BSDA. Une ligne par demande de révision.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: bsdaid
+            description: Numéro du BSDA associé à la demande
+            tests:
+              - not_null
+          - name: authoringcompanyid
+            description: ID de l'établissement qui a fait le demande de révision
+            tests:
+              - not_null
+      - name: bsdd_revision_request_raw
+        identifier: bsddrevisionrequest
+        description: >
+          Table avec les demande de révision des BSDD. Une ligne par demande de révision.
+        columns:
+          - name: id
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+          - name: bsddid
+            description: Numéro du BSDD associé à la demande
+            tests:
+              - not_null
+          - name: authoringcompanyid
+            description: ID de l'établissement qui a fait le demande de révision
+            tests:
+              - not_null
 
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE

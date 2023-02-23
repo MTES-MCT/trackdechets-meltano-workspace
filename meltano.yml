@@ -32,6 +32,12 @@ plugins:
         - default$default-Bsvhu.*
         - default$default-EcoOrganisme.*
         - default$default-BsffPackaging.*
+        - default$default-BsddRevisionRequest.*
+        - default$default-BsdaRevisionRequest.*
+        - default$default-VhuAgrement.*
+        - default$default-TransporterReceipt.*
+        - default$default-BrokerReceipt.*
+        - default$default-TraderReceipt.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -41,6 +47,14 @@ plugins:
         default$default-EcoOrganisme:
           replication-method: FULL_TABLE
         default$default-BsffPackaging:
+          replication-method: FULL_TABLE
+        default$default-VhuAgrement:
+          replication-method: FULL_TABLE
+        default$default-TransporterReceipt:
+          replication-method: FULL_TABLE
+        default$default-BrokerReceipt:
+          replication-method: FULL_TABLE
+        default$default-TraderReceipt:
           replication-method: FULL_TABLE
 
     - name: tap-google-sheets
@@ -96,7 +110,7 @@ plugins:
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
-      pip_url: dbt-core~=1.4.1 dbt-postgres~=1.4.1 git+https://github.com/re-data/re-data.git
+      pip_url: dbt-core~=1.4.1 dbt-postgres~=1.4.1 re-data==0.10.7
       commands:
         source__raw_zone:
           args: source freshness
@@ -125,7 +139,7 @@ plugins:
           description: Run re_data overview generate
         re_data__serve:
           executable: re_data
-          args: overview serve --port 8080
+          args: overview serve --port 8081
           description: Run re_data overview generate
 
   utilities:
