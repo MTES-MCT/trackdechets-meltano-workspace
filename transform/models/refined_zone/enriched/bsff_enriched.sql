@@ -18,7 +18,7 @@ WITH etabs AS (
         AS cgc
         ON se.code_commune_etablissement = cgc.code_commune
     WHERE
-        cgc.type_commune = 'COM'
+        cgc.type_commune != 'COMD'
 )
 
 SELECT
