@@ -112,9 +112,6 @@ plugins:
       variant: dbt-labs
       pip_url: dbt-core~=1.4.1 dbt-postgres~=1.4.1 re-data==0.10.7
       commands:
-        source__raw_zone:
-          args: source freshness
-          description: Check the freshness of raw_zone_trackdechets
         run__trusted_zone_trackdechets:
           args: run --select @trusted_zone.trackdechets
           description: Run trusted_zone_trackdechets models
@@ -157,23 +154,23 @@ jobs:
   - name: elt--td-database
     tasks:
       - tap-postgres--td-database target-postgres--dwh-trackdechets
-      - dbt-postgres:source__raw_zone
+      - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_trackdechets
       - dbt-postgres:test__trusted_zone_trackdechets
       - dbt-postgres:docs-generate
   - name: transform--analytics
     tasks:
-      - dbt-postgres:source__raw_zone
+      - dbt-postgres:freshness
       - dbt-postgres:run__refined_zone_analytics
       - dbt-postgres:docs-generate
   - name: transform-icpe
     tasks:
-      - dbt-postgres:source__raw_zone
+      - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_icpe
       - dbt-postgres:docs-generate
   - name: transform-insee
     tasks:
-      - dbt-postgres:source__raw_zone
+      - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_insee
       - dbt-postgres:docs-generate
   - name: elt--zammad

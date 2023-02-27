@@ -1,6 +1,22 @@
 version: 2
 
 sources:
+  - name: raw_zone
+    description: Tables qui ne correspondent à aucune catégorie spécifique.
+    tables:
+      - name: laposte_hexasmal
+        description: >
+          Une ligne par commune.
+        columns:
+          - name: code_commune_insee
+            description: >
+              Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
+            tests:
+              - not_null
+          - name: id
+            description: Code postal de la commune
+            tests:
+              - not_null
   - name: raw_zone_trackdechets
     description: Replica de la base applicative Trackdéchets
     loader: meltano

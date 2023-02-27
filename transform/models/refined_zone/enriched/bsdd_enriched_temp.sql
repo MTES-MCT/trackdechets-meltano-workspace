@@ -7,7 +7,8 @@
 WITH etabs AS (
     SELECT
         cgc.*,
-        se.siret
+        se.siret,
+        se.activite_principale_etablissement
     FROM
         {{ ref('stock_etablissement') }}
         AS se
@@ -21,8 +22,9 @@ WITH etabs AS (
 
 SELECT
     b.*,
-    etabs.code_departement AS "emitter_departement",
-    etabs.code_region      AS "emitter_region"
+    etabs.code_departement                  AS "emitter_departement",
+    etabs.code_region                       AS "emitter_region",
+    etabs.activite_principale_etablissement AS "emitter_naf"
 FROM
     {{ ref('bsdd') }}
     AS b

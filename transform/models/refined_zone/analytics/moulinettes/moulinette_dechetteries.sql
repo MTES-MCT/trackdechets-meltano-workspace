@@ -161,26 +161,26 @@ final_ AS (
 )
 
 SELECT
-decheteries.siret,
-decheteries.company_name  AS "Nom de l'établissement",
-decheteries.company_types AS "Profils de l'établissement",
-decheteries.contact_email AS "E-mail de contact de l'établissement",
-decheteries."email_admin" AS "E-mail de l'admin de l'établissement",
-final_.num_bsdd_destinataire,
-final_.num_bsda_destinataire,
-final_.num_bsff_destinataire,
-final_.num_bsdasri_destinataire,
-final_.num_bsvhu_destinataire,
-final_.num_bsdd_emetteur,
-final_.num_bsda_emetteur,
-final_.num_bsff_emetteur,
-final_.num_bsdasri_emetteur,
-final_.num_bsvhu_emetteur,
-num_bsdd
-+ num_bsda
-+ num_bsff
-+ num_bsdasri
-+ num_bsvhu               AS "total_bordereaux"
+    decheteries.siret,
+    decheteries.company_name  AS "Nom de l'établissement",
+    decheteries.company_types AS "Profils de l'établissement",
+    decheteries.contact_email AS "E-mail de contact de l'établissement",
+    decheteries."email_admin" AS "E-mail de l'admin de l'établissement",
+    final_.num_bsdd_destinataire,
+    final_.num_bsda_destinataire,
+    final_.num_bsff_destinataire,
+    final_.num_bsdasri_destinataire,
+    final_.num_bsvhu_destinataire,
+    final_.num_bsdd_emetteur,
+    final_.num_bsda_emetteur,
+    final_.num_bsff_emetteur,
+    final_.num_bsdasri_emetteur,
+    final_.num_bsvhu_emetteur,
+    num_bsdd
+    + num_bsda
+    + num_bsff
+    + num_bsdasri
+    + num_bsvhu               AS "total_bordereaux"
 FROM
-decheteries
+    decheteries
 LEFT JOIN final_ ON decheteries.siret = final_.siret
