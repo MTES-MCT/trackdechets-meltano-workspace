@@ -15,13 +15,15 @@ select
     emitter_company_address,
     emitter_departement,
     emitter_region,
+    emitter_naf,
     transporter_company_siret,
     transporter_company_name,
     recipient_company_siret     as "destination_company_siret",
     recipient_company_name      as "destination_company_name",
     recipient_company_address   as "destination_company_address",
     recipient_departement       as "destination_departement",
-    recipient_region            as "destination_region"
+    recipient_region            as "destination_region",
+    recipient_naf               as "destination_naf"
 from
     {{ ref('bsdd_enriched') }}
 union all
@@ -42,13 +44,15 @@ select
     emitter_company_address,
     emitter_departement,
     emitter_region,
+    emitter_naf,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
     destination_company_name,
     destination_company_address,
     destination_departement,
-    destination_region
+    destination_region,
+    destination_naf
 from
     {{ ref('bsda_enriched') }}
 union all
@@ -69,13 +73,15 @@ select
     emitter_company_address,
     emitter_departement,
     emitter_region,
+    emitter_naf,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
     destination_company_name,
     destination_company_address,
     destination_departement,
-    destination_region
+    destination_region,
+    destination_naf
 from
     {{ ref('bsff_enriched') }}
 union all
@@ -96,13 +102,15 @@ select
     emitter_company_address,
     emitter_departement,
     emitter_region,
+    emitter_naf,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
     destination_company_name,
     destination_company_address,
     destination_departement,
-    destination_region
+    destination_region,
+    destination_naf
 from
     {{ ref('bsdasri_enriched') }}
 union all
@@ -123,12 +131,14 @@ select
     emitter_company_address,
     emitter_departement,
     emitter_region,
+    emitter_naf,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
     destination_company_name,
     destination_company_address,
     destination_departement,
-    destination_region
+    destination_region,
+    destination_naf
 from
     {{ ref('bsvhu_enriched') }}

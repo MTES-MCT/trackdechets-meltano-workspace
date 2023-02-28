@@ -5,21 +5,8 @@
     )
 }}
 WITH etabs AS (
-    SELECT
-        cgc.*,
-        se.siret,
-        se.activite_principale_etablissement
-    FROM
-        {{ ref('stock_etablissement') }}
-        AS se
-    INNER JOIN
-        {{ ref('code_geo_communes') }}
-        AS cgc
-        ON se.code_commune_etablissement = cgc.code_commune
-    WHERE
-        cgc.type_commune != 'COMD'
+    {{ create_sirene_etabs_enriched_statement() }}
 )
-
 SELECT
     b.*,
     etabs.code_departement                  AS "emitter_departement",
