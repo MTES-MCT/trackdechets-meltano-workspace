@@ -5,4 +5,4 @@
     )
 }}
 
-{{  create_bordereaux_enriched_query('bsdd',True,False) }}
+{{ create_bordereaux_enriched_query('bsdd',True,False) }}

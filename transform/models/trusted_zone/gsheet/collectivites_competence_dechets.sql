@@ -1,7 +1,7 @@
 select
-    siren_epci as siren,
+    siren_epci  as siren,
     nom_complet as nom,
-    dep_epci as code_departement,
+    dep_epci    as code_departement,
     nj_epci2023,
     fisc_epci2023,
     nb_com_2023,

@@ -4,4 +4,4 @@
     indexes = [ {'columns': ['destination_company_siret'] }]
     )
 }}
-{{  create_bordereaux_enriched_query('bsdasri',True,False) }}
+{{ create_bordereaux_enriched_query('bsdasri',True,False) }}

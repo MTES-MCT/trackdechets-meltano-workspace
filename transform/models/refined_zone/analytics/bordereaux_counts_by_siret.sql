@@ -28,7 +28,7 @@ WITH emitter_counts AS (
             _bs_type = 'BSVHU'
         )                     AS num_bsvhu_emitter
     FROM
-         {{ ref('bordereaux_enriched') }} 
+        {{ ref('bordereaux_enriched') }}
     GROUP BY
         emitter_company_siret
 ),
@@ -64,42 +64,42 @@ destination_counts AS (
 
 full_ AS (
     SELECT
-        coalesce(emitter_counts.siret,destination_counts.siret) as siret,
+        COALESCE(emitter_counts.siret, destination_counts.siret) AS siret,
         COALESCE(
             emitter_counts.num_bsdd_emitter,
             0
-        ) AS num_bsdd_emitter,
+        )                                                        AS num_bsdd_emitter,
         COALESCE(
             emitter_counts.num_bsda_emitter,
             0
-        ) AS num_bsda_emitter,
+        )                                                        AS num_bsda_emitter,
         COALESCE(
             emitter_counts.num_bsff_emitter,
             0
-        ) AS num_bsff_emitter,
+        )                                                        AS num_bsff_emitter,
         COALESCE(
             emitter_counts.num_bsdasri_emitter,
             0
-        ) AS num_bsdasri_emitter,
+        )                                                        AS num_bsdasri_emitter,
         COALESCE(
             emitter_counts.num_bsvhu_emitter,
             0
-        ) AS num_bsvhu_emitter,
+        )                                                        AS num_bsvhu_emitter,
         COALESCE(
             destination_counts.num_bsdd_destination, 0
-        ) AS num_bsdd_destination,
+        )                                                        AS num_bsdd_destination,
         COALESCE(
             destination_counts.num_bsda_destination, 0
-        ) AS num_bsda_destination,
+        )                                                        AS num_bsda_destination,
         COALESCE(
             destination_counts.num_bsff_destination, 0
-        ) AS num_bsff_destination,
+        )                                                        AS num_bsff_destination,
         COALESCE(
             destination_counts.num_bsdasri_destination, 0
-        ) AS num_bsdasri_destination,
+        )                                                        AS num_bsdasri_destination,
         COALESCE(
             destination_counts.num_bsvhu_destination, 0
-        ) AS num_bsvhu_destination
+        )                                                        AS num_bsvhu_destination
     FROM
         emitter_counts
     FULL

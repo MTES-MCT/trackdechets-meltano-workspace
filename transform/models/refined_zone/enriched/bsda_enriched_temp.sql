@@ -5,4 +5,4 @@
     )
 }}
 
-{{  create_bordereaux_enriched_query('bsda',True,False) }}
+{{ create_bordereaux_enriched_query('bsda',True,False) }}
