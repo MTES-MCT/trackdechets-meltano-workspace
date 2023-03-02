@@ -13,10 +13,27 @@ sources:
               Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
             tests:
               - not_null
-          - name: id
+          - name: code_postal
             description: Code postal de la commune
             tests:
               - not_null
+
+
+  - name: raw_zone_gsheet
+    description: Tables qui proviennent de Google Sheet.
+    tables:
+      - name: collectivites_compentence_dechets
+        description: >
+          Une ligne par collectivite a competence dechet.
+        columns:
+          - name: siren_epci
+            description: >
+              Code SIREN de la commune.
+            tests:
+              - not_null
+              - unique
+          
+          
   - name: raw_zone_trackdechets
     description: Replica de la base applicative Trackdéchets
     loader: meltano
