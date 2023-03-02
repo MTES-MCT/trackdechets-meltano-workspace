@@ -26,6 +26,7 @@ select
     recipient_naf               as "destination_naf"
 from
     {{ ref('bsdd_enriched') }}
+where not is_deleted
 union all
 select
     'BSDA'                              as "_bs_type",
@@ -55,6 +56,7 @@ select
     destination_naf
 from
     {{ ref('bsda_enriched') }}
+where not is_deleted
 union all
 select
     'BSFF'                               as "_bs_type",
@@ -84,6 +86,7 @@ select
     destination_naf
 from
     {{ ref('bsff_enriched') }}
+where not is_deleted
 union all
 select
     'BSDASRI'                                  as "_bs_type",
@@ -113,6 +116,7 @@ select
     destination_naf
 from
     {{ ref('bsdasri_enriched') }}
+where not is_deleted
 union all
 select
     'BSVHU'                             as "_bs_type",
@@ -142,3 +146,4 @@ select
     destination_naf
 from
     {{ ref('bsvhu_enriched') }}
+where not is_deleted
