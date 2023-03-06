@@ -18,7 +18,6 @@ sources:
             tests:
               - not_null
 
-
   - name: raw_zone_gsheet
     description: Tables qui proviennent de Google Sheet.
     tables:
@@ -28,12 +27,23 @@ sources:
         columns:
           - name: siren_epci
             description: >
-              Code SIREN de la commune.
+              Code SIREN de la collectivite.
             tests:
               - not_null
               - unique
-          
-          
+      - name: collectivites
+        identifier: coordonnees-epci-fp-2022-last
+        description: >
+          Une ligne par collectivite.
+        columns:
+          - name: SIREN
+            quote: true
+            description: >
+              Code SIREN de la collectivite.
+            tests:
+              - not_null
+              - unique
+
   - name: raw_zone_trackdechets
     description: Replica de la base applicative Trackdéchets
     loader: meltano
