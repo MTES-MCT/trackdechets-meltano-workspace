@@ -1,6 +1,6 @@
 {{
     config(
-        indexes = [ {'columns': ['week'] }]
+        indexes = [ {'columns': ['week'], 'unique': True }]
     )
 }}
 

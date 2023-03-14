@@ -103,7 +103,8 @@ full_ AS (
     FROM
         emitter_counts
     FULL
-    OUTER JOIN destination_counts ON
+    OUTER JOIN
+        destination_counts ON
         emitter_counts.siret = destination_counts.siret
 )
 

@@ -31,10 +31,11 @@ left join
 left join
     communes
 
-    on coalesce(
-        etabs.code_commune_etablissement,
-        etabs.code_commune_2_etablissement
-    ) = communes.code_commune
+    on
+        coalesce(
+            etabs.code_commune_etablissement,
+            etabs.code_commune_2_etablissement
+        ) = communes.code_commune
 left join
     {{ ref('nomenclature_activites_francaises') }}
     as naf

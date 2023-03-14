@@ -39,21 +39,23 @@ LEFT JOIN
     AS etabs
     ON ic.code_s3ic = etabs.code_s3ic
 LEFT JOIN
-    {{ ref('gerep') }}
+    {{ ref('gerep_traiteurs') }}
     AS gerep
-    ON ic.code_s3ic = gerep."codeS3ic"
+    ON ic.code_s3ic = '0' || gerep.code_s3ic AND length(gerep.numero_siret) = 14
 LEFT JOIN {{ ref('stock_etablissement') }} AS sirene
-    ON coalesce(
-        etabs.siret,
-        gerep."numero_siret"
-    ) = sirene.siret
+    ON
+        coalesce(
+            etabs.siret,
+            gerep."numero_siret"
+        ) = sirene.siret
 LEFT JOIN
     {{ ref('company') }}
     AS td_etabs
-    ON coalesce(
-        etabs.siret,
-        gerep."numero_siret"
-    ) = td_etabs.siret
+    ON
+        coalesce(
+            etabs.siret,
+            gerep."numero_siret"
+        ) = td_etabs.siret
 WHERE
     (
         etabs.siret IS NULL

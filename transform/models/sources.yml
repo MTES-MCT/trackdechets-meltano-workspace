@@ -43,6 +43,24 @@ sources:
             tests:
               - not_null
               - unique
+      - name: gerep_traiteurs
+        identifier: gerep_2016_2017_traiteurs
+        description: >
+          Une ligne par annee, code dechet et etablissement traiteur.
+      - name: gerep_producteurs
+        identifier: gerep_2016_2017_producteurs
+        description: >
+          Une ligne par annee, code dechet et etablissement producteurs.
+
+      - name: eco_organismes_agrees_2022
+        description: >
+          Une ligne par eco-organisme agréé et par filière.
+        columns:
+          - name: siret
+            description: >
+              Code SIRET de l'établissement.
+            tests:
+              - not_null
 
   - name: raw_zone_trackdechets
     description: Replica de la base applicative Trackdéchets

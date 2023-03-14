@@ -19,14 +19,14 @@ WITH decheteries AS (
             u.email
         ) AS "email_admin"
     FROM
-        {{ ref('company') }} c
+        {{ ref('company') }} AS c
     LEFT JOIN
         {{ ref('company_association') }}
-        ca
+        AS ca
         ON ca.company_id = c.id
     LEFT JOIN
         {{ ref('user') }}
-        u
+        AS u
         ON ca.user_id = u.id
     WHERE
         c.company_types ? 'WASTE_CENTER'
@@ -62,7 +62,7 @@ joined AS (
         decheteries
     LEFT JOIN
         {{ ref('bordereaux_enriched') }}
-        be
+        AS be
         ON decheteries.siret = be.destination_company_siret
     WHERE
         be.processed_at IS NOT NULL
@@ -97,7 +97,7 @@ joined_2 AS (
         decheteries
     LEFT JOIN
         {{ ref('bordereaux_enriched') }}
-        be
+        AS be
         ON decheteries.siret = be.emitter_company_siret
     WHERE
         be.processed_at IS NOT NULL

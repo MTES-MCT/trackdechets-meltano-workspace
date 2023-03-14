@@ -101,9 +101,11 @@ select
     max(bsda_data.code_operation)      as "operations_effectues_bsda"
 from
     icpe_data
-full outer join bsdd_data on
+full outer join
+    bsdd_data on
     icpe_data.siret = bsdd_data.siret
-full outer join bsda_data on
+full outer join
+    bsda_data on
     bsdd_data.siret = bsda_data.siret
 left join trusted_zone_trackdechets.company
     on
