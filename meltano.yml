@@ -2,6 +2,12 @@ version: 1
 default_environment: dev
 environments:
   - name: dev
+    config:
+      plugins:
+        utilities:
+          - name: elementary
+            config:
+              project_dir: ${MELTANO_PROJECT_ROOT}/transform/
   - name: prod
     config:
       plugins:
@@ -67,7 +73,7 @@ plugins:
 
     - name: tap-zammad
       namespace: tap_zammad
-      pip_url: "tap-zammad==0.0.4"
+      pip_url: tap-zammad==0.0.4
       executable: tap-zammad
       capabilities:
         - state
@@ -110,7 +116,7 @@ plugins:
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
-      pip_url: dbt-core~=1.4.1 dbt-postgres~=1.4.1 re-data==0.10.7 shandy-sqlfmt[jinjafmt]
+      pip_url: dbt-core~=1.4.5 dbt-postgres~=1.4.5 shandy-sqlfmt[jinjafmt]
       commands:
         run__trusted_zone_trackdechets:
           args: run --select @trusted_zone.trackdechets
@@ -130,14 +136,6 @@ plugins:
         test__trusted_zone_trackdechets:
           args: test --select @trusted_zone.trackdechets
           description: Run trusted_zone_trackdechets models
-        re_data__generate:
-          executable: re_data
-          args: overview generate
-          description: Run re_data overview generate
-        re_data__serve:
-          executable: re_data
-          args: overview serve --port 8081
-          description: Run re_data overview generate
 
   utilities:
     - name: sqlfluff
@@ -150,6 +148,14 @@ plugins:
         - name: schema
         - name: database
 
+    - name: elementary
+      variant: elementary
+      pip_url: elementary-data[postgres]==0.7.5 git+https://github.com/potloc/elementary-ext.git
+      config:
+        profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
+        project_dir: ${MELTANO_PROJECT_ROOT}/transform/
+        file-path: ${MELTANO_PROJECT_ROOT}/.meltano/elementary.html
+
 jobs:
   - name: elt--td-database
     tasks:
@@ -158,26 +164,31 @@ jobs:
       - dbt-postgres:run__trusted_zone_trackdechets
       - dbt-postgres:test__trusted_zone_trackdechets
       - dbt-postgres:docs-generate
+      - elementary:monitor-report
   - name: transform--analytics
     tasks:
       - dbt-postgres:freshness
       - dbt-postgres:run__refined_zone_analytics
       - dbt-postgres:docs-generate
+      - elementary:monitor-report
   - name: transform-icpe
     tasks:
       - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_icpe
       - dbt-postgres:docs-generate
+      - elementary:monitor-report
   - name: transform-insee
     tasks:
       - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_insee
       - dbt-postgres:docs-generate
+      - elementary:monitor-report
   - name: elt--zammad
     tasks:
       - tap-zammad target-postgres--dwh-zammad
       - dbt-postgres:run__trusted_zone_zammad
       - dbt-postgres:docs-generate
+      - elementary:monitor-report
 
 schedules:
   - name: daily-elt-td-database
@@ -193,5 +204,5 @@ schedules:
     interval: "@daily"
     job: elt--zammad
   - name: daily--transform-analytics
-    interval: "0 5 * * *"
+    interval: 0 5 * * *
     job: transform--analytics

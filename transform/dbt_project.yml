@@ -68,3 +68,6 @@ models:
         +schema: trusted_zone_icpe
       zammad:
         +schema: trusted_zone_zammad
+
+  elementary:
+    +schema: "elementary"

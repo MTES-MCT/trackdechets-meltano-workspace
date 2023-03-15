@@ -48,3 +48,14 @@ meltano:
       role: "{{ env_var('DBT_POSTGRES_ROLE', '') }}" # optional, set the role dbt assumes when executing queries
       use_colors: false
       # sslmode: "{{ env_var('DBT_POSTGRES_SSLMODE', '').split() }}" # optional, set the sslmode used to connect to the database
+elementary:
+  outputs:
+    default:
+      type: postgres
+      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
+      user: "{{ env_var('DBT_POSTGRES_USER') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      dbname: "{{ env_var('DBT_POSTGRES_DBNAME', '') }}"
+      schema: elementary
+      threads: 2
