@@ -1,0 +1,2278 @@
+version: 2
+
+sources:
+  - name: raw_zone_trackdechets
+    description: Replica de la base applicative Trackdéchets
+    loader: meltano
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 36
+        period: hour
+    loaded_at_field: "_sdc_batched_at"
+
+    tables:
+      - name: bsdd_raw
+        identifier: form
+        description: >
+          Une ligne par BSDD, les BSDD supprimés restent dans la table.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: brokercompanyaddress
+            data_type: character varying
+
+          - name: brokercompanycontact
+            data_type: character varying
+
+          - name: brokercompanymail
+            data_type: character varying
+
+          - name: brokercompanyname
+            data_type: character varying
+
+          - name: brokercompanyphone
+            data_type: character varying
+
+          - name: brokercompanysiret
+            data_type: character varying
+
+          - name: brokerdepartment
+            data_type: character varying
+
+          - name: brokerreceipt
+            data_type: character varying
+
+          - name: brokervaliditylimit
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: currenttransportersiret
+            data_type: character varying
+
+          - name: customid
+            data_type: character varying
+
+          - name: ecoorganismename
+            data_type: character varying
+
+          - name: ecoorganismesiret
+            data_type: character varying
+
+          - name: emittedat
+            data_type: timestamp without time zone
+
+          - name: emittedby
+            data_type: character varying
+
+          - name: emittedbyecoorganisme
+            data_type: boolean
+
+          - name: emittercompanyaddress
+            data_type: character varying
+
+          - name: emittercompanycontact
+            data_type: character varying
+
+          - name: emittercompanymail
+            data_type: character varying
+
+          - name: emittercompanyname
+            data_type: character varying
+
+          - name: emittercompanyominumber
+            data_type: character varying
+
+          - name: emittercompanyphone
+            data_type: character varying
+
+          - name: emittercompanysiret
+            data_type: character varying
+
+          - name: emitterisforeignship
+            data_type: boolean
+
+          - name: emitterisprivateindividual
+            data_type: boolean
+
+          - name: emitterpickupsite
+            data_type: character varying
+
+          - name: emittertype
+            data_type: character varying
+
+          - name: emitterworksiteaddress
+            data_type: character varying
+
+          - name: emitterworksitecity
+            data_type: character varying
+
+          - name: emitterworksiteinfos
+            data_type: character varying
+
+          - name: emitterworksitename
+            data_type: character varying
+
+          - name: emitterworksitepostalcode
+            data_type: character varying
+
+          - name: forwardedinid
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: intermediariessirets
+            data_type: jsonb
+
+          - name: isaccepted
+            data_type: boolean
+
+          - name: isdeleted
+            data_type: boolean
+
+          - name: isimportedfrompaper
+            data_type: boolean
+
+          - name: nextdestinationcompanyaddress
+            data_type: character varying
+
+          - name: nextdestinationcompanycontact
+            data_type: character varying
+
+          - name: nextdestinationcompanycountry
+            data_type: character varying
+
+          - name: nextdestinationcompanymail
+            data_type: character varying
+
+          - name: nextdestinationcompanyname
+            data_type: character varying
+
+          - name: nextdestinationcompanyphone
+            data_type: character varying
+
+          - name: nextdestinationcompanysiret
+            data_type: character varying
+
+          - name: nextdestinationcompanyvatnumber
+            data_type: character varying
+
+          - name: nextdestinationprocessingoperation
+            data_type: character varying
+
+          - name: nexttransportersiret
+            data_type: character varying
+
+          - name: notraceability
+            data_type: boolean
+
+          - name: ownerid
+            data_type: character varying
+
+          - name: processedat
+            data_type: timestamp without time zone
+
+          - name: processedby
+            data_type: character varying
+
+          - name: processingoperationdescription
+            data_type: character varying
+
+          - name: processingoperationdone
+            data_type: character varying
+
+          - name: quantityreceived
+            data_type: double precision
+
+          - name: quantityreceivedtype
+            data_type: character varying
+
+          - name: readableid
+            data_type: character varying
+
+          - name: receivedat
+            data_type: timestamp without time zone
+
+          - name: receivedby
+            data_type: character varying
+
+          - name: recipientcap
+            data_type: character varying
+
+          - name: recipientcompanyaddress
+            data_type: character varying
+
+          - name: recipientcompanycontact
+            data_type: character varying
+
+          - name: recipientcompanymail
+            data_type: character varying
+
+          - name: recipientcompanyname
+            data_type: character varying
+
+          - name: recipientcompanyphone
+            data_type: character varying
+
+          - name: recipientcompanysiret
+            data_type: character varying
+
+          - name: recipientistempstorage
+            data_type: boolean
+
+          - name: recipientprocessingoperation
+            data_type: character varying
+
+          - name: recipientssirets
+            data_type: jsonb
+
+          - name: sentat
+            data_type: timestamp without time zone
+
+          - name: sentby
+            data_type: character varying
+
+          - name: signedat
+            data_type: timestamp without time zone
+
+          - name: signedby
+            data_type: character varying
+
+          - name: signedbytransporter
+            data_type: boolean
+
+          - name: status
+            data_type: character varying
+
+          - name: takenoverat
+            data_type: timestamp without time zone
+
+          - name: takenoverby
+            data_type: character varying
+
+          - name: tradercompanyaddress
+            data_type: character varying
+
+          - name: tradercompanycontact
+            data_type: character varying
+
+          - name: tradercompanymail
+            data_type: character varying
+
+          - name: tradercompanyname
+            data_type: character varying
+
+          - name: tradercompanyphone
+            data_type: character varying
+
+          - name: tradercompanysiret
+            data_type: character varying
+
+          - name: traderdepartment
+            data_type: character varying
+
+          - name: traderreceipt
+            data_type: character varying
+
+          - name: tradervaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transportercompanyaddress
+            data_type: character varying
+
+          - name: transportercompanycontact
+            data_type: character varying
+
+          - name: transportercompanymail
+            data_type: character varying
+
+          - name: transportercompanyname
+            data_type: character varying
+
+          - name: transportercompanyphone
+            data_type: character varying
+
+          - name: transportercompanysiret
+            data_type: character varying
+
+          - name: transportercompanyvatnumber
+            data_type: character varying
+
+          - name: transportercustominfo
+            data_type: character varying
+
+          - name: transporterdepartment
+            data_type: character varying
+
+          - name: transporterisexemptedofreceipt
+            data_type: boolean
+
+          - name: transporternumberplate
+            data_type: character varying
+
+          - name: transporterreceipt
+            data_type: character varying
+
+          - name: transportertransportmode
+            data_type: character varying
+
+          - name: transportervaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transporterssirets
+            data_type: jsonb
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wasteacceptationstatus
+            data_type: character varying
+
+          - name: wastedetailsanalysisreferences
+            data_type: jsonb
+
+          - name: wastedetailscode
+            data_type: character varying
+
+          - name: wastedetailsconsistence
+            data_type: character varying
+
+          - name: wastedetailsisdangerous
+            data_type: boolean
+
+          - name: wastedetailslandidentifiers
+            data_type: jsonb
+
+          - name: wastedetailsname
+            data_type: character varying
+
+          - name: wastedetailsonucode
+            data_type: character varying
+
+          - name: wastedetailspackaginginfos
+            data_type: jsonb
+
+          - name: wastedetailsparcelnumbers
+            data_type: jsonb
+
+          - name: wastedetailspop
+            data_type: boolean
+
+          - name: wastedetailsquantity
+            data_type: double precision
+
+          - name: wastedetailsquantitytype
+            data_type: character varying
+
+          - name: wasterefusalreason
+            data_type: character varying
+
+      - name: bsda_raw
+        identifier: bsda
+        description: >
+          Une ligne par BSDA, les BSDA supprimés restent dans la table.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: brokercompanyaddress
+            data_type: character varying
+
+          - name: brokercompanycontact
+            data_type: character varying
+
+          - name: brokercompanymail
+            data_type: character varying
+
+          - name: brokercompanyname
+            data_type: character varying
+
+          - name: brokercompanyphone
+            data_type: character varying
+
+          - name: brokercompanysiret
+            data_type: character varying
+
+          - name: brokerrecepissedepartment
+            data_type: character varying
+
+          - name: brokerrecepissenumber
+            data_type: character varying
+
+          - name: brokerrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: destinationcap
+            data_type: character varying
+
+          - name: destinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationcompanycontact
+            data_type: character varying
+
+          - name: destinationcompanymail
+            data_type: character varying
+
+          - name: destinationcompanyname
+            data_type: character varying
+
+          - name: destinationcompanyphone
+            data_type: character varying
+
+          - name: destinationcompanysiret
+            data_type: character varying
+
+          - name: destinationcustominfo
+            data_type: character varying
+
+          - name: destinationoperationcode
+            data_type: character varying
+
+          - name: destinationoperationdate
+            data_type: timestamp without time zone
+
+          - name: destinationoperationdescription
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcap
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanycontact
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanymail
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyname
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyphone
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanysiret
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyvatnumber
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationplannedoperationcode
+            data_type: character varying
+
+          - name: destinationoperationsignatureauthor
+            data_type: character varying
+
+          - name: destinationoperationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationplannedoperationcode
+            data_type: character varying
+
+          - name: destinationreceptionacceptationstatus
+            data_type: character varying
+
+          - name: destinationreceptiondate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionrefusalreason
+            data_type: character varying
+
+          - name: destinationreceptionweight
+            data_type: double precision
+
+          - name: ecoorganismename
+            data_type: character varying
+
+          - name: ecoorganismesiret
+            data_type: character varying
+
+          - name: emittercompanyaddress
+            data_type: character varying
+
+          - name: emittercompanycontact
+            data_type: character varying
+
+          - name: emittercompanymail
+            data_type: character varying
+
+          - name: emittercompanyname
+            data_type: character varying
+
+          - name: emittercompanyphone
+            data_type: character varying
+
+          - name: emittercompanysiret
+            data_type: character varying
+
+          - name: emittercustominfo
+            data_type: character varying
+
+          - name: emitteremissionsignatureauthor
+            data_type: character varying
+
+          - name: emitteremissionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: emitterisprivateindividual
+            data_type: boolean
+
+          - name: emitterpickupsiteaddress
+            data_type: character varying
+
+          - name: emitterpickupsitecity
+            data_type: character varying
+
+          - name: emitterpickupsiteinfos
+            data_type: character varying
+
+          - name: emitterpickupsitename
+            data_type: character varying
+
+          - name: emitterpickupsitepostalcode
+            data_type: character varying
+
+          - name: forwardingid
+            data_type: character varying
+
+          - name: groupedinid
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: isdeleted
+            data_type: boolean
+
+          - name: isdraft
+            data_type: boolean
+
+          - name: packagings
+            data_type: jsonb
+
+          - name: repackagedinid
+            data_type: character varying
+
+          - name: status
+            data_type: character varying
+
+          - name: transportercompanyaddress
+            data_type: character varying
+
+          - name: transportercompanycontact
+            data_type: character varying
+
+          - name: transportercompanymail
+            data_type: character varying
+
+          - name: transportercompanyname
+            data_type: character varying
+
+          - name: transportercompanyphone
+            data_type: character varying
+
+          - name: transportercompanysiret
+            data_type: character varying
+
+          - name: transportercompanyvatnumber
+            data_type: character varying
+
+          - name: transportercustominfo
+            data_type: character varying
+
+          - name: transporterrecepissedepartment
+            data_type: character varying
+
+          - name: transporterrecepisseisexempted
+            data_type: boolean
+
+          - name: transporterrecepissenumber
+            data_type: character varying
+
+          - name: transporterrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transportertransportmode
+            data_type: character varying
+
+          - name: transportertransportplates
+            data_type: jsonb
+
+          - name: transportertransportsignatureauthor
+            data_type: character varying
+
+          - name: transportertransportsignaturedate
+            data_type: timestamp without time zone
+
+          - name: transportertransporttakenoverat
+            data_type: timestamp without time zone
+
+          - name: type
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wasteadr
+            data_type: character varying
+
+          - name: wastecode
+            data_type: character varying
+
+          - name: wasteconsistence
+            data_type: character varying
+
+          - name: wastefamilycode
+            data_type: character varying
+
+          - name: wastematerialname
+            data_type: character varying
+
+          - name: wastepop
+            data_type: boolean
+
+          - name: wastesealnumbers
+            data_type: jsonb
+
+          - name: weightisestimate
+            data_type: boolean
+
+          - name: weightvalue
+            data_type: double precision
+
+          - name: workercertificationcertificationnumber
+            data_type: character varying
+
+          - name: workercertificationhassubsectionfour
+            data_type: boolean
+
+          - name: workercertificationhassubsectionthree
+            data_type: boolean
+
+          - name: workercertificationorganisation
+            data_type: character varying
+
+          - name: workercertificationvaliditylimit
+            data_type: timestamp without time zone
+
+          - name: workercompanyaddress
+            data_type: character varying
+
+          - name: workercompanycontact
+            data_type: character varying
+
+          - name: workercompanymail
+            data_type: character varying
+
+          - name: workercompanyname
+            data_type: character varying
+
+          - name: workercompanyphone
+            data_type: character varying
+
+          - name: workercompanysiret
+            data_type: character varying
+
+          - name: workerisdisabled
+            data_type: boolean
+
+          - name: workerworkhasemitterpapersignature
+            data_type: boolean
+
+          - name: workerworksignatureauthor
+            data_type: character varying
+
+          - name: workerworksignaturedate
+            data_type: timestamp without time zone
+
+      - name: bsdasri_raw
+        identifier: bsdasri
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        description: >
+          Une ligne par BSDASRI, les BSDASRI supprimés restent dans la table.
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: destinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationcompanycontact
+            data_type: character varying
+
+          - name: destinationcompanymail
+            data_type: character varying
+
+          - name: destinationcompanyname
+            data_type: character varying
+
+          - name: destinationcompanyphone
+            data_type: character varying
+
+          - name: destinationcompanysiret
+            data_type: character varying
+
+          - name: destinationcustominfo
+            data_type: character varying
+
+          - name: destinationoperationcode
+            data_type: character varying
+
+          - name: destinationoperationdate
+            data_type: timestamp without time zone
+
+          - name: destinationoperationsignatureauthor
+            data_type: character varying
+
+          - name: destinationoperationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionacceptationstatus
+            data_type: character varying
+
+          - name: destinationreceptiondate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionsignatureauthor
+            data_type: character varying
+
+          - name: destinationreceptionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionwasterefusalreason
+            data_type: character varying
+
+          - name: destinationreceptionwasterefusedweightvalue
+            data_type: double precision
+
+          - name: destinationreceptionwastevolume
+            data_type: double precision
+
+          - name: destinationreceptionwasteweightvalue
+            data_type: double precision
+
+          - name: destinationwastepackagings
+            data_type: jsonb
+
+          - name: ecoorganismename
+            data_type: character varying
+
+          - name: ecoorganismesiret
+            data_type: character varying
+
+          - name: emissionsignatoryid
+            data_type: character varying
+
+          - name: emittedbyecoorganisme
+            data_type: boolean
+
+          - name: emittercompanyaddress
+            data_type: character varying
+
+          - name: emittercompanycontact
+            data_type: character varying
+
+          - name: emittercompanymail
+            data_type: character varying
+
+          - name: emittercompanyname
+            data_type: character varying
+
+          - name: emittercompanyphone
+            data_type: character varying
+
+          - name: emittercompanysiret
+            data_type: character varying
+
+          - name: emittercustominfo
+            data_type: character varying
+
+          - name: emitteremissionsignatureauthor
+            data_type: character varying
+
+          - name: emitteremissionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: emitterpickupsiteaddress
+            data_type: character varying
+
+          - name: emitterpickupsitecity
+            data_type: character varying
+
+          - name: emitterpickupsiteinfos
+            data_type: character varying
+
+          - name: emitterpickupsitename
+            data_type: character varying
+
+          - name: emitterpickupsitepostalcode
+            data_type: character varying
+
+          - name: emitterwastepackagings
+            data_type: jsonb
+
+          - name: emitterwastevolume
+            data_type: double precision
+
+          - name: emitterwasteweightisestimate
+            data_type: boolean
+
+          - name: emitterwasteweightvalue
+            data_type: double precision
+
+          - name: groupedinid
+            data_type: character varying
+
+          - name: handedovertorecipientat
+            data_type: timestamp without time zone
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: identificationnumbers
+            data_type: jsonb
+
+          - name: isdeleted
+            data_type: boolean
+
+          - name: isdraft
+            data_type: boolean
+
+          - name: isemissiondirecttakenover
+            data_type: boolean
+
+          - name: isemissiontakenoverwithsecretcode
+            data_type: boolean
+
+          - name: operationsignatoryid
+            data_type: character varying
+
+          - name: receptionsignatoryid
+            data_type: character varying
+
+          - name: status
+            data_type: character varying
+
+          - name: synthesizedinid
+            data_type: character varying
+
+          - name: transportsignatoryid
+            data_type: character varying
+
+          - name: transporteracceptationstatus
+            data_type: character varying
+
+          - name: transportercompanyaddress
+            data_type: character varying
+
+          - name: transportercompanycontact
+            data_type: character varying
+
+          - name: transportercompanymail
+            data_type: character varying
+
+          - name: transportercompanyname
+            data_type: character varying
+
+          - name: transportercompanyphone
+            data_type: character varying
+
+          - name: transportercompanysiret
+            data_type: character varying
+
+          - name: transportercompanyvatnumber
+            data_type: character varying
+
+          - name: transportercustominfo
+            data_type: character varying
+
+          - name: transporterrecepissedepartment
+            data_type: character varying
+
+          - name: transporterrecepissenumber
+            data_type: character varying
+
+          - name: transporterrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transportertakenoverat
+            data_type: timestamp without time zone
+
+          - name: transportertransportmode
+            data_type: character varying
+
+          - name: transportertransportplates
+            data_type: jsonb
+
+          - name: transportertransportsignatureauthor
+            data_type: character varying
+
+          - name: transportertransportsignaturedate
+            data_type: timestamp without time zone
+
+          - name: transporterwastepackagings
+            data_type: jsonb
+
+          - name: transporterwasterefusalreason
+            data_type: character varying
+
+          - name: transporterwasterefusedweightvalue
+            data_type: double precision
+
+          - name: transporterwastevolume
+            data_type: double precision
+
+          - name: transporterwasteweightisestimate
+            data_type: boolean
+
+          - name: transporterwasteweightvalue
+            data_type: double precision
+
+          - name: type
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wasteadr
+            data_type: character varying
+
+          - name: wastecode
+            data_type: character varying
+      - name: bsff_raw
+        identifier: bsff
+        description: >
+          Une ligne par BSFF, les BSFF supprimés restent dans la table.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: destinationcap
+            data_type: character varying
+
+          - name: destinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationcompanycontact
+            data_type: character varying
+
+          - name: destinationcompanymail
+            data_type: character varying
+
+          - name: destinationcompanyname
+            data_type: character varying
+
+          - name: destinationcompanyphone
+            data_type: character varying
+
+          - name: destinationcompanysiret
+            data_type: character varying
+
+          - name: destinationcustominfo
+            data_type: character varying
+
+          - name: destinationoperationcode
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanycontact
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanymail
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyname
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyphone
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanysiret
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyvatnumber
+            data_type: character varying
+
+          - name: destinationoperationsignatureauthor
+            data_type: character varying
+
+          - name: destinationoperationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationplannedoperationcode
+            data_type: character varying
+
+          - name: destinationreceptionacceptationstatus
+            data_type: character varying
+
+          - name: destinationreceptiondate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionrefusalreason
+            data_type: character varying
+
+          - name: destinationreceptionsignatureauthor
+            data_type: character varying
+
+          - name: destinationreceptionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionweight
+            data_type: double precision
+
+          - name: detenteurcompanysirets
+            data_type: jsonb
+
+          - name: emittercompanyaddress
+            data_type: character varying
+
+          - name: emittercompanycontact
+            data_type: character varying
+
+          - name: emittercompanymail
+            data_type: character varying
+
+          - name: emittercompanyname
+            data_type: character varying
+
+          - name: emittercompanyphone
+            data_type: character varying
+
+          - name: emittercompanysiret
+            data_type: character varying
+
+          - name: emittercustominfo
+            data_type: character varying
+
+          - name: emitteremissionsignatureauthor
+            data_type: character varying
+
+          - name: emitteremissionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: forwardingid
+            data_type: character varying
+
+          - name: groupedinid
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: isdeleted
+            data_type: boolean
+
+          - name: isdraft
+            data_type: boolean
+
+          - name: repackagedinid
+            data_type: character varying
+
+          - name: status
+            data_type: character varying
+
+          - name: transportercompanyaddress
+            data_type: character varying
+
+          - name: transportercompanycontact
+            data_type: character varying
+
+          - name: transportercompanymail
+            data_type: character varying
+
+          - name: transportercompanyname
+            data_type: character varying
+
+          - name: transportercompanyphone
+            data_type: character varying
+
+          - name: transportercompanysiret
+            data_type: character varying
+
+          - name: transportercompanyvatnumber
+            data_type: character varying
+
+          - name: transportercustominfo
+            data_type: character varying
+
+          - name: transporterrecepissedepartment
+            data_type: character varying
+
+          - name: transporterrecepissenumber
+            data_type: character varying
+
+          - name: transporterrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transportertransportmode
+            data_type: character varying
+
+          - name: transportertransportplates
+            data_type: jsonb
+
+          - name: transportertransportsignatureauthor
+            data_type: character varying
+
+          - name: transportertransportsignaturedate
+            data_type: timestamp without time zone
+
+          - name: transportertransporttakenoverat
+            data_type: timestamp without time zone
+
+          - name: type
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wasteadr
+            data_type: character varying
+
+          - name: wastecode
+            data_type: character varying
+
+          - name: wastedescription
+            data_type: character varying
+
+          - name: weightisestimate
+            data_type: boolean
+
+          - name: weightvalue
+            data_type: double precision
+      - name: bsvhu_raw
+        identifier: bsvhu
+        description: >
+          Une ligne par BSVHU, les BSVHU supprimés restent dans la table.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: destinationagrementnumber
+            data_type: character varying
+
+          - name: destinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationcompanycontact
+            data_type: character varying
+
+          - name: destinationcompanymail
+            data_type: character varying
+
+          - name: destinationcompanyname
+            data_type: character varying
+
+          - name: destinationcompanyphone
+            data_type: character varying
+
+          - name: destinationcompanysiret
+            data_type: character varying
+
+          - name: destinationcustominfo
+            data_type: character varying
+
+          - name: destinationoperationcode
+            data_type: character varying
+
+          - name: destinationoperationdate
+            data_type: timestamp without time zone
+
+          - name: destinationoperationnextdestinationcompanyaddress
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanycontact
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanymail
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyname
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyphone
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanysiret
+            data_type: character varying
+
+          - name: destinationoperationnextdestinationcompanyvatnumber
+            data_type: character varying
+
+          - name: destinationoperationsignatureauthor
+            data_type: character varying
+
+          - name: destinationoperationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: destinationplannedoperationcode
+            data_type: character varying
+
+          - name: destinationreceptionacceptationstatus
+            data_type: character varying
+
+          - name: destinationreceptiondate
+            data_type: timestamp without time zone
+
+          - name: destinationreceptionidentificationnumbers
+            data_type: jsonb
+
+          - name: destinationreceptionidentificationtype
+            data_type: character varying
+
+          - name: destinationreceptionquantity
+            data_type: integer
+
+          - name: destinationreceptionrefusalreason
+            data_type: character varying
+
+          - name: destinationreceptionweight
+            data_type: double precision
+
+          - name: destinationtype
+            data_type: character varying
+
+          - name: emitteragrementnumber
+            data_type: character varying
+
+          - name: emittercompanyaddress
+            data_type: character varying
+
+          - name: emittercompanycontact
+            data_type: character varying
+
+          - name: emittercompanymail
+            data_type: character varying
+
+          - name: emittercompanyname
+            data_type: character varying
+
+          - name: emittercompanyphone
+            data_type: character varying
+
+          - name: emittercompanysiret
+            data_type: character varying
+
+          - name: emittercustominfo
+            data_type: character varying
+
+          - name: emitteremissionsignatureauthor
+            data_type: character varying
+
+          - name: emitteremissionsignaturedate
+            data_type: timestamp without time zone
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: identificationnumbers
+            data_type: jsonb
+
+          - name: identificationtype
+            data_type: character varying
+
+          - name: isdeleted
+            data_type: boolean
+
+          - name: isdraft
+            data_type: boolean
+
+          - name: packaging
+            data_type: character varying
+
+          - name: quantity
+            data_type: integer
+
+          - name: status
+            data_type: character varying
+
+          - name: transportercompanyaddress
+            data_type: character varying
+
+          - name: transportercompanycontact
+            data_type: character varying
+
+          - name: transportercompanymail
+            data_type: character varying
+
+          - name: transportercompanyname
+            data_type: character varying
+
+          - name: transportercompanyphone
+            data_type: character varying
+
+          - name: transportercompanysiret
+            data_type: character varying
+
+          - name: transportercompanyvatnumber
+            data_type: character varying
+
+          - name: transportercustominfo
+            data_type: character varying
+
+          - name: transporterrecepissedepartment
+            data_type: character varying
+
+          - name: transporterrecepissenumber
+            data_type: character varying
+
+          - name: transporterrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: transportertransportplates
+            data_type: jsonb
+
+          - name: transportertransportsignatureauthor
+            data_type: character varying
+
+          - name: transportertransportsignaturedate
+            data_type: timestamp without time zone
+
+          - name: transportertransporttakenoverat
+            data_type: timestamp without time zone
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wastecode
+            data_type: character varying
+
+          - name: weightisestimate
+            data_type: boolean
+
+          - name: weightvalue
+            data_type: double precision
+
+      - name: user_raw
+        identifier: user
+        description: >
+          Une ligne par compte utilisateur.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: activatedat
+            data_type: timestamp without time zone
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: email
+            data_type: character varying
+
+          - name: firstassociationdate
+            data_type: timestamp without time zone
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: isactive
+            data_type: boolean
+
+          - name: isadmin
+            data_type: boolean
+
+          - name: isregistrenational
+            data_type: boolean
+
+          - name: name
+            data_type: character varying
+
+          - name: password
+            data_type: character varying
+
+          - name: passwordversion
+            data_type: integer
+
+          - name: phone
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+      - name: company_raw
+        identifier: company
+        description: >
+          Une ligne par compte établissement.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: address
+            data_type: character varying
+
+          - name: allowbsdasritakeoverwithoutsignature
+            data_type: boolean
+
+          - name: brokerreceiptid
+            data_type: character varying
+
+          - name: codedepartement
+            data_type: character varying
+
+          - name: codenaf
+            data_type: character varying
+
+          - name: companytypes
+            data_type: jsonb
+
+          - name: contact
+            data_type: character varying
+
+          - name: contactemail
+            data_type: character varying
+
+          - name: contactphone
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: ecoorganismeagreements
+            data_type: jsonb
+
+          - name: gerepid
+            data_type: character varying
+
+          - name: givenname
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: latitude
+            data_type: double precision
+
+          - name: longitude
+            data_type: double precision
+
+          - name: name
+            data_type: character varying
+
+          - name: orgid
+            data_type: character varying
+
+          - name: securitycode
+            data_type: integer
+
+          - name: siret
+            data_type: character varying
+
+          - name: traderreceiptid
+            data_type: character varying
+
+          - name: transporterreceiptid
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: vatnumber
+            data_type: character varying
+
+          - name: verificationcode
+            data_type: character varying
+
+          - name: verificationcomment
+            data_type: character varying
+
+          - name: verificationmode
+            data_type: character varying
+
+          - name: verificationstatus
+            data_type: character varying
+
+          - name: verifiedat
+            data_type: timestamp without time zone
+
+          - name: vhuagrementbroyeurid
+            data_type: character varying
+
+          - name: vhuagrementdemolisseurid
+            data_type: character varying
+
+          - name: website
+            data_type: character varying
+
+          - name: workercertificationid
+            data_type: character varying
+      - name: company_association_raw
+        identifier: companyassociation
+        description: >
+          Une ligne par paire (company,user).
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: companyid
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: role
+            data_type: character varying
+
+          - name: userid
+            data_type: character varying
+
+      - name: eco_organisme_raw
+        identifier: ecoorganisme
+        description: >
+          Table entrée en dur, Eco-Organismes qui nous sont connus.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: address
+            data_type: character varying
+
+          - name: handlebsdasri
+            data_type: boolean
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: name
+            data_type: character varying
+
+          - name: siret
+            data_type: character varying
+      - name: bsff_packaging_raw
+        identifier: bsffpackaging
+        description: >
+          Table avec les données des contenants BSFF. Une ligne par contenant.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: acceptationdate
+            data_type: timestamp without time zone
+
+          - name: acceptationrefusalreason
+            data_type: character varying
+
+          - name: acceptationsignatureauthor
+            data_type: character varying
+
+          - name: acceptationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: acceptationstatus
+            data_type: character varying
+
+          - name: acceptationwastecode
+            data_type: character varying
+
+          - name: acceptationwastedescription
+            data_type: character varying
+
+          - name: acceptationweight
+            data_type: double precision
+
+          - name: bsffid
+            data_type: character varying
+            description: ID du BSFF auquel le contenant est associé
+            tests:
+              - not_null
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: nextpackagingid
+            data_type: character varying
+
+          - name: numero
+            data_type: character varying
+
+          - name: operationcode
+            data_type: character varying
+
+          - name: operationdate
+            data_type: timestamp without time zone
+
+          - name: operationdescription
+            data_type: character varying
+
+          - name: operationnextdestinationcap
+            data_type: character varying
+
+          - name: operationnextdestinationcompanyaddress
+            data_type: character varying
+
+          - name: operationnextdestinationcompanycontact
+            data_type: character varying
+
+          - name: operationnextdestinationcompanymail
+            data_type: character varying
+
+          - name: operationnextdestinationcompanyname
+            data_type: character varying
+
+          - name: operationnextdestinationcompanyphone
+            data_type: character varying
+
+          - name: operationnextdestinationcompanysiret
+            data_type: character varying
+
+          - name: operationnextdestinationcompanyvatnumber
+            data_type: character varying
+
+          - name: operationnextdestinationplannedoperationcode
+            data_type: character varying
+
+          - name: operationnotraceability
+            data_type: boolean
+
+          - name: operationsignatureauthor
+            data_type: character varying
+
+          - name: operationsignaturedate
+            data_type: timestamp without time zone
+
+          - name: other
+            data_type: character varying
+
+          - name: type
+            data_type: character varying
+
+          - name: volume
+            data_type: double precision
+
+          - name: weight
+            data_type: double precision
+
+      - name: broker_receipt_raw
+        identifier: brokerreceipt
+        description: >
+          Table avec les données des récépissés "Courtier". Une ligne par récépissé.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: department
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: receiptnumber
+            data_type: character varying
+            description: Numéro du récépissé
+            tests:
+              - not_null
+
+          - name: validitylimit
+            data_type: timestamp without time zone
+      - name: trader_receipt_raw
+        identifier: traderreceipt
+        description: >
+          Table avec les données des récépissés "Négociant". Une ligne par récépissé.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: department
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: receiptnumber
+            data_type: character varying
+            description: Numéro du récépissé
+            tests:
+              - not_null
+
+          - name: validitylimit
+            data_type: timestamp without time zone
+      - name: transporter_receipt_raw
+        identifier: transporterreceipt
+        description: >
+          Table avec les données des récépissés "Transporteur". Une ligne par récépissé.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: department
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: receiptnumber
+            data_type: character varying
+            description: Numéro du récépissé
+            tests:
+              - not_null
+
+          - name: validitylimit
+            data_type: timestamp without time zone
+
+      - name: vhu_agrement_raw
+        identifier: vhuagrement
+        description: >
+          Table avec les données des agréments VHU. Une ligne par agrément.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: agrementnumber
+            data_type: character varying
+            description: Numéro de l'agrément
+            tests:
+              - not_null
+
+          - name: department
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+      - name: bsda_revision_request_raw
+        identifier: bsdarevisionrequest
+        description: >
+          Table avec les demande de révision des BSDA. Une ligne par demande de révision.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: authoringcompanyid
+            data_type: character varying
+            description: ID de l'établissement qui a fait le demande de révision
+            tests:
+              - not_null
+
+          - name: brokercompanyaddress
+            data_type: character varying
+
+          - name: brokercompanycontact
+            data_type: character varying
+
+          - name: brokercompanymail
+            data_type: character varying
+
+          - name: brokercompanyname
+            data_type: character varying
+
+          - name: brokercompanyphone
+            data_type: character varying
+
+          - name: brokercompanysiret
+            data_type: character varying
+
+          - name: brokerrecepissedepartment
+            data_type: character varying
+
+          - name: brokerrecepissenumber
+            data_type: character varying
+
+          - name: brokerrecepissevaliditylimit
+            data_type: timestamp without time zone
+
+          - name: bsdaid
+            data_type: character varying
+            description: Numéro du BSDA associé à la demande
+            tests:
+              - not_null
+
+          - name: comment
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: destinationcap
+            data_type: character varying
+
+          - name: destinationoperationcode
+            data_type: character varying
+
+          - name: destinationoperationdescription
+            data_type: character varying
+
+          - name: destinationreceptionweight
+            data_type: double precision
+
+          - name: emitterpickupsiteaddress
+            data_type: character varying
+
+          - name: emitterpickupsitecity
+            data_type: character varying
+
+          - name: emitterpickupsiteinfos
+            data_type: character varying
+
+          - name: emitterpickupsitename
+            data_type: character varying
+
+          - name: emitterpickupsitepostalcode
+            data_type: character varying
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: packagings
+            data_type: jsonb
+
+          - name: status
+            data_type: character varying
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wastecode
+            data_type: character varying
+
+          - name: wastematerialname
+            data_type: character varying
+
+          - name: wastepop
+            data_type: boolean
+
+          - name: wastesealnumbers
+            data_type: jsonb
+      - name: bsdd_revision_request_raw
+        identifier: bsddrevisionrequest
+        description: >
+          Table avec les demande de révision des BSDD. Une ligne par demande de révision.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.table_anomalies:
+              table_anomalies:
+                - row_count
+          - elementary.schema_changes_from_baseline
+          - elementary.schema_changes
+        columns:
+          - name: _sdc_batched_at
+            data_type: timestamp without time zone
+
+          - name: _sdc_deleted_at
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: authoringcompanyid
+            data_type: character varying
+            description: ID de l'établissement qui a fait le demande de révision
+            tests:
+              - not_null
+
+          - name: brokercompanyaddress
+            data_type: character varying
+
+          - name: brokercompanycontact
+            data_type: character varying
+
+          - name: brokercompanymail
+            data_type: character varying
+
+          - name: brokercompanyname
+            data_type: character varying
+
+          - name: brokercompanyphone
+            data_type: character varying
+
+          - name: brokercompanysiret
+            data_type: character varying
+
+          - name: brokerdepartment
+            data_type: character varying
+
+          - name: brokerreceipt
+            data_type: character varying
+
+          - name: brokervaliditylimit
+            data_type: timestamp without time zone
+
+          - name: bsddid
+            data_type: character varying
+            description: Numéro du BSDD associé à la demande
+            tests:
+              - not_null
+
+          - name: comment
+            data_type: character varying
+
+          - name: _sdc_extracted_at
+            data_type: timestamp without time zone
+
+          - name: id
+            data_type: character varying
+            description: Clé primaire
+            tests:
+              - unique
+              - not_null
+
+          - name: processingoperationdescription
+            data_type: character varying
+
+          - name: processingoperationdone
+            data_type: character varying
+
+          - name: quantityreceived
+            data_type: double precision
+
+          - name: recipientcap
+            data_type: character varying
+
+          - name: status
+            data_type: character varying
+
+          - name: temporarystoragedestinationcap
+            data_type: character varying
+
+          - name: temporarystoragedestinationprocessingoperation
+            data_type: character varying
+
+          - name: temporarystoragetemporarystorerquantityreceived
+            data_type: double precision
+
+          - name: tradercompanyaddress
+            data_type: character varying
+
+          - name: tradercompanycontact
+            data_type: character varying
+
+          - name: tradercompanymail
+            data_type: character varying
+
+          - name: tradercompanyname
+            data_type: character varying
+
+          - name: tradercompanyphone
+            data_type: character varying
+
+          - name: tradercompanysiret
+            data_type: character varying
+
+          - name: traderdepartment
+            data_type: character varying
+
+          - name: traderreceipt
+            data_type: character varying
+
+          - name: tradervaliditylimit
+            data_type: timestamp without time zone
+
+          - name: updatedat
+            data_type: timestamp without time zone
+
+          - name: wastedetailscode
+            data_type: character varying
+
+          - name: wastedetailsname
+            data_type: character varying
+
+          - name: wastedetailspackaginginfos
+            data_type: jsonb
+
+          - name: wastedetailspop
+            data_type: boolean

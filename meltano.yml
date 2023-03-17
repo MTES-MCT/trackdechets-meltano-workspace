@@ -154,7 +154,7 @@ plugins:
       config:
         profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
         project_dir: ${MELTANO_PROJECT_ROOT}/transform/
-        file-path: ${MELTANO_PROJECT_ROOT}/.meltano/elementary.html
+        file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
 
 jobs:
   - name: elt--td-database
