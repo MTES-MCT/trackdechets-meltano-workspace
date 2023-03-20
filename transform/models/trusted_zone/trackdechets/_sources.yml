@@ -32,34 +32,34 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: brokercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerdepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerreceipt
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokervaliditylimit
             data_type: timestamp without time zone
@@ -68,46 +68,46 @@ sources:
             data_type: timestamp without time zone
 
           - name: currenttransportersiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: customid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: ecoorganismename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: ecoorganismesiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittedat
             data_type: timestamp without time zone
 
           - name: emittedby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittedbyecoorganisme
             data_type: boolean
 
           - name: emittercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyominumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterisforeignship
             data_type: boolean
@@ -116,31 +116,31 @@ sources:
             data_type: boolean
 
           - name: emitterpickupsite
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittertype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterworksiteaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterworksitecity
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterworksiteinfos
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterworksitename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterworksitepostalcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: forwardedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -159,94 +159,94 @@ sources:
             data_type: boolean
 
           - name: nextdestinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanycountry
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationcompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nextdestinationprocessingoperation
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: nexttransportersiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: notraceability
             data_type: boolean
 
           - name: ownerid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: processedat
             data_type: timestamp without time zone
 
           - name: processedby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: processingoperationdescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: processingoperationdone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: quantityreceived
             data_type: double precision
 
           - name: quantityreceivedtype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: readableid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: receivedat
             data_type: timestamp without time zone
 
           - name: receivedby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientistempstorage
             data_type: boolean
 
           - name: recipientprocessingoperation
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: recipientssirets
             data_type: jsonb
@@ -255,91 +255,91 @@ sources:
             data_type: timestamp without time zone
 
           - name: sentby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: signedat
             data_type: timestamp without time zone
 
           - name: signedby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: signedbytransporter
             data_type: boolean
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: takenoverat
             data_type: timestamp without time zone
 
           - name: takenoverby
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: traderdepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: traderreceipt
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradervaliditylimit
             data_type: timestamp without time zone
 
           - name: transportercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterdepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterisexemptedofreceipt
             data_type: boolean
 
           - name: transporternumberplate
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterreceipt
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportmode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportervaliditylimit
             data_type: timestamp without time zone
@@ -351,16 +351,16 @@ sources:
             data_type: timestamp without time zone
 
           - name: wasteacceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailsanalysisreferences
             data_type: jsonb
 
           - name: wastedetailscode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailsconsistence
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailsisdangerous
             data_type: boolean
@@ -369,10 +369,10 @@ sources:
             data_type: jsonb
 
           - name: wastedetailsname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailsonucode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailspackaginginfos
             data_type: jsonb
@@ -387,10 +387,10 @@ sources:
             data_type: double precision
 
           - name: wastedetailsquantitytype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wasterefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
       - name: bsda_raw
         identifier: bsda
@@ -410,34 +410,34 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: brokercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissevaliditylimit
             data_type: timestamp without time zone
@@ -446,115 +446,115 @@ sources:
             data_type: timestamp without time zone
 
           - name: destinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationdate
             data_type: timestamp without time zone
 
           - name: destinationoperationdescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationplannedoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignaturedate
             data_type: timestamp without time zone
 
           - name: destinationplannedoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionacceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptiondate
             data_type: timestamp without time zone
 
           - name: destinationreceptionrefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionweight
             data_type: double precision
 
           - name: ecoorganismename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: ecoorganismesiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignaturedate
             data_type: timestamp without time zone
@@ -563,28 +563,28 @@ sources:
             data_type: boolean
 
           - name: emitterpickupsiteaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitecity
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsiteinfos
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitepostalcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: forwardingid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: groupedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -600,55 +600,55 @@ sources:
             data_type: jsonb
 
           - name: repackagedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepisseisexempted
             data_type: boolean
 
           - name: transporterrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissevaliditylimit
             data_type: timestamp without time zone
 
           - name: transportertransportmode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportplates
             data_type: jsonb
 
           - name: transportertransportsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportsignaturedate
             data_type: timestamp without time zone
@@ -657,25 +657,25 @@ sources:
             data_type: timestamp without time zone
 
           - name: type
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
 
           - name: wasteadr
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastecode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wasteconsistence
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastefamilycode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastematerialname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastepop
             data_type: boolean
@@ -690,7 +690,7 @@ sources:
             data_type: double precision
 
           - name: workercertificationcertificationnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercertificationhassubsectionfour
             data_type: boolean
@@ -699,28 +699,28 @@ sources:
             data_type: boolean
 
           - name: workercertificationorganisation
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercertificationvaliditylimit
             data_type: timestamp without time zone
 
           - name: workercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workerisdisabled
             data_type: boolean
@@ -729,7 +729,7 @@ sources:
             data_type: boolean
 
           - name: workerworksignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workerworksignaturedate
             data_type: timestamp without time zone
@@ -752,7 +752,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -761,52 +761,52 @@ sources:
             data_type: timestamp without time zone
 
           - name: destinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationdate
             data_type: timestamp without time zone
 
           - name: destinationoperationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignaturedate
             data_type: timestamp without time zone
 
           - name: destinationreceptionacceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptiondate
             data_type: timestamp without time zone
 
           - name: destinationreceptionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionsignaturedate
             data_type: timestamp without time zone
 
           - name: destinationreceptionwasterefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionwasterefusedweightvalue
             data_type: double precision
@@ -821,58 +821,58 @@ sources:
             data_type: jsonb
 
           - name: ecoorganismename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: ecoorganismesiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emissionsignatoryid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittedbyecoorganisme
             data_type: boolean
 
           - name: emittercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignaturedate
             data_type: timestamp without time zone
 
           - name: emitterpickupsiteaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitecity
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsiteinfos
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitepostalcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterwastepackagings
             data_type: jsonb
@@ -887,13 +887,13 @@ sources:
             data_type: double precision
 
           - name: groupedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: handedovertorecipientat
             data_type: timestamp without time zone
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -915,52 +915,52 @@ sources:
             data_type: boolean
 
           - name: operationsignatoryid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: receptionsignatoryid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: synthesizedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportsignatoryid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporteracceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissevaliditylimit
             data_type: timestamp without time zone
@@ -969,13 +969,13 @@ sources:
             data_type: timestamp without time zone
 
           - name: transportertransportmode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportplates
             data_type: jsonb
 
           - name: transportertransportsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportsignaturedate
             data_type: timestamp without time zone
@@ -984,7 +984,7 @@ sources:
             data_type: jsonb
 
           - name: transporterwasterefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterwasterefusedweightvalue
             data_type: double precision
@@ -999,16 +999,16 @@ sources:
             data_type: double precision
 
           - name: type
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
 
           - name: wasteadr
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastecode
-            data_type: character varying
+            data_type: VARCHAR
       - name: bsff_raw
         identifier: bsff
         description: >
@@ -1027,7 +1027,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -1036,73 +1036,73 @@ sources:
             data_type: timestamp without time zone
 
           - name: destinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignaturedate
             data_type: timestamp without time zone
 
           - name: destinationplannedoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionacceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptiondate
             data_type: timestamp without time zone
 
           - name: destinationreceptionrefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionsignaturedate
             data_type: timestamp without time zone
@@ -1114,40 +1114,40 @@ sources:
             data_type: jsonb
 
           - name: emittercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignaturedate
             data_type: timestamp without time zone
 
           - name: forwardingid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: groupedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -1160,52 +1160,52 @@ sources:
             data_type: boolean
 
           - name: repackagedinid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissevaliditylimit
             data_type: timestamp without time zone
 
           - name: transportertransportmode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportplates
             data_type: jsonb
 
           - name: transportertransportsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportsignaturedate
             data_type: timestamp without time zone
@@ -1214,19 +1214,19 @@ sources:
             data_type: timestamp without time zone
 
           - name: type
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
 
           - name: wasteadr
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastecode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: weightisestimate
             data_type: boolean
@@ -1251,7 +1251,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -1260,67 +1260,67 @@ sources:
             data_type: timestamp without time zone
 
           - name: destinationagrementnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationcustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationdate
             data_type: timestamp without time zone
 
           - name: destinationoperationnextdestinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationnextdestinationcompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationsignaturedate
             data_type: timestamp without time zone
 
           - name: destinationplannedoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionacceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptiondate
             data_type: timestamp without time zone
@@ -1329,52 +1329,52 @@ sources:
             data_type: jsonb
 
           - name: destinationreceptionidentificationtype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionquantity
             data_type: integer
 
           - name: destinationreceptionrefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionweight
             data_type: double precision
 
           - name: destinationtype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteragrementnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emittercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitteremissionsignaturedate
             data_type: timestamp without time zone
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -1384,7 +1384,7 @@ sources:
             data_type: jsonb
 
           - name: identificationtype
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: isdeleted
             data_type: boolean
@@ -1393,43 +1393,43 @@ sources:
             data_type: boolean
 
           - name: packaging
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: quantity
             data_type: integer
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportercustominfo
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterrecepissevaliditylimit
             data_type: timestamp without time zone
@@ -1438,7 +1438,7 @@ sources:
             data_type: jsonb
 
           - name: transportertransportsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transportertransportsignaturedate
             data_type: timestamp without time zone
@@ -1450,7 +1450,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: wastecode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: weightisestimate
             data_type: boolean
@@ -1476,7 +1476,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -1488,13 +1488,13 @@ sources:
             data_type: timestamp without time zone
 
           - name: email
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: firstassociationdate
             data_type: timestamp without time zone
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -1510,16 +1510,16 @@ sources:
             data_type: boolean
 
           - name: name
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: password
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: passwordversion
             data_type: integer
 
           - name: phone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
@@ -1542,37 +1542,37 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: address
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: allowbsdasritakeoverwithoutsignature
             data_type: boolean
 
           - name: brokerreceiptid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: codedepartement
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: codenaf
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: companytypes
             data_type: jsonb
 
           - name: contact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: contactemail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: contactphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -1581,13 +1581,13 @@ sources:
             data_type: jsonb
 
           - name: gerepid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: givenname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -1600,55 +1600,55 @@ sources:
             data_type: double precision
 
           - name: name
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: orgid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: securitycode
             data_type: integer
 
           - name: siret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: traderreceiptid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: transporterreceiptid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
 
           - name: vatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: verificationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: verificationcomment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: verificationmode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: verificationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: verifiedat
             data_type: timestamp without time zone
 
           - name: vhuagrementbroyeurid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: vhuagrementdemolisseurid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: website
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: workercertificationid
-            data_type: character varying
+            data_type: VARCHAR
       - name: company_association_raw
         identifier: companyassociation
         description: >
@@ -1667,26 +1667,26 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: companyid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: role
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: userid
-            data_type: character varying
+            data_type: VARCHAR
 
       - name: eco_organisme_raw
         identifier: ecoorganisme
@@ -1706,29 +1706,29 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: address
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: handlebsdasri
             data_type: boolean
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: name
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: siret
-            data_type: character varying
+            data_type: VARCHAR
       - name: bsff_packaging_raw
         identifier: bsffpackaging
         description: >
@@ -1747,7 +1747,7 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
@@ -1756,95 +1756,95 @@ sources:
             data_type: timestamp without time zone
 
           - name: acceptationrefusalreason
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: acceptationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: acceptationsignaturedate
             data_type: timestamp without time zone
 
           - name: acceptationstatus
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: acceptationwastecode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: acceptationwastedescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: acceptationweight
             data_type: double precision
 
           - name: bsffid
-            data_type: character varying
+            data_type: VARCHAR
             description: ID du BSFF auquel le contenant est associé
             tests:
               - not_null
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: nextpackagingid
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: numero
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationdate
             data_type: timestamp without time zone
 
           - name: operationdescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationcompanyvatnumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnextdestinationplannedoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationnotraceability
             data_type: boolean
 
           - name: operationsignatureauthor
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: operationsignaturedate
             data_type: timestamp without time zone
 
           - name: other
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: type
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: volume
             data_type: double precision
@@ -1870,23 +1870,23 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: department
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: receiptnumber
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro du récépissé
             tests:
               - not_null
@@ -1911,23 +1911,23 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: department
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: receiptnumber
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro du récépissé
             tests:
               - not_null
@@ -1952,23 +1952,23 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: department
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: receiptnumber
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro du récépissé
             tests:
               - not_null
@@ -1994,22 +1994,22 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: agrementnumber
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro de l'agrément
             tests:
               - not_null
 
           - name: department
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -2032,85 +2032,85 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: authoringcompanyid
-            data_type: character varying
+            data_type: VARCHAR
             description: ID de l'établissement qui a fait le demande de révision
             tests:
               - not_null
 
           - name: brokercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissedepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissenumber
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerrecepissevaliditylimit
             data_type: timestamp without time zone
 
           - name: bsdaid
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro du BSDA associé à la demande
             tests:
               - not_null
 
           - name: comment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: destinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationoperationdescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: destinationreceptionweight
             data_type: double precision
 
           - name: emitterpickupsiteaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitecity
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsiteinfos
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitename
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: emitterpickupsitepostalcode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
@@ -2120,16 +2120,16 @@ sources:
             data_type: jsonb
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: updatedat
             data_type: timestamp without time zone
 
           - name: wastecode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastematerialname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastepop
             data_type: boolean
@@ -2154,110 +2154,110 @@ sources:
             data_type: timestamp without time zone
 
           - name: _sdc_deleted_at
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: authoringcompanyid
-            data_type: character varying
+            data_type: VARCHAR
             description: ID de l'établissement qui a fait le demande de révision
             tests:
               - not_null
 
           - name: brokercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerdepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokerreceipt
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: brokervaliditylimit
             data_type: timestamp without time zone
 
           - name: bsddid
-            data_type: character varying
+            data_type: VARCHAR
             description: Numéro du BSDD associé à la demande
             tests:
               - not_null
 
           - name: comment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: _sdc_extracted_at
             data_type: timestamp without time zone
 
           - name: id
-            data_type: character varying
+            data_type: VARCHAR
             description: Clé primaire
             tests:
               - unique
               - not_null
 
           - name: processingoperationdescription
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: processingoperationdone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: quantityreceived
             data_type: double precision
 
           - name: recipientcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: status
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: temporarystoragedestinationcap
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: temporarystoragedestinationprocessingoperation
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: temporarystoragetemporarystorerquantityreceived
             data_type: double precision
 
           - name: tradercompanyaddress
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanycontact
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanymail
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanyname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanyphone
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradercompanysiret
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: traderdepartment
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: traderreceipt
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: tradervaliditylimit
             data_type: timestamp without time zone
@@ -2266,10 +2266,10 @@ sources:
             data_type: timestamp without time zone
 
           - name: wastedetailscode
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailsname
-            data_type: character varying
+            data_type: VARCHAR
 
           - name: wastedetailspackaginginfos
             data_type: jsonb
