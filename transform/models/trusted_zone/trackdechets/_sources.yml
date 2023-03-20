@@ -25,6 +25,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
+                - freshness
           - elementary.schema_changes_from_baseline
           - elementary.schema_changes
         columns:
@@ -1511,12 +1512,6 @@ sources:
 
           - name: name
             data_type: character varying
-
-          - name: password
-            data_type: character varying
-
-          - name: passwordversion
-            data_type: integer
 
           - name: phone
             data_type: character varying
