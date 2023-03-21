@@ -26,7 +26,6 @@ sources:
               table_anomalies:
                 - row_count
                 - freshness
-          - elementary.schema_changes_from_baseline
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -404,7 +403,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -744,7 +743,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         description: >
           Une ligne par BSDASRI, les BSDASRI supprimés restent dans la table.
@@ -1021,7 +1020,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1245,7 +1244,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1470,7 +1469,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1530,7 +1529,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1655,7 +1654,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1694,7 +1693,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1735,7 +1734,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1858,7 +1857,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1899,7 +1898,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1940,7 +1939,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -1982,7 +1981,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -2020,7 +2019,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at
@@ -2142,7 +2141,7 @@ sources:
           - elementary.table_anomalies:
               table_anomalies:
                 - row_count
-          - elementary.schema_changes_from_baseline
+                - freshness
           - elementary.schema_changes
         columns:
           - name: _sdc_batched_at

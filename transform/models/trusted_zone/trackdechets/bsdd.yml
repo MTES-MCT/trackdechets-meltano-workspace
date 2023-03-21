@@ -7,7 +7,7 @@ models:
       Une ligne par BSDD, les BSDD supprimés restent dans la table.
     config:
       elementary:
-        timestamp_column: "created_at"
+        timestamp_column: "_sdc_extracted_at"
     tests:
       - elementary.table_anomalies:
           table_anomalies:
@@ -36,6 +36,8 @@ models:
           Il est possible de l'utiliser pour récupérer l'identifiant unique du bordereau via la query form, utilisé pour le reste des opérations. 
           Cet identifiant possède le format BSDD-yyyyMMdd-XXXXXXXX où yyyyMMdd est la date du jour et XXXXXXXXX une chaîne de 9 caractères alphanumériques. 
           Ex: BSD-20210101-HY87F54D1
+        tests:
+          - elementary.average_length
       - name: created_at
         data_type: timestamp without time zone
         description: |
