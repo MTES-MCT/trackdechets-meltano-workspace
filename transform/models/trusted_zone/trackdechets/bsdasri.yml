@@ -12,7 +12,6 @@ models:
       - elementary.dimension_anomalies:
           dimensions:
             - status
-      - elementary.schema_changes_from_baseline
       - elementary.schema_changes
     columns:
       - name: id
