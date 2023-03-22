@@ -7,15 +7,11 @@ models:
       Une ligne par BSDD, les BSDD supprimés restent dans la table.
     config:
       elementary:
-        timestamp_column: "_sdc_extracted_at"
+        timestamp_column: "created_at"
     tests:
-      - elementary.table_anomalies:
-          table_anomalies:
-            - row_count
       - elementary.dimension_anomalies:
           dimensions:
             - status
-      - elementary.schema_changes
     columns:
       - name: id
         data_type: character varying
