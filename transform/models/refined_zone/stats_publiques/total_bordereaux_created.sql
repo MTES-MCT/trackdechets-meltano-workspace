@@ -3,7 +3,7 @@ select
     _bs_type,
     count(id)
 from
-    refined_zone_enriched.bordereaux_enriched be
+    {{ ref('bordereaux_enriched') }}
 where
     (waste_code ~* '.*\*$'
     or coalesce (waste_pop, false)
