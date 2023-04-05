@@ -13,3 +13,6 @@ models:
   - name: bsdd_received_by_week
     config:
       materialized: table
+  - name: bsdd_processed_by_week
+    config:
+      materialized: table

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: bsff_created_by_week
+    config:
+      materialized: table
+  - name: bsff_emitted_by_week
+    config:
+      materialized: table
+  - name: bsff_sent_by_week
+    config:
+      materialized: table
+  - name: bsff_received_by_week
+    config:
+      materialized: table
+  - name: bsff_packagings_processed_by_week
+    config:
+      materialized: table

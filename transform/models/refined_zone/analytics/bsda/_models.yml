@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: bsda_created_by_week
+    config:
+      materialized: table
+  - name: bsda_emitted_by_week
+    config:
+      materialized: table
+  - name: bsda_sent_by_week
+    config:
+      materialized: table
+  - name: bsda_received_by_week
+    config:
+      materialized: table
+  - name: bsda_processed_by_week
+    config:
+      materialized: table

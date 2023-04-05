@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: total_bordereaux_created
+    config:
+      materialized: table
