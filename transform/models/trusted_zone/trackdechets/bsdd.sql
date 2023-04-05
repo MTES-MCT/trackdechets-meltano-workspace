@@ -73,7 +73,6 @@ SELECT
     recipientcompanymail               AS "recipient_company_mail",
     recipientcompanyphone              AS "recipient_company_phone",
     recipientistempstorage             AS "recipient_is_temp_storage",
-    recipientprocessingoperation       AS "recipient_processing_operation",
     recipientcap                       AS "recipient_cap",
     receivedat                         AS "received_at",
     receivedby                         AS "received_by",
@@ -81,7 +80,6 @@ SELECT
     processedby                        AS "processed_by",
     quantityreceived                   AS "quantity_received",
     quantityreceivedtype               AS "quantity_received_type",
-    processingoperationdone            AS "processing_operation_done",
     processingoperationdescription     AS "processing_operation_description",
     notraceability                     AS "no_traceability",
     isaccepted                         AS "is_accepted",
@@ -115,6 +113,12 @@ SELECT
     ecoorganismesiret                  AS "eco_organisme_siret",
     ecoorganismename                   AS "eco_organisme_name",
     isimportedfrompaper                AS "is_imported_from_paper",
-    forwardedinid                      AS "forwarded_in_id"
+    forwardedinid                      AS "forwarded_in_id",
+    replace(
+        recipientprocessingoperation, ' ', ''
+    )                                  AS "recipient_processing_operation",
+    replace(
+        processingoperationdone, ' ', ''
+    )                                  AS "processing_operation_done"
 FROM
     {{ source("raw_zone_trackdechets", "bsdd_raw") }}

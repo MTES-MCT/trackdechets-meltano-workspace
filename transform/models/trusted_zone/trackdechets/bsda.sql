@@ -77,17 +77,15 @@ SELECT
     destinationreceptiondate                                AS "destination_reception_date",
     destinationcap                                          AS "destination_cap",
     destinationreceptionacceptationstatus                   AS "destination_reception_acceptation_status",
-    destinationplannedoperationcode                         AS "destination_planned_operation_code",
     destinationoperationdate                                AS "destination_operation_date",
-    destinationoperationcode                                AS "destination_operation_code",
     destinationoperationdescription                         AS "destination_operation_description",
     destinationoperationsignatureauthor                     AS "destination_operation_signature_author",
     destinationoperationsignaturedate                       AS "destination_operation_signature_date",
     destinationreceptionrefusalreason                       AS "destination_reception_refusal_reason",
     ecoorganismesiret                                       AS "eco_organisme_siret",
-    -- Passage en tonnes
     ecoorganismename                                        AS "eco_organisme_name",
     destinationoperationnextdestinationcompanysiret         AS "destination_operation_next_destination_company_siret",
+    -- Passage en tonnes
     destinationoperationnextdestinationcompanyname          AS "destination_operation_next_destination_company_name",
     destinationoperationnextdestinationcompanyaddress       AS "destination_operation_next_destination_company_address",
     destinationoperationnextdestinationcompanycontact       AS "destination_operation_next_destination_company_contact",
@@ -107,6 +105,12 @@ SELECT
     brokerrecepissevaliditylimit                            AS "broker_recepisse_validity_limit",
     forwardingid                                            AS "forwarding_id",
     groupedinid                                             AS "grouped_in_id",
+    replace(
+        destinationplannedoperationcode, ' ', ''
+    )                                                       AS "destination_planned_operation_code",
+    replace(
+        destinationoperationcode, ' ', ''
+    )                                                       AS "destination_operation_code",
     weightvalue / 1000                                      AS "weight_value",
     destinationreceptionweight
     / 1000                                                  AS "destination_reception_weight"

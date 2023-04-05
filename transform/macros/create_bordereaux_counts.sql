@@ -6,12 +6,12 @@
 
     {% set non_final_processing_operation_codes %}
     (
-        'D 9',
-        'D 13',
-        'D 14',
-        'D 15',
-        'R 12',
-        'R 13'
+        'D9',
+        'D13',
+        'D14',
+        'D15',
+        'R12',
+        'R13'
     )
     {% endset %}
 
@@ -42,7 +42,7 @@
     WITH bordereaux AS (
         SELECT
             id,
-            regexp_replace({{ processing_operation_column_name }},'([RD])([0-9]{1,2})', '\1 \2') as "processing_operation_code",
+            {{ processing_operation_column_name }} as "processing_operation_code",
             {{ date_column_name }}
         FROM
             {{ ref(model_name) }}

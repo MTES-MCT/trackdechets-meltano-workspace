@@ -37,15 +37,10 @@ bsdd_data as (
     where
         b.processing_operation_done not in (
             'D13',
-            'D 13',
             'D14',
-            'D 14',
             'D15',
-            'D 15',
             'R12',
-            'R 12',
-            'R13',
-            'R 13'
+            'R13'
         )
     group by
         siret
@@ -65,7 +60,7 @@ bsda_data as (
     from
         {{ ref('bsda') }}
     where
-        bsda.destination_operation_code in ('D5', 'D 5', 'R 5', 'R5')
+        bsda.destination_operation_code in ('D5', 'R5')
     group by
         siret
     order by

@@ -53,11 +53,9 @@ SELECT
     destinationreceptionidentificationtype              AS "destination_reception_identification_type",
     destinationreceptionacceptationstatus               AS "destination_reception_acceptation_status",
     destinationreceptionrefusalreason                   AS "destination_reception_refusal_reason",
-    destinationoperationcode                            AS "destination_operation_code",
     destinationoperationdate                            AS "destination_operation_date",
     destinationoperationsignaturedate                   AS "destination_operation_signature_date",
     destinationoperationsignatureauthor                 AS "destination_operation_signature_author",
-    destinationplannedoperationcode                     AS "destination_planned_operation_code",
     destinationtype                                     AS "destination_type",
     destinationoperationnextdestinationcompanysiret     AS "destination_operation_next_destination_company_siret",
     destinationoperationnextdestinationcompanyname      AS "destination_operation_next_destination_company_name",
@@ -68,6 +66,12 @@ SELECT
     destinationoperationnextdestinationcompanyvatnumber AS "destination_operation_next_destination_company_vat_number",
     identificationnumbers                               AS "identification_numbers",
     identificationtype                                  AS "identification_type",
+    replace(
+        destinationplannedoperationcode, ' ', ''
+    )                                                   AS "destination_planned_operation_code",
+    replace(
+        destinationoperationcode, ' ', ''
+    )                                                   AS "destination_operation_code",
     weightvalue / 1000                                  AS "weight_value",
     destinationreceptionweight
     / 1000                                              AS "destination_reception_weight"
