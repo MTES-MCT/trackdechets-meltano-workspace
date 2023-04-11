@@ -1,6 +1,54 @@
 version: 2
 
 models:
-  - name: total_bordereaux_created
+  - name: annual_quantity_processed_by_bordereaux_type
+    description: >
+      Quantité de déchets dangereux traités (code opération finale) par an et par type de bordereaux.
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
+    config:
+      materialized: table
+  - name: number_of_bordereaux_created_by_year_and_type
+    description: >
+      Nombre de bordereaux créés par an et par type de bordereaux. 
+      Seuls les bordereaux relatifs à des déchets dangereux sont comptabilisés.
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
+    config:
+      materialized: table
+  - name: companies_created_by_week
+    description: >
+      Nombre d'établissements créés par semaine.
+    config:
+      materialized: table
+  - name: users_created_by_week
+    description: >
+      Nombre d'utilisateurs créés par semaine.
+    config:
+      materialized: table
+  - name: annual_quantity_processed_by_processing_operation
+    description: >
+      Quantité de déchets dangereux traitée (en tonnes) par code année et code opération de traitement.
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
+    config:
+      materialized: table
+  - name: annual_quantity_processed_by_processing_type
+    description: >
+      Quantité de déchets dangereux traitée (en tonnes) par année et type d'opération de traitement (déchets valorisés ou éliminés).
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
     config:
       materialized: table

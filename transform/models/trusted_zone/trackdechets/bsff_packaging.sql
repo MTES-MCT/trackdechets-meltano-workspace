@@ -9,7 +9,6 @@ SELECT
     "acceptationsignaturedate"                     AS acceptation_signature_date,
     "acceptationsignatureauthor"                   AS acceptation_signature_author,
     "acceptationrefusalreason"                     AS acceptationrefusalreason,
-    "acceptationweight"                            AS acceptation_weight,
     "acceptationwastecode"                         AS acceptation_waste_code,
     "acceptationwastedescription"                  AS acceptation_waste_description,
     "operationdate"                                AS operation_date,
@@ -29,6 +28,7 @@ SELECT
     "operationnextdestinationcap"                  AS operation_next_destination_cap,
     "nextpackagingid"                              AS next_packaging_id,
     other,
+    "acceptationweight" / 1000                     AS acceptation_weight,
     weight / 1000                                  AS "weight"
 FROM
     {{ source('raw_zone_trackdechets', 'bsff_packaging_raw') }}

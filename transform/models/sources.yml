@@ -17,6 +17,24 @@ sources:
             description: Code postal de la commune
             tests:
               - not_null
+  - name: raw_zone
+    description: Tables qui ne correspondent à aucune catégorie spécifique.
+    tables:
+      - name: codes_operations_traitements
+        description: >
+          Une ligne par code opération traitement (codes R et D) avec la description de l'opération associée.
+        columns:
+          - name: code
+            description: >
+              Code opération traitement.
+            tests:
+              - not_null
+              - unique
+          - name: description
+            description: Description de l'opération de traitement.
+            tests:
+              - not_null
+              - unique
 
   - name: raw_zone_gsheet
     description: Tables qui proviennent de Google Sheet.
@@ -61,7 +79,6 @@ sources:
               Code SIRET de l'établissement.
             tests:
               - not_null
-
 
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE

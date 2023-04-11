@@ -7,6 +7,10 @@ project_dir = transform
 profiles_dir = transform/profiles/postgres
 profile = meltano
 
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+
+
 [sqlfluff:layout:type:alias_expression]
 # We want non-default spacing _before_ the alias expressions.
 spacing_before = align
