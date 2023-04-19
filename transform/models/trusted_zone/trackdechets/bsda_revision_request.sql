@@ -6,6 +6,7 @@ SELECT
     authoringcompanyid              AS authoring_company_id,
     "comment"                       AS "comment",
     "status"                        AS "status",
+    iscanceled                      AS is_canceled,
     wastecode                       AS waste_code,
     wastepop                        AS waste_pop,
     packagings                      AS packagings,

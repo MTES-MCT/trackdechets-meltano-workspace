@@ -51,6 +51,13 @@
         {% endif %}
     {% endset %}
     
+    {% set draft_filter %}
+        {% if model_name == "bsdd" %}
+            status != 'DRAFT'
+        {% else %}
+            not is_draft
+        {% endif %}
+    {% endset %}
     
     WITH bordereaux AS (
         SELECT
@@ -69,7 +76,7 @@
             AND (
                 {{ waste_filter }}
             )
-            AND status != 'DRAFT'
+            AND ({{ draft_filter }})
             AND is_deleted is false
             {% endif %}
     )
