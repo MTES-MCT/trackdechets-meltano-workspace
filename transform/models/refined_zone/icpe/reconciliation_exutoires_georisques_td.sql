@@ -80,13 +80,16 @@ bsff_data as (
         max(bsff.destination_company_name)                  as company_name,
         array_agg(distinct bsff.destination_operation_code) as code_operation,
         count(
-            id
+            distinct bsff.id
         )                                                   as nombre_bordereaux,
-        sum(destination_reception_weight)                   as quantite
+        sum(pack.volume)                                    as packaging_volume,
+        sum(pack.weight)                                    as packaging_weight,
+        sum(pack.acceptation_weight)                        as packaging_acceptation_weight
     from
         {{ ref('bsff') }} bsff
+        inner join {{ ref('bsff_packaging') }} pack on bsff.id = pack.bsff_id 
     where
-        bsff.destination_operation_code in ('R1', 'R2', 'R3', 'R5', 'D10' )
+        pack.operation_code in ('R1', 'R2', 'R3', 'R5', 'D10' )
     group by
         siret
     order by
@@ -123,7 +126,9 @@ select
     max(bsda_data.quantite)            as "tonnage_bsda",
     max(bsda_data.code_operation)      as "operations_effectues_bsda",
     max(bsff_data.nombre_bordereaux)   as "num_bsff",
-    max(bsff_data.quantite)            as "tonnage_bsff",
+    max(bsff_data.packaging_volume)              as "volume_contenant_bsff",
+    max(bsff_data.packaging_weight)              as "tonnage_contenant_bsff",
+    max(bsff_data.packaging_acceptation_weight)  as "tonnage_accepte_contenant_bsff",
     max(bsff_data.code_operation)      as "operations_effectues_bsff"
 from
     icpe_data
