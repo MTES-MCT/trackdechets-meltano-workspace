@@ -1,3 +1,11 @@
+{{
+  config(
+    materialized = 'table',
+    indexes = [{'columns': ['siret'] , 'unique': True },]
+    )
+}}
+
+
 with icpe_data as (
     select
         siret_clean                   as siret,
