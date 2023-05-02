@@ -73,25 +73,45 @@ bsda_data as (
         siret
     order by
         siret
+),
+bsff_data as (
+    select
+        bsff.destination_company_siret                      as siret,
+        max(bsff.destination_company_name)                  as company_name,
+        array_agg(distinct bsff.destination_operation_code) as code_operation,
+        count(
+            id
+        )                                                   as nombre_bordereaux,
+        sum(destination_reception_weight)                   as quantite
+    from
+        {{ ref('bsff') }} bsff
+    where
+        bsff.destination_operation_code in ('R1', 'R2', 'R3', 'R5', 'D10' )
+    group by
+        siret
+    order by
+        siret
 )
 
 select
     max(case
-        when trusted_zone_trackdechets.company.siret is not null then 1
+        when c.siret is not null then 1
         else 0
     end)::bool                         as "inscrit_sur_trackdechets",
     coalesce(
         icpe_data.siret,
         bsdd_data.siret,
         bsda_data.siret,
-        trusted_zone_trackdechets.company.siret
+        bsff_data.siret,
+        c.siret
     )                                  as siret,
     max(
         coalesce(
             icpe_data.nom_etablissement,
-            trusted_zone_trackdechets.company.name,
+            c.name,
             bsdd_data.company_name,
-            bsda_data.company_name
+            bsda_data.company_name,
+            bsff_data.company_name
         )
     )                                  as nom_etablissement,
     max(icpe_data.codes_s3ic)          as codes_s3ic,
@@ -101,7 +121,10 @@ select
     max(bsdd_data.code_operation)      as "operations_effectues_bsdd",
     max(bsda_data.nombre_bordereaux)   as "num_bsda",
     max(bsda_data.quantite)            as "tonnage_bsda",
-    max(bsda_data.code_operation)      as "operations_effectues_bsda"
+    max(bsda_data.code_operation)      as "operations_effectues_bsda",
+    max(bsff_data.nombre_bordereaux)   as "num_bsff",
+    max(bsff_data.quantite)            as "tonnage_bsff",
+    max(bsff_data.code_operation)      as "operations_effectues_bsff"
 from
     icpe_data
 full outer join
@@ -110,14 +133,18 @@ full outer join
 full outer join
     bsda_data on
     bsdd_data.siret = bsda_data.siret
-left join trusted_zone_trackdechets.company
+full outer join
+    bsff_data on
+    bsff_data.siret = bsda_data.siret
+left join {{ ref('company') }} c
     on
         coalesce(icpe_data.siret, bsdd_data.siret, bsda_data.siret)
-        = trusted_zone_trackdechets.company.siret
+        = c.siret
 group by
     coalesce(
         icpe_data.siret,
         bsdd_data.siret,
         bsda_data.siret,
-        trusted_zone_trackdechets.company.siret
+        bsff_data.siret,
+        c.siret
     )
