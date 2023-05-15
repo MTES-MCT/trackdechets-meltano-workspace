@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: raw_zone_gerep
+    description: Données brutes fournies par GEREP.
+    tables:
+      - name: gerep_producteurs_2021
+        description: >
+          Tables qui contient les données GEREP des producteurs jusqu'en 2021. Une ligne par année et établissement.
+        quote: true
+        columns:
+          - name: Numero Siret
+            description: >
+              Numéro SIRET
+            tests:
+              - not_null
+          - name: Code établissement
+            description: >
+              Code S3ic pour joindre les données avec les données ICPE
+            tests:
+              - not_null
+      - name: gerep_traiteurs_2021
+        description: >
+          Tables qui contient les données GEREP des traiteurs jusqu'en 2021. Une ligne par année et établissement.
+        quote: true
+        columns:
+          - name: Numero Siret
+            description: >
+              Numéro SIRET
+            tests:
+              - not_null
+          - name: Code établissement
+            description: >
+              Code S3ic pour joindre les données avec les données ICPE
+            tests:
+              - not_null
