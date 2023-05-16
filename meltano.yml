@@ -130,9 +130,9 @@ plugins:
         run__trusted_zone_zammad:
           args: run --select @trusted_zone.zammad
           description: Run dbt 'trusted_zone.zammad' models
-        run__refined_zone_analytics:
-          args: run --select @refined_zone.analytics
-          description: Run dbt 'refined_zone.analytics' models
+        run__refined_zone:
+          args: run --select @refined_zone
+          description: Run dbt 'refined_zone' models
         test__trusted_zone_trackdechets:
           args: test --select @trusted_zone.trackdechets
           description: Run trusted_zone_trackdechets models
@@ -168,7 +168,7 @@ jobs:
   - name: transform--analytics
     tasks:
       - dbt-postgres:freshness
-      - dbt-postgres:run__refined_zone_analytics
+      - dbt-postgres:run__refined_zone
       - dbt-postgres:docs-generate
       - elementary:monitor-report
   - name: transform-icpe
