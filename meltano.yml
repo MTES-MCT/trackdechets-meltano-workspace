@@ -116,7 +116,7 @@ plugins:
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
-      pip_url: dbt-core~=1.4.5 dbt-postgres~=1.4.5 shandy-sqlfmt[jinjafmt]
+      pip_url: dbt-core~=1.5.0 dbt-postgres~=1.5.0 shandy-sqlfmt[jinjafmt] dbt-osmosis
       commands:
         run__trusted_zone_trackdechets:
           args: run --select @trusted_zone.trackdechets
@@ -150,11 +150,13 @@ plugins:
 
     - name: elementary
       variant: elementary
-      pip_url: elementary-data[postgres]==0.7.5 git+https://github.com/potloc/elementary-ext.git
+      pip_url: elementary-data[postgres]==0.7.10 git+https://github.com/potloc/elementary-ext.git
       config:
         profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
         project_dir: ${MELTANO_PROJECT_ROOT}/transform/
         file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
+      commands:
+        generate-report: report --env ${MELTANO_ENVIRONMENT}
 
 jobs:
   - name: elt--td-database

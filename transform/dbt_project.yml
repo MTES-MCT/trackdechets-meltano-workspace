@@ -73,3 +73,5 @@ models:
 
   elementary:
     +schema: "elementary"
+
+  +dbt-osmosis: "_{model}.yml"
