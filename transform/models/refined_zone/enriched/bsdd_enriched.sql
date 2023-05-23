@@ -1,5 +1,7 @@
 {{ config(
-    materialized = 'table',
+    materialized = 'incremental',
+    unique_key = 'id',
+    on_schema_change='append_new_columns',
     indexes = [ 
         {'columns': ['id'], 'unique': True },
         {'columns': ['created_at'] },
@@ -9,8 +11,7 @@
         { 'columns' :['recipient_company_siret'] },
         { 'columns' :['transporter_company_siret'] },
         { 'columns' :['waste_details_code'] }
-    ],
-    post_hook=after_commit('DROP TABLE IF EXISTS refined_zone_enriched.bsdd_enriched_temp')
+    ]
 ) }}
 
-{{ create_bordereaux_enriched_query('bsdd_enriched_temp',False,True) }}
+{{ create_bordereaux_enriched_query('bsdd',True) }}
