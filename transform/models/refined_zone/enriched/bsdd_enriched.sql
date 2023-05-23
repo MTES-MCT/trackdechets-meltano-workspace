@@ -3,6 +3,7 @@
     indexes = [ 
         {'columns': ['id'], 'unique': True },
         {'columns': ['created_at'] },
+        {'columns': ['updated_at'] },
         {'columns': ['processed_at'] },
         { 'columns': ['emitter_company_siret'] },
         { 'columns' :['recipient_company_siret'] },
