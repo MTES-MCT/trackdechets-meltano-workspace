@@ -196,6 +196,3 @@ schedules:
   - name: daily-elt-zammad
     interval: "@daily"
     job: elt--zammad
-  - name: daily--transform-analytics
-    interval: 0 5 * * *
-    job: transform--analytics
