@@ -1,5 +1,5 @@
 {{ config(
-  pre_hook = "{{ create_indexes_for_source(['createdat','emittercompanysiret','transportercompanysiret','destinationcompanysiret']) }}"
+  pre_hook = "{{ create_indexes_for_source(['createdat','updatedat','emittercompanysiret','transportercompanysiret','destinationcompanysiret']) }}"
 ) }}
 SELECT
     id                                     AS "id",
