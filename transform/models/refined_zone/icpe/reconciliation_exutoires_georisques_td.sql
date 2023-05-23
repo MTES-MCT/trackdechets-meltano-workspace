@@ -74,6 +74,7 @@ bsda_data as (
     order by
         siret
 ),
+
 bsff_data as (
     select
         bsff.destination_company_siret                      as siret,
@@ -84,12 +85,14 @@ bsff_data as (
         )                                                   as nombre_bordereaux,
         sum(pack.volume)                                    as packaging_volume,
         sum(pack.weight)                                    as packaging_weight,
-        sum(pack.acceptation_weight)                        as packaging_acceptation_weight
+        sum(
+            pack.acceptation_weight
+        )                                                   as packaging_acceptation_weight
     from
-        {{ ref('bsff') }} bsff
-        inner join {{ ref('bsff_packaging') }} pack on bsff.id = pack.bsff_id 
+        {{ ref('bsff') }} as bsff
+    inner join {{ ref('bsff_packaging') }} as pack on bsff.id = pack.bsff_id
     where
-        pack.operation_code in ('R1', 'R2', 'R3', 'R5', 'D10' )
+        pack.operation_code in ('R1', 'R2', 'R3', 'R5', 'D10')
     group by
         siret
     order by
@@ -126,22 +129,27 @@ select
     max(bsda_data.quantite)            as "tonnage_bsda",
     max(bsda_data.code_operation)      as "operations_effectues_bsda",
     max(bsff_data.nombre_bordereaux)   as "num_bsff",
-    max(bsff_data.packaging_volume)              as "volume_contenant_bsff",
-    max(bsff_data.packaging_weight)              as "tonnage_contenant_bsff",
-    max(bsff_data.packaging_acceptation_weight)  as "tonnage_accepte_contenant_bsff",
+    max(bsff_data.packaging_volume)    as "volume_contenant_bsff",
+    max(bsff_data.packaging_weight)    as "tonnage_contenant_bsff",
+    max(
+        bsff_data.packaging_acceptation_weight
+    )                                  as "tonnage_accepte_contenant_bsff",
     max(bsff_data.code_operation)      as "operations_effectues_bsff"
 from
     icpe_data
 full outer join
-    bsdd_data on
-    icpe_data.siret = bsdd_data.siret
+    bsdd_data
+    on
+        icpe_data.siret = bsdd_data.siret
 full outer join
-    bsda_data on
-    bsdd_data.siret = bsda_data.siret
+    bsda_data
+    on
+        bsdd_data.siret = bsda_data.siret
 full outer join
-    bsff_data on
-    bsff_data.siret = bsda_data.siret
-left join {{ ref('company') }} c
+    bsff_data
+    on
+        bsff_data.siret = bsda_data.siret
+left join {{ ref('company') }} as c
     on
         coalesce(icpe_data.siret, bsdd_data.siret, bsda_data.siret)
         = c.siret

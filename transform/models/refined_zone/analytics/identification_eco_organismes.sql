@@ -127,20 +127,25 @@ grouped as (
     from
         hardcoded_eo
     full outer join
-        companies_eo on
-        hardcoded_eo.siret = companies_eo.siret
+        companies_eo
+        on
+            hardcoded_eo.siret = companies_eo.siret
     full outer join
-        eo_agrees on
-        hardcoded_eo.siret = eo_agrees.siret
+        eo_agrees
+        on
+            hardcoded_eo.siret = eo_agrees.siret
     full outer join
-        bsdd_eo on
-        hardcoded_eo.siret = bsdd_eo.siret
+        bsdd_eo
+        on
+            hardcoded_eo.siret = bsdd_eo.siret
     full outer join
-        bsda_eo on
-        hardcoded_eo.siret = bsda_eo.siret
+        bsda_eo
+        on
+            hardcoded_eo.siret = bsda_eo.siret
     full outer join
-        bsdasri_eo on
-        hardcoded_eo.siret = bsdasri_eo.siret
+        bsdasri_eo
+        on
+            hardcoded_eo.siret = bsdasri_eo.siret
     group by
         coalesce(
             hardcoded_eo.siret,
@@ -165,11 +170,13 @@ admins as (
     from
         {{ ref('company') }} as c2
     left join
-        {{ ref('company_association') }} as ca2 on
-        c2.id = ca2.company_id
+        {{ ref('company_association') }} as ca2
+        on
+            c2.id = ca2.company_id
     left join
-        {{ ref('user') }} as u2 on
-        ca2.user_id = u2.id
+        {{ ref('user') }} as u2
+        on
+            ca2.user_id = u2.id
     where
         ca2."role" = 'ADMIN'
 )
@@ -181,7 +188,8 @@ select
 from
     grouped
 left join
-    admins on
-    grouped.siret = admins.siret
+    admins
+    on
+        grouped.siret = admins.siret
 where
     rn = 1

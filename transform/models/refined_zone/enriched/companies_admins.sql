@@ -50,10 +50,12 @@ select
 from
     {{ ref('company_association') }} as ca
 inner join
-    {{ ref('company_enriched') }} as ce on
-    ca.company_id = ce.id
+    {{ ref('company_enriched') }} as ce
+    on
+        ca.company_id = ce.id
 inner join
-    {{ ref('user') }} as u on
-    ca.user_id = u.id
+    {{ ref('user') }} as u
+    on
+        ca.user_id = u.id
 where
     "role" = 'ADMIN'

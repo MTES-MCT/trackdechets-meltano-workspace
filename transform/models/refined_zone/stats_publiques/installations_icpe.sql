@@ -12,8 +12,9 @@ select
 from
     {{ ref('installations_enriched') }} as ie
 left join
-    {{ ref('bordereaux_enriched') }} as be on
-    ie.siret = be.destination_company_siret
+    {{ ref('bordereaux_enriched') }} as be
+    on
+        ie.siret = be.destination_company_siret
 where
     rubriques_autorisees && array[
         '2790',
