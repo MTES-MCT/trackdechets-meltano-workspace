@@ -29,7 +29,7 @@ SELECT
     emittercustominfo                                       AS "emitter_custom_info",
     emitteremissionsignatureauthor                          AS "emitter_emission_signature_author",
     emitteremissionsignaturedate                            AS "emitter_emission_signature_date",
-    emitterisprivateindividual                              AS "emitter_isprivate_individual",
+    emitterisprivateindividual                              AS "emitter_is_private_individual",
     emitterpickupsitename                                   AS "emitter_pickup_site_name",
     emitterpickupsiteaddress                                AS "emitter_pickup_site_address",
     emitterpickupsitepostalcode                             AS "emitter_pickup_site_postal_code",
