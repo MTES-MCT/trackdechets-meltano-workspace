@@ -5,6 +5,4 @@
 .DS_Store
 .vscode/*
 logs/dbt.log
-transform/profiles/postgres/edr_target/dbt.log
-transform/profiles/postgres/edr_target/edr.log
-transform/profiles/postgres/edr_target/elementary_output.json
+transform/profiles/postgres/edr_target/*

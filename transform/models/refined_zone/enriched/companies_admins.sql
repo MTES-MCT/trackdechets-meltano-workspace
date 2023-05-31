@@ -19,6 +19,8 @@ select
     ce."name"                                    as "company_name",
     ce.code_naf                                  as "company_code_naf",
     ce.given_name                                as "company_given_name",
+    ce.contact_email                             as "company_contact_email",
+    ce.contact_phone                             as "company_contact_phone",
     ce.website                                   as "company_website",
     ce.company_types                             as "company_company_types",
     ce.address                                   as "company_address",
