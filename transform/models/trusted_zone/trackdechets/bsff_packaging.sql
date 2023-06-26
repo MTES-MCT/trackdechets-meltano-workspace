@@ -3,7 +3,7 @@ SELECT
     "bsffid"                                       AS bsff_id,
     numero,
     "type",
-    volume,
+    volume / 1000 as volume,
     "acceptationstatus"                            AS acceptation_status,
     "acceptationdate"                              AS acceptation_date,
     "acceptationsignaturedate"                     AS acceptation_signature_date,
