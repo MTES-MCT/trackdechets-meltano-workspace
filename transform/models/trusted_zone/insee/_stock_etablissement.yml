@@ -1,0 +1,101 @@
+version: 2
+models:
+  - name: stock_etablissement
+    columns:
+      - name: siren
+        description: ''
+      - name: nic
+        description: ''
+      - name: siret
+        description: 'Code région'
+      - name: statut_diffusion_etablissement
+        description: ''
+      - name: date_creation_etablissement
+        description: ''
+      - name: tranche_effectifs_etablissement
+        description: ''
+      - name: annee_effectifs_etablissement
+        description: ''
+      - name: activite_principale_registre_metiers_etablissement
+        description: ''
+      - name: date_dernier_traitement_etablissement
+        description: ''
+      - name: etablissement_siege
+        description: ''
+      - name: nombre_periodes_etablissement
+        description: ''
+      - name: complement_adresse_etablissement
+        description: ''
+      - name: numero_voie_etablissement
+        description: ''
+      - name: indice_repetition_etablissement
+        description: ''
+      - name: type_voie_etablissement
+        description: ''
+      - name: libelle_voie_etablissement
+        description: ''
+      - name: code_postal_etablissement
+        description: ''
+      - name: libelle_commune_etablissement
+        description: ''
+      - name: libelle_commune_etranger_etablissement
+        description: ''
+      - name: distribution_speciale_etablissement
+        description: ''
+      - name: code_commune_etablissement
+        description: ''
+      - name: code_cedex_etablissement
+        description: ''
+      - name: libelle_cedex_etablissement
+        description: ''
+      - name: code_pays_etranger_etablissement
+        description: ''
+      - name: libelle_pays_etranger_etablissement
+        description: ''
+      - name: complement_adresse_2_etablissement
+        description: ''
+      - name: numero_voie_2_etablissement
+        description: ''
+      - name: indice_repetition_2_etablissement
+        description: ''
+      - name: type_voie_2_etablissement
+        description: ''
+      - name: libelle_voie_2_etablissement
+        description: ''
+      - name: code_postal_2_etablissement
+        description: ''
+      - name: libelle_commune_2_etablissement
+        description: ''
+      - name: libelle_commune_etranger_2_etablissement
+        description: ''
+      - name: distribution_speciale_2_etablissement
+        description: ''
+      - name: code_commune_2_etablissement
+        description: ''
+      - name: code_cedex_2_etablissement
+        description: ''
+      - name: libelle_cedex_2_etablissement
+        description: ''
+      - name: code_pays_etranger_2_etablissement
+        description: ''
+      - name: libelle_pays_etranger_2_etablissement
+        description: ''
+      - name: date_debut
+        description: ''
+      - name: etat_administratif_etablissement
+        description: ''
+      - name: enseigne_1_etablissement
+        description: ''
+      - name: enseigne_2_etablissement
+        description: ''
+      - name: enseigne_3_etablissement
+        description: ''
+      - name: denomination_usuelle_etablissement
+        description: ''
+      - name: activite_principale_etablissement
+        description: ''
+      - name: nomenclature_activite_principale_etablissement
+        description: ''
+      - name: caractere_employeur_etablissement
+        description: ''
+sources: []

@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: gerep_producteurs_2021
+    columns:
+      - name: siret
+        description: ''
+      - name: code_etablissement
+        description: ''
+      - name: annee
+        description: ''
+      - name: nom_etablissement
+        description: ''
+      - name: adresse_site_exploitation
+        description: ''
+      - name: code_postal_etablissement
+        description: ''
+      - name: commune
+        description: ''
+      - name: code_commune_insee
+        description: ''
+      - name: code_ape
+        description: ''
+      - name: nom_contact
+        description: ''
+      - name: fonction_contact
+        description: ''
+      - name: tel_contact
+        description: ''
+      - name: email_contact
+        description: ''
+      - name: code_dechet_produit
+        description: ''
+      - name: dechet_produit
+        description: ''
+      - name: quantite_produite
+        description: ''
+sources: []

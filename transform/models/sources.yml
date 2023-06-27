@@ -13,10 +13,18 @@ sources:
               Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
             tests:
               - not_null
+          - name: nom_commune
+            description: ''
           - name: code_postal
             description: Code postal de la commune
             tests:
               - not_null
+          - name: ligne_5
+            description: ''
+          - name: libellé_d_acheminement
+            description: ''
+          - name: coordonnees_gps
+            description: ''
       - name: codes_operations_traitements
         description: >
           Une ligne par code opération traitement (codes R et D) avec la description de l'opération associée.
@@ -40,12 +48,26 @@ sources:
         description: >
           Une ligne par collectivite a competence dechet.
         columns:
+          - name: dep_epci
+            description: ''
           - name: siren_epci
             description: >
               Code SIREN de la collectivite.
             tests:
               - not_null
               - unique
+          - name: nom_complet
+            description: ''
+          - name: nj_epci2023
+            description: ''
+          - name: fisc_epci2023
+            description: ''
+          - name: nb_com_2023
+            description: ''
+          - name: ptot_epci_2023
+            description: ''
+          - name: pmun_epci_2023
+            description: ''
       - name: collectivites
         identifier: coordonnees-epci-fp-2022-last
         description: >
@@ -77,20 +99,51 @@ sources:
             tests:
               - not_null
 
+          - name: raison_sociale
+            description: ''
+          - name: nom_eco_organisme
+            description: ''
+          - name: filiere_dsrep
+            description: ''
+          - name: produits_relevant_filiere_responsabilite_elargie
+            description: ''
+          - name: adresse
+            description: ''
+          - name: code_postal
+            description: ''
+          - name: ville
+            description: ''
   - name: raw_zone_insee
     description: Données issues de l'open data INSEE
     loader: airflow
     tables:
       - name: naf2008
         description: >
-          Une ligne par code sous-classe 
-          de la nomenclature des activités françaises édition 2008.
+          Une ligne par code sous-classe  de la nomenclature des activités françaises édition 2008.
         columns:
+          - name: code_section
+            description: ''
+          - name: libelle_section
+            description: ''
+          - name: code_division
+            description: ''
+          - name: libelle_division
+            description: ''
+          - name: code_groupe
+            description: ''
+          - name: libelle_groupe
+            description: ''
+          - name: code_classe
+            description: ''
+          - name: libelle_classe
+            description: ''
           - name: code_sous_classe
             description: Clé unique
             tests:
               - unique
               - not_null
+          - name: libelle_sous_classe
+            description: ''
       - name: arrondissement
         description: >
           Données géographiques INSEE des arrondissements français.
@@ -101,6 +154,20 @@ sources:
             tests:
               - unique
               - not_null
+          - name: dep
+            description: ''
+          - name: reg
+            description: ''
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
       - name: canton
         description: >
           Données géographiques INSEE des cantons français.
@@ -111,15 +178,55 @@ sources:
             tests:
               - unique
               - not_null
+          - name: id_departement
+            description: ''
+          - name: id_region
+            description: ''
+          - name: typct
+            description: ''
+          - name: burcentral
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+          - name: actual
+            description: ''
       - name: commune
         description: >
           Données géographiques INSEE des communes françaises.
           Une ligne par code commune.
         columns:
+          - name: typecom
+            description: ''
           - name: com
             description: Code commune
             tests:
               - not_null
+          - name: reg
+            description: ''
+          - name: dep
+            description: ''
+          - name: ctcd
+            description: ''
+          - name: arr
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+          - name: can
+            description: ''
+          - name: comparent
+            description: ''
       - name: departement
         description: >
           Données géographiques INSEE des département français.
@@ -130,10 +237,45 @@ sources:
             tests:
               - unique
               - not_null
+          - name: reg
+            description: ''
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
       - name: pays
         description: >
           Données géographiques INSEE des pays du monde.
           Une ligne par pays.
+        columns:
+          - name: cog
+            description: ''
+          - name: actual
+            description: ''
+          - name: capay
+            description: ''
+          - name: crpay
+            description: ''
+          - name: ani
+            description: ''
+          - name: libcog
+            description: ''
+          - name: libenr
+            description: ''
+          - name: ancnom
+            description: ''
+          - name: codeiso2
+            description: ''
+          - name: codeiso3
+            description: ''
+          - name: codenum3
+            description: ''
       - name: region
         description: >
           Données géographiques INSEE des régions françaises.
@@ -144,16 +286,120 @@ sources:
             tests:
               - unique
               - not_null
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
       - name: stock_etablissement
         description: >
           Données des établissements français.
           Une ligne par établissement.
         columns:
+          - name: siren
+            description: ''
+          - name: nic
+            description: ''
           - name: siret
             description: Code région
             tests:
               - unique
               - not_null
+          - name: statutDiffusionEtablissement
+            description: ''
+          - name: dateCreationEtablissement
+            description: ''
+          - name: trancheEffectifsEtablissement
+            description: ''
+          - name: anneeEffectifsEtablissement
+            description: ''
+          - name: activitePrincipaleRegistreMetiersEtablissement
+            description: ''
+          - name: dateDernierTraitementEtablissement
+            description: ''
+          - name: etablissementSiege
+            description: ''
+          - name: nombrePeriodesEtablissement
+            description: ''
+          - name: complementAdresseEtablissement
+            description: ''
+          - name: numeroVoieEtablissement
+            description: ''
+          - name: indiceRepetitionEtablissement
+            description: ''
+          - name: typeVoieEtablissement
+            description: ''
+          - name: libelleVoieEtablissement
+            description: ''
+          - name: codePostalEtablissement
+            description: ''
+          - name: libelleCommuneEtablissement
+            description: ''
+          - name: libelleCommuneEtrangerEtablissement
+            description: ''
+          - name: distributionSpecialeEtablissement
+            description: ''
+          - name: codeCommuneEtablissement
+            description: ''
+          - name: codeCedexEtablissement
+            description: ''
+          - name: libelleCedexEtablissement
+            description: ''
+          - name: codePaysEtrangerEtablissement
+            description: ''
+          - name: libellePaysEtrangerEtablissement
+            description: ''
+          - name: complementAdresse2Etablissement
+            description: ''
+          - name: numeroVoie2Etablissement
+            description: ''
+          - name: indiceRepetition2Etablissement
+            description: ''
+          - name: typeVoie2Etablissement
+            description: ''
+          - name: libelleVoie2Etablissement
+            description: ''
+          - name: codePostal2Etablissement
+            description: ''
+          - name: libelleCommune2Etablissement
+            description: ''
+          - name: libelleCommuneEtranger2Etablissement
+            description: ''
+          - name: distributionSpeciale2Etablissement
+            description: ''
+          - name: codeCommune2Etablissement
+            description: ''
+          - name: codeCedex2Etablissement
+            description: ''
+          - name: libelleCedex2Etablissement
+            description: ''
+          - name: codePaysEtranger2Etablissement
+            description: ''
+          - name: libellePaysEtranger2Etablissement
+            description: ''
+          - name: dateDebut
+            description: ''
+          - name: etatAdministratifEtablissement
+            description: ''
+          - name: enseigne1Etablissement
+            description: ''
+          - name: enseigne2Etablissement
+            description: ''
+          - name: enseigne3Etablissement
+            description: ''
+          - name: denominationUsuelleEtablissement
+            description: ''
+          - name: activitePrincipaleEtablissement
+            description: ''
+          - name: nomenclatureActivitePrincipaleEtablissement
+            description: ''
+          - name: caractereEmployeurEtablissement
+            description: ''
   - name: raw_zone_icpe
     description: Données issues de Géorisques
     loader: airflow
@@ -171,8 +417,7 @@ sources:
       - name: installations_classees
         identifier: ic_installation_classee
         description: >
-          Contient les autorisations pour chacune des installations classées 
-          avec l'id vers l'entrée associée dans la nomenclature
+          Contient les autorisations pour chacune des installations classées  avec l'id vers l'entrée associée dans la nomenclature
         columns:
           - name: codeS3ic
             quote: true
@@ -197,15 +442,107 @@ sources:
         description: >
           Données sur les tickets Zammad.
         columns:
+          - name: _sdc_batched_at
+            description: ''
+          - name: _sdc_deleted_at
+            description: ''
+          - name: _sdc_extracted_at
+            description: ''
+          - name: article_count
+            description: ''
+          - name: article_ids
+            description: ''
+          - name: close_at
+            description: ''
+          - name: close_diff_in_min
+            description: ''
+          - name: close_escalation_at
+            description: ''
+          - name: close_in_min
+            description: ''
+          - name: create_article_sender_id
+            description: ''
+          - name: create_article_type_id
+            description: ''
+          - name: created_at
+            description: ''
+          - name: created_by_id
+            description: ''
+          - name: customer_id
+            description: ''
+          - name: escalation_at
+            description: ''
+          - name: first_response_at
+            description: ''
+          - name: first_response_diff_in_min
+            description: ''
+          - name: first_response_escalation_at
+            description: ''
+          - name: first_response_in_min
+            description: ''
+          - name: group_id
+            description: ''
           - name: id
             description: identifiant unique du ticket
             tests:
               - not_null
               - unique
+          - name: last_close_at
+            description: ''
+          - name: last_contact_agent_at
+            description: ''
+          - name: last_contact_at
+            description: ''
+          - name: last_contact_customer_at
+            description: ''
+          - name: last_owner_update_at
+            description: ''
+          - name: note
+            description: ''
+          - name: number
+            description: ''
+          - name: organization_id
+            description: ''
+          - name: owner_id
+            description: ''
+          - name: pending_time
+            description: ''
+          - name: preferences
+            description: ''
+          - name: priority_id
+            description: ''
+          - name: state_id
+            description: ''
+          - name: ticket_time_accounting_ids
+            description: ''
+          - name: time_unit
+            description: ''
+          - name: title
+            description: ''
+          - name: type
+            description: ''
+          - name: update_diff_in_min
+            description: ''
+          - name: update_escalation_at
+            description: ''
+          - name: update_in_min
+            description: ''
+          - name: updated_at
+            description: ''
+          - name: updated_by_id
+            description: ''
       - name: tags
         description: >
           Contient la liste des tags pour chaque tickets. Une ligne par ticket ayant des tags.
         columns:
+          - name: _sdc_batched_at
+            description: ''
+          - name: _sdc_deleted_at
+            description: ''
+          - name: _sdc_extracted_at
+            description: ''
+          - name: tags
+            description: ''
           - name: ticket_id
             description: identifiant du ticket
             tests:
@@ -215,17 +552,135 @@ sources:
           Données des utilisateurs Zammad. Un utilisateur peut être aussi bien un utilisateur interne (membre de l'équipe)
           qu'un utilisateur externe (utilisateur de Trackdéchets ayant créé un ticket support).
         columns:
+          - name: _sdc_batched_at
+            description: ''
+          - name: _sdc_deleted_at
+            description: ''
+          - name: _sdc_extracted_at
+            description: ''
+          - name: active
+            description: ''
+          - name: address
+            description: ''
+          - name: authorization_ids
+            description: ''
+          - name: city
+            description: ''
+          - name: country
+            description: ''
+          - name: created_at
+            description: ''
+          - name: created_by_id
+            description: ''
+          - name: department
+            description: ''
+          - name: email
+            description: ''
+          - name: fax
+            description: ''
+          - name: firstname
+            description: ''
+          - name: group_ids
+            description: ''
           - name: id
             description: identifiant unique de l'utilisateur
             tests:
               - unique
               - not_null
+          - name: image
+            description: ''
+          - name: image_source
+            description: ''
+          - name: karma_user_ids
+            description: ''
+          - name: last_login
+            description: ''
+          - name: lastname
+            description: ''
+          - name: login
+            description: ''
+          - name: login_failed
+            description: ''
+          - name: mobile
+            description: ''
+          - name: note
+            description: ''
+          - name: organization_id
+            description: ''
+          - name: organization_ids
+            description: ''
+          - name: out_of_office
+            description: ''
+          - name: out_of_office_end_at
+            description: ''
+          - name: out_of_office_replacement_id
+            description: ''
+          - name: out_of_office_start_at
+            description: ''
+          - name: phone
+            description: ''
+          - name: preferences
+            description: ''
+          - name: role_ids
+            description: ''
+          - name: source
+            description: ''
+          - name: street
+            description: ''
+          - name: updated_at
+            description: ''
+          - name: updated_by_id
+            description: ''
+          - name: verified
+            description: ''
+          - name: vip
+            description: ''
+          - name: web
+            description: ''
+          - name: zip
+            description: ''
       - name: groups
         description: >
           Données groupes Zammad.
         columns:
+          - name: _sdc_batched_at
+            description: ''
+          - name: _sdc_deleted_at
+            description: ''
+          - name: _sdc_extracted_at
+            description: ''
+          - name: active
+            description: ''
+          - name: assignment_timeout
+            description: ''
+          - name: created_at
+            description: ''
+          - name: created_by_id
+            description: ''
+          - name: email_address_id
+            description: ''
+          - name: follow_up_assignment
+            description: ''
+          - name: follow_up_possible
+            description: ''
           - name: id
             description: identifiant unique du groupe
             tests:
               - unique
               - not_null
+          - name: name
+            description: ''
+          - name: note
+            description: ''
+          - name: reopen_time_in_days
+            description: ''
+          - name: shared_drafts
+            description: ''
+          - name: signature_id
+            description: ''
+          - name: updated_at
+            description: ''
+          - name: updated_by_id
+            description: ''
+          - name: user_ids
+            description: ''

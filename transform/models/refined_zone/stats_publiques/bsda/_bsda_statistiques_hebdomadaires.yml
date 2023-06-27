@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: bsda_statistiques_hebdomadaires
+    columns:
+      - name: week
+        description: ''
+      - name: created
+        description: ''
+      - name: quantity_tracked
+        description: ''
+      - name: emissions
+        description: ''
+      - name: quantite_emise
+        description: ''
+      - name: envois
+        description: ''
+      - name: quantite_envoyee
+        description: ''
+      - name: received
+        description: ''
+      - name: quantity_received
+        description: ''
+      - name: processed
+        description: ''
+      - name: quantity_processed
+        description: ''
+      - name: processed_non_final_operation
+        description: ''
+      - name: processed_final_operation
+        description: ''
+      - name: quantity_processed_non_final_operation
+        description: ''
+      - name: quantity_processed_final_operation
+        description: ''
+sources: []

@@ -1,0 +1,83 @@
+version: 2
+models:
+  - name: bordereaux_enriched
+    columns:
+      - name: _bs_type
+        description: ''
+      - name: id
+        description: 'Identifiant unique du BSDD en base.'
+      - name: created_at
+        description: 'Date de création du BSDD.
+
+          '
+      - name: taken_over_at
+        description: 'Date à laquelle le transporteur a signé l''enlèvement initial.
+
+          '
+      - name: received_at
+        description: 'Date à laquelle le déchet a été reçu (case 10).
+
+          '
+      - name: processed_at
+        description: 'Date à laquelle le déchet a été traité.
+
+          '
+      - name: status
+        description: 'Statut du BSD (brouillon, envoyé, reçu, traité, etc)
+
+          '
+      - name: quantity_received
+        description: 'Quantité reçue sur l''installation de destination, en tonnes.
+
+          '
+      - name: processing_operation
+        description: ''
+      - name: waste_code
+        description: ''
+      - name: waste_pop
+        description: ''
+      - name: waste_is_dangerous
+        description: ''
+      - name: emitter_company_siret
+        description: 'SIRET de l''établissement émetteur du déchet.
+
+          '
+      - name: emitter_company_name
+        description: 'Nom de l''établissement émetteur du déchet.
+
+          '
+      - name: emitter_company_address
+        description: 'Adresse postale de l''établissement émetteur du déchet.
+
+          '
+      - name: emitter_commune
+        description: ''
+      - name: emitter_departement
+        description: ''
+      - name: emitter_region
+        description: ''
+      - name: emitter_naf
+        description: ''
+      - name: transporter_company_siret
+        description: 'SIRET de l''établissement collecteur - transporteur.
+
+          '
+      - name: transporter_company_name
+        description: 'Nom de l''établissement collecteur - transporteur.
+
+          '
+      - name: destination_company_siret
+        description: ''
+      - name: destination_company_name
+        description: ''
+      - name: destination_company_address
+        description: ''
+      - name: destination_commune
+        description: ''
+      - name: destination_departement
+        description: ''
+      - name: destination_region
+        description: ''
+      - name: destination_naf
+        description: ''
+sources: []

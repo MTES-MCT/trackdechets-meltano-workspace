@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: eco_organisme
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: siret
+        description: ''
+      - name: name
+        description: ''
+      - name: address
+        description: ''
+      - name: handle_bsdasri
+        description: ''
+sources: []

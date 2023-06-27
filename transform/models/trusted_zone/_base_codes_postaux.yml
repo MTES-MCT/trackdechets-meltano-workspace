@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: base_codes_postaux
+    columns:
+      - name: code_commune_insee
+        description: Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
+      - name: code_postal
+        description: "Code postal de la commune"
+      - name: nom_commune
+        description: ""
+      - name: ligne_5
+        description: ""
+      - name: libelle_acheminement
+        description: ""
+      - name: latitude
+        description: ""
+      - name: longitude
+        description: ""
+sources: []

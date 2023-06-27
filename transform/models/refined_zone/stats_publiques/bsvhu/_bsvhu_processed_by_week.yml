@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: bsvhu_processed_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: processed
+        description: ''
+      - name: quantity_processed
+        description: ''
+      - name: processed_non_final_operation
+        description: ''
+      - name: processed_final_operation
+        description: ''
+      - name: quantity_processed_non_final_operation
+        description: ''
+      - name: quantity_processed_final_operation
+        description: ''
+sources: []

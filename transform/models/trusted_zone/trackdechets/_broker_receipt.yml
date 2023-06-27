@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: broker_receipt
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: receipt_number
+        description: ''
+      - name: validity_limit
+        description: ''
+      - name: department
+        description: ''
+sources: []

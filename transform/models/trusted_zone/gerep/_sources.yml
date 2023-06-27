@@ -9,28 +9,84 @@ sources:
           Tables qui contient les données GEREP des producteurs jusqu'en 2021. Une ligne par année et établissement.
         quote: true
         columns:
-          - name: Numero Siret
-            description: >
-              Numéro SIRET
-            tests:
-              - not_null
+          - name: Annee
+            description: ''
           - name: Code établissement
             description: >
               Code S3ic pour joindre les données avec les données ICPE
             tests:
               - not_null
+          - name: Nom Etablissement
+            description: ''
+          - name: Adresse Site Exploitation
+            description: ''
+          - name: Code Postal Etablissement
+            description: ''
+          - name: Commune
+            description: ''
+          - name: Code Insee
+            description: ''
+          - name: Code APE
+            description: ''
+          - name: Numero Siret
+            description: >
+              Numéro SIRET
+            tests:
+              - not_null
+          - name: Nom Contact
+            description: ''
+          - name: Fonction Contact
+            description: ''
+          - name: Tel Contact
+            description: ''
+          - name: Mail Contact
+            description: ''
+          - name: Code déchet produit
+            description: ''
+          - name: Déchet produit
+            description: ''
+          - name: Quntité produite (t/an)
+            description: ''
       - name: gerep_traiteurs_2021
         description: >
           Tables qui contient les données GEREP des traiteurs jusqu'en 2021. Une ligne par année et établissement.
         quote: true
         columns:
-          - name: Numero Siret
-            description: >
-              Numéro SIRET
-            tests:
-              - not_null
+          - name: Annee
+            description: ''
           - name: Code établissement
             description: >
               Code S3ic pour joindre les données avec les données ICPE
             tests:
               - not_null
+          - name: Nom Etablissement
+            description: ''
+          - name: Adresse Site Exploitation
+            description: ''
+          - name: Code Postal Etablissement
+            description: ''
+          - name: Commune
+            description: ''
+          - name: Code Insee
+            description: ''
+          - name: Code APE
+            description: ''
+          - name: Numero Siret
+            description: >
+              Numéro SIRET
+            tests:
+              - not_null
+          - name: Nom Contact
+            description: ''
+          - name: Tel Contact
+            description: ''
+          - name: Fonction Contact
+            description: ''
+          - name: Mail Contact
+            description: ''
+          - name: Code déchet traité
+            description: ''
+          - name: Déchet traité
+            description: ''
+          - name: Quantité traitée (t/an)
+            description: ''

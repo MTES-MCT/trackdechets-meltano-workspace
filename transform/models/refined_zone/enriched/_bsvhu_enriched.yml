@@ -1,0 +1,161 @@
+version: 2
+models:
+  - name: bsvhu_enriched
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: is_deleted
+        description: ''
+      - name: is_draft
+        description: ''
+      - name: status
+        description: ''
+      - name: waste_code
+        description: ''
+      - name: quantity
+        description: ''
+      - name: weight_is_estimate
+        description: ''
+      - name: packaging
+        description: ''
+      - name: emitter_company_siret
+        description: ''
+      - name: emitter_company_name
+        description: ''
+      - name: emitter_company_address
+        description: ''
+      - name: emitter_company_contact
+        description: ''
+      - name: emitter_company_mail
+        description: ''
+      - name: emitter_company_phone
+        description: ''
+      - name: emitter_custom_info
+        description: ''
+      - name: emitter_agrement_number
+        description: ''
+      - name: emitter_emission_signature_date
+        description: ''
+      - name: emitter_emission_signature_author
+        description: ''
+      - name: transporter_company_siret
+        description: ''
+      - name: transporter_company_name
+        description: ''
+      - name: transporter_company_address
+        description: ''
+      - name: transporter_company_contact
+        description: ''
+      - name: transporter_company_mail
+        description: ''
+      - name: transporter_company_phone
+        description: ''
+      - name: transporter_custom_info
+        description: ''
+      - name: transporter_company_vat_number
+        description: ''
+      - name: transporter_recepisse_number
+        description: ''
+      - name: transporter_recepisse_department
+        description: ''
+      - name: transporter_recepisse_validity_limit
+        description: ''
+      - name: transporter_transport_plates
+        description: ''
+      - name: transporter_transport_taken_over_at
+        description: ''
+      - name: transporter_transport_signature_date
+        description: ''
+      - name: transporter_transport_signature_author
+        description: ''
+      - name: destination_company_siret
+        description: ''
+      - name: destination_company_name
+        description: ''
+      - name: destination_company_address
+        description: ''
+      - name: destination_company_contact
+        description: ''
+      - name: destination_company_mail
+        description: ''
+      - name: destination_company_phone
+        description: ''
+      - name: destination_custom_info
+        description: ''
+      - name: destination_agrement_number
+        description: ''
+      - name: destination_reception_date
+        description: ''
+      - name: destination_reception_quantity
+        description: ''
+      - name: destination_reception_identification_numbers
+        description: ''
+      - name: destination_reception_identification_type
+        description: ''
+      - name: destination_reception_acceptation_status
+        description: ''
+      - name: destination_reception_refusal_reason
+        description: ''
+      - name: destination_operation_date
+        description: ''
+      - name: destination_operation_signature_date
+        description: ''
+      - name: destination_operation_signature_author
+        description: ''
+      - name: destination_type
+        description: ''
+      - name: destination_operation_next_destination_company_siret
+        description: ''
+      - name: destination_operation_next_destination_company_name
+        description: ''
+      - name: destination_operation_next_destination_company_address
+        description: ''
+      - name: destination_operation_next_destination_company_contact
+        description: ''
+      - name: destination_operation_next_destination_company_mail
+        description: ''
+      - name: destination_operation_next_destination_company_phone
+        description: ''
+      - name: destination_operation_next_destination_company_vat_number
+        description: ''
+      - name: identification_numbers
+        description: ''
+      - name: identification_type
+        description: ''
+      - name: destination_planned_operation_code
+        description: ''
+      - name: destination_operation_code
+        description: ''
+      - name: weight_value
+        description: ''
+      - name: destination_reception_weight
+        description: ''
+      - name: emitter_commune
+        description: ''
+      - name: emitter_departement
+        description: ''
+      - name: emitter_region
+        description: ''
+      - name: emitter_latitude
+        description: ''
+      - name: emitter_longitude
+        description: ''
+      - name: emitter_naf
+        description: ''
+      - name: destination_commune
+        description: ''
+      - name: destination_departement
+        description: ''
+      - name: destination_region
+        description: ''
+      - name: destination_latitude
+        description: ''
+      - name: destination_longitude
+        description: ''
+      - name: destination_naf
+        description: ''
+sources: []

@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsda_created_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: created
+        description: ''
+      - name: quantity_tracked
+        description: ''
+sources: []

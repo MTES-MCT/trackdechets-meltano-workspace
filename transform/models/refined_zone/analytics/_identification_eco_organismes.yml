@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: identification_eco_organismes
+    columns:
+      - name: inscrit_sur_td
+        description: ''
+      - name: eco_organisme_agree
+        description: ''
+      - name: dans_table_eo
+        description: ''
+      - name: a_entré_un_agrément_eo
+        description: ''
+      - name: a_choisi_profil_eo
+        description: ''
+      - name: visé_dans_bsdd
+        description: ''
+      - name: visé_dans_bsda
+        description: ''
+      - name: visé_dans_bsdasri
+        description: ''
+      - name: siret
+        description: 'Code SIRET de l''établissement.
+
+          '
+      - name: nom
+        description: ''
+      - name: admin_name
+        description: ''
+      - name: admin_email
+        description: ''
+sources: []

@@ -1,0 +1,85 @@
+version: 2
+models:
+  - name: collectivites
+    columns:
+      - name: siren
+        description: ''
+      - name: region_siege
+        description: ''
+      - name: departement_siege
+        description: ''
+      - name: arrondissement_siege
+        description: ''
+      - name: commune_siege
+        description: ''
+      - name: nom_du_groupement
+        description: ''
+      - name: nature_juridique
+        description: ''
+      - name: syndicat_a_la_carte
+        description: ''
+      - name: groupement_interdépartemental
+        description: ''
+      - name: date_creation
+        description: ''
+      - name: date_effet
+        description: ''
+      - name: mode_repartition_siege
+        description: ''
+      - name: autre_mode_repartition_siege
+        description: ''
+      - name: nombre_membres
+        description: ''
+      - name: population
+        description: ''
+      - name: nombre_competences_exercees
+        description: ''
+      - name: mode_financement
+        description: ''
+      - name: dgf_bonifiee
+        description: ''
+      - name: dsc
+        description: ''
+      - name: reom
+        description: ''
+      - name: autre_redevance
+        description: ''
+      - name: teom
+        description: ''
+      - name: autre_taxe
+        description: ''
+      - name: civilite_president
+        description: ''
+      - name: prenom_president
+        description: ''
+      - name: nom_president
+        description: ''
+      - name: adresse_siege_1
+        description: ''
+      - name: adresse_siege_2
+        description: ''
+      - name: adresse_siege_3
+        description: ''
+      - name: code_postal_ville_siege
+        description: ''
+      - name: telephone_siege
+        description: ''
+      - name: fax_siege
+        description: ''
+      - name: courriel_siege
+        description: ''
+      - name: site_internet
+        description: ''
+      - name: adresse_annexe_1
+        description: ''
+      - name: adresse_annexe_2
+        description: ''
+      - name: adresse_annexe_3
+        description: ''
+      - name: code_postal_ville_annexe
+        description: ''
+      - name: telephone_annexe
+        description: ''
+      - name: faxe_annexe
+        description: ''
+sources: []

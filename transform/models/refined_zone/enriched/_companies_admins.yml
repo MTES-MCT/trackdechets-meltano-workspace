@@ -1,0 +1,105 @@
+version: 2
+models:
+  - name: companies_admins
+    columns:
+      - name: association_id
+        description: ''
+      - name: user_role
+        description: ''
+      - name: user_id
+        description: ''
+      - name: user_email
+        description: ''
+      - name: user_name
+        description: ''
+      - name: user_phone
+        description: ''
+      - name: user_created_at
+        description: ''
+      - name: user_updated_at
+        description: ''
+      - name: user_is_active
+        description: ''
+      - name: user_activated_at
+        description: ''
+      - name: user_first_association_date
+        description: ''
+      - name: user_is_admin
+        description: ''
+      - name: user_is_registre_national
+        description: ''
+      - name: company_id
+        description: ''
+      - name: company_siret
+        description: ''
+      - name: company_created_at
+        description: ''
+      - name: company_updated_at
+        description: ''
+      - name: company_name
+        description: ''
+      - name: company_code_naf
+        description: ''
+      - name: company_given_name
+        description: ''
+      - name: company_contact_email
+        description: ''
+      - name: company_contact_phone
+        description: ''
+      - name: company_website
+        description: ''
+      - name: company_company_types
+        description: ''
+      - name: company_address
+        description: ''
+      - name: company_latitude
+        description: ''
+      - name: company_longitude
+        description: ''
+      - name: company_broker_receipt_id
+        description: ''
+      - name: company_verification_code
+        description: ''
+      - name: company_verification_status
+        description: ''
+      - name: company_verification_mode
+        description: ''
+      - name: company_verification_comment
+        description: ''
+      - name: company_verified_at
+        description: ''
+      - name: company_allow_bsdasri_take_over_without_signature
+        description: ''
+      - name: company_vat_number
+        description: ''
+      - name: company_code_departement
+        description: ''
+      - name: company_code_section
+        description: ''
+      - name: company_libelle_section
+        description: ''
+      - name: company_code_division
+        description: ''
+      - name: company_libelle_division
+        description: ''
+      - name: company_code_groupe
+        description: ''
+      - name: company_libelle_groupe
+        description: ''
+      - name: company_code_classe
+        description: ''
+      - name: company_libelle_classe
+        description: ''
+      - name: company_code_sous_classe
+        description: ''
+      - name: company_libelle_sous_classe
+        description: ''
+      - name: company_etat_administratif_etablissement
+        description: ''
+      - name: company_code_commune_insee
+        description: ''
+      - name: company_code_departement_insee
+        description: ''
+      - name: company_code_region_insee
+        description: ''
+sources: []

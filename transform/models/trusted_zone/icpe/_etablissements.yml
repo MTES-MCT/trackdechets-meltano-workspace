@@ -1,0 +1,57 @@
+version: 2
+models:
+  - name: etablissements
+    columns:
+      - name: code_s3ic
+        description: ''
+      - name: siret
+        description: ''
+      - name: x
+        description: ''
+      - name: y
+        description: ''
+      - name: region
+        description: ''
+      - name: nom_etablissement
+        description: ''
+      - name: code_commune_etablissement
+        description: ''
+      - name: code_postal
+        description: ''
+      - name: etat_activite
+        description: ''
+      - name: code_ape
+        description: ''
+      - name: nom_commune
+        description: ''
+      - name: seveso
+        description: ''
+      - name: regime
+        description: ''
+      - name: priorite_nationale
+        description: ''
+      - name: ippc
+        description: ''
+      - name: declaration_annuelle
+        description: ''
+      - name: familleic
+        description: ''
+      - name: base_id_service
+        description: ''
+      - name: nature_id_service
+        description: ''
+      - name: adresse_1
+        description: ''
+      - name: adresse_2
+        description: ''
+      - name: date_inspection
+        description: ''
+      - name: indication_ssp
+        description: ''
+      - name: rayon
+        description: ''
+      - name: precision_positionnement
+        description: ''
+      - name: inserted_at
+        description: ''
+sources: []

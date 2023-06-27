@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: annual_quantity_processed_by_bordereaux_type
+    description: >
+      Quantité de déchets dangereux traités (code opération finale) par an et par type de bordereaux.
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
+    config:
+      materialized: table
+    columns:
+      - name: _bs_type
+        description: ''
+      - name: year_of_processing
+        description: ''
+      - name: quantity_processed
+        description: ''
+sources: []

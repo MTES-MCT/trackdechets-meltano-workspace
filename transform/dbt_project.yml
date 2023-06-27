@@ -28,6 +28,7 @@ vars:
   re_data:save_test_history: true
 models:
   trackdechets_data_platform:
+    +dbt-osmosis: "_{model}.yml"
     refined_zone:
       analytics:
         +materialized: view
@@ -73,5 +74,3 @@ models:
 
   elementary:
     +schema: "elementary"
-
-  +dbt-osmosis: "_{model}.yml"

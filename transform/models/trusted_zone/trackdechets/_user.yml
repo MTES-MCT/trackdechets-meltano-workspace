@@ -1,0 +1,27 @@
+version: 2
+models:
+  - name: user
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: email
+        description: ''
+      - name: name
+        description: ''
+      - name: phone
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: is_active
+        description: ''
+      - name: activated_at
+        description: ''
+      - name: first_association_date
+        description: ''
+      - name: is_admin
+        description: ''
+      - name: is_registre_national
+        description: ''
+sources: []

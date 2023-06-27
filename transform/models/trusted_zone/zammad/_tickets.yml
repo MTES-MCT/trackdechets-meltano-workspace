@@ -1,0 +1,83 @@
+version: 2
+models:
+  - name: tickets
+    columns:
+      - name: id
+        description: 'identifiant unique du ticket'
+      - name: number
+        description: ''
+      - name: created_at
+        description: ''
+      - name: created_by_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: updated_by_id
+        description: ''
+      - name: title
+        description: ''
+      - name: article_count
+        description: ''
+      - name: article_ids
+        description: ''
+      - name: close_at
+        description: ''
+      - name: close_diff_in_min
+        description: ''
+      - name: close_escalation_at
+        description: ''
+      - name: close_in_min
+        description: ''
+      - name: create_article_sender_id
+        description: ''
+      - name: create_article_type_id
+        description: ''
+      - name: customer_id
+        description: ''
+      - name: escalation_at
+        description: ''
+      - name: first_response_at
+        description: ''
+      - name: first_response_diff_in_min
+        description: ''
+      - name: first_response_escalation_at
+        description: ''
+      - name: first_response_in_min
+        description: ''
+      - name: group_id
+        description: ''
+      - name: last_close_at
+        description: ''
+      - name: last_contact_agent_at
+        description: ''
+      - name: last_contact_at
+        description: ''
+      - name: last_contact_customer_at
+        description: ''
+      - name: last_owner_update_at
+        description: ''
+      - name: note
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: owner_id
+        description: ''
+      - name: pending_time
+        description: ''
+      - name: priority_id
+        description: ''
+      - name: state_id
+        description: ''
+      - name: ticket_time_accounting_ids
+        description: ''
+      - name: time_unit
+        description: ''
+      - name: type
+        description: ''
+      - name: update_diff_in_min
+        description: ''
+      - name: update_escalation_at
+        description: ''
+      - name: update_in_min
+        description: ''
+sources: []

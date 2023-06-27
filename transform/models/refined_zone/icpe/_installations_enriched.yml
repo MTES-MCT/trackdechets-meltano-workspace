@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: installations_enriched
+    columns:
+      - name: siret
+        description: ''
+      - name: nom_etablissement
+        description: ''
+      - name: code_commune_etablissement
+        description: ''
+      - name: codes_installations
+        description: ''
+      - name: rubriques_autorisees
+        description: ''
+      - name: latitude_etablissement
+        description: ''
+      - name: longitude_etablissement
+        description: ''
+sources: []

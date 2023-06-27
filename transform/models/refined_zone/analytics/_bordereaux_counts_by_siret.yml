@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: bordereaux_counts_by_siret
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: num_bsdd_emitter
+        description: ''
+      - name: num_bsda_emitter
+        description: ''
+      - name: num_bsff_emitter
+        description: ''
+      - name: num_bsdasri_emitter
+        description: ''
+      - name: num_bsvhu_emitter
+        description: ''
+      - name: num_bsdd_destination
+        description: ''
+      - name: num_bsda_destination
+        description: ''
+      - name: num_bsff_destination
+        description: ''
+      - name: num_bsdasri_destination
+        description: ''
+      - name: num_bsvhu_destination
+        description: ''
+      - name: total_bordereaux
+        description: ''
+sources: []

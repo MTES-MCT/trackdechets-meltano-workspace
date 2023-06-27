@@ -1,5 +1,4 @@
 version: 2
-
 models:
   - name: bsdd
     description: >
@@ -49,27 +48,7 @@ models:
           Statut du BSD (brouillon, envoyé, reçu, traité, etc)
         tests:
           - accepted_values:
-              values:
-                [
-                  "SIGNED_BY_PRODUCER",
-                  "REFUSED",
-                  "GROUPED",
-                  "RECEIVED",
-                  "FOLLOWED_WITH_PNTTD",
-                  "TEMP_STORED",
-                  "PROCESSED",
-                  "RESEALED",
-                  "DRAFT",
-                  "SIGNED_BY_TEMP_STORER",
-                  "ACCEPTED",
-                  "TEMP_STORER_ACCEPTED",
-                  "AWAITING_GROUP",
-                  "SEALED",
-                  "NO_TRACEABILITY",
-                  "SENT",
-                  "RESENT",
-                  "CANCELED",
-                ]
+              values: ["SIGNED_BY_PRODUCER", "REFUSED", "GROUPED", "RECEIVED", "FOLLOWED_WITH_PNTTD", "TEMP_STORED", "PROCESSED", "RESEALED", "DRAFT", "SIGNED_BY_TEMP_STORER", "ACCEPTED", "TEMP_STORER_ACCEPTED", "AWAITING_GROUP", "SEALED", "NO_TRACEABILITY", "SENT", "RESENT", "CANCELED"]
       - name: is_deleted
         data_type: boolean
         description: |
@@ -142,13 +121,11 @@ models:
       - name: waste_details_land_identifiers
         data_type: jsonb
         description: >
-          Identifiant(s) du ou des terrains lorsque les terres ont été extraites 
-          d'un terrain placé en secteur d'information sur les sols au titre de l'article L. 125-6.
+          Identifiant(s) du ou des terrains lorsque les terres ont été extraites  d'un terrain placé en secteur d'information sur les sols au titre de l'article L. 125-6.
       - name: waste_details_parcel_numbers
         data_type: jsonb
         description: >
-          Identifiants des parcelles cadastrales concernées, ou, en cas de domaine non cadastré, 
-          l'identification précise des lieux géographiques de production.
+          Identifiants des parcelles cadastrales concernées, ou, en cas de domaine non cadastré,  l'identification précise des lieux géographiques de production.
       - name: waste_acceptation_status
         data_type: character varying
         description: >
@@ -157,10 +134,6 @@ models:
         data_type: character varying
         description: >
           Raison du refus (case 10).
-      - name: emitter_type
-        data_type: character varying
-        description: >
-          Type d'émetteur.
       - name: emitter_company_siret
         data_type: character varying
         description: >
@@ -169,6 +142,10 @@ models:
         data_type: character varying
         description: >
           Nom de l'établissement émetteur du déchet.
+      - name: emitter_type
+        data_type: character varying
+        description: >
+          Type d'émetteur.
       - name: emitter_company_address
         data_type: character varying
         description: >
@@ -249,14 +226,15 @@ models:
         description: |
           Si oui ou non le BSD a été signé par un transporteur.
           **Deprecated: Ce champ est redondant avec status et takenOverAt**
-      - name: taken_over_at
+      - name: sent_at
         data_type: timestamp without time zone
-        description: >
-          Date à laquelle le transporteur a signé l'enlèvement initial.
-      - name: taken_over_by
+        description: |
+          Date de l'envoi du déchet par l'émetteur et de prise en charge du déchet par le transporteurs.
+          **Deprecated: Remplacé par takenOverAt**
+      - name: sent_by
         data_type: character varying
-        description: >
-          Nom de la personne qui a signé l'enlèvement initial pour le transporteur.
+        description: |
+          Nom de la personne responsable de l'envoi du déchet (case 9).
       - name: transporter_company_siret
         data_type: character varying
         description: >
@@ -317,19 +295,18 @@ models:
         data_type: character varying
         description: >
           SIRET du transporteur actuel.
-      - name: sent_at
-        data_type: timestamp without time zone
-        description: |
-          Date de l'envoi du déchet par l'émetteur et de prise en charge du déchet par le transporteurs.
-          **Deprecated: Remplacé par takenOverAt**
-      - name: sent_by
-        data_type: character varying
-        description: |
-          Nom de la personne responsable de l'envoi du déchet (case 9).
       - name: next_transporter_siret
         data_type: character varying
         description: |
           SIRET de l'établissement collecteur - transporteur suivant.
+      - name: taken_over_at
+        data_type: timestamp without time zone
+        description: >
+          Date à laquelle le transporteur a signé l'enlèvement initial.
+      - name: taken_over_by
+        data_type: character varying
+        description: >
+          Nom de la personne qui a signé l'enlèvement initial pour le transporteur.
       - name: recipient_company_siret
         data_type: character varying
         description: |
@@ -358,10 +335,6 @@ models:
         data_type: boolean
         description: |
           Indique si c'est un établissement d'entreposage temporaire ou de reconditionnement.
-      - name: recipient_processing_operation
-        data_type: character varying
-        description: |
-          Opération d'élimination / valorisation prévue (code D/R).
       - name: recipient_cap
         data_type: character varying
         description: |
@@ -393,14 +366,6 @@ models:
         tests:
           - accepted_values:
               values: ["REAL", "ESTIMATED"]
-      - name: quantity_grouped
-        data_type: double precision
-        description: |
-          Quantité déjà regroupé dans un ou plusieurs bordereaux de regroupement.
-      - name: processing_operation_done
-        data_type: character varying
-        description: |
-          Traitement réalisé (code D/R).
       - name: processing_operation_description
         data_type: character varying
         description: |
@@ -537,3 +502,12 @@ models:
         data_type: character varying
         description: |
           Identifiant du bordereau qui a ré-expédié celui-ci.
+      - name: recipient_processing_operation
+        data_type: character varying
+        description: |
+          Opération d'élimination / valorisation prévue (code D/R).
+      - name: processing_operation_done
+        data_type: character varying
+        description: |
+          Traitement réalisé (code D/R).
+sources: []

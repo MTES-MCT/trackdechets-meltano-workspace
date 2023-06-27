@@ -1,0 +1,17 @@
+version: 2
+models:
+  - name: code_geo_regions
+    columns:
+      - name: code_region
+        description: ''
+      - name: code_commune_chef_lieu
+        description: ''
+      - name: type_nom_en_clair
+        description: ''
+      - name: nom_en_clair
+        description: ''
+      - name: nom_en_clair_enrichi
+        description: ''
+      - name: libelle
+        description: ''
+sources: []

@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: prop_dep_etabs_inscrits
+    columns:
+      - name: dep
+        description: ''
+      - name: prop_etab_inscrits_td_sur_sirene
+        description: ''
+sources: []

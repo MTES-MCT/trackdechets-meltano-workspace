@@ -1,0 +1,27 @@
+version: 2
+models:
+  - name: bsdd_statistiques_hebdomadaires
+    columns:
+      - name: week
+        description: ''
+      - name: creations
+        description: ''
+      - name: quantite_tracee
+        description: ''
+      - name: emissions
+        description: ''
+      - name: quantite_emise
+        description: ''
+      - name: envois
+        description: ''
+      - name: quantite_envoyee
+        description: ''
+      - name: receptions
+        description: ''
+      - name: quantite_recue
+        description: ''
+      - name: traitements
+        description: ''
+      - name: quantite_traitee
+        description: ''
+sources: []

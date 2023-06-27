@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: number_of_bordereaux_created_by_year_and_type
+    description: >
+      Nombre de bordereaux créés par an et par type de bordereaux.  Seuls les bordereaux relatifs à des déchets dangereux sont comptabilisés.
+      Déchet dangereux est défini par :
+        - code déchets dangereux ;
+        - P.O.P ;
+        - case "ce déchet est dangereux" cochée.
+      Les bordereaux brouillons ou supprimés ne sont pas comptabilisés.
+    config:
+      materialized: table
+    columns:
+      - name: _bs_type
+        description: ''
+      - name: year_of_creation
+        description: ''
+      - name: count
+        description: ''
+sources: []

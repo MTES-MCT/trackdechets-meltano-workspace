@@ -8,6 +8,9 @@ environments:
           - name: elementary
             config:
               project_dir: ${MELTANO_PROJECT_ROOT}/transform/
+          - name: dbt-osmosis
+            config:
+              adapter: postgres
   - name: prod
     config:
       plugins:
@@ -147,14 +150,18 @@ plugins:
 
     - name: elementary
       variant: elementary
-      pip_url: elementary-data[postgres]==0.7.10 git+https://github.com/potloc/elementary-ext.git
+      pip_url: elementary-data[postgres]==0.8.0 git+https://github.com/potloc/elementary-ext.git
       config:
         profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
         project_dir: ${MELTANO_PROJECT_ROOT}/transform/
         file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
-      commands:
-        generate-report: report --env ${MELTANO_ENVIRONMENT}
 
+    - name: dbt-osmosis
+      variant: z3z1ma
+      pip_url: dbt-osmosis dbt-postgres
+      namespace: dbt_postgres
+      config:
+        adapter: postgres
 jobs:
   - name: elt--td-database
     tasks:

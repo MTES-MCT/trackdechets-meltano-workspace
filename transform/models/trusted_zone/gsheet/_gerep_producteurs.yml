@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: gerep_producteurs
+    columns:
+      - name: annee
+        description: ''
+      - name: code_s3ic
+        description: ''
+      - name: numero_siret
+        description: ''
+      - name: nom_etablissement
+        description: ''
+      - name: code_dechet_produit
+        description: ''
+      - name: dechet_produit
+        description: ''
+      - name: adresse_site_exploitation
+        description: ''
+      - name: code_postal_etablissement
+        description: ''
+      - name: commune
+        description: ''
+      - name: code_commune_insee
+        description: ''
+      - name: code_ape
+        description: ''
+      - name: nom_contact
+        description: ''
+      - name: tel_contact
+        description: ''
+      - name: fonction_contact
+        description: ''
+      - name: mail_contact
+        description: ''
+sources: []

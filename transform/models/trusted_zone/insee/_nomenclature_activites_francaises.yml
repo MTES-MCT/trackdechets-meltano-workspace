@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: nomenclature_activites_francaises
+    columns:
+      - name: code_section
+        description: ''
+      - name: libelle_section
+        description: ''
+      - name: code_division
+        description: ''
+      - name: libelle_division
+        description: ''
+      - name: code_groupe
+        description: ''
+      - name: libelle_groupe
+        description: ''
+      - name: code_classe
+        description: ''
+      - name: libelle_classe
+        description: ''
+      - name: code_sous_classe
+        description: 'Clé unique'
+      - name: libelle_sous_classe
+        description: ''
+sources: []

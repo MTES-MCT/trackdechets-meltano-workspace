@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsdd_emitted_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: emissions
+        description: ''
+      - name: quantite_emise
+        description: ''
+sources: []

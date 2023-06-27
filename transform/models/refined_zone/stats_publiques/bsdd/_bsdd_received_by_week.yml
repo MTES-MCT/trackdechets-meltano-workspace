@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsdd_received_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: receptions
+        description: ''
+      - name: quantite_recue
+        description: ''
+sources: []

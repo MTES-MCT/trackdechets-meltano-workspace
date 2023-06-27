@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: bsff_packagings_processed_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: packagings_processed
+        description: ''
+      - name: packagings_quantity_processed
+        description: ''
+      - name: packagings_processed_non_final_operation
+        description: ''
+      - name: packagings_processed_final_operation
+        description: ''
+      - name: packagings_quantity_processed_non_final_operation
+        description: ''
+      - name: packagings_quantity_processed_final_operation
+        description: ''
+sources: []

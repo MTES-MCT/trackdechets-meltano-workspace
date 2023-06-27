@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: installations_icpe
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: nom_etablissement
+        description: ''
+      - name: code_commune_etablissement
+        description: ''
+      - name: codes_installations
+        description: ''
+      - name: rubriques_autorisees
+        description: ''
+      - name: latitude_etablissement
+        description: ''
+      - name: longitude_etablissement
+        description: ''
+      - name: waste_quantity_received
+        description: ''
+sources: []

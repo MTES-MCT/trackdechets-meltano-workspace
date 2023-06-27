@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: bsda
+  - name: bsdasri
     config:
       elementary:
         timestamp_column: "created_at"
@@ -16,6 +16,7 @@ models:
       - name: id
         data_type: character varying
 
+        description: Clé primaire
       - name: created_at
         data_type: timestamp without time zone
 
@@ -34,35 +35,14 @@ models:
       - name: is_draft
         data_type: boolean
 
-      - name: waste_code
-        data_type: character varying
-
-      - name: waste_family_code
-        data_type: character varying
-
-      - name: waste_pop
-        data_type: boolean
-
-      - name: waste_consistence
-        data_type: character varying
-
-      - name: waste_material_name
-        data_type: character varying
-
       - name: waste_adr
         data_type: character varying
 
-      - name: waste_seal_numbers
-        data_type: jsonb
-
-      - name: weight_is_estimate
-        data_type: boolean
-
-      - name: packagings
-        data_type: jsonb
-
-      - name: repackaged_in_id
+      - name: waste_code
         data_type: character varying
+
+      - name: identification_numbers
+        data_type: jsonb
 
       - name: emitter_company_siret
         data_type: character varying
@@ -85,16 +65,7 @@ models:
       - name: emitter_custom_info
         data_type: character varying
 
-      - name: emitter_emission_signature_author
-        data_type: character varying
-
-      - name: emitter_emission_signature_date
-        data_type: timestamp without time zone
-
-      - name: emitter_isprivate_individual
-        data_type: boolean
-
-      - name: emitter_pickup_site_name
+      - name: emitter_pickup_sitename
         data_type: character varying
 
       - name: emitter_pickup_site_address
@@ -109,49 +80,31 @@ models:
       - name: emitter_pickup_site_infos
         data_type: character varying
 
-      - name: worker_company_siret
-        data_type: character varying
-
-      - name: worker_company_name
-        data_type: character varying
-
-      - name: worker_company_address
-        data_type: character varying
-
-      - name: worker_company_contact
-        data_type: character varying
-
-      - name: worker_company_phone
-        data_type: character varying
-
-      - name: worker_company_mail
-        data_type: character varying
-
-      - name: worker_certification_organisation
-        data_type: character varying
-
-      - name: worker_certification_certification_number
-        data_type: character varying
-
-      - name: worker_certification_has_subsection_three
-        data_type: boolean
-
-      - name: worker_certification_has_subsection_four
-        data_type: boolean
-
-      - name: worker_certificationvalidity_limit
+      - name: emitter_emission_signature_date
         data_type: timestamp without time zone
 
-      - name: worker_work_has_emitter_paper_signature
-        data_type: boolean
-
-      - name: worker_work_signature_author
+      - name: emitter_emission_signature_author
         data_type: character varying
 
-      - name: worker_work_signature_date
-        data_type: timestamp without time zone
+      - name: emitted_by_eco_organisme
+        data_type: boolean
 
-      - name: worker_is_disabled
+      - name: emitter_waste_weight_value
+        data_type: double precision
+
+      - name: emitter_waste_weight_is_estimate
+        data_type: boolean
+
+      - name: emitter_waste_packagings
+        data_type: jsonb
+
+      - name: emission_signatory_id
+        data_type: character varying
+
+      - name: is_emission_direct_taken_over
+        data_type: boolean
+
+      - name: is_emission_taken_over_with_secret_code
         data_type: boolean
 
       - name: transporter_company_siret
@@ -161,9 +114,6 @@ models:
         data_type: character varying
 
       - name: transporter_company_address
-        data_type: character varying
-
-      - name: transporter_recepisse_department
         data_type: character varying
 
       - name: transporter_company_contact
@@ -181,10 +131,13 @@ models:
       - name: transporter_custom_info
         data_type: character varying
 
-      - name: transporter_recepisse_is_exempted
-        data_type: boolean
+      - name: transport_signatory_id
+        data_type: character varying
 
       - name: transporter_recepisse_number
+        data_type: character varying
+
+      - name: transporter_recepisse_department
         data_type: character varying
 
       - name: transporter_recepisse_validity_limit
@@ -196,14 +149,29 @@ models:
       - name: transporter_transport_plates
         data_type: jsonb
 
-      - name: transporter_transport_signature_author
+      - name: transporter_acceptation_status
         data_type: character varying
+
+      - name: transporter_taken_over_at
+        data_type: timestamp without time zone
 
       - name: transporter_transport_signature_date
         data_type: timestamp without time zone
 
-      - name: transporter_transport_taken_over_at
-        data_type: timestamp without time zone
+      - name: transporter_transport_signature_author
+        data_type: character varying
+
+      - name: transporter_waste_weight_is_estimate
+        data_type: boolean
+
+      - name: transporter_waste_packagings
+        data_type: jsonb
+
+      - name: transporter_waste_refusal_reason
+        data_type: character varying
+
+      - name: transporter_waste_refused_weight_value
+        data_type: double precision
 
       - name: destination_company_siret
         data_type: character varying
@@ -229,13 +197,19 @@ models:
       - name: destination_reception_date
         data_type: timestamp without time zone
 
-      - name: destination_cap
+      - name: destination_reception_signature_date
+        data_type: timestamp without time zone
+
+      - name: destination_reception_signature_author
         data_type: character varying
 
-      - name: destination_reception_acceptation_status
+      - name: destination_waste_packagings
+        data_type: jsonb
+
+      - name: destination_reception_waste_refusal_reason
         data_type: character varying
 
-      - name: destination_planned_operation_code
+      - name: reception_signatory_id
         data_type: character varying
 
       - name: destination_operation_date
@@ -244,17 +218,20 @@ models:
       - name: destination_operation_code
         data_type: character varying
 
-      - name: destination_operation_description
-        data_type: character varying
+      - name: destination_operation_signature_date
+        data_type: timestamp without time zone
 
       - name: destination_operation_signature_author
         data_type: character varying
 
-      - name: destination_operation_signature_date
-        data_type: timestamp without time zone
-
-      - name: destination_reception_refusal_reason
+      - name: operation_signatory_id
         data_type: character varying
+
+      - name: destination_reception_acceptation_status
+        data_type: character varying
+
+      - name: handed_over_to_recipient_at
+        data_type: timestamp without time zone
 
       - name: eco_organisme_siret
         data_type: character varying
@@ -262,68 +239,27 @@ models:
       - name: eco_organisme_name
         data_type: character varying
 
-      - name: destination_operation_next_destination_company_siret
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_name
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_address
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_contact
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_mail
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_phone
-        data_type: character varying
-
-      - name: destination_operation_next_destination_company_vat_number
-        data_type: character varying
-
-      - name: destination_operation_next_destination_cap
-        data_type: character varying
-
-      - name: destination_operation_next_destination_planned_operation_code
-        data_type: character varying
-
-      - name: broker_company_address
-        data_type: character varying
-
-      - name: broker_company_contact
-        data_type: character varying
-
-      - name: broker_company_mail
-        data_type: character varying
-
-      - name: broker_company_name
-        data_type: character varying
-
-      - name: broker_company_phone
-        data_type: character varying
-
-      - name: broker_company_siret
-        data_type: character varying
-
-      - name: broker_recepisse_department
-        data_type: character varying
-
-      - name: broker_recepisse_number
-        data_type: character varying
-
-      - name: broker_recepisse_validity_limit
-        data_type: timestamp without time zone
-
-      - name: forwarding_id
-        data_type: character varying
-
       - name: grouped_in_id
         data_type: character varying
 
-      - name: weight_value
+      - name: synthesized_in_id
+        data_type: character varying
+
+      - name: emitter_waste_volume
         data_type: double precision
 
-      - name: destination_reception_weight
+      - name: transporter_waste_volume
         data_type: double precision
+
+      - name: destination_reception_waste_volume
+        data_type: double precision
+
+      - name: transporter_waste_weight_value
+        data_type: double precision
+
+      - name: destination_reception_waste_weight_value
+        data_type: double precision
+
+      - name: destination_reception_waste_refused_weight_value
+        data_type: double precision
+sources: []

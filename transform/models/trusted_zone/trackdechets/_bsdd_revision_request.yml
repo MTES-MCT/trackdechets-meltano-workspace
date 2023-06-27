@@ -1,0 +1,79 @@
+version: 2
+models:
+  - name: bsdd_revision_request
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: bsdd_id
+        description: ''
+      - name: authoring_company_id
+        description: ''
+      - name: comment
+        description: ''
+      - name: status
+        description: ''
+      - name: is_canceled
+        description: ''
+      - name: recipient_cap
+        description: ''
+      - name: waste_details_code
+        description: ''
+      - name: waste_details_pop
+        description: ''
+      - name: waste_details_name
+        description: ''
+      - name: waste_details_packaging_infos
+        description: ''
+      - name: quantity_received
+        description: ''
+      - name: processing_operation_done
+        description: ''
+      - name: processing_operation_description
+        description: ''
+      - name: broker_company_siret
+        description: ''
+      - name: broker_company_name
+        description: ''
+      - name: broker_company_address
+        description: ''
+      - name: broker_department
+        description: ''
+      - name: broker_company_contact
+        description: ''
+      - name: broker_company_mail
+        description: ''
+      - name: broker_company_phone
+        description: ''
+      - name: broker_receipt
+        description: ''
+      - name: broker_validity_limit
+        description: ''
+      - name: trader_company_siret
+        description: ''
+      - name: trader_company_name
+        description: ''
+      - name: trader_company_address
+        description: ''
+      - name: trader_department
+        description: ''
+      - name: trader_company_contact
+        description: ''
+      - name: trader_company_mail
+        description: ''
+      - name: trader_company_phone
+        description: ''
+      - name: trader_receipt
+        description: ''
+      - name: trader_validity_limit
+        description: ''
+      - name: temporary_storage_destination_processing_operation
+        description: ''
+      - name: temporary_storage_temporary_storer_quantity_received
+        description: ''
+      - name: temporary_storage_destination_cap
+        description: ''
+sources: []

@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsdasri_sent_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: envois
+        description: ''
+      - name: quantite_envoyee
+        description: ''
+sources: []

@@ -1,0 +1,41 @@
+version: 2
+models:
+  - name: stock_etablissement_enriched
+    columns:
+      - name: type_commune
+        description: ''
+      - name: code_region
+        description: ''
+      - name: code_departement
+        description: ''
+      - name: code_commune
+        description: ''
+      - name: code_canton
+        description: ''
+      - name: code_arrondissement
+        description: ''
+      - name: code_ctcd
+        description: ''
+      - name: type_nom_en_clair
+        description: ''
+      - name: nom_en_clair
+        description: ''
+      - name: nom_en_clair_enrichi
+        description: ''
+      - name: libelle
+        description: ''
+      - name: code_commune_parente
+        description: ''
+      - name: siret
+        description: 'Code région'
+      - name: activite_principale_etablissement
+        description: ''
+      - name: code_commune_insee
+        description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.
+
+          '
+      - name: latitude
+        description: ''
+      - name: longitude
+        description: ''
+sources: []

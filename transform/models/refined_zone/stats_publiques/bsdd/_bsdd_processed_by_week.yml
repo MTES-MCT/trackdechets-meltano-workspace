@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsdd_processed_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: traitements
+        description: ''
+      - name: quantite_traitee
+        description: ''
+sources: []

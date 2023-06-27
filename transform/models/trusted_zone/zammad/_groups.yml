@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: groups
+    columns:
+      - name: id
+        description: 'identifiant unique du groupe'
+      - name: name
+        description: ''
+      - name: created_at
+        description: ''
+      - name: created_by_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: updated_by_id
+        description: ''
+      - name: active
+        description: ''
+      - name: assignment_timeout
+        description: ''
+      - name: email_address_id
+        description: ''
+      - name: follow_up_assignment
+        description: ''
+      - name: follow_up_possible
+        description: ''
+      - name: note
+        description: ''
+      - name: reopen_time_in_days
+        description: ''
+      - name: shared_drafts
+        description: ''
+      - name: signature_id
+        description: ''
+      - name: user_ids
+        description: ''
+sources: []

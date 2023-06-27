@@ -1,0 +1,81 @@
+version: 2
+models:
+  - name: users
+    columns:
+      - name: id
+        description: 'identifiant unique de l''utilisateur'
+      - name: created_at
+        description: ''
+      - name: created_by_id
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: updated_by_id
+        description: ''
+      - name: active
+        description: ''
+      - name: verified
+        description: ''
+      - name: login
+        description: ''
+      - name: email
+        description: ''
+      - name: firstname
+        description: ''
+      - name: lastname
+        description: ''
+      - name: address
+        description: ''
+      - name: authorization_ids
+        description: ''
+      - name: city
+        description: ''
+      - name: country
+        description: ''
+      - name: department
+        description: ''
+      - name: fax
+        description: ''
+      - name: group_ids
+        description: ''
+      - name: image
+        description: ''
+      - name: image_source
+        description: ''
+      - name: karma_user_ids
+        description: ''
+      - name: last_login
+        description: ''
+      - name: login_failed
+        description: ''
+      - name: mobile
+        description: ''
+      - name: note
+        description: ''
+      - name: organization_id
+        description: ''
+      - name: organization_ids
+        description: ''
+      - name: out_of_office
+        description: ''
+      - name: out_of_office_end_at
+        description: ''
+      - name: out_of_office_replacement_id
+        description: ''
+      - name: out_of_office_start_at
+        description: ''
+      - name: phone
+        description: ''
+      - name: role_ids
+        description: ''
+      - name: source
+        description: ''
+      - name: street
+        description: ''
+      - name: vip
+        description: ''
+      - name: web
+        description: ''
+      - name: zip
+        description: ''
+sources: []

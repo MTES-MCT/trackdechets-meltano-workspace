@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: tags
+    columns:
+      - name: ticket_id
+        description: 'identifiant du ticket'
+      - name: tags
+        description: ''
+sources: []

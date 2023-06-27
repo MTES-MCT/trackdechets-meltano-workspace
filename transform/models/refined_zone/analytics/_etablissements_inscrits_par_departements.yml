@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: etablissements_inscrits_par_departements
+    columns:
+      - name: dep
+        description: ''
+      - name: num_etabs
+        description: ''
+sources: []

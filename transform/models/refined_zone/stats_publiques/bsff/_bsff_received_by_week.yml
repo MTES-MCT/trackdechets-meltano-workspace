@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: bsff_received_by_week
+    config:
+      materialized: table
+    columns:
+      - name: week
+        description: ''
+      - name: received
+        description: ''
+      - name: quantity_received
+        description: ''
+sources: []

@@ -1,0 +1,27 @@
+version: 2
+models:
+  - name: nomenclature
+    columns:
+      - name: id
+        description: 'id rubrique'
+      - name: rubrique
+        description: ''
+      - name: famille
+        description: ''
+      - name: s_famille
+        description: ''
+      - name: ss_famille
+        description: ''
+      - name: alinea
+        description: ''
+      - name: libelle_court_activite
+        description: ''
+      - name: id_regime
+        description: ''
+      - name: en_vigueur
+        description: ''
+      - name: ippc
+        description: ''
+      - name: inserted_at
+        description: ''
+sources: []

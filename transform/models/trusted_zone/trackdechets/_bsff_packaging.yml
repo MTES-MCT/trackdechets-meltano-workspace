@@ -1,0 +1,67 @@
+version: 2
+models:
+  - name: bsff_packaging
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: bsff_id
+        description: ''
+      - name: numero
+        description: ''
+      - name: type
+        description: ''
+      - name: volume
+        description: ''
+      - name: acceptation_status
+        description: ''
+      - name: acceptation_date
+        description: ''
+      - name: acceptation_signature_date
+        description: ''
+      - name: acceptation_signature_author
+        description: ''
+      - name: acceptationrefusalreason
+        description: ''
+      - name: acceptation_waste_code
+        description: ''
+      - name: acceptation_waste_description
+        description: ''
+      - name: operation_date
+        description: ''
+      - name: operation_signature_date
+        description: ''
+      - name: operation_signature_author
+        description: ''
+      - name: operation_code
+        description: ''
+      - name: operation_description
+        description: ''
+      - name: operation_no_traceability
+        description: ''
+      - name: operation_next_destination_company_siret
+        description: ''
+      - name: operation_next_destination_company_vat_number
+        description: ''
+      - name: operation_next_destination_company_name
+        description: ''
+      - name: operation_next_destination_company_address
+        description: ''
+      - name: operation_next_destination_company_contact
+        description: ''
+      - name: operation_next_destination_company_mail
+        description: ''
+      - name: operation_next_destination_company_phone
+        description: ''
+      - name: operation_next_destination_planned_operation_code
+        description: ''
+      - name: operation_next_destination_cap
+        description: ''
+      - name: next_packaging_id
+        description: ''
+      - name: other
+        description: ''
+      - name: acceptation_weight
+        description: ''
+      - name: weight
+        description: ''
+sources: []

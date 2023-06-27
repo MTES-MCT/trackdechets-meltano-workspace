@@ -1,0 +1,67 @@
+version: 2
+models:
+  - name: bsda_revision_request
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: bsda_id
+        description: ''
+      - name: authoring_company_id
+        description: ''
+      - name: comment
+        description: ''
+      - name: status
+        description: ''
+      - name: is_canceled
+        description: ''
+      - name: waste_code
+        description: ''
+      - name: waste_pop
+        description: ''
+      - name: packagings
+        description: ''
+      - name: waste_seal_numbers
+        description: ''
+      - name: waste_material_name
+        description: ''
+      - name: destination_cap
+        description: ''
+      - name: destination_reception_weight
+        description: ''
+      - name: destination_operation_code
+        description: ''
+      - name: destination_operation_description
+        description: ''
+      - name: broker_company_siret
+        description: ''
+      - name: broker_company_name
+        description: ''
+      - name: broker_company_address
+        description: ''
+      - name: broker_company_contact
+        description: ''
+      - name: broker_company_mail
+        description: ''
+      - name: broker_company_phone
+        description: ''
+      - name: broker_recepisse_number
+        description: ''
+      - name: broker_recepisse_validity_limit
+        description: ''
+      - name: broker_recepisse_department
+        description: ''
+      - name: emitter_pickup_sitename
+        description: ''
+      - name: emitter_pickup_site_address
+        description: ''
+      - name: emitter_pickup_site_city
+        description: ''
+      - name: emitter_pickup_site_postal_code
+        description: ''
+      - name: emitter_pickup_site_infos
+        description: ''
+sources: []

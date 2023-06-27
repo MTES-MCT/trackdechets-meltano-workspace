@@ -1,0 +1,69 @@
+version: 2
+models:
+  - name: company
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: siret
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: security_code
+        description: ''
+      - name: name
+        description: ''
+      - name: gerep_id
+        description: ''
+      - name: code_naf
+        description: ''
+      - name: given_name
+        description: ''
+      - name: contact_email
+        description: ''
+      - name: contact_phone
+        description: ''
+      - name: website
+        description: ''
+      - name: transporter_receipt_id
+        description: ''
+      - name: trader_receipt_id
+        description: ''
+      - name: eco_organisme_agreements
+        description: ''
+      - name: company_types
+        description: ''
+      - name: address
+        description: ''
+      - name: latitude
+        description: ''
+      - name: longitude
+        description: ''
+      - name: broker_receipt_id
+        description: ''
+      - name: verification_code
+        description: ''
+      - name: verification_status
+        description: ''
+      - name: verification_mode
+        description: ''
+      - name: verification_comment
+        description: ''
+      - name: verified_at
+        description: ''
+      - name: vhu_agrement_demolisseur_id
+        description: ''
+      - name: vhu_agrement_broyeur_id
+        description: ''
+      - name: allow_bsdasri_take_over_without_signature
+        description: ''
+      - name: vat_number
+        description: ''
+      - name: contact
+        description: ''
+      - name: code_departement
+        description: ''
+      - name: worker_certification_id
+        description: ''
+sources: []

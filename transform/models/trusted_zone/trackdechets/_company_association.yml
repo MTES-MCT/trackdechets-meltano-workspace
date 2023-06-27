@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: company_association
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: role
+        description: ''
+      - name: company_id
+        description: ''
+      - name: user_id
+        description: ''
+sources: []

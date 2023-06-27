@@ -1,0 +1,195 @@
+version: 2
+models:
+  - name: bsdasri_enriched
+    columns:
+      - name: id
+        description: 'Clé primaire'
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: status
+        description: ''
+      - name: type
+        description: ''
+      - name: is_deleted
+        description: ''
+      - name: is_draft
+        description: ''
+      - name: waste_adr
+        description: ''
+      - name: waste_code
+        description: ''
+      - name: identification_numbers
+        description: ''
+      - name: emitter_company_siret
+        description: ''
+      - name: emitter_company_name
+        description: ''
+      - name: emitter_company_address
+        description: ''
+      - name: emitter_company_contact
+        description: ''
+      - name: emitter_company_mail
+        description: ''
+      - name: emitter_company_phone
+        description: ''
+      - name: emitter_custom_info
+        description: ''
+      - name: emitter_pickup_sitename
+        description: ''
+      - name: emitter_pickup_site_address
+        description: ''
+      - name: emitter_pickup_site_postal_code
+        description: ''
+      - name: emitter_pickup_site_city
+        description: ''
+      - name: emitter_pickup_site_infos
+        description: ''
+      - name: emitter_emission_signature_date
+        description: ''
+      - name: emitter_emission_signature_author
+        description: ''
+      - name: emitted_by_eco_organisme
+        description: ''
+      - name: emitter_waste_volume
+        description: ''
+      - name: emitter_waste_weight_value
+        description: ''
+      - name: emitter_waste_weight_is_estimate
+        description: ''
+      - name: emitter_waste_packagings
+        description: ''
+      - name: emission_signatory_id
+        description: ''
+      - name: is_emission_direct_taken_over
+        description: ''
+      - name: is_emission_taken_over_with_secret_code
+        description: ''
+      - name: transporter_company_siret
+        description: ''
+      - name: transporter_company_name
+        description: ''
+      - name: transporter_company_address
+        description: ''
+      - name: transporter_company_contact
+        description: ''
+      - name: transporter_company_mail
+        description: ''
+      - name: transporter_company_phone
+        description: ''
+      - name: transporter_company_vat_number
+        description: ''
+      - name: transporter_custom_info
+        description: ''
+      - name: transport_signatory_id
+        description: ''
+      - name: transporter_recepisse_number
+        description: ''
+      - name: transporter_recepisse_department
+        description: ''
+      - name: transporter_recepisse_validity_limit
+        description: ''
+      - name: transporter_transport_mode
+        description: ''
+      - name: transporter_transport_plates
+        description: ''
+      - name: transporter_acceptation_status
+        description: ''
+      - name: transporter_taken_over_at
+        description: ''
+      - name: transporter_transport_signature_date
+        description: ''
+      - name: transporter_transport_signature_author
+        description: ''
+      - name: transporter_waste_volume
+        description: ''
+      - name: transporter_waste_weight_is_estimate
+        description: ''
+      - name: transporter_waste_packagings
+        description: ''
+      - name: transporter_waste_refusal_reason
+        description: ''
+      - name: transporter_waste_refused_weight_value
+        description: ''
+      - name: destination_company_siret
+        description: ''
+      - name: destination_company_name
+        description: ''
+      - name: destination_company_address
+        description: ''
+      - name: destination_company_contact
+        description: ''
+      - name: destination_company_mail
+        description: ''
+      - name: destination_company_phone
+        description: ''
+      - name: destination_custom_info
+        description: ''
+      - name: destination_reception_date
+        description: ''
+      - name: destination_reception_signature_date
+        description: ''
+      - name: destination_reception_signature_author
+        description: ''
+      - name: destination_waste_packagings
+        description: ''
+      - name: destination_reception_waste_volume
+        description: ''
+      - name: destination_reception_waste_refusal_reason
+        description: ''
+      - name: reception_signatory_id
+        description: ''
+      - name: destination_operation_date
+        description: ''
+      - name: destination_operation_code
+        description: ''
+      - name: destination_operation_signature_date
+        description: ''
+      - name: destination_operation_signature_author
+        description: ''
+      - name: operation_signatory_id
+        description: ''
+      - name: destination_reception_acceptation_status
+        description: ''
+      - name: handed_over_to_recipient_at
+        description: ''
+      - name: eco_organisme_siret
+        description: ''
+      - name: eco_organisme_name
+        description: ''
+      - name: grouped_in_id
+        description: ''
+      - name: synthesized_in_id
+        description: ''
+      - name: transporter_waste_weight_value
+        description: ''
+      - name: destination_reception_waste_weight_value
+        description: ''
+      - name: destination_reception_waste_refused_weight_value
+        description: ''
+      - name: emitter_commune
+        description: ''
+      - name: emitter_departement
+        description: ''
+      - name: emitter_region
+        description: ''
+      - name: emitter_latitude
+        description: ''
+      - name: emitter_longitude
+        description: ''
+      - name: emitter_naf
+        description: ''
+      - name: destination_commune
+        description: ''
+      - name: destination_departement
+        description: ''
+      - name: destination_region
+        description: ''
+      - name: destination_latitude
+        description: ''
+      - name: destination_longitude
+        description: ''
+      - name: destination_naf
+        description: ''
+sources: []

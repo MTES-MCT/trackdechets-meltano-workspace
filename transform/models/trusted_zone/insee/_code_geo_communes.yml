@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: code_geo_communes
+    columns:
+      - name: type_commune
+        description: ''
+      - name: code_region
+        description: ''
+      - name: code_departement
+        description: ''
+      - name: code_commune
+        description: ''
+      - name: code_canton
+        description: ''
+      - name: code_arrondissement
+        description: ''
+      - name: code_ctcd
+        description: ''
+      - name: type_nom_en_clair
+        description: ''
+      - name: nom_en_clair
+        description: ''
+      - name: nom_en_clair_enrichi
+        description: ''
+      - name: libelle
+        description: ''
+      - name: code_commune_parente
+        description: ''
+sources: []
