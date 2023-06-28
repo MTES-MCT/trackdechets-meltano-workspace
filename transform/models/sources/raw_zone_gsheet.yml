@@ -1,0 +1,75 @@
+version: 2
+models: []
+sources:
+  - name: raw_zone_gsheet
+    description: Tables qui proviennent de Google Sheet.
+    tables:
+      - name: collectivites_compentence_dechets
+        description: >
+          Une ligne par collectivite a competence dechet.
+        columns:
+          - name: dep_epci
+            description: "Code département INSEE"
+          - name: siren_epci
+            description: >
+              Code SIREN de la collectivite.
+            tests:
+              - not_null
+              - unique
+          - name: nom_complet
+            description: "Nom de la collcectivité"
+          - name: nj_epci2023
+            description: "Nature juridique de l'EPCI"
+          - name: fisc_epci2023
+            description: "Fiscalité de l'EPCI "
+          - name: nb_com_2023
+            description: "Nombre de commune de l'EPCI"
+          - name: ptot_epci_2023
+            description: "Population totale de l'EPCI"
+          - name: pmun_epci_2023
+            description: "Population municipale de l'EPCI"
+      - name: collectivites
+        identifier: coordonnees-epci-fp-2022-last
+        description: >
+          Une ligne par collectivite.
+        columns:
+          - name: SIREN
+            quote: true
+            description: >
+              Code SIREN de la collectivite.
+            tests:
+              - not_null
+              - unique
+      - name: gerep_traiteurs
+        identifier: gerep_2016_2017_traiteurs
+        description: >
+          Une ligne par annee, code dechet et etablissement traiteur.
+      - name: gerep_producteurs
+        identifier: gerep_2016_2017_producteurs
+        description: >
+          Une ligne par annee, code dechet et etablissement producteurs.
+
+      - name: eco_organismes_agrees_2022
+        description: >
+          Une ligne par eco-organisme agréé et par filière.
+        columns:
+          - name: siret
+            description: >
+              Code SIRET de l'établissement.
+            tests:
+              - not_null
+
+          - name: raison_sociale
+            description: ""
+          - name: nom_eco_organisme
+            description: ""
+          - name: filiere_dsrep
+            description: ""
+          - name: produits_relevant_filiere_responsabilite_elargie
+            description: ""
+          - name: adresse
+            description: ""
+          - name: code_postal
+            description: ""
+          - name: ville
+            description: ""

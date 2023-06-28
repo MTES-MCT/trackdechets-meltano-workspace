@@ -1,6 +1,6 @@
 select
-    DATE_TRUNC('week', created_at) as "week_of_creation",
-    COUNT(id)
+    DATE_TRUNC('week', created_at) as semaine,
+    COUNT(id) as creations
 from
     {{ ref('user') }}
 where

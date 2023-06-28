@@ -10,8 +10,8 @@ with quantities as (
 )
 
 select
-    year_of_processing,
-    operation_type,
-    sum(quantity_processed) as quantity_processed
+    year_of_processing as annee_traitement,
+    operation_type as type_operation,
+    sum(quantity_processed) as quantite_traitee
 from quantities
 group by year_of_processing, operation_type

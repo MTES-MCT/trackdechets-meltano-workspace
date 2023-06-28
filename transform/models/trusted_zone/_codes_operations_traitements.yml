@@ -3,9 +3,7 @@ models:
   - name: codes_operations_traitements
     columns:
       - name: code
-        description: 'Code opération traitement.
-
-          '
+        description: Code opération traitement.
       - name: description
-        description: 'Description de l''opération de traitement.'
+        description: Description de l'opération de traitement.
 sources: []

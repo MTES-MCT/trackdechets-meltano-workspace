@@ -1,5 +1,5 @@
 version: 2
-
+models: []
 sources:
   - name: raw_zone_trackdechets
     description: Replica de la base applicative Trackdéchets

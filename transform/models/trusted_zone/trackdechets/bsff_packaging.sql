@@ -3,7 +3,6 @@ SELECT
     "bsffid"                                       AS bsff_id,
     numero,
     "type",
-    volume / 1000 as volume,
     "acceptationstatus"                            AS acceptation_status,
     "acceptationdate"                              AS acceptation_date,
     "acceptationsignaturedate"                     AS acceptation_signature_date,
@@ -28,6 +27,7 @@ SELECT
     "operationnextdestinationcap"                  AS operation_next_destination_cap,
     "nextpackagingid"                              AS next_packaging_id,
     other,
+    volume / 1000                                  AS volume,
     "acceptationweight" / 1000                     AS acceptation_weight,
     weight / 1000                                  AS "weight"
 FROM

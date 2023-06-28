@@ -1,0 +1,37 @@
+version: 2
+models: []
+sources:
+  - name: raw_zone_icpe
+    description: Données issues de Géorisques
+    loader: airflow
+    tables:
+      - name: etablissements
+        identifier: ic_etablissement
+        description: >
+          Permet de faire le lien entre les codes S3ic et les siret
+        columns:
+          - name: codeS3ic
+            quote: true
+            description: identifiant ICPE de l'installation
+            tests:
+              - not_null
+      - name: installations_classees
+        identifier: ic_installation_classee
+        description: >
+          Contient les autorisations pour chacune des installations classées  avec l'id vers l'entrée associée dans la nomenclature
+        columns:
+          - name: codeS3ic
+            quote: true
+            description: identifiant ICPE de l'installation
+            tests:
+              - not_null
+      - name: nomenclature
+        identifier: ic_ref_nomenclature_ic
+        description: >
+          Nomenclature des rubriques ICPE
+        columns:
+          - name: id
+            description: id rubrique
+            tests:
+              - unique
+              - not_null

@@ -84,7 +84,7 @@
         DATE_TRUNC(
             'week',
             {{ date_column_name }}
-        ) AS "week",
+        ) AS "semaine",
         COUNT(id) AS {{ count_name }},
         sum(quantity) as {{ quantity_name }}
         {% if "processed" in count_name  %}

@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bordereaux_counts("bsvhu","destination_reception_date", "received", "quantity_received") }}
+{{ create_bordereaux_counts("bsvhu","destination_reception_date", "receptions", "quantite_recue") }}

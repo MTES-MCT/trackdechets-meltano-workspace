@@ -1,14 +1,14 @@
 select
-    _bs_type,
+    _bs_type as type_bordereau,
     extract(
         'year' from date_trunc('year', processed_at)
-    ) as "year_of_processing",
+    ) as annee_traitement,
     sum(
         case
             when quantity_received > 60 then quantity_received / 1000
             else quantity_received
         end
-    ) as quantity_processed
+    ) as quantite_traitee
 from
     {{ ref('bordereaux_enriched') }}
 where

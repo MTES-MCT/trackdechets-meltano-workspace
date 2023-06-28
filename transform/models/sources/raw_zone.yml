@@ -1,0 +1,43 @@
+version: 2
+models: []
+sources:
+  - name: raw_zone
+    description: Tables qui ne correspondent à aucune catégorie spécifique.
+    tables:
+      - name: laposte_hexasmal
+        description: >
+          Une ligne par commune.
+        columns:
+          - name: code_commune_insee
+            description: >
+              Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
+            tests:
+              - not_null
+          - name: nom_commune
+            description: ''
+          - name: code_postal
+            description: Code postal de la commune
+            tests:
+              - not_null
+          - name: ligne_5
+            description: ''
+          - name: libellé_d_acheminement
+            description: ''
+          - name: coordonnees_gps
+            description: ''
+      - name: codes_operations_traitements
+        description: >
+          Une ligne par code opération traitement (codes R et D) avec la description de l'opération associée.
+        columns:
+          - name: code
+            description: >
+              Code opération traitement.
+            tests:
+              - not_null
+              - unique
+          - name: description
+            description: Description de l'opération de traitement.
+            tests:
+              - not_null
+              - unique
+

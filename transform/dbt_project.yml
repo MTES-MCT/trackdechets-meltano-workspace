@@ -26,9 +26,20 @@ tests:
   +store_failures: true
 vars:
   re_data:save_test_history: true
+  dbt-osmosis:
+    raw_zone: "sources/raw_zone.yml"
+    raw_zone_trackdechets: "sources/raw_zone_trackdechets.yml"
+    raw_zone_gsheet: "sources/raw_zone_gsheet.yml"
+    raw_zone_insee: "sources/raw_zone_insee.yml"
+    raw_zone_icpe: "sources/raw_zone_icpe.yml"
+    raw_zone_zammad: "sources/raw_zone_zammad.yml"
+
 models:
   trackdechets_data_platform:
     +dbt-osmosis: "_{model}.yml"
+    +persist_docs:
+      relation: true
+      columns: true
     refined_zone:
       analytics:
         +materialized: view

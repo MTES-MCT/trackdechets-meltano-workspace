@@ -1,10 +1,10 @@
 select
-    processing_operation,
-    date_part('year', processed_at) as "year_of_processing",
+    processing_operation as code_operation_traitement,
+    date_part('year', processed_at) as annee_traitement,
     sum(case
         when quantity_received > 60 then quantity_received / 1000
         else quantity_received
-    end)                            as quantity_processed
+    end)                            as quantite_traitee
 from
     {{ ref('bordereaux_enriched') }}
 where

@@ -1,7 +1,7 @@
 select
-    _bs_type,
-    extract('year' from date_trunc('year', created_at)) as "year_of_creation",
-    count(id)
+    _bs_type as bordereau_type,
+    extract('year' from date_trunc('year', created_at)) as annee,
+    count(id) as creations
 from
     {{ ref('bordereaux_enriched') }}
 where

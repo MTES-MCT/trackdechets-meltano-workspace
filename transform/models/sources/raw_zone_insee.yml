@@ -1,0 +1,290 @@
+version: 2
+models: []
+sources:
+  - name: raw_zone_insee
+    description: Données issues de l'open data INSEE
+    loader: airflow
+    tables:
+      - name: naf2008
+        description: >
+          Une ligne par code sous-classe  de la nomenclature des activités françaises édition 2008.
+        columns:
+          - name: code_section
+            description: ''
+          - name: libelle_section
+            description: ''
+          - name: code_division
+            description: ''
+          - name: libelle_division
+            description: ''
+          - name: code_groupe
+            description: ''
+          - name: libelle_groupe
+            description: ''
+          - name: code_classe
+            description: ''
+          - name: libelle_classe
+            description: ''
+          - name: code_sous_classe
+            description: Clé unique
+            tests:
+              - unique
+              - not_null
+          - name: libelle_sous_classe
+            description: ''
+      - name: arrondissement
+        description: >
+          Données géographiques INSEE des arrondissements français.
+          Une ligne par code arrondissement.
+        columns:
+          - name: arr
+            description: Code arrondissement
+            tests:
+              - unique
+              - not_null
+          - name: dep
+            description: ''
+          - name: reg
+            description: ''
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+      - name: canton
+        description: >
+          Données géographiques INSEE des cantons français.
+          Une ligne par identifiant canton.
+        columns:
+          - name: id_canton
+            description: Code canton
+            tests:
+              - unique
+              - not_null
+          - name: id_departement
+            description: ''
+          - name: id_region
+            description: ''
+          - name: typct
+            description: ''
+          - name: burcentral
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+          - name: actual
+            description: ''
+      - name: commune
+        description: >
+          Données géographiques INSEE des communes françaises.
+          Une ligne par code commune.
+        columns:
+          - name: typecom
+            description: ''
+          - name: com
+            description: Code commune
+            tests:
+              - not_null
+          - name: reg
+            description: ''
+          - name: dep
+            description: ''
+          - name: ctcd
+            description: ''
+          - name: arr
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+          - name: can
+            description: ''
+          - name: comparent
+            description: ''
+      - name: departement
+        description: >
+          Données géographiques INSEE des département français.
+          Une ligne par code département.
+        columns:
+          - name: dep
+            description: Code département
+            tests:
+              - unique
+              - not_null
+          - name: reg
+            description: ''
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+      - name: pays
+        description: >
+          Données géographiques INSEE des pays du monde.
+          Une ligne par pays.
+        columns:
+          - name: cog
+            description: ''
+          - name: actual
+            description: ''
+          - name: capay
+            description: ''
+          - name: crpay
+            description: ''
+          - name: ani
+            description: ''
+          - name: libcog
+            description: ''
+          - name: libenr
+            description: ''
+          - name: ancnom
+            description: ''
+          - name: codeiso2
+            description: ''
+          - name: codeiso3
+            description: ''
+          - name: codenum3
+            description: ''
+      - name: region
+        description: >
+          Données géographiques INSEE des régions françaises.
+          Une ligne par région.
+        columns:
+          - name: reg
+            description: Code région
+            tests:
+              - unique
+              - not_null
+          - name: cheflieu
+            description: ''
+          - name: tncc
+            description: ''
+          - name: ncc
+            description: ''
+          - name: nccenr
+            description: ''
+          - name: libelle
+            description: ''
+      - name: stock_etablissement
+        description: >
+          Données des établissements français.
+          Une ligne par établissement.
+        columns:
+          - name: siren
+            description: ''
+          - name: nic
+            description: ''
+          - name: siret
+            description: Code région
+            tests:
+              - unique
+              - not_null
+          - name: statutDiffusionEtablissement
+            description: ''
+          - name: dateCreationEtablissement
+            description: ''
+          - name: trancheEffectifsEtablissement
+            description: ''
+          - name: anneeEffectifsEtablissement
+            description: ''
+          - name: activitePrincipaleRegistreMetiersEtablissement
+            description: ''
+          - name: dateDernierTraitementEtablissement
+            description: ''
+          - name: etablissementSiege
+            description: ''
+          - name: nombrePeriodesEtablissement
+            description: ''
+          - name: complementAdresseEtablissement
+            description: ''
+          - name: numeroVoieEtablissement
+            description: ''
+          - name: indiceRepetitionEtablissement
+            description: ''
+          - name: typeVoieEtablissement
+            description: ''
+          - name: libelleVoieEtablissement
+            description: ''
+          - name: codePostalEtablissement
+            description: ''
+          - name: libelleCommuneEtablissement
+            description: ''
+          - name: libelleCommuneEtrangerEtablissement
+            description: ''
+          - name: distributionSpecialeEtablissement
+            description: ''
+          - name: codeCommuneEtablissement
+            description: ''
+          - name: codeCedexEtablissement
+            description: ''
+          - name: libelleCedexEtablissement
+            description: ''
+          - name: codePaysEtrangerEtablissement
+            description: ''
+          - name: libellePaysEtrangerEtablissement
+            description: ''
+          - name: complementAdresse2Etablissement
+            description: ''
+          - name: numeroVoie2Etablissement
+            description: ''
+          - name: indiceRepetition2Etablissement
+            description: ''
+          - name: typeVoie2Etablissement
+            description: ''
+          - name: libelleVoie2Etablissement
+            description: ''
+          - name: codePostal2Etablissement
+            description: ''
+          - name: libelleCommune2Etablissement
+            description: ''
+          - name: libelleCommuneEtranger2Etablissement
+            description: ''
+          - name: distributionSpeciale2Etablissement
+            description: ''
+          - name: codeCommune2Etablissement
+            description: ''
+          - name: codeCedex2Etablissement
+            description: ''
+          - name: libelleCedex2Etablissement
+            description: ''
+          - name: codePaysEtranger2Etablissement
+            description: ''
+          - name: libellePaysEtranger2Etablissement
+            description: ''
+          - name: dateDebut
+            description: ''
+          - name: etatAdministratifEtablissement
+            description: ''
+          - name: enseigne1Etablissement
+            description: ''
+          - name: enseigne2Etablissement
+            description: ''
+          - name: enseigne3Etablissement
+            description: ''
+          - name: denominationUsuelleEtablissement
+            description: ''
+          - name: activitePrincipaleEtablissement
+            description: ''
+          - name: nomenclatureActivitePrincipaleEtablissement
+            description: ''
+          - name: caractereEmployeurEtablissement
+            description: ''

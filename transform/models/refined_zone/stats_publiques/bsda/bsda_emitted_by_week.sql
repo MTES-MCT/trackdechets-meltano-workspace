@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bordereaux_counts("bsda","emitter_emission_signature_date", "emitted","quantity_emitted") }}
+{{ create_bordereaux_counts("bsda","emitter_emission_signature_date", "emissions", "quantite_emise") }}
