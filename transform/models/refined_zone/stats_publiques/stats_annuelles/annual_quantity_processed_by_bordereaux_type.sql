@@ -36,4 +36,4 @@ where
 group by
     date_trunc('year', processed_at),
     _bs_type
-order by annee desc
+order by annee desc, _bs_type
