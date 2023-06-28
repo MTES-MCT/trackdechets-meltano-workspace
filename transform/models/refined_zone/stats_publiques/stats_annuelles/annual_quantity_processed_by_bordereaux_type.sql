@@ -1,8 +1,8 @@
 select
-    _bs_type as type_bordereau,
     extract(
         'year' from date_trunc('year', processed_at)
     ) as annee,
+    _bs_type as type_bordereau,
     sum(
         case
             when quantity_received > 60 then quantity_received / 1000
