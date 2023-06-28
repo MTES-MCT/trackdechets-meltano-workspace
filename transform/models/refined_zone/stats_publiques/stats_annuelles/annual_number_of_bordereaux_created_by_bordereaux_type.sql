@@ -1,5 +1,5 @@
 select
-    _bs_type as bordereau_type,
+    _bs_type as type_bordereau,
     extract('year' from date_trunc('year', created_at)) as annee,
     count(id) as creations
 from
