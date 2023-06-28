@@ -2,7 +2,7 @@ version: 2
 models:
   - name: bsdasri_statistiques_hebdomadaires
     columns:
-      - name: week
+      - name: semaine
         description: ''
       - name: creations
         description: ''
@@ -16,20 +16,12 @@ models:
         description: ''
       - name: quantite_envoyee
         description: ''
-      - name: received
+      - name: receptions
         description: ''
-      - name: quantity_received
+      - name: quantite_recue
         description: ''
-      - name: processed
+      - name: traitements
         description: ''
-      - name: quantity_processed
-        description: ''
-      - name: processed_non_final_operation
-        description: ''
-      - name: processed_final_operation
-        description: ''
-      - name: quantity_processed_non_final_operation
-        description: ''
-      - name: quantity_processed_final_operation
+      - name: quantite_traitee
         description: ''
 sources: []

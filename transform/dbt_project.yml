@@ -37,9 +37,6 @@ vars:
 models:
   trackdechets_data_platform:
     +dbt-osmosis: "_{model}.yml"
-    +persist_docs:
-      relation: true
-      columns: true
     refined_zone:
       analytics:
         +materialized: view

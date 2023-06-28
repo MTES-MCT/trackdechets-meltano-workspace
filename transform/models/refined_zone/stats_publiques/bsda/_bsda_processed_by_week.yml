@@ -4,18 +4,18 @@ models:
     config:
       materialized: table
     columns:
-      - name: week
+      - name: semaine
         description: ''
-      - name: processed
+      - name: traitements
         description: ''
-      - name: quantity_processed
+      - name: quantite_traitee
         description: ''
-      - name: processed_non_final_operation
+      - name: traitements_operations_non_finales
         description: ''
-      - name: processed_final_operation
+      - name: traitements_operations_finales
         description: ''
-      - name: quantity_processed_non_final_operation
+      - name: quantite_traitee_operations_non_finales
         description: ''
-      - name: quantity_processed_final_operation
+      - name: quantite_traitee_operations_finales
         description: ''
 sources: []

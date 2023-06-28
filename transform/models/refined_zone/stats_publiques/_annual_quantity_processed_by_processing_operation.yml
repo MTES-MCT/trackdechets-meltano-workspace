@@ -11,10 +11,10 @@ models:
     config:
       materialized: table
     columns:
-      - name: processing_operation
+      - name: code_operation_traitement
         description: ''
-      - name: year_of_processing
+      - name: annee
         description: ''
-      - name: quantity_processed
+      - name: quantite_traitee
         description: ''
 sources: []

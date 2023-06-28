@@ -4,10 +4,10 @@ models:
     config:
       materialized: table
     columns:
-      - name: week
-        description: ''
-      - name: created
-        description: ''
-      - name: quantity_tracked
-        description: ''
+      - name: semaine
+        description: ""
+      - name: creations
+        description: ""
+      - name: quantite_tracee
+        description: ""
 sources: []

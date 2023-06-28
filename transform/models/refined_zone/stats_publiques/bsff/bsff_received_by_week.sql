@@ -1,7 +1,7 @@
 {{
     config(
-        indexes = [ {'columns': ['week'], 'unique': True }]
+        indexes = [ {'columns': ['semaine'], 'unique': True }]
     )
 }}
 
-{{ create_bordereaux_counts("bsda","destination_reception_date", "receptions", "quantite_recue") }}
+{{ create_bordereaux_counts("bsff","destination_reception_date", "receptions", "quantite_recue") }}

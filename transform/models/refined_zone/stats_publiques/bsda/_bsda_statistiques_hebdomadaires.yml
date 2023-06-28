@@ -2,11 +2,11 @@ version: 2
 models:
   - name: bsda_statistiques_hebdomadaires
     columns:
-      - name: week
+      - name: semaine
         description: ''
-      - name: created
+      - name: creations
         description: ''
-      - name: quantity_tracked
+      - name: quantite_tracee
         description: ''
       - name: emissions
         description: ''
@@ -16,20 +16,20 @@ models:
         description: ''
       - name: quantite_envoyee
         description: ''
-      - name: received
+      - name: receptions
         description: ''
-      - name: quantity_received
+      - name: quantite_recue
         description: ''
-      - name: processed
+      - name: traitements
         description: ''
-      - name: quantity_processed
+      - name: quantite_traitee
         description: ''
-      - name: processed_non_final_operation
+      - name: traitements_operations_non_finales
         description: ''
-      - name: processed_final_operation
+      - name: traitements_operations_finales
         description: ''
-      - name: quantity_processed_non_final_operation
+      - name: quantite_traitee_operations_non_finales
         description: ''
-      - name: quantity_processed_final_operation
+      - name: quantite_traitee_operations_finales
         description: ''
 sources: []

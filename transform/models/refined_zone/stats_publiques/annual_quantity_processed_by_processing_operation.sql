@@ -1,6 +1,6 @@
 select
     processing_operation as code_operation_traitement,
-    date_part('year', processed_at) as annee_traitement,
+    date_part('year', processed_at) as annee,
     sum(case
         when quantity_received > 60 then quantity_received / 1000
         else quantity_received
@@ -21,4 +21,4 @@ where
 group by
     date_part('year', processed_at),
     processing_operation
-order by "year_of_processing" desc, processing_operation asc
+order by annee desc, processing_operation asc

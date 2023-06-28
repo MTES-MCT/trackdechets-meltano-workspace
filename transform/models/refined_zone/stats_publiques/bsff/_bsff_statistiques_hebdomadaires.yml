@@ -2,7 +2,7 @@ version: 2
 models:
   - name: bsff_statistiques_hebdomadaires
     columns:
-      - name: week
+      - name: semaine
         description: ''
       - name: creations
         description: ''
@@ -16,20 +16,20 @@ models:
         description: ''
       - name: quantite_envoyee
         description: ''
-      - name: received
+      - name: receptions
         description: ''
-      - name: quantity_received
+      - name: quantite_recue
         description: ''
-      - name: packagings_processed
+      - name: contenants_traites
         description: ''
-      - name: packagings_quantity_processed
+      - name: quantite_traitee
         description: ''
-      - name: packagings_processed_non_final_operation
+      - name: contenants_traites_operations_non_finales
         description: ''
-      - name: packagings_processed_final_operation
+      - name: contenants_traites_operations_finales
         description: ''
-      - name: packagings_quantity_processed_non_final_operation
+      - name: quantite_traitee_operations_non_finales
         description: ''
-      - name: packagings_quantity_processed_final_operation
+      - name: quantite_traitee_operations_finales
         description: ''
 sources: []

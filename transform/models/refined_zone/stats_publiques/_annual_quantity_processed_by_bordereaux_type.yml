@@ -11,10 +11,10 @@ models:
     config:
       materialized: table
     columns:
-      - name: _bs_type
+      - name: type_bordereau
         description: ''
-      - name: year_of_processing
+      - name: annee_traitement
         description: ''
-      - name: quantity_processed
+      - name: quantite_traitee
         description: ''
 sources: []

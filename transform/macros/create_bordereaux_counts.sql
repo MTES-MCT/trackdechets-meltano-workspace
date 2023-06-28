@@ -87,11 +87,11 @@
         ) AS "semaine",
         COUNT(id) AS {{ count_name }},
         sum(quantity) as {{ quantity_name }}
-        {% if "processed" in count_name  %}
-        ,COUNT(id) FILTER (WHERE processing_operation_code in {{ non_final_processing_operation_codes }}) AS {{ count_name }}_non_final_operation,    
-        COUNT(id) FILTER (WHERE processing_operation_code not in {{ non_final_processing_operation_codes }}) AS {{ count_name }}_final_operation,
-        sum(quantity) FILTER (WHERE processing_operation_code in {{ non_final_processing_operation_codes }}) AS {{ quantity_name }}_non_final_operation,
-        sum(quantity) FILTER (WHERE processing_operation_code not in {{ non_final_processing_operation_codes }}) AS {{ quantity_name }}_final_operation 
+        {% if ("traitements" in count_name) or ("contenants_traites" in count_name)  %}
+        ,COUNT(id) FILTER (WHERE processing_operation_code in {{ non_final_processing_operation_codes }}) AS {{ count_name }}_operations_non_finales,    
+        COUNT(id) FILTER (WHERE processing_operation_code not in {{ non_final_processing_operation_codes }}) AS {{ count_name }}_operations_finales,
+        sum(quantity) FILTER (WHERE processing_operation_code in {{ non_final_processing_operation_codes }}) AS {{ quantity_name }}_operations_non_finales,
+        sum(quantity) FILTER (WHERE processing_operation_code not in {{ non_final_processing_operation_codes }}) AS {{ quantity_name }}_operations_finales
         {% endif %}
     FROM
         bordereaux

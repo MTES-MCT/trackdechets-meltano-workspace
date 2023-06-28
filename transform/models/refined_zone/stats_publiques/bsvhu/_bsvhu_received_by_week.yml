@@ -4,10 +4,10 @@ models:
     config:
       materialized: table
     columns:
-      - name: week
+      - name: semaine
         description: ''
-      - name: received
+      - name: receptions
         description: ''
-      - name: quantity_received
+      - name: quantite_recue
         description: ''
 sources: []

@@ -2,7 +2,7 @@ version: 2
 models:
   - name: bsdd_statistiques_hebdomadaires
     columns:
-      - name: week
+      - name: semaine
         description: ''
       - name: creations
         description: ''

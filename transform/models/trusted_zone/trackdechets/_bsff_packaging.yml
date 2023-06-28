@@ -10,8 +10,6 @@ models:
         description: ''
       - name: type
         description: ''
-      - name: volume
-        description: ''
       - name: acceptation_status
         description: ''
       - name: acceptation_date
@@ -59,6 +57,8 @@ models:
       - name: next_packaging_id
         description: ''
       - name: other
+        description: ''
+      - name: volume
         description: ''
       - name: acceptation_weight
         description: ''

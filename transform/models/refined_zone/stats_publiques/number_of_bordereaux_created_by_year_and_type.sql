@@ -18,4 +18,4 @@ where
 group by
     date_trunc('year', created_at),
     _bs_type
-order by "year_of_creation" desc
+order by annee desc

@@ -6,8 +6,8 @@ models:
     config:
       materialized: table
     columns:
-      - name: week_of_creation
+      - name: semaine
         description: ''
-      - name: count
+      - name: creations
         description: ''
 sources: []
