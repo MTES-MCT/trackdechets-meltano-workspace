@@ -11,7 +11,7 @@ with quantities as (
 
 select
     annee,
-    operation_type as type_operation,
+    operation_type as type_operation_traitement,
     sum(quantite_traitee) as quantite_traitee
 from quantities
 group by annee, operation_type
