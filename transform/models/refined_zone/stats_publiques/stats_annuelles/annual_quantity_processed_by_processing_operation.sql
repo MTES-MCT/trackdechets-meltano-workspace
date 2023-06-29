@@ -1,5 +1,5 @@
 select
-    date_part('year', processed_at) as annee,
+    date_part('year', processed_at)::int as annee,
     processing_operation as code_operation_traitement,
     sum(case
         when quantity_received > 60 then quantity_received / 1000

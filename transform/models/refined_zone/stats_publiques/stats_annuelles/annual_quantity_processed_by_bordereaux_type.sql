@@ -1,7 +1,7 @@
 select
     extract(
         'year' from date_trunc('year', processed_at)
-    ) as annee,
+    )::int as annee,
     _bs_type as type_bordereau,
     sum(
         case

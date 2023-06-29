@@ -10,7 +10,7 @@ with quantities as (
 )
 
 select
-    annee,
+    annee::int,
     operation_type as type_operation_traitement,
     sum(quantite_traitee) as quantite_traitee
 from quantities

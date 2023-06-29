@@ -1,5 +1,5 @@
 select
-    extract('year' from date_trunc('year', created_at)) as annee,
+    extract('year' from date_trunc('year', created_at))::int as annee,
     _bs_type as type_bordereau,
     count(id) as creations
 from
