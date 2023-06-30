@@ -26,9 +26,9 @@ models:
         description: ''
       - name: traitements_operations_non_finales
         description: ''
-      - name: traitements_operations_finales
-        description: ''
       - name: quantite_traitee_operations_non_finales
+        description: ''
+      - name: traitements_operations_finales
         description: ''
       - name: quantite_traitee_operations_finales
         description: ''

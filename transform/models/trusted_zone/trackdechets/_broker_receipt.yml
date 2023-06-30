@@ -3,11 +3,17 @@ models:
   - name: broker_receipt
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: receipt_number
-        description: ''
+        description: "Numéro de récépissé"
+        tests:
+          - elementary.column_anomalies
       - name: validity_limit
-        description: ''
+        description: "Date limite de validité du récépisse"
+        tests:
+          - elementary.column_anomalies
       - name: department
-        description: ''
+        description: "Département de validité du récépissé"
+        tests:
+          - elementary.column_anomalies
 sources: []

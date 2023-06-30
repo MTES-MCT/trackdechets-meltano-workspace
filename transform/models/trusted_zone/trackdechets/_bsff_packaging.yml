@@ -1,67 +1,81 @@
 version: 2
 models:
   - name: bsff_packaging
+    config:
+      elementary:
+        seasonality: day_of_week
+    tests:
+      - elementary.volume_anomalies:
+          timestamp_column: acceptation_date
+      - elementary.dimension_anomalies:
+          dimensions:
+            - acceptation_status
+          timestamp_column: acceptation_date
+      - elementary.dimension_anomalies:
+          dimensions:
+            - operation_code
+          timestamp_column: operation_date
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: bsff_id
-        description: ''
+        description: ""
       - name: numero
-        description: ''
+        description: ""
       - name: type
-        description: ''
+        description: ""
       - name: acceptation_status
-        description: ''
+        description: ""
       - name: acceptation_date
-        description: ''
+        description: ""
       - name: acceptation_signature_date
-        description: ''
+        description: ""
       - name: acceptation_signature_author
-        description: ''
+        description: ""
       - name: acceptationrefusalreason
-        description: ''
+        description: ""
       - name: acceptation_waste_code
-        description: ''
+        description: ""
       - name: acceptation_waste_description
-        description: ''
+        description: ""
       - name: operation_date
-        description: ''
+        description: ""
       - name: operation_signature_date
-        description: ''
+        description: ""
       - name: operation_signature_author
-        description: ''
+        description: ""
       - name: operation_code
-        description: ''
+        description: ""
       - name: operation_description
-        description: ''
+        description: ""
       - name: operation_no_traceability
-        description: ''
+        description: ""
       - name: operation_next_destination_company_siret
-        description: ''
+        description: ""
       - name: operation_next_destination_company_vat_number
-        description: ''
+        description: ""
       - name: operation_next_destination_company_name
-        description: ''
+        description: ""
       - name: operation_next_destination_company_address
-        description: ''
+        description: ""
       - name: operation_next_destination_company_contact
-        description: ''
+        description: ""
       - name: operation_next_destination_company_mail
-        description: ''
+        description: ""
       - name: operation_next_destination_company_phone
-        description: ''
+        description: ""
       - name: operation_next_destination_planned_operation_code
-        description: ''
+        description: ""
       - name: operation_next_destination_cap
-        description: ''
+        description: ""
       - name: next_packaging_id
-        description: ''
+        description: ""
       - name: other
-        description: ''
+        description: ""
       - name: volume
-        description: ''
+        description: ""
       - name: acceptation_weight
-        description: ''
+        description: ""
       - name: weight
-        description: ''
+        description: ""
 sources: []

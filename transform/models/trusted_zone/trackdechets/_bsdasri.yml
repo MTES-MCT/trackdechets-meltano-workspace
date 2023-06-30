@@ -3,15 +3,16 @@ models:
   - name: bsdasri
     config:
       elementary:
-        timestamp_column: "created_at"
+        timestamp_column: created_at
+        seasonality: day_of_week
     tests:
-      - elementary.table_anomalies:
-          table_anomalies:
-            - row_count
+      - elementary.volume_anomalies
       - elementary.dimension_anomalies:
           dimensions:
             - status
-      - elementary.schema_changes
+            - waste_code
+            - is_deleted
+          timestamp_column: updated_at
     columns:
       - name: id
         data_type: character varying
@@ -259,6 +260,9 @@ models:
 
       - name: destination_reception_waste_weight_value
         data_type: double precision
+        tests:
+          - elementary.column_anomalies:
+              timestamp_column: updated_at
 
       - name: destination_reception_waste_refused_weight_value
         data_type: double precision

@@ -1,69 +1,79 @@
 version: 2
 models:
   - name: company
+    config:
+      elementary:
+        timestamp_column: created_at
+        seasonality: day_of_week
+    tests:
+      - elementary.volume_anomalies
+      - elementary.dimension_anomalies:
+          dimensions:
+            - code_naf
+            - code_departement
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: siret
-        description: ''
+        description: ""
       - name: created_at
-        description: ''
+        description: ""
       - name: updated_at
-        description: ''
+        description: ""
       - name: security_code
-        description: ''
+        description: ""
       - name: name
-        description: ''
+        description: ""
       - name: gerep_id
-        description: ''
+        description: ""
       - name: code_naf
-        description: ''
+        description: ""
       - name: given_name
-        description: ''
+        description: ""
       - name: contact_email
-        description: ''
+        description: ""
       - name: contact_phone
-        description: ''
+        description: ""
       - name: website
-        description: ''
+        description: ""
       - name: transporter_receipt_id
-        description: ''
+        description: ""
       - name: trader_receipt_id
-        description: ''
+        description: ""
       - name: eco_organisme_agreements
-        description: ''
+        description: ""
       - name: company_types
-        description: ''
+        description: ""
       - name: address
-        description: ''
+        description: ""
       - name: latitude
-        description: ''
+        description: ""
       - name: longitude
-        description: ''
+        description: ""
       - name: broker_receipt_id
-        description: ''
+        description: ""
       - name: verification_code
-        description: ''
+        description: ""
       - name: verification_status
-        description: ''
+        description: ""
       - name: verification_mode
-        description: ''
+        description: ""
       - name: verification_comment
-        description: ''
+        description: ""
       - name: verified_at
-        description: ''
+        description: ""
       - name: vhu_agrement_demolisseur_id
-        description: ''
+        description: ""
       - name: vhu_agrement_broyeur_id
-        description: ''
+        description: ""
       - name: allow_bsdasri_take_over_without_signature
-        description: ''
+        description: ""
       - name: vat_number
-        description: ''
+        description: ""
       - name: contact
-        description: ''
+        description: ""
       - name: code_departement
-        description: ''
+        description: ""
       - name: worker_certification_id
-        description: ''
+        description: ""
 sources: []

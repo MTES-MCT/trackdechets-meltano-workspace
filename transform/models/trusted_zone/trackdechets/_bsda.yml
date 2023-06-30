@@ -3,15 +3,16 @@ models:
   - name: bsda
     config:
       elementary:
-        timestamp_column: "created_at"
+        timestamp_column: created_at
+        seasonality: day_of_week
     tests:
-      - elementary.table_anomalies:
-          table_anomalies:
-            - row_count
+      - elementary.volume_anomalies
       - elementary.dimension_anomalies:
           dimensions:
             - status
-      - elementary.schema_changes
+            - waste_code
+            - is_deleted
+          timestamp_column: updated_at
     columns:
       - name: id
         data_type: character varying
@@ -93,7 +94,8 @@ models:
         data_type: timestamp without time zone
 
       - name: emitter_is_private_individual
-        description: ''
+        description: ""
+
       - name: emitter_pickup_site_name
         data_type: character varying
 
@@ -327,4 +329,8 @@ models:
 
       - name: destination_reception_weight
         data_type: double precision
+        tests:
+          - elementary.column_anomalies:
+              timestamp_column: updated_at
+
 sources: []

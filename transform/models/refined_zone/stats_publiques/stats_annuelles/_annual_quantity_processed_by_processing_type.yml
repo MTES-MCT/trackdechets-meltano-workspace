@@ -13,7 +13,7 @@ models:
     columns:
       - name: annee
         description: ''
-      - name: type_operation
+      - name: type_operation_traitement
         description: ''
       - name: quantite_traitee
         description: ''

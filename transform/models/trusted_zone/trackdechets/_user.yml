@@ -1,27 +1,33 @@
 version: 2
 models:
   - name: user
+    config:
+      elementary:
+        timestamp_column: created_at
+        seasonality: day_of_week
+    tests:
+      - elementary.volume_anomalies
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: email
-        description: ''
+        description: ""
       - name: name
-        description: ''
+        description: ""
       - name: phone
-        description: ''
+        description: ""
       - name: created_at
-        description: ''
+        description: ""
       - name: updated_at
-        description: ''
+        description: ""
       - name: is_active
-        description: ''
+        description: ""
       - name: activated_at
-        description: ''
+        description: ""
       - name: first_association_date
-        description: ''
+        description: ""
       - name: is_admin
-        description: ''
+        description: ""
       - name: is_registre_national
-        description: ''
+        description: ""
 sources: []

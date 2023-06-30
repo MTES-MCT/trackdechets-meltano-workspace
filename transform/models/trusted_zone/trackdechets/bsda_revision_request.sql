@@ -13,7 +13,7 @@ SELECT
     wastesealnumbers                AS waste_seal_numbers,
     wastematerialname               AS waste_material_name,
     destinationcap                  AS destination_cap,
-    destinationreceptionweight      AS destination_reception_weight,
+    destinationreceptionweight/1000      AS destination_reception_weight,
     destinationoperationcode        AS destination_operation_code,
     destinationoperationdescription AS destination_operation_description,
     brokercompanysiret              AS broker_company_siret,

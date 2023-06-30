@@ -6,11 +6,16 @@ models:
       Une ligne par BSDD, les BSDD supprimés restent dans la table.
     config:
       elementary:
-        timestamp_column: "created_at"
+        timestamp_column: created_at
+        seasonality: day_of_week
     tests:
+      - elementary.volume_anomalies
       - elementary.dimension_anomalies:
           dimensions:
             - status
+            - waste_details_code
+            - is_deleted
+          timestamp_column: updated_at
     columns:
       - name: id
         data_type: character varying
@@ -359,6 +364,9 @@ models:
         data_type: double precision
         description: |
           Quantité reçue sur l'installation de destination, en tonnes.
+        tests:
+          - elementary.column_anomalies:
+              timestamp_column: updated_at
       - name: quantity_received_type
         data_type: character varying
         description: |

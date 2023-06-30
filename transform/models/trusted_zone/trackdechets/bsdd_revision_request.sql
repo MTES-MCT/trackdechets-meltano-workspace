@@ -12,7 +12,7 @@ SELECT
     wastedetailspop                                 AS waste_details_pop,
     wastedetailsname                                AS waste_details_name,
     wastedetailspackaginginfos                      AS waste_details_packaging_infos,
-    quantityreceived                                AS quantity_received,
+    quantityreceived/1000                                AS quantity_received,
     processingoperationdone                         AS processing_operation_done,
     processingoperationdescription                  AS processing_operation_description,
     brokercompanysiret                              AS broker_company_siret,

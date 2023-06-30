@@ -1,67 +1,75 @@
 version: 2
 models:
   - name: bsda_revision_request
+    tests:
+      - elementary.volume_anomalies:
+          timestamp_column: created_at
+          seasonality: day_of_week
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: created_at
-        description: ''
+        description: ""
       - name: updated_at
-        description: ''
+        description: ""
       - name: bsda_id
-        description: ''
+        description: ""
       - name: authoring_company_id
-        description: ''
+        description: ""
       - name: comment
-        description: ''
+        description: ""
       - name: status
-        description: ''
+        description: ""
       - name: is_canceled
-        description: ''
+        description: ""
       - name: waste_code
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
       - name: waste_pop
-        description: ''
+        description: ""
       - name: packagings
-        description: ''
+        description: ""
       - name: waste_seal_numbers
-        description: ''
+        description: ""
       - name: waste_material_name
-        description: ''
+        description: ""
       - name: destination_cap
-        description: ''
+        description: ""
       - name: destination_reception_weight
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
       - name: destination_operation_code
-        description: ''
+        description: ""
       - name: destination_operation_description
-        description: ''
+        description: ""
       - name: broker_company_siret
-        description: ''
+        description: ""
       - name: broker_company_name
-        description: ''
+        description: ""
       - name: broker_company_address
-        description: ''
+        description: ""
       - name: broker_company_contact
-        description: ''
+        description: ""
       - name: broker_company_mail
-        description: ''
+        description: ""
       - name: broker_company_phone
-        description: ''
+        description: ""
       - name: broker_recepisse_number
-        description: ''
+        description: ""
       - name: broker_recepisse_validity_limit
-        description: ''
+        description: ""
       - name: broker_recepisse_department
-        description: ''
+        description: ""
       - name: emitter_pickup_sitename
-        description: ''
+        description: ""
       - name: emitter_pickup_site_address
-        description: ''
+        description: ""
       - name: emitter_pickup_site_city
-        description: ''
+        description: ""
       - name: emitter_pickup_site_postal_code
-        description: ''
+        description: ""
       - name: emitter_pickup_site_infos
-        description: ''
+        description: ""
 sources: []

@@ -3,11 +3,17 @@ models:
   - name: transporter_receipt
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: receipt_number
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
       - name: validity_limit
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
       - name: department
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
 sources: []

@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: annual_number_of_bordereaux_created_by_bordereaux_type
+    columns:
+      - name: annee
+        description: ''
+      - name: type_bordereau
+        description: ''
+      - name: creations
+        description: ''
+sources: []

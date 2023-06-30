@@ -11,9 +11,9 @@ models:
     config:
       materialized: table
     columns:
-      - name: type_bordereau
+      - name: annee
         description: ''
-      - name: annee_traitement
+      - name: type_bordereau
         description: ''
       - name: quantite_traitee
         description: ''

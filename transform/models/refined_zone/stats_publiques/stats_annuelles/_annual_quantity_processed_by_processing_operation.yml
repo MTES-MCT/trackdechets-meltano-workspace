@@ -11,9 +11,9 @@ models:
     config:
       materialized: table
     columns:
-      - name: code_operation_traitement
-        description: ''
       - name: annee
+        description: ''
+      - name: code_operation_traitement
         description: ''
       - name: quantite_traitee
         description: ''

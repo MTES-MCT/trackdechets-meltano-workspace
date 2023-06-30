@@ -3,9 +3,13 @@ models:
   - name: vhu_agrement
     columns:
       - name: id
-        description: 'Clé primaire'
+        description: "Clé primaire"
       - name: agrement_number
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
       - name: department
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies
 sources: []
