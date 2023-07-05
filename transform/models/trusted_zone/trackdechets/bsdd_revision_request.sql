@@ -12,7 +12,6 @@ SELECT
     wastedetailspop                                 AS waste_details_pop,
     wastedetailsname                                AS waste_details_name,
     wastedetailspackaginginfos                      AS waste_details_packaging_infos,
-    quantityreceived/1000                                AS quantity_received,
     processingoperationdone                         AS processing_operation_done,
     processingoperationdescription                  AS processing_operation_description,
     brokercompanysiret                              AS broker_company_siret,
@@ -35,6 +34,7 @@ SELECT
     tradervaliditylimit                             AS trader_validity_limit,
     temporarystoragedestinationprocessingoperation  AS temporary_storage_destination_processing_operation,
     temporarystoragetemporarystorerquantityreceived AS temporary_storage_temporary_storer_quantity_received,
-    temporarystoragedestinationcap                  AS temporary_storage_destination_cap
+    temporarystoragedestinationcap                  AS temporary_storage_destination_cap,
+    quantityreceived / 1000                         AS quantity_received
 FROM
     {{ source('raw_zone_trackdechets', 'bsdd_revision_request_raw') }}

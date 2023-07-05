@@ -116,6 +116,10 @@ plugins:
       config:
         default_target_schema: raw_zone_zammad
 
+    - name: target-clickhouse
+      variant: shaped-ai
+      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
@@ -140,7 +144,7 @@ plugins:
   utilities:
     - name: sqlfluff
       variant: sqlfluff
-      pip_url: sqlfluff~=2.1.0 sqlfluff-templater-dbt~=2.1.0 dbt-core dbt-postgres
+      pip_url: sqlfluff~=2.1.2 sqlfluff-templater-dbt~=2.1.2 dbt-core dbt-postgres
       settings:
         - name: user
         - name: password
@@ -157,9 +161,9 @@ plugins:
         file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
 
     - name: dbt-osmosis
+      namespace: dbt_postgres
       variant: z3z1ma
       pip_url: dbt-osmosis dbt-postgres
-      namespace: dbt_postgres
       config:
         adapter: postgres
 jobs:

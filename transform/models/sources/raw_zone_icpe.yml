@@ -2,36 +2,111 @@ version: 2
 models: []
 sources:
   - name: raw_zone_icpe
-    description: Données issues de Géorisques
+    description: Données issues de Géorisques, elles même issues de GUN.
     loader: airflow
     tables:
-      - name: etablissements
-        identifier: ic_etablissement
+      - name: installations
+        identifier: installations
         description: >
-          Permet de faire le lien entre les codes S3ic et les siret
+          Base des installations
         columns:
-          - name: codeS3ic
-            quote: true
-            description: identifiant ICPE de l'installation
+          - name: code_aiot
+            description: identifiant unique de l'installation classée
             tests:
               - not_null
-      - name: installations_classees
-        identifier: ic_installation_classee
+          - name: num_siret
+            description: ''
+          - name: x
+            description: ''
+          - name: y
+            description: ''
+          - name: adresse1
+            description: ''
+          - name: adresse2
+            description: ''
+          - name: adresse3
+            description: ''
+          - name: code_postal
+            description: ''
+          - name: code_insee
+            description: ''
+          - name: commune
+            description: ''
+          - name: id_lex_aiot_projection
+            description: ''
+          - name: raison_sociale
+            description: ''
+          - name: etat_activite
+            description: ''
+          - name: id_ref_activite_naf
+            description: ''
+          - name: id_lex_aiot_seveso
+            description: ''
+          - name: id_lex_aiot_regime
+            description: ''
+          - name: priorite_nationale
+            description: ''
+          - name: ied
+            description: ''
+          - name: type_service_aiot
+            description: ''
+          - name: bovins
+            description: ''
+          - name: porcs
+            description: ''
+          - name: volailles
+            description: ''
+          - name: carriere
+            description: ''
+          - name: eolienne
+            description: ''
+          - name: industrie
+            description: ''
+          - name: geom_2154
+            description: ''
+          - name: geom_4559
+            description: ''
+          - name: geom_2972
+            description: ''
+          - name: geom_2975
+            description: ''
+          - name: geom_4471
+            description: ''
+          - name: geom_2987
+            description: ''
+          - name: geom_wgs84
+            description: ''
+          - name: longitude
+            description: ''
+          - name: latitude
+            description: ''
+          - name: date_modification
+            description: ''
+          - name: date_modification_gun
+            description: ''
+      - name: rubriques
         description: >
-          Contient les autorisations pour chacune des installations classées  avec l'id vers l'entrée associée dans la nomenclature
+          Rubriques associées à chaque installations
         columns:
-          - name: codeS3ic
-            quote: true
-            description: identifiant ICPE de l'installation
+          - name: id_rubrique_ic
+            description: Identifiant de la rubrique
             tests:
               - not_null
-      - name: nomenclature
-        identifier: ic_ref_nomenclature_ic
-        description: >
-          Nomenclature des rubriques ICPE
-        columns:
-          - name: id
-            description: id rubrique
+          - name: code_aiot
+            description: Identifiant de l'installation classée
             tests:
-              - unique
               - not_null
+          - name: id_ref_nomenclature_ic
+            description: ''
+          - name: quantite_totale
+            description: ''
+          - name: unite
+            description: ''
+          - name: nature
+            description: ''
+          - name: id_nomenclature_regime
+            description: ''
+          - name: alinea
+            description: ''
+          - name: rubrique_ic
+            description: ''

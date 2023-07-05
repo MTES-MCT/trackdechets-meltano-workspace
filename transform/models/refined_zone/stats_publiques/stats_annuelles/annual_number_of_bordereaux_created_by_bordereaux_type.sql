@@ -1,7 +1,7 @@
 select
     extract('year' from date_trunc('year', created_at))::int as annee,
-    _bs_type as type_bordereau,
-    count(id) as creations
+    _bs_type                                                 as type_bordereau,
+    count(id)                                                as creations
 from
     {{ ref('bordereaux_enriched') }}
 where
@@ -18,4 +18,4 @@ where
 group by
     date_trunc('year', created_at),
     _bs_type
-order by annee desc,_bs_type
+order by annee desc, _bs_type asc

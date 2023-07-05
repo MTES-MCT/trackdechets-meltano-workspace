@@ -11,8 +11,8 @@ with quantities as (
 
 select
     annee::int,
-    operation_type as type_operation_traitement,
+    operation_type        as type_operation_traitement,
     sum(quantite_traitee) as quantite_traitee
 from quantities
 group by annee, operation_type
-order by annee desc, operation_type
+order by annee desc, operation_type asc

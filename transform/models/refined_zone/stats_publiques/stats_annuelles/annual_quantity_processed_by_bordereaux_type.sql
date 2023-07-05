@@ -1,14 +1,14 @@
 select
     extract(
         'year' from date_trunc('year', processed_at)
-    )::int as annee,
+    )::int   as annee,
     _bs_type as type_bordereau,
     sum(
         case
             when quantity_received > 60 then quantity_received / 1000
             else quantity_received
         end
-    ) as quantite_traitee
+    )        as quantite_traitee
 from
     {{ ref('bordereaux_enriched') }}
 where
@@ -36,4 +36,4 @@ where
 group by
     date_trunc('year', processed_at),
     _bs_type
-order by annee desc, _bs_type
+order by annee desc, _bs_type asc

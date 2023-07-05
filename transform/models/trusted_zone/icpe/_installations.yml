@@ -1,0 +1,63 @@
+version: 2
+models:
+  - name: installations
+    columns:
+      - name: code_aiot
+        description: 'identifiant unique de l''installation classée'
+      - name: num_siret
+        description: ''
+      - name: x
+        description: ''
+      - name: y
+        description: ''
+      - name: adresse1
+        description: ''
+      - name: adresse2
+        description: ''
+      - name: adresse3
+        description: ''
+      - name: code_postal
+        description: ''
+      - name: code_insee
+        description: ''
+      - name: commune
+        description: ''
+      - name: id_lex_aiot_projection
+        description: ''
+      - name: raison_sociale
+        description: ''
+      - name: etat_activite
+        description: ''
+      - name: id_ref_activite_naf
+        description: ''
+      - name: id_lex_aiot_seveso
+        description: ''
+      - name: id_lex_aiot_regime
+        description: ''
+      - name: priorite_nationale
+        description: ''
+      - name: ied
+        description: ''
+      - name: type_service_aiot
+        description: ''
+      - name: bovins
+        description: ''
+      - name: porcs
+        description: ''
+      - name: volailles
+        description: ''
+      - name: carriere
+        description: ''
+      - name: eolienne
+        description: ''
+      - name: industrie
+        description: ''
+      - name: longitude
+        description: ''
+      - name: latitude
+        description: ''
+      - name: date_modification
+        description: ''
+      - name: date_modification_gun
+        description: ''
+sources: []
