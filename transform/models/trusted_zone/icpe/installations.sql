@@ -9,12 +9,10 @@ select
     code_postal,
     code_insee,
     commune,
-    id_lex_aiot_projection,
     raison_sociale,
     etat_activite,
-    id_ref_activite_naf::int,
-    id_lex_aiot_seveso::int,
-    id_lex_aiot_regime,
+    seveso,
+    regime,
     priorite_nationale::bool,
     ied::bool,
     type_service_aiot,
@@ -26,7 +24,6 @@ select
     industrie::bool,
     longitude::float,
     latitude::float,
-    date_modification::date,
-    date_modification_gun::timestamp
+    date_modification::date
 from
     {{ source('raw_zone_icpe', 'installations') }}

@@ -23,7 +23,7 @@ select
     i.num_siret                     as siret_icpe,
     gt.siret                        as siret_gerep,
     i.etat_activite,
-    i.id_lex_aiot_regime,
+    i.regime,
     i.longitude,
     i.latitude,
     i.code_postal,
