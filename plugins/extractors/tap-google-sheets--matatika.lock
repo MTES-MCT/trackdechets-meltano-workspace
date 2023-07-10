@@ -1,0 +1,67 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-google-sheets",
+  "namespace": "tap_google_sheets",
+  "variant": "matatika",
+  "label": "Google Sheets",
+  "docs": "https://hub.meltano.com/extractors/tap-google-sheets--matatika",
+  "repo": "https://github.com/Matatika/tap-google-sheets",
+  "pip_url": "git+https://github.com/Matatika/tap-google-sheets.git",
+  "description": "Cloud Spreadsheets",
+  "logo_url": "https://hub.meltano.com/assets/logos/extractors/google-sheets.png",
+  "capabilities": [
+    "about",
+    "catalog",
+    "discover",
+    "stream-maps"
+  ],
+  "settings_group_validation": [
+    [
+      "oauth_credentials.client_id",
+      "oauth_credentials.client_secret",
+      "oauth_credentials.refresh_token",
+      "sheet_id"
+    ]
+  ],
+  "settings": [
+    {
+      "name": "oauth_credentials.client_id",
+      "kind": "password",
+      "label": "Client ID",
+      "description": "Google OAuth Client ID"
+    },
+    {
+      "name": "oauth_credentials.client_secret",
+      "kind": "password",
+      "label": "Client Secret",
+      "description": "Google OAuth Client Secret"
+    },
+    {
+      "name": "oauth_credentials.refresh_token",
+      "kind": "password",
+      "label": "Refresh Token",
+      "description": "Google OAuth Refresh Token"
+    },
+    {
+      "name": "sheet_id",
+      "label": "Sheet ID",
+      "description": "Google Sheet ID"
+    },
+    {
+      "name": "stream_name",
+      "label": "Stream Name",
+      "description": "Optionally change the name of the output file or table. By default that tap will use the file name of your Google Sheet."
+    },
+    {
+      "name": "child_sheet_name",
+      "label": "Child Sheet Name",
+      "description": "Optionally pick a different sheet within your Google Sheet to sync data from. By default the tap will sync data from the first visible sheet in your Google Sheet."
+    },
+    {
+      "name": "key_properties",
+      "kind": "array",
+      "label": "Key Properties",
+      "description": "Optionally set one or more columns from within your Google Sheet to be primary keys for your table. Chosen columns cannot contain null values."
+    }
+  ]
+}

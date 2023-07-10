@@ -11,6 +11,7 @@ environments:
           - name: dbt-osmosis
             config:
               adapter: postgres
+
   - name: prod
     config:
       plugins:
@@ -66,14 +67,6 @@ plugins:
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
 
-    - name: tap-google-sheets
-      variant: singer-io
-      pip_url: git+https://github.com/singer-io/tap-google-sheets.git
-    - name: tap-google-sheets--gerep
-      inherit_from: tap-google-sheets
-      config:
-        start_date: 2021/01/01
-
     - name: tap-zammad
       namespace: tap_zammad
       pip_url: tap-zammad==0.0.4
@@ -101,6 +94,21 @@ plugins:
         groups:
           replication-method: FULL_TABLE
 
+    - name: tap-google-sheets
+      variant: matatika
+      pip_url: git+https://github.com/Matatika/tap-google-sheets.git
+    - name: tap-google-sheets--matching_td_georisques
+      inherit_from: tap-google-sheets
+      config:
+        sheet_id: 1DDkQ6NfBi7dGXd7LxUxDFg_LVYAnS-WmzYIHCax2pxg
+        key_properties:
+          - code_aiot
+      select:
+        - "!*.trai*"
+        - "*.*"
+      metadata:
+        "*":
+          replication-method: FULL_TABLE
   loaders:
     - name: target-postgres--dwh
       inherit_from: target-postgres
@@ -110,16 +118,19 @@ plugins:
       inherit_from: target-postgres--dwh
       config:
         default_target_schema: raw_zone_trackdechets
-
     - name: target-postgres--dwh-zammad
       inherit_from: target-postgres--dwh
       config:
         default_target_schema: raw_zone_zammad
+    - name: target-postgres--dwh-gsheet
+      inherit_from: target-postgres--dwh
+      config:
+        default_target_schema: raw_zone_gsheet
+        primary_key_required: false
 
     - name: target-clickhouse
       variant: shaped-ai
       pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
-
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
@@ -177,7 +188,6 @@ jobs:
       - elementary:monitor-report
   - name: transform-icpe
     tasks:
-      - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_icpe
       - dbt-postgres:docs-generate
       - elementary:monitor-report
@@ -193,17 +203,23 @@ jobs:
       - dbt-postgres:run__trusted_zone_zammad
       - dbt-postgres:docs-generate
       - elementary:monitor-report
+  - name: elt--gsheet
+    tasks:
+      - tap-google-sheets--matching_td_georisques target-postgres--dwh-gsheet
 
 schedules:
   - name: daily-elt-td-database
     interval: "@daily"
     job: elt--td-database
-  - name: weekly-transform-icpe
-    interval: 0 3 * * *
+  - name: daily-transform-icpe
+    interval: "* 14 * * *"
     job: transform-icpe
   - name: monthly-transform-insee
-    interval: 0 20 1 * *
+    interval: "0 20 1 * *"
     job: transform-insee
   - name: daily-elt-zammad
     interval: "@daily"
     job: elt--zammad
+  - name: daily-elt-gsheet
+    interval: "@daily"
+    job: elt--gsheet
