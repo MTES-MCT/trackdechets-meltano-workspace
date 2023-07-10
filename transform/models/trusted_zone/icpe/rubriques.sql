@@ -1,10 +1,10 @@
 select
     code_aiot,
+    rubrique,
     alinea,
-    rubrique_ic,
     quantite_totale::float,
     unite,
     nature,
-    id_nomenclature_regime
+    regime
 from
     {{ source('raw_zone_icpe', 'rubriques') }}
