@@ -4,9 +4,9 @@ models:
     columns:
       - name: code_aiot
         description: 'Identifiant de l''installation classée'
-      - name: alinea
+      - name: rubrique
         description: ''
-      - name: rubrique_ic
+      - name: alinea
         description: ''
       - name: quantite_totale
         description: ''
@@ -14,6 +14,6 @@ models:
         description: ''
       - name: nature
         description: ''
-      - name: id_nomenclature_regime
+      - name: regime
         description: ''
 sources: []

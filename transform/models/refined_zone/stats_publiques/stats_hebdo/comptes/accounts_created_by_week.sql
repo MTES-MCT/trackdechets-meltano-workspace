@@ -10,7 +10,7 @@ from
 full outer join {{ ref('companies_created_by_week') }} as ccbw
     on ucbw.semaine = ccbw.semaine
 order by
-coalesce(
-    ucbw.semaine,
-    ccbw.semaine
-) desc
+    coalesce(
+        ucbw.semaine,
+        ccbw.semaine
+    ) desc

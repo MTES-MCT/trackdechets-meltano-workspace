@@ -6,15 +6,13 @@ models:
         description: 'Identifiant de l''installation classée'
       - name: raison_sociale
         description: ''
-      - name: siret
-        description: ''
       - name: siret_icpe
         description: ''
       - name: siret_gerep
         description: ''
       - name: etat_activite
         description: ''
-      - name: id_lex_aiot_regime
+      - name: regime
         description: ''
       - name: longitude
         description: ''
@@ -23,6 +21,8 @@ models:
       - name: code_postal
         description: ''
       - name: code_insee
+        description: ''
+      - name: siret
         description: ''
       - name: rubrique
         description: ''
@@ -34,6 +34,6 @@ models:
         description: ''
       - name: nature
         description: ''
-      - name: id_nomenclature_regime
+      - name: regime_rubrique
         description: ''
 sources: []

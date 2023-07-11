@@ -32,17 +32,15 @@ sources:
             description: ''
           - name: commune
             description: ''
-          - name: id_lex_aiot_projection
-            description: ''
           - name: raison_sociale
             description: ''
           - name: etat_activite
             description: ''
-          - name: id_ref_activite_naf
+          - name: code_naf
             description: ''
-          - name: id_lex_aiot_seveso
+          - name: seveso
             description: ''
-          - name: id_lex_aiot_regime
+          - name: regime
             description: ''
           - name: priorite_nationale
             description: ''
@@ -62,41 +60,23 @@ sources:
             description: ''
           - name: industrie
             description: ''
-          - name: geom_2154
-            description: ''
-          - name: geom_4559
-            description: ''
-          - name: geom_2972
-            description: ''
-          - name: geom_2975
-            description: ''
-          - name: geom_4471
-            description: ''
-          - name: geom_2987
-            description: ''
-          - name: geom_wgs84
-            description: ''
           - name: longitude
             description: ''
           - name: latitude
             description: ''
           - name: date_modification
             description: ''
-          - name: date_modification_gun
-            description: ''
       - name: rubriques
         description: >
           Rubriques associées à chaque installations
         columns:
-          - name: id_rubrique_ic
-            description: Identifiant de la rubrique
-            tests:
-              - not_null
           - name: code_aiot
             description: Identifiant de l'installation classée
             tests:
               - not_null
-          - name: id_ref_nomenclature_ic
+          - name: rubrique
+            description: ''
+          - name: alinea
             description: ''
           - name: quantite_totale
             description: ''
@@ -104,9 +84,5 @@ sources:
             description: ''
           - name: nature
             description: ''
-          - name: id_nomenclature_regime
-            description: ''
-          - name: alinea
-            description: ''
-          - name: rubrique_ic
+          - name: regime
             description: ''

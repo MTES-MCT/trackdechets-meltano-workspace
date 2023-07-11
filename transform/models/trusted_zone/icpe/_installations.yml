@@ -22,17 +22,13 @@ models:
         description: ''
       - name: commune
         description: ''
-      - name: id_lex_aiot_projection
-        description: ''
       - name: raison_sociale
         description: ''
       - name: etat_activite
         description: ''
-      - name: id_ref_activite_naf
+      - name: seveso
         description: ''
-      - name: id_lex_aiot_seveso
-        description: ''
-      - name: id_lex_aiot_regime
+      - name: regime
         description: ''
       - name: priorite_nationale
         description: ''
@@ -57,7 +53,5 @@ models:
       - name: latitude
         description: ''
       - name: date_modification
-        description: ''
-      - name: date_modification_gun
         description: ''
 sources: []
