@@ -212,7 +212,7 @@ schedules:
     interval: "@daily"
     job: elt--td-database
   - name: daily-transform-icpe
-    interval: "* 14 * * *"
+    interval: "0 14 * * *"
     job: transform-icpe
   - name: monthly-transform-insee
     interval: "0 20 1 * *"
