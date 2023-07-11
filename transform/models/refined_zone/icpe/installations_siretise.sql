@@ -50,7 +50,7 @@ select
     i.latitude,
     i.code_postal,
     i.code_insee,
-    coalesce(i.num_siret, gt.siret, gp.siret) as siret
+    coalesce(mm.siret_td,i.num_siret, gt.siret, gp.siret) as siret
 from
     {{ ref('installations') }} as i
 left join gerep_traiteurs as gt
