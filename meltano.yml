@@ -109,6 +109,17 @@ plugins:
       metadata:
         "*":
           replication-method: FULL_TABLE
+    - name: tap-google-sheets--referentiel_codes_operation_rubriques
+      inherit_from: tap-google-sheets
+      config:
+        sheet_id: 16o0U3A6unTT2XqFTQ6mDg7cySE2-JeWoUO4wFrS7b2g
+        key_properties:
+          - code_operation
+          - rubrique
+      metadata:
+        "*":
+          replication-method: FULL_TABLE
+
   loaders:
     - name: target-postgres--dwh
       inherit_from: target-postgres
@@ -206,6 +217,7 @@ jobs:
   - name: elt--gsheet
     tasks:
       - tap-google-sheets--matching_td_georisques target-postgres--dwh-gsheet
+      - tap-google-sheets--referentiel_codes_operation_rubriques target-postgres--dwh-gsheet
 
 schedules:
   - name: daily-elt-td-database
