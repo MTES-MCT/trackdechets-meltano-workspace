@@ -188,6 +188,10 @@ plugins:
       pip_url: dbt-osmosis dbt-postgres
       config:
         adapter: postgres
+      commands:
+        refactor:
+          args: yaml refactor --profiles-dir transform/profiles/postgres --project-dir transform
+          description: Run yaml refactor command
 jobs:
   - name: elt--td-database
     tasks:

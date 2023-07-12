@@ -77,22 +77,38 @@ sources:
       - name: matching_td_georisques
         columns:
           - name: _sdc_batched_at
+            description: ""
+          - name: _sdc_deleted_at
+            description: ""
+          - name: _sdc_extracted_at
+            description: ""
+          - name: code_aiot
+            description: ""
+          - name: code_postal
+            description: ""
+          - name: nom_etablissement_icpe
+            description: ""
+          - name: siret_gerep
+            description: ""
+          - name: siret_icpe
+            description: ""
+          - name: siret_td
+            description: ""
+          - name: traite
+            description: ""
+      - name: referentiel_codes_operation_rubriques
+        columns:
+          - name: _sdc_batched_at
             description: ''
           - name: _sdc_deleted_at
             description: ''
           - name: _sdc_extracted_at
             description: ''
-          - name: code_aiot
+          - name: code_operation
             description: ''
-          - name: code_postal
+          - name: criteres
             description: ''
-          - name: nom_etablissement_icpe
+          - name: rubrique
             description: ''
-          - name: siret_gerep
-            description: ''
-          - name: siret_icpe
-            description: ''
-          - name: siret_td
-            description: ''
-          - name: traite
+          - name: unite
             description: ''

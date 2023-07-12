@@ -1,5 +1,19 @@
 version: 2
 models:
   - name: matching_td_georisques
-    columns: []
+    columns:
+      - name: code_aiot
+        description: ''
+      - name: code_postal
+        description: ''
+      - name: nom_etablissement_icpe
+        description: ''
+      - name: siret_gerep
+        description: ''
+      - name: siret_icpe
+        description: ''
+      - name: siret_td
+        description: ''
+      - name: traite
+        description: ''
 sources: []

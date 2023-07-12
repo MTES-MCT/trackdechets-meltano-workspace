@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: referentiel_codes_operation_rubriques
+    columns:
+      - name: code_operation
+        description: ''
+      - name: rubrique
+        description: ''
+      - name: criteres
+        description: ''
+      - name: unite
+        description: ''
+sources: []

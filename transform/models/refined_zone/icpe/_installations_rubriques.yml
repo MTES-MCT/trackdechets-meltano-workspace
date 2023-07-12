@@ -8,7 +8,11 @@ models:
         description: ''
       - name: siret_icpe
         description: ''
-      - name: siret_gerep
+      - name: siret_gerep_traiteurs
+        description: ''
+      - name: siret_gerep_producteurs
+        description: ''
+      - name: siret_matching_manuel
         description: ''
       - name: etat_activite
         description: ''
