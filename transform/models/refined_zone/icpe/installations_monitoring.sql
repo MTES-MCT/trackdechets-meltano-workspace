@@ -25,8 +25,7 @@ select
 from
     b.processed_at) as "year",
     b.processing_operation,
-    sum(b.quantity_received) as quantite_traitee,
-    sum(b.quantity_received)/365 as quantite_moyenne_j
+    sum(b.quantity_received) as quantite_traitee
 from
     {{ ref('bordereaux_enriched') }} b
 where
@@ -45,12 +44,16 @@ from
 ),
 wastes_rubriques as (
 select
-    wastes.*,
-    mrco.rubrique
+    wastes.siret,
+    wastes.year,
+    mrco.rubrique,
+    sum(quantite_traitee) as quantite_traitee,
+    sum(quantite_traitee)/365 as quantite_moyenne_j
 from
     wastes
 left join trusted_zone.mapping_rubrique_code_operation mrco on
     wastes.processing_operation = mrco.code_operation 
+group by wastes.siret,wastes.year,mrco.rubrique
 )
 select
     installations.*,
