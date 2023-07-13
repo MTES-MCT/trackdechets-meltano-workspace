@@ -35,6 +35,9 @@ where
     from
         installations)
     and b.processed_at >= '2022-01-01'
+    and (waste_code ~* '.*\*$'
+    OR waste_pop
+    or waste_is_dangerous)  
 group by
     b.destination_company_siret ,
     extract(year
