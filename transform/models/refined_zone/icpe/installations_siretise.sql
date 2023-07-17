@@ -40,17 +40,17 @@ matching_manuel as (
 select
     i.code_aiot,
     i.raison_sociale,
-    i.num_siret                               as siret_icpe,
-    gt.siret                                  as siret_gerep_traiteurs,
-    gp.siret                                  as siret_gerep_producteurs,
-    mm.siret_td                               as siret_matching_manuel,
+    i.num_siret                                            as siret_icpe,
+    gt.siret                                               as siret_gerep_traiteurs,
+    gp.siret                                               as siret_gerep_producteurs,
+    mm.siret_td                                            as siret_matching_manuel,
     i.etat_activite,
     i.regime,
     i.longitude,
     i.latitude,
     i.code_postal,
     i.code_insee,
-    coalesce(mm.siret_td,i.num_siret, gt.siret, gp.siret) as siret
+    coalesce(mm.siret_td, i.num_siret, gt.siret, gp.siret) as siret
 from
     {{ ref('installations') }} as i
 left join gerep_traiteurs as gt

@@ -7,86 +7,112 @@ sources:
       - name: gerep_producteurs_2021
         description: >
           Tables qui contient les données GEREP des producteurs jusqu'en 2021. Une ligne par année et établissement.
-        quote: true
         columns:
           - name: Annee
-            description: ''
+            description: ""
+            quote: true
           - name: Code établissement
             description: >
               Code S3ic pour joindre les données avec les données ICPE
+            quote: true
             tests:
               - not_null
           - name: Nom Etablissement
-            description: ''
+            quote: true
+            description: ""
           - name: Adresse Site Exploitation
-            description: ''
+            quote: true
+            description: ""
           - name: Code Postal Etablissement
-            description: ''
+            quote: true
+            description: ""
           - name: Commune
-            description: ''
+            quote: true
+            description: ""
           - name: Code Insee
-            description: ''
+            quote: true
+            description: ""
           - name: Code APE
-            description: ''
+            quote: true
+            description: ""
           - name: Numero Siret
+            quote: true
             description: >
               Numéro SIRET
-            tests:
-              - not_null
           - name: Nom Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Fonction Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Tel Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Mail Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Code déchet produit
-            description: ''
+            description: ""
+            quote: true
           - name: Déchet produit
-            description: ''
+            description: ""
+            quote: true
           - name: Quntité produite (t/an)
-            description: ''
+            description: ""
+            quote: true
       - name: gerep_traiteurs_2021
         description: >
           Tables qui contient les données GEREP des traiteurs jusqu'en 2021. Une ligne par année et établissement.
-        quote: true
         columns:
           - name: Annee
-            description: ''
+            description: ""
+            quote: true
           - name: Code établissement
             description: >
               Code S3ic pour joindre les données avec les données ICPE
+            quote: true
             tests:
               - not_null
           - name: Nom Etablissement
-            description: ''
+            quote: true
+            description: ""
           - name: Adresse Site Exploitation
-            description: ''
+            quote: true
+            description: ""
           - name: Code Postal Etablissement
-            description: ''
+            quote: true
+            description: ""
           - name: Commune
-            description: ''
+            quote: true
+            description: ""
           - name: Code Insee
-            description: ''
+            quote: true
+            description: ""
           - name: Code APE
-            description: ''
+            quote: true
+            description: ""
           - name: Numero Siret
+            quote: true
             description: >
               Numéro SIRET
-            tests:
-              - not_null
           - name: Nom Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Tel Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Fonction Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Mail Contact
-            description: ''
+            quote: true
+            description: ""
           - name: Code déchet traité
-            description: ''
+            quote: true
+            description: ""
           - name: Déchet traité
-            description: ''
+            quote: true
+            description: ""
           - name: Quantité traitée (t/an)
-            description: ''
+            quote: true
+            description: ""

@@ -1,6 +1,9 @@
 with source as (
-      select * from {{ source('raw_zone_gsheet', 'referentiel_codes_operation_rubriques') }}
+    select *
+    from
+        {{ source('raw_zone_gsheet', 'referentiel_codes_operation_rubriques') }}
 ),
+
 renamed as (
     select
         {{ adapter.quote("code_operation") }},
@@ -10,5 +13,5 @@ renamed as (
 
     from source
 )
+
 select * from renamed
-  
