@@ -1,6 +1,7 @@
 select
     'BSDD'                      as "_bs_type",
     id,
+    readable_id,
     "created_at",
     "taken_over_at",
     "received_at",
@@ -34,6 +35,7 @@ union all
 select
     'BSDA'                              as "_bs_type",
     id,
+    id                                  as readable_id,
     "created_at",
     transporter_transport_taken_over_at as "taken_over_at",
     destination_reception_date          as "received_at",
@@ -67,6 +69,7 @@ union all
 select
     'BSFF'                               as "_bs_type",
     id,
+    id                                   as readable_id,
     "created_at",
     transporter_transport_taken_over_at  as "taken_over_at",
     destination_reception_date           as "received_at",
@@ -100,6 +103,7 @@ union all
 select
     'BSDASRI'                                  as "_bs_type",
     id,
+    id                                         as readable_id,
     "created_at",
     transporter_taken_over_at                  as "taken_over_at",
     destination_reception_date                 as "received_at",
@@ -133,6 +137,7 @@ union all
 select
     'BSVHU'                             as "_bs_type",
     id,
+    id                                  as readable_id,
     "created_at",
     transporter_transport_taken_over_at as "taken_over_at",
     destination_reception_date          as "received_at",

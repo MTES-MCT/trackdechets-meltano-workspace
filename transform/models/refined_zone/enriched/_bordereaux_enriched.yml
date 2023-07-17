@@ -6,6 +6,8 @@ models:
         description: ''
       - name: id
         description: 'Identifiant unique du BSDD en base.'
+      - name: readable_id
+        description: "Identifiant lisible utilisé comme numéro sur le CERFA (case \"Bordereau n°****\"). \nIl est possible de l'utiliser pour récupérer l'identifiant unique du bordereau via la query form, utilisé pour le reste des opérations. \nCet identifiant possède le format BSDD-yyyyMMdd-XXXXXXXX où yyyyMMdd est la date du jour et XXXXXXXXX une chaîne de 9 caractères alphanumériques. \nEx: BSD-20210101-HY87F54D1\n"
       - name: created_at
         description: 'Date de création du BSDD.
 
