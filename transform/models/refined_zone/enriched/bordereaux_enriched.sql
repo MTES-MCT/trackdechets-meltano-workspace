@@ -19,6 +19,8 @@ select
     emitter_departement,
     emitter_region,
     emitter_naf,
+    null                        as worker_company_siret,
+    null                        as worker_company_name,
     transporter_company_siret,
     transporter_company_name,
     recipient_company_siret     as "destination_company_siret",
@@ -27,7 +29,9 @@ select
     recipient_commune           as "destination_commune",
     recipient_departement       as "destination_departement",
     recipient_region            as "destination_region",
-    recipient_naf               as "destination_naf"
+    recipient_naf               as "destination_naf",
+    eco_organisme_siret,
+    eco_organisme_name
 from
     {{ ref('bsdd_enriched') }}
 where not is_deleted
@@ -53,6 +57,8 @@ select
     emitter_departement,
     emitter_region,
     emitter_naf,
+    worker_company_siret,
+    worker_company_name,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
@@ -61,7 +67,9 @@ select
     destination_commune,
     destination_departement,
     destination_region,
-    destination_naf
+    destination_naf,
+    eco_organisme_siret,
+    eco_organisme_name
 from
     {{ ref('bsda_enriched') }}
 where not is_deleted
@@ -87,6 +95,8 @@ select
     emitter_departement,
     emitter_region,
     emitter_naf,
+    null                                 as worker_company_siret,
+    null                                 as worker_company_name,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
@@ -95,7 +105,9 @@ select
     destination_commune,
     destination_departement,
     destination_region,
-    destination_naf
+    destination_naf,
+    null                                 as eco_organisme_siret,
+    null                                 as eco_organisme_name
 from
     {{ ref('bsff_enriched') }}
 where not is_deleted
@@ -121,6 +133,8 @@ select
     emitter_departement,
     emitter_region,
     emitter_naf,
+    null                                       as worker_company_siret,
+    null                                       as worker_company_name,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
@@ -129,7 +143,9 @@ select
     destination_commune,
     destination_departement,
     destination_region,
-    destination_naf
+    destination_naf,
+    eco_organisme_siret,
+    eco_organisme_name
 from
     {{ ref('bsdasri_enriched') }}
 where not is_deleted
@@ -155,6 +171,8 @@ select
     emitter_departement,
     emitter_region,
     emitter_naf,
+    null                                as worker_company_siret,
+    null                                as worker_company_name,
     transporter_company_siret,
     transporter_company_name,
     destination_company_siret,
@@ -163,7 +181,9 @@ select
     destination_commune,
     destination_departement,
     destination_region,
-    destination_naf
+    destination_naf,
+    null                                as eco_organisme_siret,
+    null                                as eco_organisme_name
 from
     {{ ref('bsvhu_enriched') }}
 where not is_deleted

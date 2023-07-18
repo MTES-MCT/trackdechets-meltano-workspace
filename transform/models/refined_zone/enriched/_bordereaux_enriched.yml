@@ -60,6 +60,10 @@ models:
         description: ''
       - name: emitter_naf
         description: ''
+      - name: worker_company_siret
+        description: ''
+      - name: worker_company_name
+        description: ''
       - name: transporter_company_siret
         description: 'SIRET de l''établissement collecteur - transporteur.
 
@@ -82,4 +86,8 @@ models:
         description: ''
       - name: destination_naf
         description: ''
+      - name: eco_organisme_siret
+        description: "SIRET de l'éco-organisme responsable du BSDD.\n"
+      - name: eco_organisme_name
+        description: "Nom de l'éco-organisme responsable du BSDD.\n"
 sources: []
