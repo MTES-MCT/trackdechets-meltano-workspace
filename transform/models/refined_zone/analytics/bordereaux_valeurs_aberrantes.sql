@@ -161,9 +161,9 @@ merged_data as (
     full outer join emitters_data as e
         on r.siret = e.siret
 full outer join workers_company_data as w
-    using (siret)
+    on coalesce(r.siret,e.siret) = w.siret
 full outer join eo_data as eo
-    using (siret)
+    on coalesce(r.siret,e.siret,w.siret) = eo.siret
 ),
 
 admins as (
@@ -181,15 +181,15 @@ from
 )
 
 select
-siret,
-company_types,
-bordereaux,
-admins.company_name,
-admins.user_email,
-jsonb_array_length(bordereaux) as num_bordereaux
+    m.siret,
+    m.company_types,
+    m.bordereaux,
+    admins.company_name,
+    admins.user_email,
+    jsonb_array_length(m.bordereaux) as num_bordereaux
 from
-merged_data
-left join admins
-on merged_data.siret = admins.siret
+    merged_data m
+    left join admins
+    on m.siret = admins.siret
 where
 admins.rn = 1
