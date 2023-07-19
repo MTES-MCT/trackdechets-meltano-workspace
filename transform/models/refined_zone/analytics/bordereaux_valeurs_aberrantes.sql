@@ -160,24 +160,24 @@ merged_data as (
         recipients_data as r
     full outer join emitters_data as e
         on r.siret = e.siret
-full outer join workers_company_data as w
-    on coalesce(r.siret,e.siret) = w.siret
-full outer join eo_data as eo
-    on coalesce(r.siret,e.siret,w.siret) = eo.siret
+    full outer join workers_company_data as w
+        on coalesce(r.siret, e.siret) = w.siret
+    full outer join eo_data as eo
+        on coalesce(r.siret, e.siret, w.siret) = eo.siret
 ),
 
 admins as (
-select
-    ca.company_siret as siret,
-    ca.company_name,
-    ca.user_email,
-    row_number() over (
-        partition by ca.company_siret
-        order by
-            ca.user_created_at asc
-    )                as rn
-from
-    {{ ref('companies_admins') }} as ca
+    select
+        ca.company_siret as siret,
+        ca.company_name,
+        ca.user_email,
+        row_number() over (
+            partition by ca.company_siret
+            order by
+                ca.user_created_at asc
+        )                as rn
+    from
+        {{ ref('companies_admins') }} as ca
 )
 
 select
@@ -188,8 +188,8 @@ select
     admins.user_email,
     jsonb_array_length(m.bordereaux) as num_bordereaux
 from
-    merged_data m
-    left join admins
+    merged_data as m
+left join admins
     on m.siret = admins.siret
 where
-admins.rn = 1
+    admins.rn = 1
