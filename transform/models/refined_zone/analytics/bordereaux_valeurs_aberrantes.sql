@@ -21,10 +21,12 @@ with bs_data as (
         ((
             "_bs_type" in ('BSDD', 'BSDA')
             and quantity_received > 40
+            and transport_mode = 'ROAD'
         )
         or (
             "_bs_type" = 'BSDASRI'
             and quantity_received > 20
+            and transport_mode = 'ROAD'
         )
         or (
             "_bs_type" = 'BSVHU'

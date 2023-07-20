@@ -3,7 +3,7 @@ models:
   - name: installations_history
     columns:
       - name: siret
-        description: ""
+        description: "Code région"
       - name: rubrique
         description: ""
       - name: raison_sociale

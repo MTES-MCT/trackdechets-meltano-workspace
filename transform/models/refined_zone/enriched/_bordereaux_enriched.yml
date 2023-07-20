@@ -72,6 +72,8 @@ models:
         description: 'Nom de l''établissement collecteur - transporteur.
 
           '
+      - name: transport_mode
+        description: ''
       - name: destination_company_siret
         description: ''
       - name: destination_company_name
