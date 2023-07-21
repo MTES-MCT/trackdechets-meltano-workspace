@@ -35,6 +35,6 @@ SELECT
     temporarystoragedestinationprocessingoperation  AS temporary_storage_destination_processing_operation,
     temporarystoragetemporarystorerquantityreceived AS temporary_storage_temporary_storer_quantity_received,
     temporarystoragedestinationcap                  AS temporary_storage_destination_cap,
-    quantityreceived / 1000                         AS quantity_received
+    quantityreceived                                AS quantity_received
 FROM
     {{ source('raw_zone_trackdechets', 'bsdd_revision_request_raw') }}
