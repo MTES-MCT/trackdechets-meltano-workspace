@@ -23,7 +23,6 @@ select
     eolienne::bool,
     industrie::bool,
     longitude::float,
-    latitude::float,
-    date_modification::date
+    latitude::float
 from
     {{ source('raw_zone_icpe', 'installations') }}
