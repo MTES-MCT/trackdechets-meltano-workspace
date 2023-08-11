@@ -1,6 +1,7 @@
 {{
   config(
     materialized = 'table',
+    indexes=[{"columns":["siret"]},{"columns":["rubrique"]}]
     )
 }}
 
