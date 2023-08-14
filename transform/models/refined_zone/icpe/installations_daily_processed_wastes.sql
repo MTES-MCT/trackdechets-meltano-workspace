@@ -1,34 +1,47 @@
 {{
   config(
     materialized = 'table',
-    indexes=[{"columns":["siret"]},{"columns":["rubrique"]}]
+    indexes=[{"columns":["siret","rubrique"]}]
     )
 }}
 
 with installations as (
     select
         siret,
-        rubrique || coalesce('-' || alinea, '') as rubrique,
-        max(raison_sociale)                     as raison_sociale,
-        array_agg(distinct code_aiot)           as codes_aiot,
-        sum(quantite_totale)                    as quantite_autorisee
+        rubrique || coalesce(
+            '-' || alinea,
+            ''
+        )                             as rubrique,
+        max(raison_sociale)           as raison_sociale,
+        array_agg(distinct code_aiot) as codes_aiot,
+        sum(quantite_totale)          as quantite_autorisee
     from
         {{ ref('installations_rubriques') }}
     where
         siret is not null
+        and (
+            rubrique in ('2770', '2790')
+            or (
+                rubrique = '2760'
+                and alinea = '1'
+            )
+        )
     group by
-        siret, rubrique || coalesce('-' || alinea, '')
+        siret,
+        rubrique || coalesce(
+            '-' || alinea,
+            ''
+        )
 ),
 
 wastes as (
     select
         b.destination_company_siret as siret,
         b.processing_operation,
-        extract(
-            year
-            from
+        date_trunc(
+            'day',
             b.processed_at
-        )                           as "year",
+        )                           as "day_of_processing",
         sum(b.quantity_received)    as quantite_traitee
     from
         {{ ref('bordereaux_enriched') }} as b
@@ -46,9 +59,8 @@ wastes as (
         )
     group by
         b.destination_company_siret,
-        extract(
-            year
-            from
+        date_trunc(
+            'day',
             b.processed_at
         ),
         b.processing_operation
@@ -57,24 +69,25 @@ wastes as (
 wastes_rubriques as (
     select
         wastes.siret,
-        wastes.year,
+        wastes.day_of_processing,
         mrco.rubrique,
-        sum(quantite_traitee)       as quantite_traitee,
-        sum(quantite_traitee) / 365 as quantite_moyenne_j
+        sum(quantite_traitee) as quantite_traitee
     from
         wastes
     left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
         on
             wastes.processing_operation = mrco.code_operation
-    group by wastes.siret, wastes.year, mrco.rubrique
+    group by
+        wastes.siret,
+        wastes.day_of_processing,
+        mrco.rubrique
 )
 
 select
     installations.*,
-    wr."year",
-    wr.quantite_traitee,
-    wr.quantite_moyenne_j
+    wr.day_of_processing,
+    wr.quantite_traitee
 from
     installations
-left join wastes_rubriques as wr on
+inner join wastes_rubriques as wr on
     installations.siret = wr.siret and installations.rubrique = wr.rubrique
