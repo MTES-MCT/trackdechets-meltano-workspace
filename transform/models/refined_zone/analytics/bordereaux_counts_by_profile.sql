@@ -129,8 +129,8 @@ select
     sum(
         num_bordereaux
     ) as num_mentions_bordereaux,
-    array_agg(
-        type_etablissement order by type_etablissement
+    max(
+        type_etablissement order by num_bordereaux
     ) as type_etablissement
 from
     merged
