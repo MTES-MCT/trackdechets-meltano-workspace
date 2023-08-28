@@ -126,8 +126,12 @@ merged as (
 
 select
     siret,
-    sum(num_bordereaux)           as num_mentions_bordereaux,
-    array_agg(type_etablissement) as type_etablissement
+    sum(
+        num_bordereaux
+    ) as num_mentions_bordereaux,
+    array_agg(
+        type_etablissement order by type_etablissement
+    ) as type_etablissement
 from
     merged
 group by
