@@ -32,11 +32,11 @@ with installations as (
 incoming_wastes as (
     select
         destination_company_siret as siret,
-        'incoming'                  as "type",
+        'incoming'                as "type",
         date_trunc(
             'day',
             received_at
-        )                           as "day",
+        )                         as "day",
         sum(quantity_received)    as quantity
     from
         {{ ref('bordereaux_enriched') }}
@@ -69,13 +69,13 @@ incoming_wastes as (
 
 outgoing_wastes as (
     select
-        b.emitter_company_siret as siret,
-        'outgoing'                  as "type",
+        b.emitter_company_siret   as siret,
+        'outgoing'                as "type",
         date_trunc(
             'day',
             b.taken_over_at
-        )                           as "day",
-        -sum(b.quantity_received)   as quantity
+        )                         as "day",
+        -sum(b.quantity_received) as quantity
     from
         {{ ref('bordereaux_enriched') }} as b
     where
