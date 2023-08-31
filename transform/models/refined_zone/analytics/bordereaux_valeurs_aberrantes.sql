@@ -36,7 +36,7 @@ with bs_data as (
             "_bs_type" = 'BSFF'
             and quantity_received > 20
         ))
-        and received_at >= '2022-01-01'
+        and received_at >= '2023-01-01'
 ),
 
 recipients_data as (
