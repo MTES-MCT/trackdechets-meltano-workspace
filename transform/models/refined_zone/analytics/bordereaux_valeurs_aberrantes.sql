@@ -18,25 +18,12 @@ with bs_data as (
     from
         {{ ref('bordereaux_enriched') }}
     where
-        ((
+        (
             "_bs_type" in ('BSDD', 'BSDA')
             and quantity_received > 40
             and transport_mode = 'ROAD'
         )
-        or (
-            "_bs_type" = 'BSDASRI'
-            and quantity_received > 20
-            and transport_mode = 'ROAD'
-        )
-        or (
-            "_bs_type" = 'BSVHU'
-            and quantity_received > 40
-        )
-        or (
-            "_bs_type" = 'BSFF'
-            and quantity_received > 20
-        ))
-        and received_at BETWEEN '2023-01-01' AND '2023-06-30'
+        and received_at >= '2023-01-01'
 ),
 
 recipients_data as (
