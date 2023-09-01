@@ -8,15 +8,15 @@
 with bordereaux_data as (
     select
         destination_company_siret,
-        max(destination_company_name),
+        max(destination_company_name) as "name",
         sum(quantity_received) filter (
             where
             "_bs_type" = 'BSDD'
-        ) as quantity_bsdd,
+        )                             as quantity_bsdd,
         sum(quantity_received) filter (
             where
             "_bs_type" = 'BSDA'
-        ) as quantity_bsda,
+        )                             as quantity_bsda,
         array_agg(id),
         array_agg(readable_id)
     from {{ ref('bordereaux_enriched') }}
@@ -35,6 +35,7 @@ with bordereaux_data as (
 agg_data as (
     select
         destination_company_siret as siret,
+        max("name")               as "nom_etablissement",
         max(b.quantity_bsdd)      as quantite_bsdd_traitee_en_d5,
         max(b.quantity_bsda)      as quantite_bsda_traitee_en_d5,
         case
