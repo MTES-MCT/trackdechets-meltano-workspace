@@ -44,7 +44,7 @@ agg_data as (
                 '-' || ir.alinea,
                 ''
             ))) then 'Rubrique 2760-1'
-            else 'Données ICPE mais pas de rubirque 2760-1'
+            else 'Données ICPE mais pas de rubrique 2760-1'
         end                       as statut_icpe
     from
         bordereaux_data as b
