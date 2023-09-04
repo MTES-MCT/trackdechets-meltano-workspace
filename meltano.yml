@@ -55,16 +55,68 @@ plugins:
           replication-key: updatedAt
         default$default-CompanyAssociation:
           replication-method: FULL_TABLE
+          replication-key: null
         default$default-EcoOrganisme:
           replication-method: FULL_TABLE
+          replication-key: null
         default$default-BsffPackaging:
           replication-method: FULL_TABLE
+          replication-key: null
         default$default-VhuAgrement:
           replication-method: FULL_TABLE
+          replication-key: null
         default$default-TransporterReceipt:
           replication-method: FULL_TABLE
+          replication-key: null
         default$default-BrokerReceipt:
           replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-TraderReceipt:
+          replication-method: FULL_TABLE
+          replication-key: null
+
+    - name: tap-postgres--td-database-test
+      inherit_from: tap-postgres
+      variant: meltanolabs
+      select:
+        - default$default-Company.*
+        - default$default-CompanyAssociation.*
+        - default$default-User.*
+        - default$default-Form.*
+        - default$default-Bsda.*
+        - default$default-Bsdasri.*
+        - default$default-Bsff.*
+        - default$default-Bsvhu.*
+        - default$default-EcoOrganisme.*
+        - default$default-BsffPackaging.*
+        - default$default-BsddRevisionRequest.*
+        - default$default-BsdaRevisionRequest.*
+        - default$default-VhuAgrement.*
+        - default$default-TransporterReceipt.*
+        - default$default-BrokerReceipt.*
+        - default$default-TraderReceipt.*
+      metadata:
+        "*":
+          replication-method: INCREMENTAL
+          replication-key: updatedAt
+        default$default-CompanyAssociation:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-EcoOrganisme:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-BsffPackaging:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-VhuAgrement:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-TransporterReceipt:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-BrokerReceipt:
+          replication-method: FULL_TABLE
+          replication-key: ""
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
 
@@ -143,6 +195,19 @@ plugins:
     - name: target-clickhouse
       variant: shaped-ai
       pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+    - name: target-clickhouse--dwh-trackdechets
+      inherit_from: target-clickhouse
+      config:
+        default_target_schema: raw_zone_trackdechets
+        stream_maps:
+          default$default-Bsda:
+            packagings: str(packagings)
+            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+          default$default-BrokerReceipt:
+            validityLimit: validityLimit[:-6]
+          default$default-BsdaRevisionRequest:
+            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
@@ -190,12 +255,14 @@ plugins:
       namespace: dbt_postgres
       variant: z3z1ma
       pip_url: dbt-osmosis dbt-postgres
-      config:
-        adapter: postgres
       commands:
         refactor:
-          args: yaml refactor --profiles-dir transform/profiles/postgres --project-dir transform
+          args:
+            yaml refactor --profiles-dir transform/profiles/postgres --project-dir
+            transform
           description: Run yaml refactor command
+      config:
+        adapter: postgres
 jobs:
   - name: elt--td-database
     tasks:
@@ -233,10 +300,10 @@ schedules:
     interval: "@daily"
     job: elt--td-database
   - name: daily-transform-icpe
-    interval: "0 14 * * *"
+    interval: 0 14 * * *
     job: transform-icpe
   - name: monthly-transform-insee
-    interval: "0 20 1 * *"
+    interval: 0 20 1 * *
     job: transform-insee
   - name: daily-elt-zammad
     interval: "@daily"
