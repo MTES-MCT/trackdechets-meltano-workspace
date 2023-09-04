@@ -311,18 +311,18 @@ plugins:
       inherit_from: target-clickhouse
       config:
         default_target_schema: raw_zone_trackdechets
-        #stream_maps:
-        #  default$default-Bsda:
-        #    packagings: str(packagings)
-        #    brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
-        #  default$default-BrokerReceipt:
-        #    validityLimit: validityLimit[:-6]
-        #  default$default-BsdaRevisionRequest:
-        #    brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
         add_record_metadata: true
         engine_type: ReplacingMergeTree
         optimize_after: true
         load_method: upsert
+        stream_maps:
+          default$default-Bsda:
+            packagings: str(packagings)
+            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+          default$default-BrokerReceipt:
+            validityLimit: validityLimit[:-6]
+          default$default-BsdaRevisionRequest:
+            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
 
   transformers:
     - name: dbt-postgres
