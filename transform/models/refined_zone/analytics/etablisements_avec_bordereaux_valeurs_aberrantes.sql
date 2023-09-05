@@ -175,5 +175,5 @@ select
     jsonb_array_length(m.bordereaux) as num_bordereaux
 from
     merged_data as m
-left join admins
+inner join admins
     on m.siret = admins.siret
