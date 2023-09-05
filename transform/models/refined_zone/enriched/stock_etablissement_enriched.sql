@@ -40,4 +40,4 @@ SELECT
     coords.latitude,
     coords.longitude
 FROM etabs
-LEFT JOIN coords ON coords.code_commune_insee = etabs.code_commune
+LEFT JOIN coords ON etabs.code_commune = coords.code_commune_insee
