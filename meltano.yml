@@ -48,6 +48,7 @@ plugins:
         - default$default-TransporterReceipt.*
         - default$default-BrokerReceipt.*
         - default$default-TraderReceipt.*
+        - default$default-BsddTransporter.*
       metadata:
         "*":
           replication-method: INCREMENTAL

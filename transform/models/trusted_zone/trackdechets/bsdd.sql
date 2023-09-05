@@ -1,5 +1,5 @@
 {{ config(
-  pre_hook = "{{ create_indexes_for_source(['readableid','createdat','updatedat','emittercompanysiret','transportercompanysiret','recipientcompanysiret']) }}"
+  pre_hook = "{{ create_indexes_for_source(['readableid','createdat','updatedat','emittercompanysiret','transportercompanysiret','currenttransporterorgid','recipientcompanysiret']) }}"
 ) }}
 SELECT
     id                                 AS "id",
@@ -20,6 +20,7 @@ SELECT
     wastedetailsconsistence            AS "waste_details_consistence",
     wastedetailspackaginginfos         AS "waste_details_packaging_infos",
     wastedetailsanalysisreferences     AS "waste_details_analysis_references",
+    wastedetailssamplenumber           AS "waste_details_sample_number",
     wastedetailslandidentifiers        AS "waste_details_land_identifiers",
     wastedetailsparcelnumbers          AS "waste_details_parcel_numbers",
     wasteacceptationstatus             AS "waste_acceptation_status",
@@ -48,6 +49,7 @@ SELECT
     signedbytransporter                AS "signed_by_transporter",
     sentat                             AS "sent_at",
     sentby                             AS "sent_by",
+    currenttransporterorgid            AS "current_transporter_org_id",
     transportercompanysiret            AS "transporter_company_siret",
     transportercompanyname             AS "transporter_company_name",
     transportercompanyaddress          AS "transporter_company_address",
@@ -63,6 +65,7 @@ SELECT
     transportercustominfo              AS "transporter_custom_info",
     transporterisexemptedofreceipt     AS "transporter_is_exempted_of_receipt",
     currenttransportersiret            AS "current_transporter_siret",
+    nexttransporterorgid               AS "next_transporter_org_id",
     nexttransportersiret               AS "next_transporter_siret",
     takenoverat                        AS "taken_over_at",
     takenoverby                        AS "taken_over_by",
@@ -114,6 +117,7 @@ SELECT
     ecoorganismename                   AS "eco_organisme_name",
     isimportedfrompaper                AS "is_imported_from_paper",
     forwardedinid                      AS "forwarded_in_id",
+    intermediariessirets               AS "intermediaries_sirets",
     replace(
         recipientprocessingoperation, ' ', ''
     )                                  AS "recipient_processing_operation",
