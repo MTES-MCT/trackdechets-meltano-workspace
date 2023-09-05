@@ -158,27 +158,22 @@ merged_data as (
 admins as (
     select
         ca.company_siret as siret,
-        ca.company_name,
-        ca.user_email,
-        row_number() over (
-            partition by ca.company_siret
-            order by
-                ca.user_created_at asc
-        )                as rn
+        max(ca.company_name) as company_name,
+        array_agg(distinct ca.user_email) as user_emails
     from
         {{ ref('companies_admins') }} as ca
+    group by ca.company_siret
 )
 
 select
     m.siret,
     m.company_types,
     m.bordereaux,
+    jsonb_path_query_array(m.bordereaux, '$.readable_id') as ids_bordereaux,
     admins.company_name,
-    admins.user_email,
+    admins.user_emails,
     jsonb_array_length(m.bordereaux) as num_bordereaux
 from
     merged_data as m
 left join admins
     on m.siret = admins.siret
-where
-    admins.rn = 1
