@@ -8,5 +8,5 @@ select
     r.regime as regime_rubrique
 from
     {{ ref('installations_siretise') }} as is2
-left join {{ ref('rubriques') }} as r on
+inner join {{ ref('rubriques') }} as r on
     is2.code_aiot = r.code_aiot
