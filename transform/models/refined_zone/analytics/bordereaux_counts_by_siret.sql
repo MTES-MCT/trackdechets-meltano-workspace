@@ -33,6 +33,35 @@ WITH emitter_counts AS (
         emitter_company_siret
 ),
 
+transporter_counts AS (
+    SELECT
+        transporter_company_siret AS "siret",
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSDD'
+        )                     AS num_bsdd_transporter,
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSDA'
+        )                     AS num_bsda_transporter,
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSFF'
+        )                     AS num_bsff_transporter,
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSDASRI'
+        )                     AS num_bsdasri_transporter,
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSVHU'
+        )                     AS num_bsvhu_transporter
+    FROM
+        {{ ref('bordereaux_enriched') }}
+    GROUP BY
+        transporter_company_siret
+),
+
 destination_counts AS (
     SELECT
         destination_company_siret AS "siret",
@@ -64,7 +93,7 @@ destination_counts AS (
 
 full_ AS (
     SELECT
-        COALESCE(emitter_counts.siret, destination_counts.siret) AS siret,
+        COALESCE(emitter_counts.siret, transporter_counts.siret, destination_counts.siret) AS siret,
         COALESCE(
             emitter_counts.num_bsdd_emitter,
             0
@@ -86,6 +115,26 @@ full_ AS (
             0
         )                                                        AS num_bsvhu_emitter,
         COALESCE(
+            transporter_counts.num_bsdd_transporter,
+            0
+        )                                                        AS num_bsdd_transporter,
+        COALESCE(
+            transporter_counts.num_bsda_transporter,
+            0
+        )                                                        AS num_bsda_transporter,
+        COALESCE(
+            transporter_counts.num_bsff_transporter,
+            0
+        )                                                        AS num_bsff_transporter,
+        COALESCE(
+            transporter_counts.num_bsdasri_transporter,
+            0
+        )                                                        AS num_bsdasri_transporter,
+        COALESCE(
+            transporter_counts.num_bsvhu_transporter,
+            0
+        )                                                        AS num_bsvhu_transporter,        
+        COALESCE(
             destination_counts.num_bsdd_destination, 0
         )                                                        AS num_bsdd_destination,
         COALESCE(
@@ -104,8 +153,12 @@ full_ AS (
         emitter_counts
     FULL
     OUTER JOIN
+        transporter_counts ON
+        emitter_counts.siret = transporter_counts.siret
+    FULL
+    OUTER JOIN
         destination_counts ON
-        emitter_counts.siret = destination_counts.siret
+        coalesce(emitter_counts.siret,transporter_counts.siret) = destination_counts.siret
 )
 
 SELECT
@@ -115,6 +168,11 @@ SELECT
     + num_bsff_emitter
     + num_bsdasri_emitter
     + num_bsvhu_emitter
+    + num_bsdd_transporter
+    + num_bsda_transporter
+    + num_bsff_transporter
+    + num_bsdasri_transporter
+    + num_bsvhu_transporter
     + num_bsdd_destination
     + num_bsda_destination
     + num_bsff_destination
