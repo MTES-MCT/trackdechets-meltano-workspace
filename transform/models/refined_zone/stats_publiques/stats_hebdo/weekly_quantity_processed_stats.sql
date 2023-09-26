@@ -119,6 +119,12 @@ merged_data as (
     select * from bsff_data
 )
 
-select * from merged_data
+select
+    semaine,
+    type_bordereau,
+    code_operation,
+    type_operation,
+    quantite_traitee
+from merged_data
 where semaine >= '2020-01-01'
 order by semaine desc, type_bordereau asc, code_operation asc
