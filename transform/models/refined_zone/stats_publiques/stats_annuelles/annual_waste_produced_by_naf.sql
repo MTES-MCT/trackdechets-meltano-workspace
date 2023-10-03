@@ -53,7 +53,7 @@ where
         )
         /* Pas de bouillons */
         and not is_draft
-        /* Uniquement codes opérations finales */
+        /* Uniquement les non TTRs */
         and emitter_company_siret not in (select siret from ttr_list)
         /* Uniquement les données jusqu'à la dernière semaine complète */
         and be.taken_over_at between '2020-01-01' and date_trunc(
@@ -89,15 +89,8 @@ bsff_data as (
     where
     /* Uniquement déchets dangereux */
         acceptation_waste_code ~* '.*\*$'
-        /* Uniquement codes opérations finales */
-        and operation_code not in (
-            'D9',
-            'D13',
-            'D14',
-            'D15',
-            'R12',
-            'R13'
-        )
+        /* Uniquement les non TTRs */
+        and beff.emitter_company_siret not in (select siret from ttr_list)
         /* Uniquement les données jusqu'à la dernière semaine complète */
         and beff.transporter_transport_taken_over_at between '2020-01-01' and date_trunc(
             'week',
