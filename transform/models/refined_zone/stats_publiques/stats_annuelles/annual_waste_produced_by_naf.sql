@@ -4,8 +4,22 @@
     indexes = [{"columns":["annee","code_sous_classe"], "unique":true}]
     )
 }}
-
-with grouped_data as (
+with ttr_list as (
+    select distinct destination_company_siret as siret
+from
+    {{ ref('bordereaux_enriched') }}
+where
+    processing_operation in (
+            'D9',
+            'D13',
+            'D14',
+            'D15',
+            'R12',
+            'R13'
+        )
+    and processed_at is not null
+),
+ grouped_data as (
     select
         extract(
             'year'
@@ -38,16 +52,9 @@ with grouped_data as (
             )
         )
         /* Pas de bouillons */
-        and status != 'DRAFT'
+        and not is_draft
         /* Uniquement codes opérations finales */
-        and processing_operation not in (
-            'D9',
-            'D13',
-            'D14',
-            'D15',
-            'R12',
-            'R13'
-        )
+        and emitter_company_siret not in (select siret from ttr_list)
         /* Uniquement les données jusqu'à la dernière semaine complète */
         and be.taken_over_at between '2020-01-01' and date_trunc(
             'week',
@@ -122,4 +129,4 @@ from merged_data
 left join trusted_zone_insee.nomenclature_activites_francaises as naf
     on merged_data.naf = naf.code_sous_classe
 where not ((naf.code_sous_classe is null) and (merged_data.naf is not null))
-order by annee, code_sous_classe
+order by annee desc, code_sous_classe
