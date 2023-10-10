@@ -70,7 +70,7 @@ plugins:
 
     - name: tap-zammad
       namespace: tap_zammad
-      pip_url: tap-zammad==0.0.4
+      pip_url: git+https://github.com/Lawiss/tap-zammad.git
       executable: tap-zammad
       capabilities:
         - state
