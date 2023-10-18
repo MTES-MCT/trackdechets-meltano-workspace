@@ -1,8 +1,9 @@
 {{ config(
   pre_hook = "{{ create_indexes_for_source(['createdat','updatedat','siret']) }}"
 ) }}
-SELECT
+SELECT distinct on (orgid)
     id                                   AS "id",
+    orgid                               AS "org_id",
     siret                                AS "siret",
     createdat                            AS "created_at",
     updatedat                            AS "updated_at",
@@ -36,3 +37,4 @@ SELECT
     workercertificationid                AS "worker_certification_id"
 FROM
     {{ source("raw_zone_trackdechets", "company_raw") }}
+order by orgid, updated_at desc
