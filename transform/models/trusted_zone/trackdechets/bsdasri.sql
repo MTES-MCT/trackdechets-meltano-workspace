@@ -79,7 +79,7 @@ SELECT
     ecoorganismename                       AS "eco_organisme_name",
     groupedinid                            AS "grouped_in_id",
     synthesizedinid                        AS "synthesized_in_id",
-    emitterwastevolume / 1000              AS "emitter_waste_volume",
+    emitterwastevolume::numeric / 1000              AS "emitter_waste_volume",
     transporterwastevolume / 1000          AS "transporter_waste_volume",
     destinationreceptionwastevolume
     / 1000                                 AS "destination_reception_waste_volume",
