@@ -52,6 +52,4 @@ models:
         description: ''
       - name: latitude
         description: ''
-      - name: date_modification
-        description: ''
 sources: []

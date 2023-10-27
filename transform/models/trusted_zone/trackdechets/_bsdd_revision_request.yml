@@ -39,10 +39,6 @@ models:
         description: ""
       - name: waste_details_packaging_infos
         description: ""
-      - name: quantity_received
-        description: ""
-        tests:
-          - elementary.column_anomalies
       - name: processing_operation_done
         description: ""
       - name: processing_operation_description
@@ -89,4 +85,8 @@ models:
         description: ""
       - name: temporary_storage_destination_cap
         description: ""
+      - name: quantity_received
+        description: ""
+        tests:
+          - elementary.column_anomalies
 sources: []

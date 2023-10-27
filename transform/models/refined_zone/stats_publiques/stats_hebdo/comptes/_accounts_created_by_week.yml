@@ -2,10 +2,10 @@ version: 2
 models:
   - name: accounts_created_by_week
     columns:
-      - name: semaine
-        description: ''
       - name: comptes_utilisateurs
         description: ''
       - name: comptes_etablissements
+        description: ''
+      - name: semaine
         description: ''
 sources: []

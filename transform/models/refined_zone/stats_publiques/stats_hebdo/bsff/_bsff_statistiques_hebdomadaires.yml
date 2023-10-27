@@ -4,32 +4,34 @@ models:
     columns:
       - name: semaine
         description: ''
-      - name: creations
+      - name: creations_bordereaux
+        description: ''
+      - name: creations_contenants
         description: ''
       - name: quantite_tracee
         description: ''
-      - name: emissions
+      - name: emissions_bordereaux
+        description: ''
+      - name: emissions_contenants
         description: ''
       - name: quantite_emise
         description: ''
-      - name: envois
+      - name: envois_bordereaux
+        description: ''
+      - name: envois_contenants
         description: ''
       - name: quantite_envoyee
         description: ''
-      - name: receptions
+      - name: receptions_bordereaux
+        description: ''
+      - name: receptions_contenants
         description: ''
       - name: quantite_recue
         description: ''
-      - name: contenants_traites
+      - name: traitements_bordereaux
+        description: ''
+      - name: traitements_contenants
         description: ''
       - name: quantite_traitee
-        description: ''
-      - name: contenants_traites_operations_non_finales
-        description: ''
-      - name: quantite_traitee_operations_non_finales
-        description: ''
-      - name: contenants_traites_operations_finales
-        description: ''
-      - name: quantite_traitee_operations_finales
         description: ''
 sources: []

@@ -4,26 +4,66 @@ models:
     columns:
       - name: siret
         description: 'Code région'
-      - name: num_bsdd_emitter
+      - name: num_bsdd_as_emitter
         description: ''
-      - name: num_bsda_emitter
+      - name: num_bsda_as_emitter
         description: ''
-      - name: num_bsff_emitter
+      - name: num_bsff_as_emitter
         description: ''
-      - name: num_bsdasri_emitter
+      - name: num_bsdasri_as_emitter
         description: ''
-      - name: num_bsvhu_emitter
+      - name: num_bsvhu_as_emitter
         description: ''
-      - name: num_bsdd_destination
+      - name: quantity_bsdd_as_emitter
         description: ''
-      - name: num_bsda_destination
+      - name: quantity_bsda_as_emitter
         description: ''
-      - name: num_bsff_destination
+      - name: quantity_bsff_as_emitter
         description: ''
-      - name: num_bsdasri_destination
+      - name: quantity_bsdasri_as_emitter
         description: ''
-      - name: num_bsvhu_destination
+      - name: quantity_bsvhu_as_emitter
         description: ''
-      - name: total_bordereaux
+      - name: num_bsdd_as_transporter
+        description: ''
+      - name: num_bsda_as_transporter
+        description: ''
+      - name: num_bsff_as_transporter
+        description: ''
+      - name: num_bsdasri_as_transporter
+        description: ''
+      - name: num_bsvhu_as_transporter
+        description: ''
+      - name: quantity_bsdd_as_transporter
+        description: ''
+      - name: quantity_bsda_as_transporter
+        description: ''
+      - name: quantity_bsff_as_transporter
+        description: ''
+      - name: quantity_bsdasri_as_transporter
+        description: ''
+      - name: quantity_bsvhu_as_transporter
+        description: ''
+      - name: num_bsdd_as_destination
+        description: ''
+      - name: num_bsda_as_destination
+        description: ''
+      - name: num_bsff_as_destination
+        description: ''
+      - name: num_bsdasri_as_destination
+        description: ''
+      - name: num_bsvhu_as_destination
+        description: ''
+      - name: quantity_bsdd_as_destination
+        description: ''
+      - name: quantity_bsda_as_destination
+        description: ''
+      - name: quantity_bsff_as_destination
+        description: ''
+      - name: quantity_bsdasri_as_destination
+        description: ''
+      - name: quantity_bsvhu_as_destination
+        description: ''
+      - name: total_mentions_bordereaux
         description: ''
 sources: []

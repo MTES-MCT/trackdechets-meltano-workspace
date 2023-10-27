@@ -27,7 +27,6 @@ SELECT
     emitteremissionsignaturedate           AS "emitter_emission_signature_date",
     emitteremissionsignatureauthor         AS "emitter_emission_signature_author",
     emittedbyecoorganisme                  AS "emitted_by_eco_organisme",
-    emitterwasteweightvalue                AS "emitter_waste_weight_value",
     emitterwasteweightisestimate           AS "emitter_waste_weight_is_estimate",
     emitterwastepackagings                 AS "emitter_waste_packagings",
     emissionsignatoryid                    AS "emission_signatory_id",
@@ -54,7 +53,6 @@ SELECT
     transporterwasteweightisestimate       AS "transporter_waste_weight_is_estimate",
     transporterwastepackagings             AS "transporter_waste_packagings",
     transporterwasterefusalreason          AS "transporter_waste_refusal_reason",
-    transporterwasterefusedweightvalue     AS "transporter_waste_refused_weight_value",
     destinationcompanysiret                AS "destination_company_siret",
     destinationcompanyname                 AS "destination_company_name",
     destinationcompanyaddress              AS "destination_company_address",
@@ -79,11 +77,15 @@ SELECT
     ecoorganismename                       AS "eco_organisme_name",
     groupedinid                            AS "grouped_in_id",
     synthesizedinid                        AS "synthesized_in_id",
-    emitterwastevolume::numeric / 1000              AS "emitter_waste_volume",
+    emitterwasteweightvalue / 1000         AS "emitter_waste_weight_value",
+    transporterwasterefusedweightvalue
+    / 1000                                 AS "transporter_waste_refused_weight_value",
+    emitterwastevolume::numeric / 1000     AS "emitter_waste_volume",
     transporterwastevolume / 1000          AS "transporter_waste_volume",
     destinationreceptionwastevolume
     / 1000                                 AS "destination_reception_waste_volume",
-    transporterwasteweightvalue / 1000     AS "transporter_waste_weight_value",
+    transporterwasteweightvalue
+    / 1000                                 AS "transporter_waste_weight_value",
     destinationreceptionwasteweightvalue
     / 1000                                 AS "destination_reception_waste_weight_value",
     destinationreceptionwasterefusedweightvalue

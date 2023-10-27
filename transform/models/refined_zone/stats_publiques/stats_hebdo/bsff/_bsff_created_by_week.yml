@@ -6,7 +6,9 @@ models:
     columns:
       - name: semaine
         description: ''
-      - name: creations
+      - name: creations_bordereaux
+        description: ''
+      - name: creations_contenants
         description: ''
       - name: quantite_tracee
         description: ''

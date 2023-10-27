@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: problematic_companies_2760
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: nom_etablissement
+        description: ''
+      - name: quantite_bsdd_traitee_en_d5
+        description: ''
+      - name: quantite_bsda_traitee_en_d5
+        description: ''
+      - name: statut_icpe
+        description: ''
+sources: []

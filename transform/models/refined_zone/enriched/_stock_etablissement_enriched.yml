@@ -30,10 +30,6 @@ models:
         description: 'Code région'
       - name: activite_principale_etablissement
         description: ''
-      - name: code_commune_insee
-        description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.
-
-          '
       - name: latitude
         description: ''
       - name: longitude

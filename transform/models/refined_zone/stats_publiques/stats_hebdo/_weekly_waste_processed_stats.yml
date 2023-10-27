@@ -1,0 +1,5 @@
+version: 2
+models:
+  - name: weekly_waste_processed_stats
+    columns: []
+sources: []

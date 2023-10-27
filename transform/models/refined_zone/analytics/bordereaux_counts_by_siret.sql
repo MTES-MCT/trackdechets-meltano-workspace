@@ -27,23 +27,23 @@ WITH emitter_counts AS (
             WHERE
             _bs_type = 'BSVHU'
         )                     AS num_bsvhu_as_emitter,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDD'
         )                     AS quantity_bsdd_as_emitter,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDA'
         )                     AS quantity_bsda_as_emitter,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSFF'
         )                     AS quantity_bsff_as_emitter,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDASRI'
         )                     AS quantity_bsdasri_as_emitter,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
         )                     AS quantity_bsvhu_as_emitter
@@ -59,43 +59,43 @@ transporter_counts AS (
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSDD'
-        )                     AS num_bsdd_as_transporter,
+        )                         AS num_bsdd_as_transporter,
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSDA'
-        )                     AS num_bsda_as_transporter,
+        )                         AS num_bsda_as_transporter,
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSFF'
-        )                     AS num_bsff_as_transporter,
+        )                         AS num_bsff_as_transporter,
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSDASRI'
-        )                     AS num_bsdasri_as_transporter,
+        )                         AS num_bsdasri_as_transporter,
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                     AS num_bsvhu_as_transporter,
-        sum(quantity_received) FILTER (
+        )                         AS num_bsvhu_as_transporter,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDD'
-        )                     AS quantity_bsdd_as_transporter,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsdd_as_transporter,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDA'
-        )                     AS quantity_bsda_as_transporter,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsda_as_transporter,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSFF'
-        )                     AS quantity_bsff_as_transporter,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsff_as_transporter,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDASRI'
-        )                     AS quantity_bsdasri_as_transporter,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsdasri_as_transporter,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                     AS quantity_bsvhu_as_transporter
+        )                         AS quantity_bsvhu_as_transporter
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -125,26 +125,26 @@ destination_counts AS (
             WHERE
             _bs_type = 'BSVHU'
         )                         AS num_bsvhu_as_destination,
-        sum(quantity_received) FILTER (
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDD'
-        )                     AS quantity_bsdd_as_destination,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsdd_as_destination,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDA'
-        )                     AS quantity_bsda_as_destination,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsda_as_destination,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSFF'
-        )                     AS quantity_bsff_as_destination,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsff_as_destination,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDASRI'
-        )                     AS quantity_bsdasri_as_destination,
-        sum(quantity_received) FILTER (
+        )                         AS quantity_bsdasri_as_destination,
+        SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                     AS quantity_bsvhu_as_destination
+        )                         AS quantity_bsvhu_as_destination
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -153,133 +153,149 @@ destination_counts AS (
 
 full_ AS (
     SELECT
-        COALESCE(emitter_counts.siret, transporter_counts.siret, destination_counts.siret,c.siret) AS siret,
+        COALESCE(
+            emitter_counts.siret,
+            transporter_counts.siret,
+            destination_counts.siret,
+            c.siret
+        ) AS siret,
         COALESCE(
             emitter_counts.num_bsdd_as_emitter,
             0
-        )                                                        AS num_bsdd_as_emitter,
+        ) AS num_bsdd_as_emitter,
         COALESCE(
             emitter_counts.num_bsda_as_emitter,
             0
-        )                                                        AS num_bsda_as_emitter,
+        ) AS num_bsda_as_emitter,
         COALESCE(
             emitter_counts.num_bsff_as_emitter,
             0
-        )                                                        AS num_bsff_as_emitter,
+        ) AS num_bsff_as_emitter,
         COALESCE(
             emitter_counts.num_bsdasri_as_emitter,
             0
-        )                                                        AS num_bsdasri_as_emitter,
+        ) AS num_bsdasri_as_emitter,
         COALESCE(
             emitter_counts.num_bsvhu_as_emitter,
             0
-        )                                                        AS num_bsvhu_as_emitter,
+        ) AS num_bsvhu_as_emitter,
         COALESCE(
             emitter_counts.quantity_bsdd_as_emitter,
             0
-        )                                                        AS quantity_bsdd_as_emitter,
+        ) AS quantity_bsdd_as_emitter,
         COALESCE(
             emitter_counts.quantity_bsda_as_emitter,
             0
-        )                                                        AS quantity_bsda_as_emitter,
+        ) AS quantity_bsda_as_emitter,
         COALESCE(
             emitter_counts.quantity_bsff_as_emitter,
             0
-        )                                                        AS quantity_bsff_as_emitter,
+        ) AS quantity_bsff_as_emitter,
         COALESCE(
             emitter_counts.quantity_bsdasri_as_emitter,
             0
-        )                                                        AS quantity_bsdasri_as_emitter,
+        ) AS quantity_bsdasri_as_emitter,
         COALESCE(
             emitter_counts.quantity_bsvhu_as_emitter,
             0
-        )                                                        AS quantity_bsvhu_as_emitter,
+        ) AS quantity_bsvhu_as_emitter,
         COALESCE(
             transporter_counts.num_bsdd_as_transporter,
             0
-        )                                                        AS num_bsdd_as_transporter,
+        ) AS num_bsdd_as_transporter,
         COALESCE(
             transporter_counts.num_bsda_as_transporter,
             0
-        )                                                        AS num_bsda_as_transporter,
+        ) AS num_bsda_as_transporter,
         COALESCE(
             transporter_counts.num_bsff_as_transporter,
             0
-        )                                                        AS num_bsff_as_transporter,
+        ) AS num_bsff_as_transporter,
         COALESCE(
             transporter_counts.num_bsdasri_as_transporter,
             0
-        )                                                        AS num_bsdasri_as_transporter,
+        ) AS num_bsdasri_as_transporter,
         COALESCE(
             transporter_counts.num_bsvhu_as_transporter,
             0
-        )                                                        AS num_bsvhu_as_transporter,
+        ) AS num_bsvhu_as_transporter,
         COALESCE(
             transporter_counts.quantity_bsdd_as_transporter,
             0
-        )                                                        AS quantity_bsdd_as_transporter,
+        ) AS quantity_bsdd_as_transporter,
         COALESCE(
             transporter_counts.quantity_bsda_as_transporter,
             0
-        )                                                        AS quantity_bsda_as_transporter,
+        ) AS quantity_bsda_as_transporter,
         COALESCE(
             transporter_counts.quantity_bsff_as_transporter,
             0
-        )                                                        AS quantity_bsff_as_transporter,
+        ) AS quantity_bsff_as_transporter,
         COALESCE(
             transporter_counts.quantity_bsdasri_as_transporter,
             0
-        )                                                        AS quantity_bsdasri_as_transporter,
+        ) AS quantity_bsdasri_as_transporter,
         COALESCE(
             transporter_counts.quantity_bsvhu_as_transporter,
             0
-        )                                                        AS quantity_bsvhu_as_transporter,        
+        ) AS quantity_bsvhu_as_transporter,
         COALESCE(
             destination_counts.num_bsdd_as_destination, 0
-        )                                                        AS num_bsdd_as_destination,
+        ) AS num_bsdd_as_destination,
         COALESCE(
             destination_counts.num_bsda_as_destination, 0
-        )                                                        AS num_bsda_as_destination,
+        ) AS num_bsda_as_destination,
         COALESCE(
             destination_counts.num_bsff_as_destination, 0
-        )                                                        AS num_bsff_as_destination,
+        ) AS num_bsff_as_destination,
         COALESCE(
             destination_counts.num_bsdasri_as_destination, 0
-        )                                                        AS num_bsdasri_as_destination,
+        ) AS num_bsdasri_as_destination,
         COALESCE(
             destination_counts.num_bsvhu_as_destination, 0
-        )                                                        AS num_bsvhu_as_destination,
+        ) AS num_bsvhu_as_destination,
         COALESCE(
             destination_counts.quantity_bsdd_as_destination,
             0
-        )                                                        AS quantity_bsdd_as_destination,
+        ) AS quantity_bsdd_as_destination,
         COALESCE(
             destination_counts.quantity_bsda_as_destination,
             0
-        )                                                        AS quantity_bsda_as_destination,
+        ) AS quantity_bsda_as_destination,
         COALESCE(
             destination_counts.quantity_bsff_as_destination,
             0
-        )                                                        AS quantity_bsff_as_destination,
+        ) AS quantity_bsff_as_destination,
         COALESCE(
             destination_counts.quantity_bsdasri_as_destination,
             0
-        )                                                        AS quantity_bsdasri_as_destination,
+        ) AS quantity_bsdasri_as_destination,
         COALESCE(
             destination_counts.quantity_bsvhu_as_destination,
             0
-        )                                                        AS quantity_bsvhu_as_destination
+        ) AS quantity_bsvhu_as_destination
     FROM
         emitter_counts
     FULL
     OUTER JOIN
-        transporter_counts ON
-        emitter_counts.siret = transporter_counts.siret
+        transporter_counts
+        ON
+            emitter_counts.siret = transporter_counts.siret
     FULL
     OUTER JOIN
-        destination_counts ON
-        coalesce(emitter_counts.siret,transporter_counts.siret) = destination_counts.siret
-    FULL OUTER join {{ ref('company') }} c on coalesce(emitter_counts.siret,transporter_counts.siret,destination_counts.siret) = c.siret
+        destination_counts
+        ON
+            COALESCE(emitter_counts.siret, transporter_counts.siret)
+            = destination_counts.siret
+    FULL OUTER JOIN
+        {{ ref('company') }} AS c
+        ON
+            COALESCE(
+                emitter_counts.siret,
+                transporter_counts.siret,
+                destination_counts.siret
+            )
+            = c.siret
 )
 
 SELECT

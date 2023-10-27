@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bsff_counts("destination_reception_date", "receptions", "quantite_recue") }}
+{{ create_bsff_counts("operation_date", "traitements", "quantite_traitee") }}

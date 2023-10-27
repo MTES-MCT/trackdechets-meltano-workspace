@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bordereaux_counts("bsff","created_at", "creations", "quantite_tracee") }}
+{{ create_bsff_counts("created_at", "creations", "quantite_tracee") }}

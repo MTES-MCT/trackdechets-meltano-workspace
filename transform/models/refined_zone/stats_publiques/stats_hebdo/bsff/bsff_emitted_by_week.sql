@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bordereaux_counts("bsff","emitter_emission_signature_date", "emissions", "quantite_emise") }}
+{{ create_bsff_counts("emitter_emission_signature_date", "emissions", "quantite_emise") }}

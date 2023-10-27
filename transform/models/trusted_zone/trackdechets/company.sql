@@ -1,9 +1,9 @@
 {{ config(
   pre_hook = "{{ create_indexes_for_source(['createdat','updatedat','siret']) }}"
 ) }}
-SELECT distinct on (coalesce(orgid,siret))
+SELECT DISTINCT ON (coalesce(orgid, siret))
     id                                   AS "id",
-    orgid                               AS "org_id",
+    orgid                                AS "org_id",
     siret                                AS "siret",
     createdat                            AS "created_at",
     updatedat                            AS "updated_at",
@@ -37,4 +37,4 @@ SELECT distinct on (coalesce(orgid,siret))
     workercertificationid                AS "worker_certification_id"
 FROM
     {{ source("raw_zone_trackdechets", "company_raw") }}
-order by coalesce(orgid,siret), updated_at desc
+ORDER BY coalesce(orgid, siret), updated_at DESC

@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: installations_2718_stock
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: day
+        description: ''
+      - name: quantity
+        description: ''
+      - name: stock
+        description: ''
+sources: []

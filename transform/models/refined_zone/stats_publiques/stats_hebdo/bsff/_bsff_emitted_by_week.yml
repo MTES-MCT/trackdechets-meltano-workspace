@@ -6,7 +6,9 @@ models:
     columns:
       - name: semaine
         description: ''
-      - name: emissions
+      - name: emissions_bordereaux
+        description: ''
+      - name: emissions_contenants
         description: ''
       - name: quantite_emise
         description: ''

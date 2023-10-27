@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: etablisements_avec_bordereaux_valeurs_aberrantes
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: company_types
+        description: ''
+      - name: bordereaux
+        description: ''
+      - name: ids_bordereaux
+        description: ''
+      - name: company_name
+        description: ''
+      - name: user_emails
+        description: ''
+      - name: num_bordereaux
+        description: ''
+sources: []

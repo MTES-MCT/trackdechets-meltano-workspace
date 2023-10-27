@@ -6,10 +6,10 @@
 }}
 with ttr_list as (
     select distinct destination_company_siret as siret
-from
-    {{ ref('bordereaux_enriched') }}
-where
-    processing_operation in (
+    from
+        {{ ref('bordereaux_enriched') }}
+    where
+        processing_operation in (
             'D9',
             'D13',
             'D14',
@@ -17,9 +17,10 @@ where
             'R12',
             'R13'
         )
-    and processed_at is not null
+        and processed_at is not null
 ),
- grouped_data as (
+
+grouped_data as (
     select
         extract(
             'year'
@@ -122,4 +123,4 @@ from merged_data
 left join trusted_zone_insee.nomenclature_activites_francaises as naf
     on merged_data.naf = naf.code_sous_classe
 where not ((naf.code_sous_classe is null) and (merged_data.naf is not null))
-order by annee desc, code_sous_classe
+order by annee desc, code_sous_classe asc

@@ -36,10 +36,6 @@ models:
         description: ""
       - name: destination_cap
         description: ""
-      - name: destination_reception_weight
-        description: ""
-        tests:
-          - elementary.column_anomalies
       - name: destination_operation_code
         description: ""
       - name: destination_operation_description
@@ -72,4 +68,8 @@ models:
         description: ""
       - name: emitter_pickup_site_infos
         description: ""
+      - name: destination_reception_weight
+        description: ""
+        tests:
+          - elementary.column_anomalies
 sources: []

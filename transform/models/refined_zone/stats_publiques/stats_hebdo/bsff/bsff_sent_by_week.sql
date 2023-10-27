@@ -4,4 +4,4 @@
     )
 }}
 
-{{ create_bordereaux_counts("bsff","transporter_transport_taken_over_at", "envois", "quantite_envoyee") }}
+{{ create_bsff_counts("transporter_transport_taken_over_at", "envois", "quantite_envoyee") }}

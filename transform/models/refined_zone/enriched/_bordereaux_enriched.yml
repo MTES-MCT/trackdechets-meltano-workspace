@@ -28,6 +28,8 @@ models:
         description: 'Statut du BSD (brouillon, envoyé, reçu, traité, etc)
 
           '
+      - name: is_draft
+        description: ''
       - name: quantity_received
         description: 'Quantité reçue sur l''installation de destination, en tonnes.
 

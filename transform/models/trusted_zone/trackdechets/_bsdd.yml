@@ -123,6 +123,8 @@ models:
         data_type: jsonb
         description: |
           Numéros de référence(s) d'analyse(s).
+      - name: waste_details_sample_number
+        description: ''
       - name: waste_details_land_identifiers
         data_type: jsonb
         description: >
@@ -240,6 +242,8 @@ models:
         data_type: character varying
         description: |
           Nom de la personne responsable de l'envoi du déchet (case 9).
+      - name: current_transporter_org_id
+        description: ''
       - name: transporter_company_siret
         data_type: character varying
         description: >
@@ -300,6 +304,8 @@ models:
         data_type: character varying
         description: >
           SIRET du transporteur actuel.
+      - name: next_transporter_org_id
+        description: ''
       - name: next_transporter_siret
         data_type: character varying
         description: |
@@ -510,6 +516,8 @@ models:
         data_type: character varying
         description: |
           Identifiant du bordereau qui a ré-expédié celui-ci.
+      - name: intermediaries_sirets
+        description: ''
       - name: recipient_processing_operation
         data_type: character varying
         description: |

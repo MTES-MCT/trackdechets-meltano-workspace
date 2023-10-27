@@ -1,0 +1,17 @@
+version: 2
+models:
+  - name: liste_exutoires_dechets_dangereux
+    columns:
+      - name: siret
+        description: 'Code région'
+      - name: traiteur_bsdd
+        description: ''
+      - name: traiteur_bsda
+        description: ''
+      - name: traiteur_bsff
+        description: ''
+      - name: traiteur_bsdasri
+        description: ''
+      - name: traiteur_bsvhu
+        description: ''
+sources: []

@@ -6,7 +6,9 @@ models:
     columns:
       - name: semaine
         description: ''
-      - name: receptions
+      - name: receptions_bordereaux
+        description: ''
+      - name: receptions_contenants
         description: ''
       - name: quantite_recue
         description: ''

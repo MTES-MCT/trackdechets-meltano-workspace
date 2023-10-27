@@ -482,4 +482,12 @@ models:
         description: ''
       - name: recipient_naf
         description: ''
+      - name: waste_details_sample_number
+        description: ''
+      - name: current_transporter_org_id
+        description: ''
+      - name: next_transporter_org_id
+        description: ''
+      - name: intermediaries_sirets
+        description: ''
 sources: []
