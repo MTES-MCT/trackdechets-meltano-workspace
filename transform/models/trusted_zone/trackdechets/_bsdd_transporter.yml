@@ -1,0 +1,51 @@
+version: 2
+models:
+  - name: bsdd_transporter
+    columns:
+      - name: id
+        description: ''
+      - name: created_at
+        description: ''
+      - name: updated_at
+        description: ''
+      - name: number
+        description: ''
+      - name: form_id
+        description: ''
+      - name: ready_to_take_over
+        description: ''
+      - name: taken_over_at
+        description: ''
+      - name: taken_over_by
+        description: ''
+      - name: transporter_company_siret
+        description: ''
+      - name: transporter_company_vat_number
+        description: ''
+      - name: transporter_company_name
+        description: ''
+      - name: transporter_company_address
+        description: ''
+      - name: transporter_company_contact
+        description: ''
+      - name: transporter_company_mail
+        description: ''
+      - name: transporter_company_phone
+        description: ''
+      - name: transporter_custom_info
+        description: ''
+      - name: transporter_department
+        description: ''
+      - name: transporter_isexempted_of_receipt
+        description: ''
+      - name: transporter_number_plate
+        description: ''
+      - name: transporter_receipt
+        description: ''
+      - name: transporter_transport_mode
+        description: ''
+      - name: transporter_validity_limit
+        description: ''
+      - name: previous_transporter_company_org_id
+        description: ''
+sources: []
