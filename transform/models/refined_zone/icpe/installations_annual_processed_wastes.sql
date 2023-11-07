@@ -48,8 +48,8 @@ wastes as (
         and b.processed_at >= '2022-01-01'
         and (
             waste_code ~* '.*\*$'
-            or waste_pop
-            or waste_is_dangerous
+            or coalesce(waste_pop,false)
+            or coalesce(waste_is_dangerous,false)
         )
     group by
         b.destination_company_siret,
