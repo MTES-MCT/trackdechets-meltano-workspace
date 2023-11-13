@@ -55,7 +55,7 @@ wastes as (
         and (
             waste_code ~* '.*\*$'
             or coalesce(waste_pop, false)
-            or coalesce(waste_is_dangerous,false)
+            or coalesce(waste_is_dangerous, false)
         )
     group by
         b.destination_company_siret,
