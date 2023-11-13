@@ -18,14 +18,16 @@
     WITH bordereaux as (
         SELECT
             b.id as bordereau_id,
-            b.destination_operation_code as "operation_code",
-            b.destination_operation_signature_date
+            coalesce(max(destination_operation_signature_date),max(bp.operation_date)) as "bordereaux_processed_at",
+            bool_and(bp.operation_date is not null) as is_processed
         FROM {{ ref('bsff') }} b
+        full outer join {{ ref('bsff_packaging') }} bp on b.id=bsff_id
         WHERE
-            destination_operation_signature_date < DATE_TRUNC('week',now())
-            AND (b.waste_code ~* '.*\*$')
-            and not is_draft
-            and not is_deleted
+            (b.waste_code ~* '.*\*$')
+            and not b.is_draft
+            and not b.is_deleted
+        group by b.id
+        having coalesce(max(destination_operation_signature_date),max(bp.operation_date)) < DATE_TRUNC('week',now())
     ),
     contenants AS (
         SELECT
@@ -47,8 +49,9 @@
     SELECT
         DATE_TRUNC(
             'week',
-            operation_date
+            coalesce(c.operation_date,b.bordereaux_processed_at)
         ) AS "semaine",
+        count(distinct bordereau_id) filter (where is_processed) as traitements_bordereaux,
         count(distinct packaging_id) as traitements_contenants,
         sum("quantity") as quantite_traitee,
         COUNT(distinct packaging_id) FILTER (WHERE operation_code in {{ non_final_operation_codes }}) AS traitements_contenants_operations_non_finales, 
@@ -56,15 +59,16 @@
         COUNT(distinct packaging_id) FILTER (WHERE operation_code not in {{ non_final_operation_codes }}) AS traitements_contenants_operations_finales,
         sum(quantity) FILTER (WHERE operation_code not in {{ non_final_operation_codes }}) AS quantite_traitee_operations_finales
     FROM
-        contenants
+        contenants c
+        left outer join bordereaux b on c.operation_date = b.bordereaux_processed_at
     GROUP BY
         DATE_TRUNC(
             'week',
-            operation_date
+            coalesce(c.operation_date,b.bordereaux_processed_at)
         )
     ORDER BY
         DATE_TRUNC(
             'week',
-            operation_date
+            coalesce(c.operation_date,b.bordereaux_processed_at)
         )
     
