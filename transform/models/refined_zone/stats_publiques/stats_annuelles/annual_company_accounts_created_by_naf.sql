@@ -27,7 +27,9 @@ select
     count(*)                 as nombre_etablissements
 from
     {{ ref('company_enriched') }} as ce
-where ce.created_at >= '2020-01-01'
+where
+    ce.created_at >= '2020-01-01'
+    and ce.created_at < date_trunc('week', now())
 group by date_trunc(
     'year',
     ce.created_at
