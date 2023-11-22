@@ -25,10 +25,14 @@ with rubriques_data as (
             ir.siret = se.siret
     where
         (
-            rubrique = '2770'
+            rubrique in ('2770','2771','2790','2791')
             or (
                 rubrique = '2760'
                 and alinea = '1'
+            )
+            or (
+                rubrique = '2760'
+                and alinea = '2'
             )
         )
         and coalesce(
@@ -41,7 +45,28 @@ wastes_data as (
     select
         b.destination_company_siret        as siret,
         mrco.rubrique,
-        sum(b.quantity_received)           as quantite_traitee_2023_td,
+        sum(b.quantity_received) filter (where (
+            b.waste_code ~* '.*\*$'
+            or coalesce(
+                b.waste_pop,
+                false
+            )
+            or coalesce(
+                b.waste_is_dangerous,
+                false
+            )
+        ))           as quantite_dd_traitee_2023_td,
+        sum(b.quantity_received) filter (where not (
+            b.waste_code ~* '.*\*$'
+            or coalesce(
+                b.waste_pop,
+                false
+            )
+            or coalesce(
+                b.waste_is_dangerous,
+                false
+            )
+        ))           as quantite_dnd_traitee_2023_td,
         max(se.code_commune_etablissement) as code_commune_insee
     from
         {{ ref('bordereaux_enriched') }} as b
@@ -56,18 +81,7 @@ wastes_data as (
             'year',
             b.processed_at
         ) = 2023
-        and (
-            b.waste_code ~* '.*\*$'
-            or coalesce(
-                b.waste_pop,
-                false
-            )
-            or coalesce(
-                b.waste_is_dangerous,
-                false
-            )
-        )
-        and mrco.rubrique in ('2760-1', '2770', '2790')
+        and mrco.rubrique in ('2760-1','2760-2', '2770', '2790', '2791', '2771')
     group by
         b.destination_company_siret,
         mrco.rubrique
@@ -83,7 +97,8 @@ select
     cgd.nom_en_clair                 as nom_departement,
     r.etat_activite                  as etat_activite_georisque,
     r.quantite_totale                as quantite_autorisee_georisque,
-    w.quantite_traitee_2023_td,
+    w.quantite_dd_traitee_2023_td,
+    w.quantite_dnd_traitee_2023_td,
     coalesce(
         r.code_commune_insee, w.code_commune_insee
     )                                as "code_commune_insee",
