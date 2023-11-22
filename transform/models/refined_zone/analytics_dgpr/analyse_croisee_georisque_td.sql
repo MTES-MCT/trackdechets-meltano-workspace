@@ -77,11 +77,16 @@ select
     r.code_aiot,
     r.siret                          as siret_georisque,
     w.siret                          as siret_td,
-    cgc.code_region,
-    cgc.code_departement,
+    cgc.code_region                  as code_region_insee,
+    cgr.nom_en_clair                 as nom_region,
+    cgc.code_departement             as code_departement_insee,
+    cgd.nom_en_clair                 as nom_departement,
     r.etat_activite                  as etat_activite_georisque,
     r.quantite_totale                as quantite_autorisee_georisque,
     w.quantite_traitee_2023_td,
+    coalesce(
+        r.code_commune_insee, w.code_commune_insee
+    )                                as "code_commune_insee",
     coalesce(r.rubrique, w.rubrique) as rubrique,
     case
         when
@@ -107,3 +112,9 @@ full outer join wastes_data as w
 left join
     {{ ref('code_geo_communes') }} as cgc
     on coalesce(r.code_commune_insee, w.code_commune_insee) = cgc.code_commune
+left join
+    {{ ref('code_geo_departements') }} as cgd
+    on cgc.code_departement = cgd.code_departement
+left join
+    {{ ref('code_geo_regions') }} as cgr
+    on cgc.code_region = cgr.code_region
