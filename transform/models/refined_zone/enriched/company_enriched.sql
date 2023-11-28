@@ -30,7 +30,6 @@ left join
     on c.siret = etabs.siret
 left join
     communes
-
     on
         coalesce(
             etabs.code_commune_etablissement,

@@ -55,7 +55,6 @@ with agg_data as (
             'week',
             now()
         )
-        and _bs_type != 'BSFF'
     group by
         date_part(
             'year',

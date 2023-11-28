@@ -25,7 +25,7 @@ with rubriques_data as (
             ir.siret = se.siret
     where
         (
-            rubrique in ('2770','2771','2790','2791')
+            rubrique in ('2770', '2771', '2790', '2791')
             or (
                 rubrique = '2760'
                 and alinea = '1'
@@ -55,7 +55,7 @@ wastes_data as (
                 b.waste_is_dangerous,
                 false
             )
-        ))           as quantite_dd_traitee_2023_td,
+        ))                                 as quantite_dd_traitee_2023_td,
         sum(b.quantity_received) filter (where not (
             b.waste_code ~* '.*\*$'
             or coalesce(
@@ -66,7 +66,7 @@ wastes_data as (
                 b.waste_is_dangerous,
                 false
             )
-        ))           as quantite_dnd_traitee_2023_td,
+        ))                                 as quantite_dnd_traitee_2023_td,
         max(se.code_commune_etablissement) as code_commune_insee
     from
         {{ ref('bordereaux_enriched') }} as b
@@ -81,7 +81,9 @@ wastes_data as (
             'year',
             b.processed_at
         ) = 2023
-        and mrco.rubrique in ('2760-1','2760-2', '2770', '2790', '2791', '2771')
+        and mrco.rubrique in (
+            '2760-1', '2760-2', '2770', '2790', '2791', '2771'
+        )
     group by
         b.destination_company_siret,
         mrco.rubrique
