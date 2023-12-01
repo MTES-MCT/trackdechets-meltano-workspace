@@ -171,6 +171,9 @@ plugins:
         "*":
           replication-method: FULL_TABLE
 
+    - name: tap-postgres
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
   loaders:
     - name: target-postgres
       variant: meltanolabs
@@ -272,7 +275,7 @@ plugins:
 
     - name: target-clickhouse
       variant: shaped-ai
-      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git@v0.1.21
     - name: target-clickhouse--dwh-trackdechets
       inherit_from: target-clickhouse
       config:
