@@ -55,25 +55,25 @@ plugins:
           replication-key: updatedAt
         default$default-CompanyAssociation:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
         default$default-EcoOrganisme:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
         default$default-BsffPackaging:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
         default$default-VhuAgrement:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
         default$default-TransporterReceipt:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
         default$default-BrokerReceipt:
           replication-method: FULL_TABLE
           replication-key: ""
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
-          replication-key: null
+          replication-key:
 
     - name: tap-postgres--td-database-test
       inherit_from: tap-postgres
@@ -119,6 +119,9 @@ plugins:
           replication-key: ""
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
+      # stream_maps:
+      #   default$default-Bsda:
+      #     packagings: str(packagings)
 
     - name: tap-zammad
       namespace: tap_zammad
@@ -173,6 +176,9 @@ plugins:
         "*":
           replication-method: FULL_TABLE
 
+    - name: tap-postgres
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
   loaders:
     - name: target-postgres--dwh
       inherit_from: target-postgres
@@ -194,19 +200,20 @@ plugins:
 
     - name: target-clickhouse
       variant: shaped-ai
-      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git@v0.1.21
     - name: target-clickhouse--dwh-trackdechets
       inherit_from: target-clickhouse
       config:
-        default_target_schema: raw_zone_trackdechets
-        stream_maps:
-          default$default-Bsda:
-            packagings: str(packagings)
-            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
-          default$default-BrokerReceipt:
-            validityLimit: validityLimit[:-6]
-          default$default-BsdaRevisionRequest:
-            brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+        default_target_schema:
+          raw_zone_trackdechets
+          # stream_maps:
+          #   default$default-Bsda:
+          #     packagings: str(packagings)
+          #     brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+          #   default$default-BrokerReceipt:
+          #     validityLimit: validityLimit[:-6]
+          #   default$default-BsdaRevisionRequest:
+          #     brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
 
   transformers:
     - name: dbt-postgres
