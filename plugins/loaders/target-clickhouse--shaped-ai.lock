@@ -8,7 +8,7 @@
   "repo": "https://github.com/shaped-ai/target-clickhouse",
   "pip_url": "git+https://github.com/shaped-ai/target-clickhouse.git",
   "executable": "target-clickhouse",
-  "description": "Clickhouse Database",
+  "description": "Loader for Clickhouse database.",
   "logo_url": "https://hub.meltano.com/assets/logos/loaders/clickhouse.png",
   "capabilities": [
     "about",
@@ -21,6 +21,12 @@
     ]
   ],
   "settings": [
+    {
+      "name": "add_record_metadata",
+      "kind": "boolean",
+      "label": "Add Record Metadata",
+      "description": "Add metadata to records."
+    },
     {
       "name": "default_target_schema",
       "kind": "string",
@@ -40,10 +46,31 @@
       "description": "The max depth to flatten schemas."
     },
     {
+      "name": "load_method",
+      "kind": "options",
+      "value": "append-only",
+      "label": "Load Method",
+      "description": "The method to use when loading data into the destination. `append-only` will always write all input records whether that records already exists or not. `upsert` will update existing records and insert new records. `overwrite` will delete all existing records and insert all input records.",
+      "options": [
+        {
+          "label": "Append Only",
+          "value": "append-only"
+        },
+        {
+          "label": "Upsert",
+          "value": "upsert"
+        },
+        {
+          "label": "Overwrite",
+          "value": "overwrite"
+        }
+      ]
+    },
+    {
       "name": "sqlalchemy_url",
-      "kind": "password",
-      "label": "SQLAlchemy URL",
-      "description": "SQLAlchemy connection string"
+      "kind": "string",
+      "label": "Sqlalchemy URL",
+      "description": "The SQLAlchemy connection string for the ClickHouse database"
     },
     {
       "name": "stream_map_config",
@@ -56,6 +83,12 @@
       "kind": "object",
       "label": "Stream Maps",
       "description": "Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html)."
+    },
+    {
+      "name": "table_name",
+      "kind": "string",
+      "label": "Table Name",
+      "description": "The name of the table to write to. Defaults to stream name."
     }
   ]
 }

@@ -50,6 +50,7 @@ SELECT
     sentat                             AS "sent_at",
     sentby                             AS "sent_by",
     currenttransporterorgid            AS "current_transporter_org_id",
+    transporterssirets                 AS "transporter_sirets",
     transportercompanysiret            AS "transporter_company_siret",
     transportercompanyname             AS "transporter_company_name",
     transportercompanyaddress          AS "transporter_company_address",
@@ -69,6 +70,7 @@ SELECT
     nexttransportersiret               AS "next_transporter_siret",
     takenoverat                        AS "taken_over_at",
     takenoverby                        AS "taken_over_by",
+    recipientssirets                   AS "recipients_sirets",
     recipientcompanysiret              AS "recipient_company_siret",
     recipientcompanyname               AS "recipient_company_name",
     recipientcompanyaddress            AS "recipient_company_address",
@@ -86,6 +88,7 @@ SELECT
     processingoperationdescription     AS "processing_operation_description",
     notraceability                     AS "no_traceability",
     isaccepted                         AS "is_accepted",
+    intermediariessirets               AS "intermediaries_sirets",
     nextdestinationcompanysiret        AS "next_destination_company_siret",
     nextdestinationcompanyname         AS "next_destination_company_name",
     nextdestinationcompanyaddress      AS "next_destination_company_address",
@@ -117,7 +120,6 @@ SELECT
     ecoorganismename                   AS "eco_organisme_name",
     isimportedfrompaper                AS "is_imported_from_paper",
     forwardedinid                      AS "forwarded_in_id",
-    intermediariessirets               AS "intermediaries_sirets",
     replace(
         recipientprocessingoperation, ' ', ''
     )                                  AS "recipient_processing_operation",
