@@ -4,10 +4,14 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: day
         description: ''
+        data_type: timestamp without time zone
       - name: quantity
         description: ''
+        data_type: double precision
       - name: stock
         description: ''
+        data_type: double precision
 sources: []

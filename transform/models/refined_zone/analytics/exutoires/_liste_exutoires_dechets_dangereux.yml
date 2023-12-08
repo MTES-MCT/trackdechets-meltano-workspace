@@ -4,14 +4,20 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: traiteur_bsdd
         description: ''
+        data_type: boolean
       - name: traiteur_bsda
         description: ''
+        data_type: boolean
       - name: traiteur_bsff
         description: ''
+        data_type: boolean
       - name: traiteur_bsdasri
         description: ''
+        data_type: boolean
       - name: traiteur_bsvhu
         description: ''
+        data_type: boolean
 sources: []

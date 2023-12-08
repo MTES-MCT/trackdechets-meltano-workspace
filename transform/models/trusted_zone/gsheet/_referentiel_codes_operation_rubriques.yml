@@ -4,10 +4,14 @@ models:
     columns:
       - name: code_operation
         description: ''
+        data_type: character varying
       - name: rubrique
         description: ''
+        data_type: character varying
       - name: criteres
         description: ''
+        data_type: character varying
       - name: unite
         description: ''
+        data_type: character varying
 sources: []

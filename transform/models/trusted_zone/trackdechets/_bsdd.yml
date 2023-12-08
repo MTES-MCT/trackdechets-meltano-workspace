@@ -125,6 +125,7 @@ models:
           Numéros de référence(s) d'analyse(s).
       - name: waste_details_sample_number
         description: ''
+        data_type: character varying
       - name: waste_details_land_identifiers
         data_type: jsonb
         description: >
@@ -244,6 +245,10 @@ models:
           Nom de la personne responsable de l'envoi du déchet (case 9).
       - name: current_transporter_org_id
         description: ''
+        data_type: character varying
+      - name: transporter_sirets
+        data_type: jsonb
+        description: ''
       - name: transporter_company_siret
         data_type: character varying
         description: >
@@ -306,6 +311,7 @@ models:
           SIRET du transporteur actuel.
       - name: next_transporter_org_id
         description: ''
+        data_type: character varying
       - name: next_transporter_siret
         data_type: character varying
         description: |
@@ -318,6 +324,9 @@ models:
         data_type: character varying
         description: >
           Nom de la personne qui a signé l'enlèvement initial pour le transporteur.
+      - name: recipients_sirets
+        data_type: jsonb
+        description: ''
       - name: recipient_company_siret
         data_type: character varying
         description: |
@@ -392,6 +401,9 @@ models:
         data_type: boolean
         description: |
           Indique si le déchet a été accepté.
+      - name: intermediaries_sirets
+        description: ''
+        data_type: jsonb
       - name: next_destination_company_siret
         data_type: character varying
         description: |
@@ -516,14 +528,12 @@ models:
         data_type: character varying
         description: |
           Identifiant du bordereau qui a ré-expédié celui-ci.
-      - name: intermediaries_sirets
-        description: ''
       - name: recipient_processing_operation
-        data_type: character varying
+        data_type: text
         description: |
           Opération d'élimination / valorisation prévue (code D/R).
       - name: processing_operation_done
-        data_type: character varying
+        data_type: text
         description: |
           Traitement réalisé (code D/R).
 sources: []

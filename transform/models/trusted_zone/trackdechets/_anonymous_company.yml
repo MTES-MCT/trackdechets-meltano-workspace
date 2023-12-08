@@ -1,29 +1,31 @@
 version: 2
 models:
-  - name: code_geo_arrondissements
+  - name: anonymous_company
     columns:
-      - name: code_arrondissement
+      - name: id
         description: ''
         data_type: character varying
-      - name: code_departement
+      - name: siret
         description: ''
         data_type: character varying
-      - name: code_region
-        description: ''
-        data_type: integer
-      - name: code_commune_chef_lieu
+      - name: name
         description: ''
         data_type: character varying
-      - name: type_nom_en_clair
-        description: ''
-        data_type: integer
-      - name: nom_en_clair
+      - name: address
         description: ''
         data_type: character varying
-      - name: nom_en_clair_enrichi
+      - name: code_naf
         description: ''
         data_type: character varying
-      - name: libelle
+      - name: libelle_naf
         description: ''
         data_type: character varying
-sources: []
+      - name: code_commune
+        description: ''
+        data_type: character varying
+      - name: vat_number
+        description: ''
+        data_type: character varying
+      - name: org_id
+        description: ''
+        data_type: character varying

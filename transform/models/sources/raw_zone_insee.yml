@@ -11,27 +11,37 @@ sources:
         columns:
           - name: code_section
             description: ''
+            data_type: character varying
           - name: libelle_section
             description: ''
+            data_type: character varying
           - name: code_division
             description: ''
+            data_type: character varying
           - name: libelle_division
             description: ''
+            data_type: character varying
           - name: code_groupe
             description: ''
+            data_type: character varying
           - name: libelle_groupe
             description: ''
+            data_type: character varying
           - name: code_classe
             description: ''
+            data_type: character varying
           - name: libelle_classe
             description: ''
+            data_type: character varying
           - name: code_sous_classe
             description: Clé unique
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: libelle_sous_classe
             description: ''
+            data_type: character varying
       - name: arrondissement
         description: >
           Données géographiques INSEE des arrondissements français.
@@ -42,20 +52,28 @@ sources:
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: dep
             description: ''
+            data_type: character varying
           - name: reg
             description: ''
+            data_type: character varying
           - name: cheflieu
             description: ''
+            data_type: character varying
           - name: tncc
             description: ''
+            data_type: character varying
           - name: ncc
             description: ''
+            data_type: character varying
           - name: nccenr
             description: ''
+            data_type: character varying
           - name: libelle
             description: ''
+            data_type: character varying
       - name: canton
         description: >
           Données géographiques INSEE des cantons français.
@@ -66,24 +84,34 @@ sources:
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: id_departement
             description: ''
+            data_type: character varying
           - name: id_region
             description: ''
+            data_type: character varying
           - name: typct
             description: ''
+            data_type: character varying
           - name: burcentral
             description: ''
+            data_type: character varying
           - name: tncc
             description: ''
+            data_type: character varying
           - name: ncc
             description: ''
+            data_type: character varying
           - name: nccenr
             description: ''
+            data_type: character varying
           - name: libelle
             description: ''
+            data_type: character varying
           - name: actual
             description: ''
+            data_type: character varying
       - name: commune
         description: >
           Données géographiques INSEE des communes françaises.
@@ -91,30 +119,42 @@ sources:
         columns:
           - name: typecom
             description: ''
+            data_type: character varying
           - name: com
             description: Code commune
             tests:
               - not_null
+            data_type: character varying
           - name: reg
             description: ''
+            data_type: character varying
           - name: dep
             description: ''
+            data_type: character varying
           - name: ctcd
             description: ''
+            data_type: character varying
           - name: arr
             description: ''
+            data_type: character varying
           - name: tncc
             description: ''
+            data_type: character varying
           - name: ncc
             description: ''
+            data_type: character varying
           - name: nccenr
             description: ''
+            data_type: character varying
           - name: libelle
             description: ''
+            data_type: character varying
           - name: can
             description: ''
+            data_type: character varying
           - name: comparent
             description: ''
+            data_type: character varying
       - name: departement
         description: >
           Données géographiques INSEE des département français.
@@ -125,18 +165,25 @@ sources:
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: reg
             description: ''
+            data_type: character varying
           - name: cheflieu
             description: ''
+            data_type: character varying
           - name: tncc
             description: ''
+            data_type: character varying
           - name: ncc
             description: ''
+            data_type: character varying
           - name: nccenr
             description: ''
+            data_type: character varying
           - name: libelle
             description: ''
+            data_type: character varying
       - name: pays
         description: >
           Données géographiques INSEE des pays du monde.
@@ -144,26 +191,37 @@ sources:
         columns:
           - name: cog
             description: ''
+            data_type: character varying
           - name: actual
             description: ''
+            data_type: character varying
           - name: capay
             description: ''
+            data_type: character varying
           - name: crpay
             description: ''
+            data_type: character varying
           - name: ani
             description: ''
+            data_type: character varying
           - name: libcog
             description: ''
+            data_type: character varying
           - name: libenr
             description: ''
+            data_type: character varying
           - name: ancnom
             description: ''
+            data_type: character varying
           - name: codeiso2
             description: ''
+            data_type: character varying
           - name: codeiso3
             description: ''
+            data_type: character varying
           - name: codenum3
             description: ''
+            data_type: character varying
       - name: region
         description: >
           Données géographiques INSEE des régions françaises.
@@ -174,16 +232,22 @@ sources:
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: cheflieu
             description: ''
+            data_type: character varying
           - name: tncc
             description: ''
+            data_type: character varying
           - name: ncc
             description: ''
+            data_type: character varying
           - name: nccenr
             description: ''
+            data_type: character varying
           - name: libelle
             description: ''
+            data_type: character varying
       - name: stock_etablissement
         description: >
           Données des établissements français.
@@ -191,100 +255,148 @@ sources:
         columns:
           - name: siren
             description: ''
+            data_type: character varying
           - name: nic
             description: ''
+            data_type: character varying
           - name: siret
             description: Code région
             tests:
               - unique
               - not_null
+            data_type: character varying
           - name: statutDiffusionEtablissement
             description: ''
+            data_type: character varying
           - name: dateCreationEtablissement
             description: ''
+            data_type: character varying
           - name: trancheEffectifsEtablissement
             description: ''
+            data_type: character varying
           - name: anneeEffectifsEtablissement
             description: ''
+            data_type: character varying
           - name: activitePrincipaleRegistreMetiersEtablissement
             description: ''
+            data_type: character varying
           - name: dateDernierTraitementEtablissement
             description: ''
+            data_type: character varying
           - name: etablissementSiege
             description: ''
+            data_type: character varying
           - name: nombrePeriodesEtablissement
             description: ''
+            data_type: character varying
           - name: complementAdresseEtablissement
             description: ''
+            data_type: character varying
           - name: numeroVoieEtablissement
             description: ''
+            data_type: character varying
           - name: indiceRepetitionEtablissement
             description: ''
+            data_type: character varying
           - name: typeVoieEtablissement
             description: ''
+            data_type: character varying
           - name: libelleVoieEtablissement
             description: ''
+            data_type: character varying
           - name: codePostalEtablissement
             description: ''
+            data_type: character varying
           - name: libelleCommuneEtablissement
             description: ''
+            data_type: character varying
           - name: libelleCommuneEtrangerEtablissement
             description: ''
+            data_type: character varying
           - name: distributionSpecialeEtablissement
             description: ''
+            data_type: character varying
           - name: codeCommuneEtablissement
             description: ''
+            data_type: character varying
           - name: codeCedexEtablissement
             description: ''
+            data_type: character varying
           - name: libelleCedexEtablissement
             description: ''
+            data_type: character varying
           - name: codePaysEtrangerEtablissement
             description: ''
+            data_type: character varying
           - name: libellePaysEtrangerEtablissement
             description: ''
+            data_type: character varying
           - name: complementAdresse2Etablissement
             description: ''
+            data_type: character varying
           - name: numeroVoie2Etablissement
             description: ''
+            data_type: character varying
           - name: indiceRepetition2Etablissement
             description: ''
+            data_type: character varying
           - name: typeVoie2Etablissement
             description: ''
+            data_type: character varying
           - name: libelleVoie2Etablissement
             description: ''
+            data_type: character varying
           - name: codePostal2Etablissement
             description: ''
+            data_type: character varying
           - name: libelleCommune2Etablissement
             description: ''
+            data_type: character varying
           - name: libelleCommuneEtranger2Etablissement
             description: ''
+            data_type: character varying
           - name: distributionSpeciale2Etablissement
             description: ''
+            data_type: character varying
           - name: codeCommune2Etablissement
             description: ''
+            data_type: character varying
           - name: codeCedex2Etablissement
             description: ''
+            data_type: character varying
           - name: libelleCedex2Etablissement
             description: ''
+            data_type: character varying
           - name: codePaysEtranger2Etablissement
             description: ''
+            data_type: character varying
           - name: libellePaysEtranger2Etablissement
             description: ''
+            data_type: character varying
           - name: dateDebut
             description: ''
+            data_type: character varying
           - name: etatAdministratifEtablissement
             description: ''
+            data_type: character varying
           - name: enseigne1Etablissement
             description: ''
+            data_type: character varying
           - name: enseigne2Etablissement
             description: ''
+            data_type: character varying
           - name: enseigne3Etablissement
             description: ''
+            data_type: character varying
           - name: denominationUsuelleEtablissement
             description: ''
+            data_type: character varying
           - name: activitePrincipaleEtablissement
             description: ''
+            data_type: character varying
           - name: nomenclatureActivitePrincipaleEtablissement
             description: ''
+            data_type: character varying
           - name: caractereEmployeurEtablissement
             description: ''
+            data_type: character varying

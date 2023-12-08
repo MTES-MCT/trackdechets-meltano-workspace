@@ -4,8 +4,11 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: num_mentions_bordereaux
         description: ''
+        data_type: numeric
       - name: type_etablissement
         description: ''
+        data_type: text
 sources: []

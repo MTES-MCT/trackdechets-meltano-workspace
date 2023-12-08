@@ -4,78 +4,116 @@ models:
     columns:
       - name: id
         description: 'identifiant unique de l''utilisateur'
+        data_type: numeric
       - name: created_at
         description: ''
+        data_type: timestamp without time zone
       - name: created_by_id
         description: ''
+        data_type: numeric
       - name: updated_at
         description: ''
+        data_type: timestamp without time zone
       - name: updated_by_id
         description: ''
+        data_type: numeric
       - name: active
         description: ''
+        data_type: boolean
       - name: verified
         description: ''
+        data_type: boolean
       - name: login
         description: ''
+        data_type: character varying
       - name: email
         description: ''
+        data_type: character varying
       - name: firstname
         description: ''
+        data_type: character varying
       - name: lastname
         description: ''
+        data_type: character varying
       - name: address
         description: ''
+        data_type: character varying
       - name: authorization_ids
         description: ''
+        data_type: jsonb
       - name: city
         description: ''
+        data_type: character varying
       - name: country
         description: ''
+        data_type: character varying
       - name: department
         description: ''
+        data_type: character varying
       - name: fax
         description: ''
+        data_type: character varying
       - name: group_ids
         description: ''
+        data_type: jsonb
       - name: image
         description: ''
+        data_type: character varying
       - name: image_source
         description: ''
+        data_type: character varying
       - name: karma_user_ids
         description: ''
+        data_type: jsonb
       - name: last_login
         description: ''
+        data_type: timestamp without time zone
       - name: login_failed
         description: ''
+        data_type: numeric
       - name: mobile
         description: ''
+        data_type: character varying
       - name: note
         description: ''
+        data_type: character varying
       - name: organization_id
         description: ''
+        data_type: numeric
       - name: organization_ids
         description: ''
+        data_type: jsonb
       - name: out_of_office
         description: ''
+        data_type: boolean
       - name: out_of_office_end_at
         description: ''
+        data_type: timestamp without time zone
       - name: out_of_office_replacement_id
         description: ''
+        data_type: numeric
       - name: out_of_office_start_at
         description: ''
+        data_type: timestamp without time zone
       - name: phone
         description: ''
+        data_type: character varying
       - name: role_ids
         description: ''
+        data_type: jsonb
       - name: source
         description: ''
+        data_type: character varying
       - name: street
         description: ''
+        data_type: character varying
       - name: vip
         description: ''
+        data_type: boolean
       - name: web
         description: ''
+        data_type: character varying
       - name: zip
         description: ''
+        data_type: character varying
 sources: []

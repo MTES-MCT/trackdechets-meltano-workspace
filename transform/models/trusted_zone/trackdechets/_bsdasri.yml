@@ -90,9 +90,6 @@ models:
       - name: emitted_by_eco_organisme
         data_type: boolean
 
-      - name: emitter_waste_weight_value
-        data_type: double precision
-
       - name: emitter_waste_weight_is_estimate
         data_type: boolean
 
@@ -171,9 +168,6 @@ models:
       - name: transporter_waste_refusal_reason
         data_type: character varying
 
-      - name: transporter_waste_refused_weight_value
-        data_type: double precision
-
       - name: destination_company_siret
         data_type: character varying
 
@@ -246,8 +240,14 @@ models:
       - name: synthesized_in_id
         data_type: character varying
 
-      - name: emitter_waste_volume
+      - name: emitter_waste_weight_value
         data_type: double precision
+
+      - name: transporter_waste_refused_weight_value
+        data_type: double precision
+
+      - name: emitter_waste_volume
+        data_type: numeric
 
       - name: transporter_waste_volume
         data_type: double precision

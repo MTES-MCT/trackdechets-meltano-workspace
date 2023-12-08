@@ -4,12 +4,17 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: nom_etablissement
         description: ''
+        data_type: text
       - name: quantite_bsdd_traitee_en_d5
         description: ''
+        data_type: double precision
       - name: quantite_bsda_traitee_en_d5
         description: ''
+        data_type: double precision
       - name: statut_icpe
         description: ''
+        data_type: text
 sources: []

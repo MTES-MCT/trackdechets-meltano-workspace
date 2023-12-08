@@ -4,6 +4,8 @@ models:
     columns:
       - name: ticket_id
         description: 'identifiant du ticket'
+        data_type: numeric
       - name: tags
         description: ''
+        data_type: jsonb
 sources: []

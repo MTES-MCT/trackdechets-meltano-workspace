@@ -2209,7 +2209,17 @@ sources:
       - name: bsdd_transporter_raw
         identifier: bsddtransporter
         description: >
-          Table permettant d'avoir toues les segments de transports pour chaque BSDD.
+          Table permettant d'avoir tous les segments de transports pour chaque BSDD.
+        config:
+          elementary:
+            timestamp_column: "_sdc_extracted_at"
+        tests:
+          - elementary.schema_changes
+
+      - name: anonymous_company_raw
+        identifier: anonymouscompany
+        description: >
+          Table permettant de connaitre les établissements non diffusibles.
         config:
           elementary:
             timestamp_column: "_sdc_extracted_at"

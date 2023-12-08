@@ -13,18 +13,24 @@ sources:
               Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
             tests:
               - not_null
+            data_type: character varying
           - name: nom_commune
             description: ''
+            data_type: character varying
           - name: code_postal
             description: Code postal de la commune
             tests:
               - not_null
+            data_type: integer
           - name: ligne_5
             description: ''
+            data_type: character varying
           - name: libellé_d_acheminement
             description: ''
+            data_type: character varying
           - name: coordonnees_gps
             description: ''
+            data_type: character varying
       - name: codes_operations_traitements
         description: >
           Une ligne par code opération traitement (codes R et D) avec la description de l'opération associée.

@@ -4,80 +4,119 @@ models:
     columns:
       - name: id
         description: 'identifiant unique du ticket'
+        data_type: numeric
       - name: number
         description: ''
+        data_type: character varying
       - name: created_at
         description: ''
+        data_type: timestamp without time zone
       - name: created_by_id
         description: ''
+        data_type: numeric
       - name: updated_at
         description: ''
+        data_type: timestamp without time zone
       - name: updated_by_id
         description: ''
+        data_type: numeric
       - name: title
         description: ''
+        data_type: character varying
       - name: article_count
         description: ''
+        data_type: numeric
       - name: article_ids
         description: ''
+        data_type: jsonb
       - name: close_at
         description: ''
+        data_type: timestamp without time zone
       - name: close_diff_in_min
         description: ''
+        data_type: numeric
       - name: close_escalation_at
         description: ''
+        data_type: timestamp without time zone
       - name: close_in_min
         description: ''
+        data_type: numeric
       - name: create_article_sender_id
         description: ''
+        data_type: numeric
       - name: create_article_type_id
         description: ''
+        data_type: numeric
       - name: customer_id
         description: ''
+        data_type: numeric
       - name: escalation_at
         description: ''
+        data_type: timestamp without time zone
       - name: first_response_at
         description: ''
+        data_type: timestamp without time zone
       - name: first_response_diff_in_min
         description: ''
+        data_type: numeric
       - name: first_response_escalation_at
         description: ''
+        data_type: timestamp without time zone
       - name: first_response_in_min
         description: ''
+        data_type: numeric
       - name: group_id
         description: ''
+        data_type: numeric
       - name: last_close_at
         description: ''
+        data_type: timestamp without time zone
       - name: last_contact_agent_at
         description: ''
+        data_type: timestamp without time zone
       - name: last_contact_at
         description: ''
+        data_type: timestamp without time zone
       - name: last_contact_customer_at
         description: ''
+        data_type: timestamp without time zone
       - name: last_owner_update_at
         description: ''
+        data_type: timestamp without time zone
       - name: note
         description: ''
+        data_type: character varying
       - name: organization_id
         description: ''
+        data_type: numeric
       - name: owner_id
         description: ''
+        data_type: numeric
       - name: pending_time
         description: ''
+        data_type: character varying
       - name: priority_id
         description: ''
+        data_type: numeric
       - name: state_id
         description: ''
+        data_type: numeric
       - name: ticket_time_accounting_ids
         description: ''
+        data_type: jsonb
       - name: time_unit
         description: ''
+        data_type: character varying
       - name: type
         description: ''
+        data_type: character varying
       - name: update_diff_in_min
         description: ''
+        data_type: numeric
       - name: update_escalation_at
         description: ''
+        data_type: timestamp without time zone
       - name: update_in_min
         description: ''
+        data_type: numeric
 sources: []

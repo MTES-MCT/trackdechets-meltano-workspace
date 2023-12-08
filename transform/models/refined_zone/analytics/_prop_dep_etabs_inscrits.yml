@@ -4,6 +4,8 @@ models:
     columns:
       - name: dep
         description: ''
+        data_type: character varying
       - name: prop_etab_inscrits_td_sur_sirene
         description: ''
+        data_type: double precision
 sources: []

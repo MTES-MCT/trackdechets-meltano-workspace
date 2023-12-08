@@ -59,56 +59,81 @@ sources:
             tests:
               - not_null
 
+            data_type: text
           - name: raison_sociale
             description: ""
+            data_type: text
           - name: nom_eco_organisme
             description: ""
+            data_type: text
           - name: filiere_dsrep
             description: ""
+            data_type: text
           - name: produits_relevant_filiere_responsabilite_elargie
             description: ""
+            data_type: text
           - name: adresse
             description: ""
+            data_type: text
           - name: code_postal
             description: ""
+            data_type: text
           - name: ville
             description: ""
 
+            data_type: text
       - name: matching_td_georisques
         columns:
           - name: _sdc_batched_at
             description: ""
+            data_type: timestamp without time zone
           - name: _sdc_deleted_at
             description: ""
+            data_type: character varying
           - name: _sdc_extracted_at
             description: ""
+            data_type: timestamp without time zone
           - name: code_aiot
             description: ""
+            data_type: character varying
           - name: code_postal
             description: ""
+            data_type: character varying
           - name: nom_etablissement_icpe
             description: ""
+            data_type: character varying
           - name: siret_gerep
             description: ""
+            data_type: character varying
           - name: siret_icpe
             description: ""
+            data_type: character varying
           - name: siret_td
             description: ""
+            data_type: character varying
           - name: traite
             description: ""
+            data_type: character varying
       - name: referentiel_codes_operation_rubriques
         columns:
           - name: _sdc_batched_at
             description: ''
+            data_type: timestamp without time zone
           - name: _sdc_deleted_at
             description: ''
+            data_type: character varying
           - name: _sdc_extracted_at
             description: ''
+            data_type: timestamp without time zone
           - name: code_operation
             description: ''
+            data_type: character varying
           - name: criteres
             description: ''
+            data_type: character varying
           - name: rubrique
             description: ''
+            data_type: character varying
           - name: unite
             description: ''
+            data_type: character varying

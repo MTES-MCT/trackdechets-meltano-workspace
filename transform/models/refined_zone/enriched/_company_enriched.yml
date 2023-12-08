@@ -4,94 +4,143 @@ models:
     columns:
       - name: id
         description: 'Clé primaire'
+        data_type: character varying
+      - name: org_id
+        data_type: character varying
+        description: ''
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: created_at
         description: ''
+        data_type: timestamp without time zone
       - name: updated_at
         description: ''
+        data_type: timestamp without time zone
       - name: security_code
         description: ''
+        data_type: integer
       - name: name
         description: ''
+        data_type: character varying
       - name: gerep_id
         description: ''
+        data_type: character varying
       - name: code_naf
         description: ''
+        data_type: character varying
       - name: given_name
         description: ''
+        data_type: character varying
       - name: contact_email
         description: ''
+        data_type: character varying
       - name: contact_phone
         description: ''
+        data_type: character varying
       - name: website
         description: ''
+        data_type: character varying
       - name: transporter_receipt_id
         description: ''
+        data_type: character varying
       - name: trader_receipt_id
         description: ''
+        data_type: character varying
       - name: eco_organisme_agreements
         description: ''
+        data_type: jsonb
       - name: company_types
         description: ''
+        data_type: jsonb
       - name: address
         description: ''
+        data_type: character varying
       - name: latitude
         description: ''
+        data_type: double precision
       - name: longitude
         description: ''
+        data_type: double precision
       - name: broker_receipt_id
         description: ''
+        data_type: character varying
       - name: verification_code
         description: ''
+        data_type: character varying
       - name: verification_status
         description: ''
+        data_type: character varying
       - name: verification_mode
         description: ''
+        data_type: character varying
       - name: verification_comment
         description: ''
+        data_type: character varying
       - name: verified_at
         description: ''
+        data_type: timestamp without time zone
       - name: vhu_agrement_demolisseur_id
         description: ''
+        data_type: character varying
       - name: vhu_agrement_broyeur_id
         description: ''
+        data_type: character varying
       - name: allow_bsdasri_take_over_without_signature
         description: ''
+        data_type: boolean
       - name: vat_number
         description: ''
+        data_type: character varying
       - name: contact
         description: ''
+        data_type: character varying
       - name: code_departement
         description: ''
+        data_type: character varying
       - name: worker_certification_id
         description: ''
+        data_type: character varying
       - name: code_section
         description: ''
+        data_type: character varying
       - name: libelle_section
         description: ''
+        data_type: character varying
       - name: code_division
         description: ''
+        data_type: character varying
       - name: libelle_division
         description: ''
+        data_type: character varying
       - name: code_groupe
         description: ''
+        data_type: character varying
       - name: libelle_groupe
         description: ''
+        data_type: character varying
       - name: code_classe
         description: ''
+        data_type: character varying
       - name: libelle_classe
         description: ''
+        data_type: character varying
       - name: code_sous_classe
         description: 'Clé unique'
+        data_type: character varying
       - name: libelle_sous_classe
         description: ''
+        data_type: character varying
       - name: etat_administratif_etablissement
         description: ''
+        data_type: character varying
       - name: code_commune_insee
         description: ''
+        data_type: character varying
       - name: code_departement_insee
         description: ''
+        data_type: text
       - name: code_region_insee
         description: ''
+        data_type: integer
 sources: []

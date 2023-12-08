@@ -4,34 +4,50 @@ models:
     columns:
       - name: id
         description: 'identifiant unique du groupe'
+        data_type: numeric
       - name: name
         description: ''
+        data_type: character varying
       - name: created_at
         description: ''
+        data_type: timestamp without time zone
       - name: created_by_id
         description: ''
+        data_type: numeric
       - name: updated_at
         description: ''
+        data_type: timestamp without time zone
       - name: updated_by_id
         description: ''
+        data_type: numeric
       - name: active
         description: ''
+        data_type: boolean
       - name: assignment_timeout
         description: ''
+        data_type: numeric
       - name: email_address_id
         description: ''
+        data_type: numeric
       - name: follow_up_assignment
         description: ''
+        data_type: boolean
       - name: follow_up_possible
         description: ''
+        data_type: character varying
       - name: note
         description: ''
+        data_type: character varying
       - name: reopen_time_in_days
         description: ''
+        data_type: numeric
       - name: shared_drafts
         description: ''
+        data_type: boolean
       - name: signature_id
         description: ''
+        data_type: numeric
       - name: user_ids
         description: ''
+        data_type: jsonb
 sources: []

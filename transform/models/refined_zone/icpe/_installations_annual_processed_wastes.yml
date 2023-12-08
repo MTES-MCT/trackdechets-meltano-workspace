@@ -4,18 +4,26 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: rubrique
         description: ''
+        data_type: text
       - name: raison_sociale
         description: ''
+        data_type: text
       - name: codes_aiot
         description: ''
+        data_type: ARRAY
       - name: quantite_autorisee
         description: ''
+        data_type: double precision
       - name: year
         description: ''
+        data_type: numeric
       - name: quantite_traitee
         description: ''
+        data_type: double precision
       - name: quantite_moyenne_j
         description: ''
+        data_type: double precision
 sources: []

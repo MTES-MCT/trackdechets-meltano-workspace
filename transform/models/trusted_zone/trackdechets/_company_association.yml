@@ -4,10 +4,14 @@ models:
     columns:
       - name: id
         description: 'Clé primaire'
+        data_type: character varying
       - name: role
         description: ''
+        data_type: character varying
       - name: company_id
         description: ''
+        data_type: character varying
       - name: user_id
         description: ''
+        data_type: character varying
 sources: []

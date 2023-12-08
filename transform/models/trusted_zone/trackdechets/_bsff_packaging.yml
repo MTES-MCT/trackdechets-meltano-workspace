@@ -18,64 +18,95 @@ models:
     columns:
       - name: id
         description: "Clé primaire"
+        data_type: character varying
       - name: bsff_id
         description: ""
+        data_type: character varying
       - name: numero
         description: ""
+        data_type: character varying
       - name: type
         description: ""
+        data_type: character varying
       - name: acceptation_status
         description: ""
+        data_type: character varying
       - name: acceptation_date
         description: ""
+        data_type: timestamp without time zone
       - name: acceptation_signature_date
         description: ""
+        data_type: timestamp without time zone
       - name: acceptation_signature_author
         description: ""
+        data_type: character varying
       - name: acceptationrefusalreason
         description: ""
+        data_type: character varying
       - name: acceptation_waste_code
         description: ""
+        data_type: character varying
       - name: acceptation_waste_description
         description: ""
+        data_type: character varying
       - name: operation_date
         description: ""
+        data_type: timestamp without time zone
       - name: operation_signature_date
         description: ""
+        data_type: timestamp without time zone
       - name: operation_signature_author
         description: ""
+        data_type: character varying
       - name: operation_code
         description: ""
+        data_type: character varying
       - name: operation_description
         description: ""
+        data_type: character varying
       - name: operation_no_traceability
         description: ""
+        data_type: boolean
       - name: operation_next_destination_company_siret
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_vat_number
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_name
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_address
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_contact
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_mail
         description: ""
+        data_type: character varying
       - name: operation_next_destination_company_phone
         description: ""
+        data_type: character varying
       - name: operation_next_destination_planned_operation_code
         description: ""
+        data_type: character varying
       - name: operation_next_destination_cap
         description: ""
+        data_type: character varying
       - name: next_packaging_id
         description: ""
+        data_type: character varying
       - name: other
         description: ""
+        data_type: character varying
       - name: volume
         description: ""
+        data_type: double precision
       - name: acceptation_weight
         description: ""
+        data_type: double precision
       - name: weight
         description: ""
+        data_type: double precision
 sources: []

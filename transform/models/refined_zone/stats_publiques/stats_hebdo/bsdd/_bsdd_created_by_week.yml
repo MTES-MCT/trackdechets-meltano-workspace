@@ -6,8 +6,11 @@ models:
     columns:
       - name: semaine
         description: ''
+        data_type: timestamp without time zone
       - name: creations
         description: ''
+        data_type: bigint
       - name: quantite_tracee
         description: ''
+        data_type: double precision
 sources: []

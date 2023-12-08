@@ -4,8 +4,11 @@ models:
     columns:
       - name: annee
         description: ''
+        data_type: integer
       - name: type_bordereau
         description: ''
+        data_type: text
       - name: creations
         description: ''
+        data_type: bigint
 sources: []

@@ -4,66 +4,98 @@ models:
     columns:
       - name: siret
         description: 'Code région'
+        data_type: character varying
       - name: num_bsdd_as_emitter
         description: ''
+        data_type: bigint
       - name: num_bsda_as_emitter
         description: ''
+        data_type: bigint
       - name: num_bsff_as_emitter
         description: ''
+        data_type: bigint
       - name: num_bsdasri_as_emitter
         description: ''
+        data_type: bigint
       - name: num_bsvhu_as_emitter
         description: ''
+        data_type: bigint
       - name: quantity_bsdd_as_emitter
         description: ''
+        data_type: double precision
       - name: quantity_bsda_as_emitter
         description: ''
+        data_type: double precision
       - name: quantity_bsff_as_emitter
         description: ''
+        data_type: double precision
       - name: quantity_bsdasri_as_emitter
         description: ''
+        data_type: double precision
       - name: quantity_bsvhu_as_emitter
         description: ''
+        data_type: double precision
       - name: num_bsdd_as_transporter
         description: ''
+        data_type: bigint
       - name: num_bsda_as_transporter
         description: ''
+        data_type: bigint
       - name: num_bsff_as_transporter
         description: ''
+        data_type: bigint
       - name: num_bsdasri_as_transporter
         description: ''
+        data_type: bigint
       - name: num_bsvhu_as_transporter
         description: ''
+        data_type: bigint
       - name: quantity_bsdd_as_transporter
         description: ''
+        data_type: double precision
       - name: quantity_bsda_as_transporter
         description: ''
+        data_type: double precision
       - name: quantity_bsff_as_transporter
         description: ''
+        data_type: double precision
       - name: quantity_bsdasri_as_transporter
         description: ''
+        data_type: double precision
       - name: quantity_bsvhu_as_transporter
         description: ''
+        data_type: double precision
       - name: num_bsdd_as_destination
         description: ''
+        data_type: bigint
       - name: num_bsda_as_destination
         description: ''
+        data_type: bigint
       - name: num_bsff_as_destination
         description: ''
+        data_type: bigint
       - name: num_bsdasri_as_destination
         description: ''
+        data_type: bigint
       - name: num_bsvhu_as_destination
         description: ''
+        data_type: bigint
       - name: quantity_bsdd_as_destination
         description: ''
+        data_type: double precision
       - name: quantity_bsda_as_destination
         description: ''
+        data_type: double precision
       - name: quantity_bsff_as_destination
         description: ''
+        data_type: double precision
       - name: quantity_bsdasri_as_destination
         description: ''
+        data_type: double precision
       - name: quantity_bsvhu_as_destination
         description: ''
+        data_type: double precision
       - name: total_mentions_bordereaux
         description: ''
+        data_type: bigint
 sources: []

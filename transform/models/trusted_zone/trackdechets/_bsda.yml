@@ -96,6 +96,7 @@ models:
       - name: emitter_is_private_individual
         description: ""
 
+        data_type: boolean
       - name: emitter_pickup_site_name
         data_type: character varying
 
@@ -319,10 +320,10 @@ models:
         data_type: character varying
 
       - name: destination_planned_operation_code
-        data_type: character varying
+        data_type: text
 
       - name: destination_operation_code
-        data_type: character varying
+        data_type: text
 
       - name: weight_value
         data_type: double precision

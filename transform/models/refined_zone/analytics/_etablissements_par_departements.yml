@@ -4,6 +4,8 @@ models:
     columns:
       - name: dep
         description: ''
+        data_type: character varying
       - name: num_etabs
         description: ''
+        data_type: bigint
 sources: []

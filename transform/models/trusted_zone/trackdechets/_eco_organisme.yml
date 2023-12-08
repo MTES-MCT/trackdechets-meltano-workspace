@@ -4,12 +4,17 @@ models:
     columns:
       - name: id
         description: 'Clé primaire'
+        data_type: character varying
       - name: siret
         description: ''
+        data_type: character varying
       - name: name
         description: ''
+        data_type: character varying
       - name: address
         description: ''
+        data_type: character varying
       - name: handle_bsdasri
         description: ''
+        data_type: boolean
 sources: []

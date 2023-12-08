@@ -49,6 +49,7 @@ plugins:
         - default$default-BrokerReceipt.*
         - default$default-TraderReceipt.*
         - default$default-BsddTransporter.*
+        - default$default-AnonymousCompany.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -66,6 +67,8 @@ plugins:
         default$default-BrokerReceipt:
           replication-method: FULL_TABLE
         default$default-TraderReceipt:
+          replication-method: FULL_TABLE
+        default$default-AnonymousCompany:
           replication-method: FULL_TABLE
 
     - name: tap-zammad
