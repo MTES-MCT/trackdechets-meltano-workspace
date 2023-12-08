@@ -288,6 +288,8 @@ plugins:
         #    validityLimit: validityLimit[:-6]
         #  default$default-BsdaRevisionRequest:
         #    brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+        add_record_metadata: true
+        engine_type: ReplacingMergeTree
 
   transformers:
     - name: dbt-postgres
