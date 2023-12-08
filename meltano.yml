@@ -78,6 +78,9 @@ plugins:
     - name: tap-postgres--td-database-test
       inherit_from: tap-postgres
       variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git@main
+      config:
+        dates_as_string: true
       select:
         - default$default-Company.*
         - default$default-CompanyAssociation.*
@@ -119,10 +122,43 @@ plugins:
           replication-key: ""
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
-      # stream_maps:
-      #   default$default-Bsda:
-      #     packagings: str(packagings)
-
+          replication-key: ""
+      stream_maps:
+        default$default-Bsda:
+          packagings: str(packagings)
+        default$default-BsdaRevisionRequest:
+          packagings: str(packagings)
+        default$default-Bsdasri:
+          emitterWastePackagings: str(emitterWastePackagings)
+          transporterWastePackagings: str(transporterWastePackagings)
+          destinationWastePackagings: str(destinationWastePackagings)
+        default$default-BsddRevisionRequest:
+          wasteDetailsPackagingInfos: str(wasteDetailsPackagingInfos)
+        default$default-Form:
+          wasteDetailsPackagingInfos: str(wasteDetailsPackagingInfos)
+          wasteDetailsParcelNumbers: str(wasteDetailsParcelNumbers)
+      schema:
+        default$default-Bsda:
+          packagings:
+            type: "string"
+        default$default-BsdaRevisionRequest:
+          packagings:
+            type: "string"
+        default$default-Bsdasri:
+          emitterWastePackagings:
+            type: "string"
+          transporterWastePackagings:
+            type: "string"
+          destinationWastePackagings:
+            type: "string"
+        default$default-BsddRevisionRequest:
+          wasteDetailsPackagingInfos:
+            type: "string"
+        default$default-Form:
+          wasteDetailsPackagingInfos:
+            type: "string"
+          wasteDetailsParcelNumbers:
+            type: "string"
     - name: tap-zammad
       namespace: tap_zammad
       pip_url: git+https://github.com/Lawiss/tap-zammad.git
@@ -204,16 +240,9 @@ plugins:
     - name: target-clickhouse--dwh-trackdechets
       inherit_from: target-clickhouse
       config:
-        default_target_schema:
-          raw_zone_trackdechets
-          # stream_maps:
-          #   default$default-Bsda:
-          #     packagings: str(packagings)
-          #     brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
-          #   default$default-BrokerReceipt:
-          #     validityLimit: validityLimit[:-6]
-          #   default$default-BsdaRevisionRequest:
-          #     brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
+        default_target_schema: raw_zone_trackdechets
+        add_record_metadata: true
+        engine_type: ReplacingMergeTree
 
   transformers:
     - name: dbt-postgres
