@@ -1,6 +1,7 @@
 {{ config(
   pre_hook = "{{ create_indexes_for_source(['createdat','updatedat','siret']) }}"
 ) }}
+
 SELECT DISTINCT ON (coalesce(orgid, siret))
     id                                   AS "id",
     orgid                                AS "org_id",

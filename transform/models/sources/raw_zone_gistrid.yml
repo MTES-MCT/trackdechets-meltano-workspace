@@ -1,0 +1,16 @@
+version: 2
+models: []
+sources:
+  - name: raw_zone_gistrid
+    description: Données extraites de de GISTRID, relative au PNTTTD.
+    loader: custom
+    tables:
+      - name: notifications
+        description: >
+          Données sur les notifications. Une notification peut apparaitre plusieurs fois.
+      - name: installations
+        description: >
+          Données sur les installations GISTRID.
+      - name: notifiants
+        description: >
+          Données sur les notifiants GISTRID.

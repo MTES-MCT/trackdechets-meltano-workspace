@@ -33,7 +33,7 @@ vars:
     raw_zone_insee: "sources/raw_zone_insee.yml"
     raw_zone_icpe: "sources/raw_zone_icpe.yml"
     raw_zone_zammad: "sources/raw_zone_zammad.yml"
-
+    raw_zone_gistrid: "sources/raw_zone_gistrid.yml"
 models:
   trackdechets_data_platform:
     +dbt-osmosis: "_{model}.yml"
@@ -79,6 +79,8 @@ models:
         +schema: trusted_zone_zammad
       gerep:
         +schema: trusted_zone_gerep
+      gistrid:
+        +schema: trusted_zone_gistrid
 
   elementary:
     +schema: "elementary"
