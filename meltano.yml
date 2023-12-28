@@ -30,7 +30,7 @@ plugins:
     - name: tap-postgres--td-database
       inherit_from: tap-postgres
       variant: transferwise
-      pip_url: pipelinewise-tap-postgres==1.8.3
+      pip_url: pipelinewise-tap-postgres==2.1.0
       select:
         - default$default-Company.*
         - default$default-CompanyAssociation.*
