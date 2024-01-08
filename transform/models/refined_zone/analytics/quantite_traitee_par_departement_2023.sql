@@ -19,4 +19,4 @@ where
             false))
     and processed_at is not null
 group by destination_departement 
-order by sum desc nulls last
+order by quantite_traitee desc nulls last
