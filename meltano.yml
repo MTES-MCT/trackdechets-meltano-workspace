@@ -27,10 +27,13 @@ environments:
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
 plugins:
   extractors:
+    - name: tap-postgres
+      variant: meltanolabs
+      pip_url: meltanolabs-tap-postgres==0.0.6
     - name: tap-postgres--td-database
       inherit_from: tap-postgres
-      variant: transferwise
-      pip_url: pipelinewise-tap-postgres==2.1.0
+      config:
+        dates_as_string: true
       select:
         - default$default-Company.*
         - default$default-CompanyAssociation.*
@@ -56,20 +59,59 @@ plugins:
           replication-key: updatedAt
         default$default-CompanyAssociation:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-EcoOrganisme:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-BsffPackaging:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-VhuAgrement:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-TransporterReceipt:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-BrokerReceipt:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-TraderReceipt:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-AnonymousCompany:
           replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-Company.*:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-CompanyAssociation.*:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-User.*:
+          replication-method: FULL_TABLE
+          replication-key: ""
+      schema:
+        default$default-Bsda:
+          packagings:
+            type: ["object", "array", "null"]
+        default$default-BsdaRevisionRequest:
+          packagings:
+            type: ["object", "array", "null"]
+        default$default-Bsdasri:
+          emitterWastePackagings:
+            type: ["object", "array", "null"]
+          transporterWastePackagings:
+            type: ["object", "array", "null"]
+          destinationWastePackagings:
+            type: ["object", "array", "null"]
+        default$default-BsddRevisionRequest:
+          wasteDetailsPackagingInfos:
+            type: ["object", "array", "null"]
+        default$default-Form:
+          wasteDetailsPackagingInfos:
+            type: ["object", "array", "null"]
+          wasteDetailsParcelNumbers:
+            type: ["object", "array", "null"]
 
     - name: tap-zammad
       namespace: tap_zammad
@@ -125,14 +167,92 @@ plugins:
           replication-method: FULL_TABLE
 
   loaders:
+    - name: target-postgres
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
     - name: target-postgres--dwh
       inherit_from: target-postgres
-      variant: transferwise
-      pip_url: pipelinewise-target-postgres==2.1.2
+      config:
+        load_method: upsert
     - name: target-postgres--dwh-trackdechets
       inherit_from: target-postgres--dwh
       config:
         default_target_schema: raw_zone_trackdechets
+        stream_maps:
+          default$default-BrokerReceipt:
+            validityLimit: str(validityLimit)
+          default$default-TraderReceipt:
+            validityLimit: str(validityLimit)
+          default$default-Bsda:
+            weightValue: float(weightValue) if weightValue is not None else weightValue
+            destinationReceptionWeight:
+              float(destinationReceptionWeight) if destinationReceptionWeight
+              is not None else destinationReceptionWeight
+            emitterEmissionSignatureDate:
+              str(emitterEmissionSignatureDate) if emitterEmissionSignatureDate
+              is not None else emitterEmissionSignatureDate
+            transporterTransportSignatureDate:
+              str(transporterTransportSignatureDate)
+              if transporterTransportSignatureDate is not None else transporterTransportSignatureDate
+            brokerRecepisseValidityLimit:
+              str(brokerRecepisseValidityLimit) if brokerRecepisseValidityLimit
+              is not None else brokerRecepisseValidityLimit
+            transporterTransportTakenOverAt: str(transporterTransportTakenOverAt) if transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
+            transporterRecepisseValidityLimit: str(transporterRecepisseValidityLimit) if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+          default$default-Bsdasri:
+            emitterWasteWeightValue:
+              float(emitterWasteWeightValue) if emitterWasteWeightValue
+              is not None else emitterWasteWeightValue
+            transporterWasteWeightValue:
+              float(transporterWasteWeightValue) if transporterWasteWeightValue
+              is not None else transporterWasteWeightValue
+            destinationReceptionWasteWeightValue:
+              float(destinationReceptionWasteWeightValue)
+              if destinationReceptionWasteWeightValue is not None else destinationReceptionWasteWeightValue
+            transporterWasteRefusedWeightValue:
+              float(transporterWasteRefusedWeightValue)
+              if transporterWasteRefusedWeightValue is not None else transporterWasteRefusedWeightValue
+            destinationReceptionWasteRefusedWeightValue:
+              float(destinationReceptionWasteRefusedWeightValue)
+              if destinationReceptionWasteRefusedWeightValue is not None else destinationReceptionWasteRefusedWeightValue
+            transporterRecepisseValidityLimit:
+              str(transporterRecepisseValidityLimit)
+              if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+          default$default-BsddTransporter:
+            transporterValidityLimit:
+              str(transporterValidityLimit) if transporterValidityLimit
+              is not None else transporterValidityLimit
+            takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
+          default$default-Bsff:
+            weightValue: float(weightValue) if weightValue is not None else weightValue
+            transporterTransportTakenOverAt:
+              str(transporterTransportTakenOverAt) if
+              transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
+          default$default-Form:
+            wasteDetailsQuantity:
+              float(wasteDetailsQuantity) if wasteDetailsQuantity
+              is not None else wasteDetailsQuantity
+            traderValidityLimit:
+              str(traderValidityLimit) if traderValidityLimit is
+              not None else traderValidityLimit
+            quantityReceived:
+              float(quantityReceived) if quantityReceived is not None
+              else quantityReceived
+            processedAt:
+              str(processedAt) if processedAt is processedAt is not None
+              else processedAt
+            brokerValidityLimit:
+              str(brokerValidityLimit) if brokerValidityLimit is
+              not None else brokerValidityLimit
+            receivedAt: str(receivedAt) if receivedAt is not None else receivedAt
+            sentAt: str(sentAt) if sentAt is not None else sentAt
+            takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
+            emittedAt: str(emittedAt) if emittedAt is not None else emittedAt
+            signedAt: str(signedAt) if signedAt is not None else signedAt
+          default$default-Bsvhu:
+            destinationOperationDate: str(destinationOperationDate) if destinationOperationDate is not None else destinationOperationDate
+            transporterRecepisseValidityLimit: str(transporterRecepisseValidityLimit) if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+
     - name: target-postgres--dwh-zammad
       inherit_from: target-postgres--dwh
       config:
@@ -193,12 +313,14 @@ plugins:
       namespace: dbt_postgres
       variant: z3z1ma
       pip_url: dbt-osmosis dbt-postgres
-      config:
-        adapter: postgres
       commands:
         refactor:
-          args: yaml refactor --profiles-dir transform/profiles/postgres --project-dir transform
+          args:
+            yaml refactor --profiles-dir transform/profiles/postgres --project-dir
+            transform
           description: Run yaml refactor command
+      config:
+        adapter: postgres
 jobs:
   - name: elt--td-database
     tasks:
@@ -236,10 +358,10 @@ schedules:
     interval: "@daily"
     job: elt--td-database
   - name: daily-transform-icpe
-    interval: "0 14 * * *"
+    interval: 0 14 * * *
     job: transform-icpe
   - name: monthly-transform-insee
-    interval: "0 20 1 * *"
+    interval: 0 20 1 * *
     job: transform-insee
   - name: daily-elt-zammad
     interval: "@daily"
