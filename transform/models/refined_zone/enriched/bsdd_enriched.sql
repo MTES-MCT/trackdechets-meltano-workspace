@@ -12,7 +12,13 @@
         { 'columns': ['emitter_company_siret'] },
         { 'columns' :['recipient_company_siret'] },
         { 'columns' :['transporter_company_siret'] },
-        { 'columns' :['waste_details_code'] }
+        { 'columns' :['waste_details_code'] },
+        { 'columns' :['emitter_commune'] },
+        { 'columns' :['emitter_departement'] },
+        { 'columns' :['emitter_region'] },
+        { 'columns' :['destination_commune'] },
+        { 'columns' :['destination_departement'] },
+        { 'columns' :['destination_region'] }
     ]
 ) }}
 
