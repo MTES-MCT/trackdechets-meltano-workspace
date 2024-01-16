@@ -10,41 +10,41 @@ models:
         data_type: bigint
       - name: quantite_tracee
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: emissions
         description: ''
         data_type: bigint
       - name: quantite_emise
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: envois
         description: ''
         data_type: bigint
       - name: quantite_envoyee
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: receptions
         description: ''
         data_type: bigint
       - name: quantite_recue
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: traitements
         description: ''
         data_type: bigint
       - name: quantite_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: traitements_operations_non_finales
         description: ''
         data_type: bigint
       - name: quantite_traitee_operations_non_finales
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: traitements_operations_finales
         description: ''
         data_type: bigint
       - name: quantite_traitee_operations_finales
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

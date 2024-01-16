@@ -8,7 +8,7 @@ models:
     columns:
       - name: id
         description: "Clé primaire"
-        data_type: character varying
+        data_type: text
       - name: created_at
         description: ""
         data_type: timestamp without time zone
@@ -17,90 +17,93 @@ models:
         data_type: timestamp without time zone
       - name: bsda_id
         description: ""
-        data_type: character varying
+        data_type: text
       - name: authoring_company_id
         description: ""
-        data_type: character varying
+        data_type: text
       - name: comment
         description: ""
-        data_type: character varying
+        data_type: text
       - name: status
         description: ""
-        data_type: character varying
-      - name: is_canceled
-        description: ""
-        data_type: boolean
+        data_type: text
       - name: waste_code
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: character varying
+        data_type: text
       - name: waste_pop
         description: ""
         data_type: boolean
       - name: packagings
         description: ""
-        data_type: jsonb
+        data_type: ARRAY
       - name: waste_seal_numbers
         description: ""
-        data_type: jsonb
+        data_type: ARRAY
       - name: waste_material_name
         description: ""
-        data_type: character varying
+        data_type: text
       - name: destination_cap
         description: ""
-        data_type: character varying
-      - name: destination_operation_code
-        description: ""
-        data_type: character varying
-      - name: destination_operation_description
-        description: ""
-        data_type: character varying
-      - name: broker_company_siret
-        description: ""
-        data_type: character varying
-      - name: broker_company_name
-        description: ""
-        data_type: character varying
-      - name: broker_company_address
-        description: ""
-        data_type: character varying
-      - name: broker_company_contact
-        description: ""
-        data_type: character varying
-      - name: broker_company_mail
-        description: ""
-        data_type: character varying
-      - name: broker_company_phone
-        description: ""
-        data_type: character varying
-      - name: broker_recepisse_number
-        description: ""
-        data_type: character varying
-      - name: broker_recepisse_validity_limit
-        description: ""
-        data_type: timestamp without time zone
-      - name: broker_recepisse_department
-        description: ""
-        data_type: character varying
-      - name: emitter_pickup_sitename
-        description: ""
-        data_type: character varying
-      - name: emitter_pickup_site_address
-        description: ""
-        data_type: character varying
-      - name: emitter_pickup_site_city
-        description: ""
-        data_type: character varying
-      - name: emitter_pickup_site_postal_code
-        description: ""
-        data_type: character varying
-      - name: emitter_pickup_site_infos
-        description: ""
-        data_type: character varying
+        data_type: text
       - name: destination_reception_weight
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: double precision
+        data_type: numeric
+      - name: destination_operation_code
+        description: ""
+        data_type: text
+      - name: destination_operation_description
+        description: ""
+        data_type: text
+      - name: broker_company_name
+        description: ""
+        data_type: text
+      - name: broker_company_siret
+        description: ""
+        data_type: text
+      - name: broker_company_address
+        description: ""
+        data_type: text
+      - name: broker_company_contact
+        description: ""
+        data_type: text
+      - name: broker_company_phone
+        description: ""
+        data_type: text
+      - name: broker_company_mail
+        description: ""
+        data_type: text
+      - name: broker_recepisse_number
+        description: ""
+        data_type: text
+      - name: broker_recepisse_department
+        description: ""
+        data_type: text
+      - name: broker_recepisse_validity_limit
+        description: ""
+        data_type: timestamp without time zone
+      - name: emitter_pickup_site_name
+        description: ''
+        data_type: text
+      - name: emitter_pickup_site_address
+        description: ""
+        data_type: text
+      - name: emitter_pickup_site_city
+        description: ""
+        data_type: text
+      - name: emitter_pickup_site_postal_code
+        description: ""
+        data_type: text
+      - name: emitter_pickup_site_infos
+        description: ""
+        data_type: text
+      - name: is_canceled
+        description: ""
+        data_type: boolean
+      - name: destination_operation_mode
+        description: ''
+        data_type: text
 sources: []

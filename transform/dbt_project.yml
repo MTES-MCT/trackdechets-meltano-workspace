@@ -25,7 +25,6 @@ clean-targets:
 tests:
   +store_failures: true
 vars:
-  re_data:save_test_history: true
   dbt-osmosis:
     raw_zone: "sources/raw_zone.yml"
     raw_zone_trackdechets: "sources/raw_zone_trackdechets.yml"

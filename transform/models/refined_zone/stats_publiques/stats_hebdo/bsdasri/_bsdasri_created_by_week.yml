@@ -12,5 +12,5 @@ models:
         data_type: bigint
       - name: quantite_tracee
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

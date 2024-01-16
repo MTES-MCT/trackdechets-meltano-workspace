@@ -10,7 +10,7 @@ models:
         data_type: character varying
       - name: siret_td
         description: ''
-        data_type: character varying
+        data_type: text
       - name: code_region_insee
         description: ''
         data_type: integer
@@ -31,10 +31,10 @@ models:
         data_type: double precision
       - name: quantite_dd_traitee_2023_td
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantite_dnd_traitee_2023_td
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: code_commune_insee
         description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.'
         data_type: text

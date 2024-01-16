@@ -33,8 +33,7 @@ renamed as (
         website,
         "transporterReceiptId"                 as transporter_receipt_id,
         "traderReceiptId"                      as trader_receipt_id,
-        "ecoOrganismeAgreements"               as eco_organisme_agreements,
-        "companyTypes"                         as company_types,
+        /*Cast JSONB array to TEXT array without the " in the values*/
         address,
         latitude,
         longitude,
@@ -51,7 +50,23 @@ renamed as (
         contact                                as contact,
         "codeDepartement"                      as code_departement,
         "workerCertificationId"                as worker_certification_id,
-        "orgId"                                as org_id
+        "orgId"                                as org_id,
+        string_to_array(
+            replace(
+                array_to_string("ecoOrganismeAgreements", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as eco_organisme_agreements,
+        string_to_array(
+            replace(
+                array_to_string("companyTypes", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as company_types
     from
         source
     where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)

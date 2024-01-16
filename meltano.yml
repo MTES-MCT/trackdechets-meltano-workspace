@@ -90,8 +90,10 @@ plugins:
           replication-key: ""
         default$default-BsddRevisionRequest:
           replication-method: FULL_TABLE
+          replication-key: ""
         default$default-BsdaRevisionRequest:
           replication-method: FULL_TABLE
+          replication-key: ""
       schema:
         default$default-Bsda:
           packagings:

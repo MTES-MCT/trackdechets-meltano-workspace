@@ -4,7 +4,7 @@ models:
     columns:
       - name: siret
         description: 'Code région'
-        data_type: character varying
+        data_type: text
       - name: num_bsdd_as_emitter
         description: ''
         data_type: bigint
@@ -22,19 +22,19 @@ models:
         data_type: bigint
       - name: quantity_bsdd_as_emitter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsda_as_emitter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsff_as_emitter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsdasri_as_emitter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsvhu_as_emitter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: num_bsdd_as_transporter
         description: ''
         data_type: bigint
@@ -52,19 +52,19 @@ models:
         data_type: bigint
       - name: quantity_bsdd_as_transporter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsda_as_transporter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsff_as_transporter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsdasri_as_transporter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsvhu_as_transporter
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: num_bsdd_as_destination
         description: ''
         data_type: bigint
@@ -82,19 +82,19 @@ models:
         data_type: bigint
       - name: quantity_bsdd_as_destination
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsda_as_destination
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsff_as_destination
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsdasri_as_destination
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantity_bsvhu_as_destination
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: total_mentions_bordereaux
         description: ''
         data_type: bigint

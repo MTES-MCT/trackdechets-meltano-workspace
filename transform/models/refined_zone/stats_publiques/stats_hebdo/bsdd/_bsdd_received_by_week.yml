@@ -6,11 +6,11 @@ models:
     columns:
       - name: semaine
         description: ''
-        data_type: timestamp without time zone
+        data_type: timestamp with time zone
       - name: receptions
         description: ''
         data_type: bigint
       - name: quantite_recue
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []
