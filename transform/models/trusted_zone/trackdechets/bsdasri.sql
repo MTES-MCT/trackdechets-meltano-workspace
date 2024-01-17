@@ -1,5 +1,12 @@
 {{ config(
-  pre_hook = "{{ create_indexes_for_source(['createdAt','updatedAt','emitterCompanySiret','transporterCompanySiret','destinationCompanySiret']) }}"
+  pre_hook = "{{ create_indexes_for_source([
+    'createdAt',
+    'updatedAt',
+    'emitterCompanySiret',
+    'transporterCompanySiret',
+    'destinationCompanySiret',
+    'wasteCode'
+  ]) }}"
 ) }}
 
 with source as (

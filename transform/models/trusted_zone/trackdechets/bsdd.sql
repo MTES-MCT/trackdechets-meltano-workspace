@@ -1,5 +1,14 @@
 {{ config(
-  pre_hook = "{{ create_indexes_for_source(['readableId','createdAt','updatedAt','emitterCompanySiret','currentTransporterOrgId','recipientCompanySiret']) }}"
+  pre_hook = "{{ create_indexes_for_source([
+    'readableId',
+    'createdAt',
+    'updatedAt',
+    'emitterCompanySiret',
+    'currentTransporterOrgId',
+    'recipientCompanySiret',
+    'wasteDetailsCode',
+    'wasteDetailsPop',
+    'wasteDetailsIsDangerous']) }}"
 ) }}
 
 with source as (
