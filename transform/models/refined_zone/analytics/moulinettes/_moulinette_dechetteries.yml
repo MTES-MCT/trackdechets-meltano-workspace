@@ -6,7 +6,7 @@ models:
     columns:
       - name: siret
         description: 'Code région'
-        data_type: character varying
+        data_type: text
       - name: Nom de l'établissement
         description: ''
         data_type: text

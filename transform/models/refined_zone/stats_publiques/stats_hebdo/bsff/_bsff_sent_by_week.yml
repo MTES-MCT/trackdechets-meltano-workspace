@@ -6,7 +6,7 @@ models:
     columns:
       - name: semaine
         description: ''
-        data_type: timestamp without time zone
+        data_type: timestamp with time zone
       - name: envois_bordereaux
         description: ''
         data_type: bigint
@@ -15,5 +15,5 @@ models:
         data_type: bigint
       - name: quantite_envoyee
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

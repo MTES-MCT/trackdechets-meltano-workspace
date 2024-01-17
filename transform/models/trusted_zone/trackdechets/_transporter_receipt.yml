@@ -4,12 +4,12 @@ models:
     columns:
       - name: id
         description: "Clé primaire"
-        data_type: character varying
+        data_type: text
       - name: receipt_number
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: character varying
+        data_type: text
       - name: validity_limit
         description: ""
         tests:
@@ -19,5 +19,5 @@ models:
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: character varying
+        data_type: text
 sources: []

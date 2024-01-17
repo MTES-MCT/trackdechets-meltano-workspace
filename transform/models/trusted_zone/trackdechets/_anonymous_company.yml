@@ -4,28 +4,28 @@ models:
     columns:
       - name: id
         description: ''
-        data_type: character varying
+        data_type: text
       - name: siret
         description: ''
-        data_type: character varying
+        data_type: text
       - name: name
         description: ''
-        data_type: character varying
+        data_type: text
       - name: address
         description: ''
-        data_type: character varying
+        data_type: text
       - name: code_naf
         description: ''
-        data_type: character varying
+        data_type: text
       - name: libelle_naf
         description: ''
-        data_type: character varying
+        data_type: text
       - name: code_commune
         description: ''
-        data_type: character varying
+        data_type: text
       - name: vat_number
         description: ''
-        data_type: character varying
+        data_type: text
       - name: org_id
         description: ''
-        data_type: character varying
+        data_type: text

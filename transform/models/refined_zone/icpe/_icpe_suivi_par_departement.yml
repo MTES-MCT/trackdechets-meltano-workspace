@@ -22,4 +22,4 @@ models:
         data_type: double precision
       - name: quantite_totale_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric

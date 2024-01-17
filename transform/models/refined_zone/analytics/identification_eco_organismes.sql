@@ -29,19 +29,19 @@ companies_eo as (
         name,
         case
             when
-                jsonb_array_length(c.eco_organisme_agreements) != 0 then 1
+                array_length(c.eco_organisme_agreements, 1) != 0 then 1
             else 0
         end as "a_entré_un_agrément_eo",
         case
             when
-                c.company_types ? 'ECO_ORGANISME' then 1
+                'ECO_ORGANISME' = any(company_types) then 1
             else 0
         end as "a_choisi_profil_eo"
     from
         {{ ref('company') }} as c
     where
-        jsonb_array_length(c.eco_organisme_agreements) != 0
-        or c.company_types ? 'ECO_ORGANISME'
+        array_length(c.eco_organisme_agreements, 1) != 0
+        or 'ECO_ORGANISME' = any(company_types)
 ),
 
 bsdd_eo as (

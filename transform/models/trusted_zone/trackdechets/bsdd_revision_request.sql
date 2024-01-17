@@ -1,40 +1,107 @@
-SELECT
-    id                                              AS id,
-    createdat                                       AS created_at,
-    updatedat                                       AS updated_at,
-    bsddid                                          AS bsdd_id,
-    authoringcompanyid                              AS authoring_company_id,
-    "comment"                                       AS "comment",
-    status                                          AS status,
-    iscanceled                                      AS is_canceled,
-    recipientcap                                    AS recipient_cap,
-    wastedetailscode                                AS waste_details_code,
-    wastedetailspop                                 AS waste_details_pop,
-    wastedetailsname                                AS waste_details_name,
-    wastedetailspackaginginfos                      AS waste_details_packaging_infos,
-    processingoperationdone                         AS processing_operation_done,
-    processingoperationdescription                  AS processing_operation_description,
-    brokercompanysiret                              AS broker_company_siret,
-    brokercompanyname                               AS broker_company_name,
-    brokercompanyaddress                            AS broker_company_address,
-    brokerdepartment                                AS broker_department,
-    brokercompanycontact                            AS broker_company_contact,
-    brokercompanymail                               AS broker_company_mail,
-    brokercompanyphone                              AS broker_company_phone,
-    brokerreceipt                                   AS broker_receipt,
-    brokervaliditylimit                             AS broker_validity_limit,
-    tradercompanysiret                              AS trader_company_siret,
-    tradercompanyname                               AS trader_company_name,
-    tradercompanyaddress                            AS trader_company_address,
-    traderdepartment                                AS trader_department,
-    tradercompanycontact                            AS trader_company_contact,
-    tradercompanymail                               AS trader_company_mail,
-    tradercompanyphone                              AS trader_company_phone,
-    traderreceipt                                   AS trader_receipt,
-    tradervaliditylimit                             AS trader_validity_limit,
-    temporarystoragedestinationprocessingoperation  AS temporary_storage_destination_processing_operation,
-    temporarystoragetemporarystorerquantityreceived AS temporary_storage_temporary_storer_quantity_received,
-    temporarystoragedestinationcap                  AS temporary_storage_destination_cap,
-    quantityreceived                                AS quantity_received
-FROM
-    {{ source('raw_zone_trackdechets', 'bsdd_revision_request_raw') }}
+{{
+  config(
+    materialized = 'table',
+    indexes = [
+        { "columns": ["id"], "unique": True},
+        { "columns": ["bsdd_id"]},
+        { "columns": ["created_at"]},
+        { "columns": ["updated_at"]}
+
+    ]
+    )
+}}
+
+with source as (
+    select *
+    from {{ source('raw_zone_trackdechets', 'bsdd_revision_request_raw') }}
+),
+
+renamed as (
+    select
+        id,
+        "createdAt"                                       as created_at,
+        "updatedAt"                                       as updated_at,
+        "bsddId"                                          as bsdd_id,
+        "authoringCompanyId"                              as authoring_company_id,
+        "comment",
+        status,
+        "recipientCap"                                    as recipient_cap,
+        "wasteDetailsCode"                                as waste_details_code,
+        "wasteDetailsPop"                                 as waste_details_pop,
+        "quantityReceived"                                as quantity_received,
+        "brokerCompanyName"                               as broker_company_name,
+        "brokerCompanySiret"                              as broker_company_siret,
+        "brokerCompanyAddress"                            as broker_company_address,
+        "brokerCompanyContact"                            as broker_company_contact,
+        "brokerCompanyPhone"                              as broker_company_phone,
+        "brokerCompanyMail"                               as broker_company_mail,
+        "brokerReceipt"                                   as broker_receipt,
+        "brokerDepartment"                                as broker_department,
+        "brokerValidityLimit"                             as broker_validity_limit,
+        "traderCompanyAddress"                            as trader_company_address,
+        "traderCompanyContact"                            as trader_company_contact,
+        "traderCompanyPhone"                              as trader_company_phone,
+        "traderCompanyMail"                               as trader_company_mail,
+        "traderReceipt"                                   as trader_receipt,
+        "traderDepartment"                                as trader_department,
+        "traderValidityLimit"                             as trader_validity_limit,
+        "temporaryStorageDestinationCap"                  as temporary_storage_destination_cap,
+        "traderCompanySiret"                              as trader_company_siret,
+        "traderCompanyName"                               as trader_company_name,
+        "wasteDetailsName"                                as waste_details_name,
+        "wasteDetailsPackagingInfos"                      as waste_details_packaging_infos,
+        "processingOperationDescription"                  as processing_operation_description,
+        "temporaryStorageTemporaryStorerQuantityReceived" as temporary_storage_temporary_storer_quantity_received,
+        "isCanceled"                                      as is_canceled,
+        "destinationOperationMode"                        as destination_operation_mode,
+        replace(
+            "processingOperationDone", ' ', ''
+        )                                                 as processing_operation_done,
+        replace(
+            "temporaryStorageDestinationProcessingOperation", ' ', ''
+        )                                                 as temporary_storage_destination_processing_operation
+    from
+        source
+    where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
+)
+
+select
+    id,
+    created_at,
+    updated_at,
+    bsdd_id,
+    authoring_company_id,
+    comment,
+    status,
+    recipient_cap,
+    waste_details_code,
+    waste_details_pop,
+    quantity_received,
+    processing_operation_done,
+    broker_company_name,
+    broker_company_siret,
+    broker_company_address,
+    broker_company_contact,
+    broker_company_phone,
+    broker_company_mail,
+    broker_receipt,
+    broker_department,
+    broker_validity_limit,
+    trader_company_address,
+    trader_company_contact,
+    trader_company_phone,
+    trader_company_mail,
+    trader_receipt,
+    trader_department,
+    trader_validity_limit,
+    temporary_storage_destination_cap,
+    temporary_storage_destination_processing_operation,
+    trader_company_siret,
+    trader_company_name,
+    waste_details_name,
+    waste_details_packaging_infos,
+    processing_operation_description,
+    temporary_storage_temporary_storer_quantity_received,
+    is_canceled,
+    destination_operation_mode
+from renamed

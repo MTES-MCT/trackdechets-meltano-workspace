@@ -19,8 +19,8 @@ models:
         data_type: double precision
       - name: day_of_processing
         description: ''
-        data_type: timestamp without time zone
+        data_type: timestamp with time zone
       - name: quantite_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

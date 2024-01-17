@@ -29,7 +29,7 @@ WITH decheteries AS (
         AS u
         ON ca.user_id = u.id
     WHERE
-        c.company_types ? 'WASTE_CENTER'
+        'WASTE_CENTER' = ANY(company_types)
         AND ca."role" = 'ADMIN'
     GROUP BY
         siret

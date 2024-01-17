@@ -1,7 +1,31 @@
-SELECT
+{{
+  config(
+    materialized = 'table',
+    indexes = [
+        { "columns": ["id"], "unique": True}
+    ]
+    )
+}}
+
+with source as (
+    select *
+    from {{ source('raw_zone_trackdechets', 'transporter_receipt_raw') }}
+),
+
+renamed as (
+    select
+        id,
+        "receiptNumber" as receipt_number,
+        "validityLimit" as validity_limit,
+        department
+    from
+        source
+    where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
+)
+
+select
     id,
-    receiptnumber AS receipt_number,
-    validitylimit AS validity_limit,
+    receipt_number,
+    validity_limit,
     department
-FROM
-    {{ source('raw_zone_trackdechets', 'transporter_receipt_raw') }}
+from renamed

@@ -19,4 +19,4 @@ models:
         data_type: text
       - name: quantite_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric

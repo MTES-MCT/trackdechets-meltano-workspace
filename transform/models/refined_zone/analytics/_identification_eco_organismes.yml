@@ -30,14 +30,14 @@ models:
         description: 'Code SIRET de l''établissement.
 
           '
-        data_type: character varying
+        data_type: text
       - name: nom
         description: ''
         data_type: text
       - name: admin_name
         description: ''
-        data_type: character varying
+        data_type: text
       - name: admin_email
         description: ''
-        data_type: character varying
+        data_type: text
 sources: []

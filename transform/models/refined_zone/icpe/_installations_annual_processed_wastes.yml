@@ -22,8 +22,8 @@ models:
         data_type: numeric
       - name: quantite_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric
       - name: quantite_moyenne_j
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

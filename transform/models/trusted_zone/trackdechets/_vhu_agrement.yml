@@ -4,15 +4,15 @@ models:
     columns:
       - name: id
         description: "Clé primaire"
-        data_type: character varying
+        data_type: text
       - name: agrement_number
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: character varying
+        data_type: text
       - name: department
         description: ""
         tests:
           - elementary.column_anomalies
-        data_type: character varying
+        data_type: text
 sources: []

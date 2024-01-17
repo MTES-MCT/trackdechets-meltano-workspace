@@ -1,41 +1,109 @@
-{{ config(
-  pre_hook = "{{ create_indexes_for_source(['createdat','updatedat','siret']) }}"
-) }}
+{{
+  config(
+    materialized = 'table',
+    indexes = [
+        { "columns": ["id"], "unique": True},
+        { "columns": ["created_at"]},
+        { "columns": ["updated_at"]},
+        { "columns": ["siret"]},
+        { "columns": ["org_id"]}
 
-SELECT DISTINCT ON (coalesce(orgid, siret))
-    id                                   AS "id",
-    orgid                                AS "org_id",
-    siret                                AS "siret",
-    createdat                            AS "created_at",
-    updatedat                            AS "updated_at",
-    securitycode                         AS "security_code",
+    ]
+    )
+}}
+
+with source as (
+    select *
+    from {{ source('raw_zone_trackdechets', 'company_raw') }}
+),
+
+renamed as (
+    select
+        id,
+        siret,
+        "updatedAt"                            as updated_at,
+        "createdAt"                            as created_at,
+        "securityCode"                         as security_code,
+        "name",
+        "gerepId"                              as gerep_id,
+        "codeNaf"                              as code_naf,
+        "givenName"                            as given_name,
+        "contactEmail"                         as contact_email,
+        "contactPhone"                         as contact_phone,
+        website,
+        "transporterReceiptId"                 as transporter_receipt_id,
+        "traderReceiptId"                      as trader_receipt_id,
+        /*Cast JSONB array to TEXT array without the " in the values*/
+        address,
+        latitude,
+        longitude,
+        "brokerReceiptId"                      as broker_receipt_id,
+        "verificationCode"                     as verification_code,
+        "verificationStatus"                   as verification_status,
+        "verificationMode"                     as verification_mode,
+        "verificationComment"                  as verification_comment,
+        "verifiedAt"                           as verified_at,
+        "vhuAgrementDemolisseurId"             as vhu_agrement_demolisseur_id,
+        "vhuAgrementBroyeurId"                 as vhu_agrement_broyeur_id,
+        "allowBsdasriTakeOverWithoutSignature" as allow_bsdasri_take_over_without_signature,
+        "vatNumber"                            as vat_number,
+        contact                                as contact,
+        "codeDepartement"                      as code_departement,
+        "workerCertificationId"                as worker_certification_id,
+        "orgId"                                as org_id,
+        string_to_array(
+            replace(
+                array_to_string("ecoOrganismeAgreements", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as eco_organisme_agreements,
+        string_to_array(
+            replace(
+                array_to_string("companyTypes", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as company_types
+    from
+        source
+    where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
+)
+
+select
+    id,
+    siret,
+    updated_at,
+    created_at,
+    security_code,
     "name",
-    gerepid                              AS "gerep_id",
-    codenaf                              AS "code_naf",
-    givenname                            AS "given_name",
-    contactemail                         AS "contact_email",
-    contactphone                         AS "contact_phone",
-    website                              AS "website",
-    transporterreceiptid                 AS "transporter_receipt_id",
-    traderreceiptid                      AS "trader_receipt_id",
-    ecoorganismeagreements               AS "eco_organisme_agreements",
-    companytypes                         AS "company_types",
-    address                              AS "address",
-    latitude                             AS "latitude",
-    longitude                            AS "longitude",
-    brokerreceiptid                      AS "broker_receipt_id",
-    verificationcode                     AS "verification_code",
-    verificationstatus                   AS "verification_status",
-    verificationmode                     AS "verification_mode",
-    verificationcomment                  AS "verification_comment",
-    verifiedat                           AS "verified_at",
-    vhuagrementdemolisseurid             AS "vhu_agrement_demolisseur_id",
-    vhuagrementbroyeurid                 AS "vhu_agrement_broyeur_id",
-    allowbsdasritakeoverwithoutsignature AS "allow_bsdasri_take_over_without_signature",
-    vatnumber                            AS "vat_number",
-    contact                              AS "contact",
-    codedepartement                      AS "code_departement",
-    workercertificationid                AS "worker_certification_id"
-FROM
-    {{ source("raw_zone_trackdechets", "company_raw") }}
-ORDER BY coalesce(orgid, siret), updated_at DESC
+    gerep_id,
+    code_naf,
+    given_name,
+    contact_email,
+    contact_phone,
+    website,
+    transporter_receipt_id,
+    trader_receipt_id,
+    eco_organisme_agreements,
+    company_types,
+    address,
+    latitude,
+    longitude,
+    broker_receipt_id,
+    verification_code,
+    verification_status,
+    verification_mode,
+    verification_comment,
+    verified_at,
+    vhu_agrement_demolisseur_id,
+    vhu_agrement_broyeur_id,
+    allow_bsdasri_take_over_without_signature,
+    vat_number,
+    contact,
+    code_departement,
+    worker_certification_id,
+    org_id
+from renamed

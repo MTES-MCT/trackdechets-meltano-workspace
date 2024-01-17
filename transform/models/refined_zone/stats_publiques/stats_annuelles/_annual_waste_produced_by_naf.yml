@@ -40,5 +40,5 @@ models:
         data_type: integer
       - name: quantite_traitee
         description: ''
-        data_type: double precision
+        data_type: numeric
 sources: []

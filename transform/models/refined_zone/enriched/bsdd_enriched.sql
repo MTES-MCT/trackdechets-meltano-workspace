@@ -11,8 +11,14 @@
         {'columns': ['processed_at'] },
         { 'columns': ['emitter_company_siret'] },
         { 'columns' :['recipient_company_siret'] },
-        { 'columns' :['transporter_company_siret'] },
-        { 'columns' :['waste_details_code'] }
+        { 'columns' :['current_transporter_org_id'] },
+        { 'columns' :['waste_details_code'] },
+        { 'columns' :['emitter_commune'] },
+        { 'columns' :['emitter_departement'] },
+        { 'columns' :['emitter_region'] },
+        { 'columns' :['recipient_commune'] },
+        { 'columns' :['recipient_departement'] },
+        { 'columns' :['recipient_region'] }
     ]
 ) }}
 
