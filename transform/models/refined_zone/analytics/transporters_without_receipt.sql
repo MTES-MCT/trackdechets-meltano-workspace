@@ -10,5 +10,5 @@ from
 inner join {{ ref('company') }} as c on be.transporter_company_siret = c.siret
 where
     be.created_at >= now() - interval '3 months'
-    and 'TRANSPORTER' = ANY(c.company_types)
+    and 'TRANSPORTER' = any(c.company_types)
     and transporter_receipt_id is null

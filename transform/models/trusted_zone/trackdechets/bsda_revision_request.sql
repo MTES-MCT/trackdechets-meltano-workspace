@@ -12,7 +12,8 @@
 }}
 
 with source as (
-    select * from {{ source('raw_zone_trackdechets', 'bsda_revision_request_raw') }}
+    select *
+    from {{ source('raw_zone_trackdechets', 'bsda_revision_request_raw') }}
 ),
 
 renamed as (

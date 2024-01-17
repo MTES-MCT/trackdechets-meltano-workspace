@@ -34,14 +34,14 @@ companies_eo as (
         end as "a_entré_un_agrément_eo",
         case
             when
-                'ECO_ORGANISME' = ANY(company_types)  then 1
+                'ECO_ORGANISME' = any(company_types) then 1
             else 0
         end as "a_choisi_profil_eo"
     from
         {{ ref('company') }} as c
     where
         array_length(c.eco_organisme_agreements, 1) != 0
-        or 'ECO_ORGANISME' = ANY(company_types)
+        or 'ECO_ORGANISME' = any(company_types)
 ),
 
 bsdd_eo as (

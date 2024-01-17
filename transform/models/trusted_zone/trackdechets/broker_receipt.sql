@@ -9,11 +9,12 @@
 with source as (
     select * from {{ source('raw_zone_trackdechets', 'broker_receipt_raw') }}
 )
-SELECT
+
+select
     id,
-    "receiptNumber" AS receipt_number,
-    "validityLimit" AS validity_limit,
+    "receiptNumber" as receipt_number,
+    "validityLimit" as validity_limit,
     department
-FROM
+from
     source
 where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
