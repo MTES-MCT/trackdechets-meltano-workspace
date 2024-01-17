@@ -4,17 +4,30 @@ models:
     columns:
       - name: semaine
         data_type: timestamp with time zone
-        description: ''
+        description: ""
       - name: type_bordereau
         data_type: text
-        description: ''
+        description: ""
       - name: code_operation
         data_type: text
-        description: ''
+        description: ""
       - name: type_operation
         data_type: text
-        description: ''
+        description: ""
       - name: quantite_traitee
         data_type: numeric
-        description: ''
+        description: ""
+        tests:
+          - elementary.column_anomalies:
+              timestamp_column: semaine
+              training_period:
+                period: week
+                count: 12
+              time_bucket:
+                period: week
+                count: 1
+              detection_period:
+                period: week
+                count: 1
+              tags: ["elementary"]
 sources: []

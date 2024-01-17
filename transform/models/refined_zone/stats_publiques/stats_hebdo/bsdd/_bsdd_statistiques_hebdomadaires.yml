@@ -1,50 +1,64 @@
 version: 2
 models:
   - name: bsdd_statistiques_hebdomadaires
+    tests:
+      - elementary.all_columns_anomalies:
+          exclude_prefix: semaine
+          timestamp_column: semaine
+          training_period:
+            period: week
+            count: 12
+          time_bucket:
+            period: week
+            count: 1
+          detection_period:
+            period: week
+            count: 1
+          tags: ["elementary"]
     columns:
       - name: semaine
-        description: ''
+        description: ""
         data_type: timestamp with time zone
       - name: creations
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_tracee
-        description: ''
+        description: ""
         data_type: numeric
       - name: emissions
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_emise
-        description: ''
+        description: ""
         data_type: numeric
       - name: envois
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_envoyee
-        description: ''
+        description: ""
         data_type: numeric
       - name: receptions
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_recue
-        description: ''
+        description: ""
         data_type: numeric
       - name: traitements
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_traitee
-        description: ''
+        description: ""
         data_type: numeric
       - name: traitements_operations_non_finales
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_traitee_operations_non_finales
-        description: ''
+        description: ""
         data_type: numeric
       - name: traitements_operations_finales
-        description: ''
+        description: ""
         data_type: bigint
       - name: quantite_traitee_operations_finales
-        description: ''
+        description: ""
         data_type: numeric
 sources: []
