@@ -8,7 +8,8 @@
     'recipientCompanySiret',
     'wasteDetailsCode',
     'wasteDetailsPop',
-    'wasteDetailsIsDangerous']) }}"
+    'wasteDetailsIsDangerous',
+    'transportersSirets']) }}"
 ) }}
 
 with source as (
