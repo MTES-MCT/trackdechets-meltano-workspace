@@ -10,6 +10,11 @@ with installations as (
         siret,
         rubrique || coalesce('-' || alinea, '') as rubrique,
         max(raison_sociale)                     as raison_sociale,
+        avg(longitude)                          as longitude,
+        avg(latitude)                           as latitude,
+        max(code_postal)                        as code_postal,
+        max(code_insee)                         as code_commune_insee,
+        max(etat_activite)                      as etat_activite,
         array_agg(distinct code_aiot)           as codes_aiot,
         sum(quantite_totale)                    as quantite_autorisee
     from
