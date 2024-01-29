@@ -7,7 +7,6 @@
 
 select
     ii.*,
-    idpw.quantite_autorisee,
     idpw.day_of_processing,
     idpw.quantite_traitee
 from {{ ref('installations_icpe') }} as ii
