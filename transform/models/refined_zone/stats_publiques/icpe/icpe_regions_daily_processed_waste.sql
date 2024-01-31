@@ -11,7 +11,7 @@ with stats as (
         rubrique,
         sum(quantite_autorisee) as quantite_autorisee
     from
-        {{ ref('icpe_departements_daily_processed_waste') }} as ii
+        {{ ref('installations_icpe') }} as ii
     group by
         ii.code_region_insee,
         rubrique
@@ -46,7 +46,7 @@ waste_stats as (
 
 select
     w.code_region_insee,
-    cg.libelle as nom_departement,
+    cg.libelle as nom_region,
     w.rubrique,
     w.day_of_processing,
     w.quantite_traitee,
