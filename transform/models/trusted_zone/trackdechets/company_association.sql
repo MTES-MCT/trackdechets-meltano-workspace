@@ -4,8 +4,7 @@
     indexes = [
         { "columns": ["id"], "unique": True},
         { "columns": ["company_id"]},
-        { "columns": ["user_id"]}
-
+        { "columns": ["user_id"]},
     ]
     )
 }}

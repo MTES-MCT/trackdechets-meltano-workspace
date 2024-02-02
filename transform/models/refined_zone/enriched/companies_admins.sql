@@ -1,3 +1,15 @@
+{{
+  config(
+    materialized = 'table',
+    indexes = [
+        { "columns": ["association_id"], "unique": True},
+        { "columns": ["company_id"]},
+        { "columns": ["user_id"]},
+        { "columns": ["company_siret"]},
+    ]
+    )
+}}
+
 select
     ca.id                                        as "association_id",
     ca."role"                                    as "user_role",
