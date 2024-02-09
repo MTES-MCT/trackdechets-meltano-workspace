@@ -12,7 +12,7 @@ with stats as (
         count(distinct code_aiot) as nombre_installations,
         sum(quantite_autorisee) as quantite_autorisee
     from
-        {{ ref('installations_icpe') }} as ii
+        {{ ref('installations_icpe_2024') }} as ii
     group by
         ii.code_departement_insee,
         rubrique

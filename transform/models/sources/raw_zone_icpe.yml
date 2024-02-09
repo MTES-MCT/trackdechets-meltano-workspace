@@ -16,82 +16,82 @@ sources:
               - not_null
             data_type: text
           - name: num_siret
-            description: ''
+            description: ""
             data_type: text
           - name: x
-            description: ''
+            description: ""
             data_type: text
           - name: y
-            description: ''
+            description: ""
             data_type: text
           - name: adresse1
-            description: ''
+            description: ""
             data_type: text
           - name: adresse2
-            description: ''
+            description: ""
             data_type: text
           - name: adresse3
-            description: ''
+            description: ""
             data_type: text
           - name: code_postal
-            description: ''
+            description: ""
             data_type: text
           - name: code_insee
-            description: ''
+            description: ""
             data_type: text
           - name: commune
-            description: ''
+            description: ""
             data_type: text
           - name: raison_sociale
-            description: ''
+            description: ""
             data_type: text
           - name: etat_activite
-            description: ''
+            description: ""
             data_type: text
           - name: code_naf
-            description: ''
+            description: ""
             data_type: text
           - name: seveso
-            description: ''
+            description: ""
             data_type: text
           - name: regime
-            description: ''
+            description: ""
             data_type: text
           - name: priorite_nationale
-            description: ''
+            description: ""
             data_type: text
           - name: ied
-            description: ''
+            description: ""
             data_type: text
           - name: type_service_aiot
-            description: ''
+            description: ""
             data_type: text
           - name: bovins
-            description: ''
+            description: ""
             data_type: text
           - name: porcs
-            description: ''
+            description: ""
             data_type: text
           - name: volailles
-            description: ''
+            description: ""
             data_type: text
           - name: carriere
-            description: ''
+            description: ""
             data_type: text
           - name: eolienne
-            description: ''
+            description: ""
             data_type: text
           - name: industrie
-            description: ''
+            description: ""
             data_type: text
           - name: longitude
-            description: ''
+            description: ""
             data_type: text
           - name: latitude
-            description: ''
+            description: ""
             data_type: text
           - name: date_modification
-            description: ''
+            description: ""
             data_type: text
       - name: rubriques
         description: >
@@ -103,20 +103,61 @@ sources:
               - not_null
             data_type: text
           - name: rubrique
-            description: ''
+            description: ""
             data_type: text
           - name: alinea
-            description: ''
+            description: ""
             data_type: text
           - name: quantite_totale
-            description: ''
+            description: ""
             data_type: text
           - name: unite
-            description: ''
+            description: ""
             data_type: text
           - name: nature
-            description: ''
+            description: ""
             data_type: text
           - name: regime
+            description: ""
+            data_type: text
+      - name: installations_rubriques_2024_raw
+        identifier: installations_rubriques_2024
+        description: >
+          Nouvelles données sur les installations et les rubriques
+        columns:
+          - name: Raison sociale/nom
+            description: ''
+            data_type: text
+          - name: SIRET
+            description: ''
+            data_type: text
+          - name: Code AIOT
+            description: ''
+            data_type: text
+          - name: Etat du site (code)
+            description: ''
+            data_type: text
+          - name: Etat du site (libellé)
+            description: ''
+            data_type: text
+          - name: Numéro rubrique
+            description: ''
+            data_type: text
+          - name: Régime
+            description: ''
+            data_type: text
+          - name: Quantité projet
+            description: ''
+            data_type: double precision
+          - name: Quantité totale
+            description: ''
+            data_type: double precision
+          - name: Unité
+            description: ''
+            data_type: text
+          - name: Etat technique de la rubrique
+            description: ''
+            data_type: text
+          - name: Etat administratif de la rubrique
             description: ''
             data_type: text

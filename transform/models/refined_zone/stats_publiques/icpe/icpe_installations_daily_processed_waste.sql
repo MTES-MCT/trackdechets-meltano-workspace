@@ -22,7 +22,7 @@ with installations_data as (
         max(i.longitude)              as longitude,
         sum(i.quantite_autorisee)     as quantite_autorisee,
         max(i.unite)                  as unite
-    from {{ ref('installations_icpe') }} as i
+    from {{ ref('installations_icpe_2024') }} as i
     group by
         i.code_aiot,
         i.rubrique

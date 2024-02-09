@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: installations_icpe_2024
+    columns: []

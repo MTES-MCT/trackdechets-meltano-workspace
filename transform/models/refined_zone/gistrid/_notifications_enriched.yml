@@ -1,10 +1,13 @@
 version: 2
 models:
-  - name: notifications
+  - name: notifications_enriched
     columns:
       - name: numero_notification
         description: ''
         data_type: text
+      - name: annee
+        description: ''
+        data_type: integer
       - name: type_dossier
         description: ''
         data_type: text
@@ -18,6 +21,9 @@ models:
         description: ''
         data_type: text
       - name: numero_gistrid_notifiant
+        description: ''
+        data_type: text
+      - name: siret_notifiant
         description: ''
         data_type: text
       - name: commune_notifiant
@@ -35,13 +41,13 @@ models:
       - name: pays_producteur
         description: ''
         data_type: text
-      - name: siret_installation_traitement
-        description: ''
-        data_type: text
       - name: nom_installation_traitement
         description: ''
         data_type: text
       - name: numero_gistrid_installation_traitement
+        description: ''
+        data_type: text
+      - name: siret_installation_traitement
         description: ''
         data_type: text
       - name: commune_installation_traitement
@@ -96,8 +102,5 @@ models:
         description: ''
         data_type: double precision
       - name: nombre_transferts_receptionnes
-        description: ''
-        data_type: integer
-      - name: annee
         description: ''
         data_type: integer
