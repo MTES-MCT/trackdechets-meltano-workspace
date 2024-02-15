@@ -29,7 +29,7 @@ plugins:
   extractors:
     - name: tap-postgres
       variant: meltanolabs
-      pip_url: meltanolabs-tap-postgres==0.0.6
+      pip_url: meltanolabs-tap-postgres==0.0.8
     - name: tap-postgres--td-database
       inherit_from: tap-postgres
       config:
@@ -54,6 +54,7 @@ plugins:
         - default$default-TraderReceipt.*
         - default$default-BsddTransporter.*
         - default$default-AnonymousCompany.*
+        - default$default-BsdaTransporter.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -201,12 +202,6 @@ plugins:
             brokerRecepisseValidityLimit:
               str(brokerRecepisseValidityLimit) if brokerRecepisseValidityLimit
               is not None else brokerRecepisseValidityLimit
-            transporterTransportTakenOverAt:
-              str(transporterTransportTakenOverAt) if
-              transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
-            transporterRecepisseValidityLimit:
-              str(transporterRecepisseValidityLimit)
-              if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
           default$default-Bsdasri:
             emitterWasteWeightValue:
               float(emitterWasteWeightValue) if emitterWasteWeightValue
