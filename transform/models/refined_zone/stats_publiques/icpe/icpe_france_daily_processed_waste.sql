@@ -35,7 +35,7 @@ waste_stats as (
         s.quantite_autorisee
     from
         waste_processed_grouped as w
-    left join stats as s
+    right join stats as s
         on
             w.rubrique = s.rubrique
     order by rubrique, day_of_processing

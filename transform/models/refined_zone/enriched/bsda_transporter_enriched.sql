@@ -1,0 +1,25 @@
+{{
+  config(
+    materialized = 'table',
+    indexes = [ 
+        {'columns': ['id'] , 'unique': True },
+        {'columns': ['created_at'] },
+        {'columns': ['updated_at'] },
+        { 'columns': ['emitter_company_siret'] },
+        { 'columns' :['destination_company_siret'] },
+        { 'columns' :['transporter_company_siret'], },
+        { 'columns' :['waste_code'] },
+    ]
+    )
+}}
+
+
+select
+    bt.*,
+    b.created_at as bordereau_created_at,
+    b.emitter_company_siret,
+    b.destination_company_siret,
+    b.waste_code,
+    b.destination_reception_weight
+from {{ ref('bsda_transporter') }} as bt
+left join {{ ref('bsda') }} as b on bt.bsda_id = b.id

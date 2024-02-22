@@ -37,8 +37,10 @@ installations as (
         {{ ref('installations_rubriques_2024') }} as ir
     left join {{ ref('installations') }} as i on ir.code_aiot = i.code_aiot
     where
-        (ir.libelle_etat_site not in ('Non construit', 'En construction', 'Projet abandonné', 'Sans titre', 'A l’arrêt') or ir.libelle_etat_site is null) -- noqa: LXR
+        (ir.libelle_etat_site = 'Avec titre') -- noqa: LXR
         and (ir.etat_administratif_rubrique = 'En vigueur')
+        and (ir.etat_technique_rubrique = 'Exploité')
+        and (ir.raison_sociale !~* 'illégal|illicite')
 )
 
 select

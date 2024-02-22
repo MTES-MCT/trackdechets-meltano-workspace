@@ -39,7 +39,7 @@ waste_stats as (
         s.quantite_autorisee
     from
         waste_processed_grouped as w
-    left join stats as s
+    right join stats as s
         on
             w.code_departement_insee = s.code_departement_insee
             and w.rubrique = s.rubrique
