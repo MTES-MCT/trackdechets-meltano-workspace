@@ -109,7 +109,7 @@ merged_data as (
         coalesce(a.annee, b.annee)        as annee,
         coalesce(a.naf, b.naf)            as naf,
         coalesce(a.quantite_traitee, 0)
-        + coalesce(b.quantite_traitee, 0) as quantite_traitee
+        + coalesce(b.quantite_traitee, 0) as quantite_produite
     from grouped_data as a
     full outer join bsff_data as b on a.annee = b.annee and a.naf = b.naf
 )
@@ -117,7 +117,7 @@ merged_data as (
 select
     annee,
     naf.*,
-    quantite_traitee
+    quantite_produite
 from merged_data
 left join trusted_zone_insee.nomenclature_activites_francaises as naf
     on merged_data.naf = naf.code_sous_classe
