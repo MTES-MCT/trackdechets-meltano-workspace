@@ -115,9 +115,8 @@ merged_data as (
 )
 
 select
-    naf.*,
-    merged_data.naf,
     annee,
+    naf.*,
     quantite_traitee
 from merged_data
 left join trusted_zone_insee.nomenclature_activites_francaises as naf
