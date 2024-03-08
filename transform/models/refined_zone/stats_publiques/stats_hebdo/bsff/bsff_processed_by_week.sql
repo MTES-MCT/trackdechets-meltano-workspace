@@ -29,7 +29,8 @@ WITH bordereaux as (
     group by b.id
     having max(bp.operation_date) < DATE_TRUNC('week',now())
 ),
-contenants AS (
+
+packagings AS (
     SELECT
         bp.id as packaging_id,
         bp.operation_code as "operation_code",
@@ -45,29 +46,63 @@ contenants AS (
         AND (b.waste_code ~* '.*\*$' or coalesce(bp.acceptation_waste_code ~* '.*\*$',false))
         and not is_draft
         and not is_deleted
+),
+
+bordereaux_by_week as (
+    select
+        DATE_TRUNC(
+            'week',
+            b.bordereaux_processed_at
+        ) as "semaine",
+        count(distinct bordereau_id) filter (
+        where is_processed) as traitements_bordereaux
+    from
+        bordereaux b
+    group by
+        DATE_TRUNC(
+            'week',
+            b.bordereaux_processed_at
+        )
+),
+
+packagings_by_week as (
+    select
+        DATE_TRUNC(
+            'week',
+        c.operation_date
+        ) as "semaine",
+        count(distinct packaging_id) as traitements_contenants,
+        sum("quantity") as quantite_traitee,
+        COUNT(distinct packaging_id) filter (
+        where operation_code in {{non_final_operation_codes}}) as traitements_contenants_operations_non_finales, 
+        sum(quantity) filter (
+        where operation_code in {{non_final_operation_codes}}) as quantite_traitee_operations_non_finales,   
+        COUNT(distinct packaging_id) filter (
+        where operation_code not in {{non_final_operation_codes}}) as traitements_contenants_operations_finales,
+        sum(quantity) filter (
+        where operation_code not in {{non_final_operation_codes}}) as quantite_traitee_operations_finales
+    from
+        packagings c
+    group by
+        DATE_TRUNC(
+            'week',
+            c.operation_date
+        )
 )
-SELECT
-    DATE_TRUNC(
-        'week',
-        coalesce(c.operation_date,b.bordereaux_processed_at)
-    ) AS "semaine",
-    count(distinct bordereau_id) filter (where is_processed) as traitements_bordereaux,
-    count(distinct packaging_id) as traitements_contenants,
-    sum("quantity") as quantite_traitee,
-    COUNT(distinct packaging_id) FILTER (WHERE operation_code in {{ non_final_operation_codes }}) AS traitements_contenants_operations_non_finales, 
-    sum(quantity) FILTER (WHERE operation_code in {{ non_final_operation_codes }}) AS quantite_traitee_operations_non_finales,   
-    COUNT(distinct packaging_id) FILTER (WHERE operation_code not in {{ non_final_operation_codes }}) AS traitements_contenants_operations_finales,
-    sum(quantity) FILTER (WHERE operation_code not in {{ non_final_operation_codes }}) AS quantite_traitee_operations_finales
-FROM
-    contenants c
-    left outer join bordereaux b on c.operation_date = b.bordereaux_processed_at
-GROUP BY
-    DATE_TRUNC(
-        'week',
-        coalesce(c.operation_date,b.bordereaux_processed_at)
-    )
-ORDER BY
-    DATE_TRUNC(
-        'week',
-        coalesce(c.operation_date,b.bordereaux_processed_at)
-    )
+
+select
+    coalesce(p.semaine,
+    b.semaine) as semaine,
+    traitements_bordereaux,
+    traitements_contenants,
+    quantite_traitee,
+    traitements_contenants_operations_non_finales,
+    quantite_traitee_operations_non_finales,
+    traitements_contenants_operations_finales,
+    quantite_traitee_operations_finales
+from
+    packagings_by_week p
+left outer join bordereaux_by_week b on
+    p.semaine = b.semaine
+order by
+    semaine desc
