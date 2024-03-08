@@ -3,6 +3,9 @@
     materialized = 'table',
     indexes = [ 
         {'columns': ['siret'], 'unique': True },
+        {'columns': ['code_commune']},
+        {'columns': ['code_departement']},
+        {'columns': ['code_region'] },
     ]
     )
 }}
@@ -10,9 +13,10 @@
 
 WITH etabs AS (
     SELECT
-        cgc.*,
-        se.siret,
-        se.activite_principale_etablissement
+        se.*,
+        cgc.code_commune,
+        cgc.code_departement,
+        cgc.code_region
     FROM
         {{ ref('stock_etablissement') }}
         AS se
