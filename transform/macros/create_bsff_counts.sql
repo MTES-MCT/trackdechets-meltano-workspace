@@ -38,7 +38,7 @@
         DATE_TRUNC(
             'week',
             {{ date_column_name }}
-        ) AS "semaine",
+        )::timestamp AS "semaine",
         count(distinct bordereau_id) as {{ count_name }}_bordereaux,
         count(distinct packaging_id) as {{ count_name }}_contenants,
         sum("quantity") as {{ quantity_name }}
