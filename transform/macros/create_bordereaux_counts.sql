@@ -84,7 +84,7 @@
         DATE_TRUNC(
             'week',
             {{ date_column_name }}
-        ) AS "semaine",
+        )::date AS "semaine",
         COUNT(id) AS {{ count_name }},
         sum(quantity) as {{ quantity_name }}
         {% if ("traitements" in count_name) or ("contenants_traites" in count_name)  %}

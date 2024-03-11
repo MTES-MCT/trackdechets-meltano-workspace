@@ -120,7 +120,7 @@ merged_data as (
 )
 
 select
-    semaine,
+    semaine::date,
     type_bordereau,
     code_operation,
     type_operation,

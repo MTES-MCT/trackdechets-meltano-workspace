@@ -83,5 +83,5 @@ wastes_rubriques as (
         mrco.rubrique
 )
 
-select 
-* from wastes_rubriques
+select *
+from wastes_rubriques
