@@ -8,30 +8,18 @@
 with installations as (
     select
         siret,
-        rubrique || coalesce(
-            '-' || alinea,
-            ''
-        )                             as rubrique,
+        rubrique,
         max(raison_sociale)           as raison_sociale,
         array_agg(distinct code_aiot) as codes_aiot,
         sum(quantite_totale)          as quantite_autorisee
     from
-        {{ ref('installations_rubriques') }}
+        {{ ref('installations_rubriques_2024') }}
     where
         siret is not null
-        and (
-            rubrique in ('2770', '2790')
-            or (
-                rubrique = '2760'
-                and alinea = '1'
-            )
-        )
+        and rubrique in ('2770', '2790', '2760-1')
     group by
         siret,
-        rubrique || coalesce(
-            '-' || alinea,
-            ''
-        )
+        rubrique
 ),
 
 wastes as (
