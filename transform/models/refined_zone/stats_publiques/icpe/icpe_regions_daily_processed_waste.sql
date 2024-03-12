@@ -50,7 +50,7 @@ select
     w.code_region_insee,
     cg.libelle as nom_region,
     w.rubrique,
-    w.day_of_processing,
+    w.day_of_processing::date,
     w.nombre_installations,
     w.quantite_traitee,
     w.quantite_autorisee

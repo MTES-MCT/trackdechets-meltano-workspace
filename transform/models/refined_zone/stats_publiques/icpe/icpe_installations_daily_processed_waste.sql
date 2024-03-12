@@ -30,7 +30,7 @@ with installations_data as (
 
 select
     ii.*,
-    idpw.day_of_processing,
+    idpw.day_of_processing::date,
     idpw.quantite_traitee
 from installations_data as ii
 left join {{ ref('daily_processed_waste_by_rubrique') }} as idpw
