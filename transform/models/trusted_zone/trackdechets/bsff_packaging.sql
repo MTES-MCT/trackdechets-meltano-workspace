@@ -41,7 +41,7 @@ renamed as (
         "operationNextDestinationCompanySiret"     as operation_next_destination_company_siret,
         "operationNextDestinationCompanyVatNumber" as operation_next_destination_company_vat_number,
         "nextPackagingId"                          as next_packaging_id,
-        other                                      as other,
+        other,
         "type"                                     as type,
         "emissionNumero"                           as emission_numero,
         "operationMode"                            as operation_mode,

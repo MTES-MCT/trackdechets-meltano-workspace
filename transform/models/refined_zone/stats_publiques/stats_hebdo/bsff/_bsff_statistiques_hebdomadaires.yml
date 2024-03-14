@@ -18,7 +18,7 @@ models:
     columns:
       - name: semaine
         description: ""
-        data_type: timestamp with time zone
+        data_type: timestamp without time zone
       - name: creations_bordereaux
         description: ""
         data_type: bigint

@@ -1,13 +1,7 @@
 version: 2
 models:
-  - name: icpe_regions_daily_processed_waste
+  - name: icpe_france_daily_processed_waste
     columns:
-      - name: code_region_insee
-        description: ''
-        data_type: integer
-      - name: nom_region
-        description: ''
-        data_type: character varying
       - name: rubrique
         description: ''
         data_type: text

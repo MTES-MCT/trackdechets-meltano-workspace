@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: bsda_processed_by_week
+  - name: bsd_non_dangereux_processed_by_week
     config:
       materialized: table
     columns:
@@ -25,4 +25,3 @@ models:
       - name: quantite_traitee_operations_finales
         description: ''
         data_type: numeric
-sources: []

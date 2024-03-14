@@ -2,7 +2,8 @@
         model_name,
         date_column_name,
         count_name,
-        quantity_name
+        quantity_name,
+        filter_dangerous_waste = true
     ) -%}
 
     {% set non_final_processing_operation_codes %}
@@ -38,7 +39,7 @@
         {% endif %}
     {% endset %}
 
-    {% set waste_filter %}
+    {% set dangerous_waste_filter %}
         {% if model_name == "bsdd" %}
             waste_details_code ~* '.*\*$'
             OR waste_details_pop
@@ -73,11 +74,17 @@
         WHERE
             {{ date_column_name }} < DATE_TRUNC('week', now())
             {% if not model_name == "bsff_packaging"%}
-            AND (
-                {{ waste_filter }}
-            )
-            AND ({{ draft_filter }})
-            AND is_deleted is false
+                AND is_deleted is false
+                AND ({{ draft_filter }})
+                {% if filter_dangerous_waste %}
+                    AND (
+                        {{ dangerous_waste_filter }}
+                    )
+                {% else %}
+                    AND not (
+                        {{ dangerous_waste_filter }}
+                    )
+                {% endif %}
             {% endif %}
     )
     SELECT

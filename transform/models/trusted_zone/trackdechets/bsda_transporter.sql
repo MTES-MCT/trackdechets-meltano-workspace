@@ -8,7 +8,7 @@ with source as (
 
 renamed as (
     select
-        id                                    as id,
+        id,
         "createdAt"                           as created_at,
         "updatedAt"                           as updated_at,
         "number"                              as number,

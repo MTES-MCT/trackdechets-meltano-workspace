@@ -21,17 +21,17 @@ installations as (
     select
         ir.code_aiot,
         ir.raison_sociale,
-        ir.siret           as siret,
+        ir.siret,
         ir.quantite_totale as quantite_autorisee,
         ir.unite,
         ir.libelle_etat_site,
-        i.latitude         as latitude,
-        i.longitude        as longitude,
-        i.adresse1         as adresse1,
-        i.adresse2         as adresse2,
-        i.code_postal      as code_postal,
-        i.commune          as commune,
-        i.code_insee       as code_insee,
+        i.latitude,
+        i.longitude,
+        i.adresse1,
+        i.adresse2,
+        i.code_postal,
+        i.commune,
+        i.code_insee,
         ir.rubrique
     from
         {{ ref('installations_rubriques_2024') }} as ir

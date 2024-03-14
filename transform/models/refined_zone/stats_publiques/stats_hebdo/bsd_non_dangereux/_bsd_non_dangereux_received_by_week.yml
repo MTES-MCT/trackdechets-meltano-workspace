@@ -1,16 +1,15 @@
 version: 2
 models:
-  - name: bsvhu_created_by_week
+  - name: bsd_non_dangereux_received_by_week
     config:
       materialized: table
     columns:
       - name: semaine
         description: ''
         data_type: date
-      - name: creations
+      - name: receptions
         description: ''
         data_type: bigint
-      - name: quantite_tracee
+      - name: quantite_recue
         description: ''
         data_type: numeric
-sources: []

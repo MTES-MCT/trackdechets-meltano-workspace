@@ -16,7 +16,7 @@ models:
         data_type: text
       - name: day_of_processing
         description: ''
-        data_type: timestamp with time zone
+        data_type: date
       - name: nombre_installations
         description: ''
         data_type: bigint

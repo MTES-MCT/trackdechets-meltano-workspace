@@ -3,7 +3,7 @@ models:
   - name: weekly_waste_processed_stats
     columns:
       - name: semaine
-        data_type: timestamp with time zone
+        data_type: date
         description: ""
       - name: type_bordereau
         data_type: text

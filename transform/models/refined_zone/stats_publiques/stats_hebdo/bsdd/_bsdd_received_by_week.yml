@@ -6,7 +6,7 @@ models:
     columns:
       - name: semaine
         description: ''
-        data_type: timestamp with time zone
+        data_type: date
       - name: receptions
         description: ''
         data_type: bigint

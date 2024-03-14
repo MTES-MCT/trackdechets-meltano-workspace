@@ -47,7 +47,7 @@ renamed as (
         "vhuAgrementBroyeurId"                 as vhu_agrement_broyeur_id,
         "allowBsdasriTakeOverWithoutSignature" as allow_bsdasri_take_over_without_signature,
         "vatNumber"                            as vat_number,
-        contact                                as contact,
+        contact,
         "codeDepartement"                      as code_departement,
         "workerCertificationId"                as worker_certification_id,
         "orgId"                                as org_id,

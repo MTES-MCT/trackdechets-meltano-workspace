@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: bsvhu_created_by_week
+  - name: bsd_non_dangereux_created_by_week
     config:
       materialized: table
     columns:
@@ -13,4 +13,3 @@ models:
       - name: quantite_tracee
         description: ''
         data_type: numeric
-sources: []
