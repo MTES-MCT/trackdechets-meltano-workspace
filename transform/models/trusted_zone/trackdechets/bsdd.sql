@@ -9,7 +9,10 @@
     'wasteDetailsCode',
     'wasteDetailsPop',
     'wasteDetailsIsDangerous',
-    'transportersSirets']) }}"
+    'transportersSirets',
+    'sentAt',
+    'receivedAt',
+    'processedAt']) }}"
 ) }}
 
 with source as (
