@@ -38,7 +38,7 @@ installations as (
     left join {{ ref('installations') }} as i on ir.code_aiot = i.code_aiot
     where
         (ir.libelle_etat_site = 'Avec titre') -- noqa: LXR
-        and (ir.etat_administratif_rubrique in ['En vigueur','A l'arrêt])
+        and (ir.etat_administratif_rubrique in ('En vigueur','A l''arrêt'))
         and (ir.etat_technique_rubrique = 'Exploité')
         and (ir.raison_sociale !~* 'illégal|illicite')
 )
