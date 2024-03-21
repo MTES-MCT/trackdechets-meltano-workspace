@@ -118,90 +118,6 @@ plugins:
           wasteDetailsParcelNumbers:
             type: [object, array, "null"]
 
-    - name: tap-postgres--td-database-test
-      inherit_from: tap-postgres
-      variant: meltanolabs
-      pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git@main
-      config:
-        dates_as_string: true
-      select:
-        - default$default-Company.*
-        - default$default-CompanyAssociation.*
-        - default$default-User.*
-        - default$default-Form.*
-        - default$default-Bsda.*
-        - default$default-Bsdasri.*
-        - default$default-Bsff.*
-        - default$default-Bsvhu.*
-        - default$default-EcoOrganisme.*
-        - default$default-BsffPackaging.*
-        - default$default-BsddRevisionRequest.*
-        - default$default-BsdaRevisionRequest.*
-        - default$default-VhuAgrement.*
-        - default$default-TransporterReceipt.*
-        - default$default-BrokerReceipt.*
-        - default$default-TraderReceipt.*
-      metadata:
-        "*":
-          replication-method: INCREMENTAL
-          replication-key: updatedAt
-        default$default-CompanyAssociation:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-EcoOrganisme:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BsffPackaging:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-VhuAgrement:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-TransporterReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BrokerReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-TraderReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-      stream_maps:
-        default$default-Bsda:
-          packagings: str(packagings)
-        default$default-BsdaRevisionRequest:
-          packagings: str(packagings)
-        default$default-Bsdasri:
-          emitterWastePackagings: str(emitterWastePackagings)
-          transporterWastePackagings: str(transporterWastePackagings)
-          destinationWastePackagings: str(destinationWastePackagings)
-        default$default-BsddRevisionRequest:
-          wasteDetailsPackagingInfos: str(wasteDetailsPackagingInfos)
-        default$default-Form:
-          wasteDetailsPackagingInfos: str(wasteDetailsPackagingInfos)
-          wasteDetailsParcelNumbers: str(wasteDetailsParcelNumbers)
-      schema:
-        default$default-Bsda:
-          packagings:
-            type: "string"
-        default$default-BsdaRevisionRequest:
-          packagings:
-            type: "string"
-        default$default-Bsdasri:
-          emitterWastePackagings:
-            type: "string"
-          transporterWastePackagings:
-            type: "string"
-          destinationWastePackagings:
-            type: "string"
-        default$default-BsddRevisionRequest:
-          wasteDetailsPackagingInfos:
-            type: "string"
-        default$default-Form:
-          wasteDetailsPackagingInfos:
-            type: "string"
-          wasteDetailsParcelNumbers:
-            type: "string"
     - name: tap-zammad
       namespace: tap_zammad
       pip_url: git+https://github.com/Lawiss/tap-zammad.git
@@ -374,6 +290,8 @@ plugins:
         #    brokerRecepisseValidityLimit: brokerRecepisseValidityLimit[:-6] if brokerRecepisseValidityLimit else None
         add_record_metadata: true
         engine_type: ReplacingMergeTree
+        optimize_after: true
+        load_method: upsert
 
   transformers:
     - name: dbt-postgres
