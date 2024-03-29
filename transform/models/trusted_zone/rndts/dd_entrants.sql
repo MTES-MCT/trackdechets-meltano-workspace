@@ -43,7 +43,7 @@ select
     code_dechet,
     dechet_pop,
     denomination_usuelle,
-    quantite,
+    quantite::numeric,
     unite,
     date_reception::date,
     heure_pesee::time,

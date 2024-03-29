@@ -41,7 +41,7 @@ select
     raison_sociale_declarant,
     code_dechet,
     denomination_usuelle,
-    quantite,
+    quantite::numeric,
     unite,
     date_expedition::date,
     status
