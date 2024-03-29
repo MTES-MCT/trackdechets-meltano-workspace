@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: dd_entrants
+    columns:
+      - name: id
+        description: ''
+        data_type: integer
+      - name: created_date
+        description: ''
+        data_type: timestamp with time zone
+      - name: created_year_utc
+        description: ''
+        data_type: smallint
+      - name: last_modified_date
+        description: ''
+        data_type: timestamp with time zone
+      - name: numero_identification_declarant
+        description: ''
+        data_type: text
+      - name: raison_sociale_declarant
+        description: ''
+        data_type: text
+      - name: code_dechet
+        description: ''
+        data_type: text
+      - name: dechet_pop
+        description: ''
+        data_type: text
+      - name: denomination_usuelle
+        description: ''
+        data_type: text
+      - name: quantite
+        description: ''
+        data_type: text
+      - name: unite
+        description: ''
+        data_type: text
+      - name: date_reception
+        description: ''
+        data_type: date
+      - name: heure_pesee
+        description: ''
+        data_type: time without time zone
+      - name: status
+        description: ''
+        data_type: text
