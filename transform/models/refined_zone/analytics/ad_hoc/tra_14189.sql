@@ -154,10 +154,10 @@ select
     max(
         coalesce(
             c.address,
-            coalesce(numero_voie_etablissement, '')
-            || coalesce(type_voie_etablissement, '')
-            || coalesce(libelle_voie_etablissement, '')
-            || coalesce(code_postal_etablissement, '')
+            coalesce(numero_voie_etablissement || ' ', '')
+            || coalesce(type_voie_etablissement || ' ', '')
+            || coalesce(libelle_voie_etablissement || ' ', '')
+            || coalesce(code_postal_etablissement || ' ', '')
             || coalesce(libelle_commune_etablissement, '')
         )
     )             as adresse_etablissement,
