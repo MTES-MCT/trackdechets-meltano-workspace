@@ -300,7 +300,7 @@ plugins:
   utilities:
     - name: sqlfluff
       variant: sqlfluff
-      pip_url: sqlfluff~=3.0.0a6 sqlfluff-templater-dbt~=3.0.0a6 dbt-core dbt-postgres
+      pip_url: sqlfluff~=3.0.6 sqlfluff-templater-dbt~=3.0.6 dbt-core~=1.7.0 dbt-postgres~=1.7.0
       settings:
         - name: user
         - name: password
@@ -319,7 +319,7 @@ plugins:
     - name: dbt-osmosis
       namespace: dbt_postgres
       variant: z3z1ma
-      pip_url: dbt-osmosis dbt-postgres
+      pip_url: dbt-osmosis dbt-postgres~=1.7.0
       commands:
         refactor:
           args:

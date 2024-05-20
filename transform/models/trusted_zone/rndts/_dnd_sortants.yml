@@ -28,13 +28,16 @@ models:
         data_type: text
       - name: quantite
         description: ''
-        data_type: text
+        data_type: numeric
       - name: unite
         description: ''
         data_type: text
       - name: date_expedition
         description: ''
         data_type: date
+      - name: code_traitement
+        description: ''
+        data_type: text
       - name: status
         description: ''
         data_type: text

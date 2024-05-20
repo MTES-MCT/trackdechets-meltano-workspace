@@ -1,184 +1,202 @@
 version: 2
 
 sources:
-    - name: raw_zone_rndts
-      description: Données brutes fournies par le RNDTS.
-      tables:
-          - name: dd_entrants
-            description: >
-                Registre des déchets entrants suivis dans le RNDTS
-            columns:
-                - name: declarant.numero_identification
-                  description: ""
-                  data_type: text
-                - name: declarant.raison_sociale
-                  description: ""
-                  data_type: text
-                - name: created_year_utc
-                  description: ""
-                  data_type: text
-                - name: id
-                  description: ""
-                  data_type: text
-                - name: created_date
-                  description: ""
-                  data_type: text
-                - name: last_modified_date
-                  description: ""
-                  data_type: text
-                - name: date_reception
-                  description: ""
-                  data_type: text
-                - name: heure_pesee
-                  description: ""
-                  data_type: text
-                - name: is_dechet_pop
-                  description: ""
-                  data_type: text
-                - name: quantite
-                  description: ""
-                  data_type: text
-                - name: unite
-                  description: ""
-                  data_type: text
-                - name: code_dechet
-                  description: ""
-                  data_type: text
-                - name: denomination_usuelle
-                  description: ""
-                  data_type: text
-                - name: status
-                  description: ""
-                  data_type: text
-          - name: dd_sortants
-            description: >
-                Registre des déchets sortants suivis dans le RNDTS
-            columns:
-                - name: declarant.numero_identification
-                  description: ""
-                  data_type: text
-                - name: declarant.raison_sociale
-                  description: ""
-                  data_type: text
-                - name: created_year_utc
-                  description: ""
-                  data_type: text
-                - name: id
-                  description: ""
-                  data_type: text
-                - name: created_date
-                  description: ""
-                  data_type: text
-                - name: last_modified_date
-                  description: ""
-                  data_type: text
-                - name: date_expedition
-                  description: ""
-                  data_type: text
-                - name: is_dechet_pop
-                  description: ""
-                  data_type: text
-                - name: quantite
-                  description: ""
-                  data_type: text
-                - name: unite
-                  description: ""
-                  data_type: text
-                - name: code_dechet
-                  description: ""
-                  data_type: text
-                - name: denomination_usuelle
-                  description: ""
-                  data_type: text
-                - name: status
-                  description: ""
-                  data_type: text
-          - name: dnd_entrants
-            description: >
-                Registre des déchets dangereux entrants suivis dans la RNDTS
-            columns:
-                - name: declarant.numero_identification
-                  description: ""
-                  data_type: text
-                - name: declarant.raison_sociale
-                  description: ""
-                  data_type: text
-                - name: created_year_utc
-                  description: ""
-                  data_type: text
-                - name: id
-                  description: ""
-                  data_type: text
-                - name: created_date
-                  description: ""
-                  data_type: text
-                - name: last_modified_date
-                  description: ""
-                  data_type: text
-                - name: date_reception
-                  description: ""
-                  data_type: text
-                - name: heure_pesee
-                  description: ""
-                  data_type: text
-                - name: is_dechet_pop
-                  description: ""
-                  data_type: text
-                - name: quantite
-                  description: ""
-                  data_type: text
-                - name: unite
-                  description: ""
-                  data_type: text
-                - name: code_dechet
-                  description: ""
-                  data_type: text
-                - name: denomination_usuelle
-                  description: ""
-                  data_type: text
-                - name: status
-                  description: ""
-                  data_type: text
-          - name: dnd_sortants
-            description: >
-                Registre des déchets dangereux sortants suivis dans la RNDTS
-            columns:
-                - name: declarant.numero_identification
-                  description: ""
-                  data_type: text
-                - name: declarant.raison_sociale
-                  description: ""
-                  data_type: text
-                - name: created_year_utc
-                  description: ""
-                  data_type: text
-                - name: id
-                  description: ""
-                  data_type: text
-                - name: created_date
-                  description: ""
-                  data_type: text
-                - name: last_modified_date
-                  description: ""
-                  data_type: text
-                - name: date_expedition
-                  description: ""
-                  data_type: text
-                - name: is_dechet_pop
-                  description: ""
-                  data_type: text
-                - name: quantite
-                  description: ""
-                  data_type: text
-                - name: unite
-                  description: ""
-                  data_type: text
-                - name: code_dechet
-                  description: ""
-                  data_type: text
-                - name: denomination_usuelle
-                  description: ""
-                  data_type: text
-                - name: status
-                  description: ""
-                  data_type: text
+  - name: raw_zone_rndts
+    description: Données brutes fournies par le RNDTS.
+    tables:
+      - name: dd_entrants
+        description: >
+          Registre des déchets entrants suivis dans le RNDTS
+        columns:
+          - name: declarant.numero_identification
+            description: ""
+            data_type: text
+          - name: declarant.raison_sociale
+            description: ""
+            data_type: text
+          - name: created_year_utc
+            description: ""
+            data_type: text
+          - name: id
+            description: ""
+            data_type: text
+          - name: created_date
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: date_reception
+            description: ""
+            data_type: text
+          - name: heure_pesee
+            description: ""
+            data_type: text
+          - name: is_dechet_pop
+            description: ""
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
+          - name: unite
+            description: ""
+            data_type: text
+          - name: code_dechet
+            description: ""
+            data_type: text
+          - name: denomination_usuelle
+            description: ""
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: status
+            description: ""
+            data_type: text
+      - name: dd_sortants
+        description: >
+          Registre des déchets sortants suivis dans le RNDTS
+        columns:
+          - name: declarant.numero_identification
+            description: ""
+            data_type: text
+          - name: declarant.raison_sociale
+            description: ""
+            data_type: text
+          - name: created_year_utc
+            description: ""
+            data_type: text
+          - name: id
+            description: ""
+            data_type: text
+          - name: created_date
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: date_expedition
+            description: ""
+            data_type: text
+          - name: is_dechet_pop
+            description: ""
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
+          - name: unite
+            description: ""
+            data_type: text
+          - name: code_dechet
+            description: ""
+            data_type: text
+          - name: denomination_usuelle
+            description: ""
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: libelle
+            description: ''
+            data_type: text
+          - name: status
+            description: ""
+            data_type: text
+      - name: dnd_entrants
+        description: >
+          Registre des déchets dangereux entrants suivis dans la RNDTS
+        columns:
+          - name: declarant.numero_identification
+            description: ""
+            data_type: text
+          - name: declarant.raison_sociale
+            description: ""
+            data_type: text
+          - name: created_year_utc
+            description: ""
+            data_type: text
+          - name: id
+            description: ""
+            data_type: text
+          - name: created_date
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: date_reception
+            description: ""
+            data_type: text
+          - name: heure_pesee
+            description: ""
+            data_type: text
+          - name: is_dechet_pop
+            description: ""
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
+          - name: unite
+            description: ""
+            data_type: text
+          - name: code_dechet
+            description: ""
+            data_type: text
+          - name: denomination_usuelle
+            description: ""
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: status
+            description: ""
+            data_type: text
+      - name: dnd_sortants
+        description: >
+          Registre des déchets dangereux sortants suivis dans la RNDTS
+        columns:
+          - name: declarant.numero_identification
+            description: ""
+            data_type: text
+          - name: declarant.raison_sociale
+            description: ""
+            data_type: text
+          - name: created_year_utc
+            description: ""
+            data_type: text
+          - name: id
+            description: ""
+            data_type: text
+          - name: created_date
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: date_expedition
+            description: ""
+            data_type: text
+          - name: is_dechet_pop
+            description: ""
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
+          - name: unite
+            description: ""
+            data_type: text
+          - name: code_dechet
+            description: ""
+            data_type: text
+          - name: denomination_usuelle
+            description: ""
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: libelle
+            description: ''
+            data_type: text
+          - name: status
+            description: ""
+            data_type: text

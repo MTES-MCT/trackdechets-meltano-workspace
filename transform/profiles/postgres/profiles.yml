@@ -35,12 +35,12 @@ meltano:
       # sslmode: "{{ env_var('DBT_POSTGRES_SSLMODE', '').split() }}" # optional, set the sslmode used to connect to the database
     prod:
       type: postgres
-      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
-      user: "{{ env_var('DBT_POSTGRES_USER') }}"
-      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
-      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
-      dbname: "{{ env_var('DBT_POSTGRES_DBNAME', '') }}"
-      schema: "{{ env_var('DBT_POSTGRES_SCHEMA') }}"
+      host: "{{ env_var('DBT_POSTGRES_HOST_PROD') }}"
+      user: "{{ env_var('DBT_POSTGRES_USER_PROD') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD_PROD') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT_PROD') | int }}"
+      dbname: "{{ env_var('DBT_POSTGRES_DBNAME_PROD', '') }}"
+      schema: "{{ env_var('DBT_POSTGRES_SCHEMA_PROD') }}"
       threads: 6
       keepalives_idle: 0 # default 0, indicating the system default
       connect_timeout: 10 # default 10 seconds

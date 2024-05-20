@@ -28,6 +28,7 @@ renamed as (
         {{ adapter.quote("unite") }},
         {{ adapter.quote("code_dechet") }},
         {{ adapter.quote("denomination_usuelle") }},
+        {{ adapter.quote("code_traitement") }},
         {{ adapter.quote("status") }}
     from source
 )
@@ -45,5 +46,6 @@ select
     quantite::numeric,
     unite,
     date_expedition::date,
+    code_traitement,
     status
 from renamed
