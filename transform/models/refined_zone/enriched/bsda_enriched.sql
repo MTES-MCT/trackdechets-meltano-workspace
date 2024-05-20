@@ -9,7 +9,6 @@
         {'columns': ['destination_operation_date'] },
         { 'columns': ['emitter_company_siret'] },
         { 'columns' :['destination_company_siret'] },
-        { 'columns' :['transporter_company_siret'] },
         { 'columns' :['waste_code'] },
         { 'columns' :['emitter_commune'] },
         { 'columns' :['emitter_departement'] },

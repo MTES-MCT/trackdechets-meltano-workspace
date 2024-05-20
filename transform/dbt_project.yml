@@ -58,8 +58,6 @@ models:
 
       enriched:
         +schema: refined_zone_enriched
-        company_enriched:
-          +materialized: table
 
       stats_publiques:
         +schema: refined_zone_stats_publiques
