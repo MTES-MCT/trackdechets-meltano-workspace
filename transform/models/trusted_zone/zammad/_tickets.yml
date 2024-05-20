@@ -4,52 +4,52 @@ models:
     columns:
       - name: id
         description: 'identifiant unique du ticket'
-        data_type: numeric
+        data_type: bigint
       - name: number
         description: ''
-        data_type: character varying
+        data_type: text
       - name: created_at
         description: ''
         data_type: timestamp without time zone
       - name: created_by_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: updated_at
         description: ''
         data_type: timestamp without time zone
       - name: updated_by_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: title
         description: ''
-        data_type: character varying
+        data_type: text
       - name: article_count
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: article_ids
         description: ''
-        data_type: jsonb
+        data_type: ARRAY
       - name: close_at
         description: ''
         data_type: timestamp without time zone
       - name: close_diff_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: close_escalation_at
         description: ''
         data_type: timestamp without time zone
       - name: close_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: create_article_sender_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: create_article_type_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: customer_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: escalation_at
         description: ''
         data_type: timestamp without time zone
@@ -58,16 +58,16 @@ models:
         data_type: timestamp without time zone
       - name: first_response_diff_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: first_response_escalation_at
         description: ''
         data_type: timestamp without time zone
       - name: first_response_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: group_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: last_close_at
         description: ''
         data_type: timestamp without time zone
@@ -85,38 +85,38 @@ models:
         data_type: timestamp without time zone
       - name: note
         description: ''
-        data_type: character varying
+        data_type: text
       - name: organization_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: owner_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: pending_time
         description: ''
-        data_type: character varying
+        data_type: text
       - name: priority_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: state_id
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: ticket_time_accounting_ids
         description: ''
-        data_type: jsonb
+        data_type: ARRAY
       - name: time_unit
         description: ''
-        data_type: character varying
+        data_type: text
       - name: type
         description: ''
-        data_type: character varying
+        data_type: text
       - name: update_diff_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
       - name: update_escalation_at
         description: ''
         data_type: timestamp without time zone
       - name: update_in_min
         description: ''
-        data_type: numeric
+        data_type: bigint
 sources: []

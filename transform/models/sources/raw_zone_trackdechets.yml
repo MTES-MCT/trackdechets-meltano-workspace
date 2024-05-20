@@ -83,9 +83,6 @@ sources:
           - name: recipientCompanyMail
             description: ""
             data_type: text
-          - name: transporterCompanyPhone
-            description: ""
-            data_type: text
           - name: wasteDetailsCode
             description: ""
             data_type: text
@@ -353,6 +350,12 @@ sources:
           - name: quantityGrouped
             description: ""
             data_type: numeric
+          - name: nextDestinationCompanyExtraEuropeanId
+            description: ''
+            data_type: text
+          - name: rowNumber
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -374,9 +377,6 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
-          - name: nextDestinationCompanyExtraEuropeanId
-            description: ''
-            data_type: text
       - name: bsda_raw
         identifier: Bsda
         description: >
@@ -524,39 +524,6 @@ sources:
           - name: destinationOperationSignatureDate
             description: ""
             data_type: timestamp without time zone
-          - name: transporterCompanyName
-            description: ""
-            data_type: text
-          - name: transporterCompanySiret
-            description: ""
-            data_type: text
-          - name: transporterCompanyAddress
-            description: ""
-            data_type: text
-          - name: transporterCompanyContact
-            description: ""
-            data_type: text
-          - name: transporterCompanyPhone
-            description: ""
-            data_type: text
-          - name: transporterCompanyMail
-            description: ""
-            data_type: text
-          - name: transporterCompanyVatNumber
-            description: ""
-            data_type: text
-          - name: transporterRecepisseNumber
-            description: ""
-            data_type: text
-          - name: transporterRecepisseDepartment
-            description: ""
-            data_type: text
-          - name: transporterRecepisseValidityLimit
-            description: ""
-            data_type: text
-          - name: transporterTransportSignatureAuthor
-            description: ""
-            data_type: text
           - name: transporterTransportSignatureDate
             description: ""
             data_type: text
@@ -641,18 +608,6 @@ sources:
           - name: destinationOperationNextDestinationPlannedOperationCode
             description: ""
             data_type: text
-          - name: transporterRecepisseIsExempted
-            description: ""
-            data_type: boolean
-          - name: transporterTransportMode
-            description: ""
-            data_type: text
-          - name: transporterTransportPlates
-            description: ""
-            data_type: ARRAY
-          - name: transporterTransportTakenOverAt
-            description: ""
-            data_type: text
           - name: weightIsEstimate
             description: ""
             data_type: boolean
@@ -660,12 +615,6 @@ sources:
             description: ""
             data_type: text
           - name: destinationCustomInfo
-            description: ""
-            data_type: text
-          - name: transporterCustomInfo
-            description: ""
-            data_type: text
-          - name: repackagedInId
             description: ""
             data_type: text
           - name: ecoOrganismeName
@@ -710,6 +659,12 @@ sources:
           - name: destinationOperationMode
             description: ""
             data_type: text
+          - name: transportersOrgIds
+            description: ''
+            data_type: ARRAY
+          - name: rowNumber
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1004,6 +959,9 @@ sources:
           - name: destinationOperationMode
             description: ""
             data_type: text
+          - name: rowNumber
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1190,6 +1148,9 @@ sources:
           - name: transporterRecepisseIsExempted
             description: ""
             data_type: boolean
+          - name: rowNumber
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1427,6 +1388,9 @@ sources:
           - name: destinationOperationMode
             description: ""
             data_type: text
+          - name: rowNumber
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1628,6 +1592,15 @@ sources:
           - name: orgId
             description: ""
             data_type: text
+          - name: collectorTypes
+            description: ''
+            data_type: ARRAY
+          - name: wasteProcessorTypes
+            description: ''
+            data_type: ARRAY
+          - name: webhookSettingsLimit
+            description: ''
+            data_type: bigint
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1727,6 +1700,9 @@ sources:
           - name: handleBsdasri
             description: ""
             data_type: boolean
+          - name: handleBsda
+            description: ''
+            data_type: boolean
           - name: _sdc_extracted_at
             description: ""
             data_type: timestamp without time zone
@@ -1748,9 +1724,6 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
-          - name: handleBsda
-            description: ''
-            data_type: boolean
       - name: bsff_packaging_raw
         identifier: BsffPackaging
         description: >
@@ -2314,6 +2287,12 @@ sources:
             data_type: boolean
           - name: destinationOperationMode
             description: ""
+            data_type: text
+          - name: wasteDetailsQuantity
+            description: ''
+            data_type: numeric
+          - name: wasteDetailsSampleNumber
+            description: ''
             data_type: text
           - name: _sdc_extracted_at
             description: ""

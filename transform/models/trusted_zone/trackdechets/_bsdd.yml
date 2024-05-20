@@ -96,10 +96,6 @@ models:
         data_type: text
         description: |
           E-mail du contact de l'installation de destination ou d’entreposage ou de reconditionnement prévue (case 2).
-      - name: transporter_company_phone
-        data_type: text
-        description: >
-          Téléphone du contact dans l'établissement collecteur - transporteur.
       - name: waste_details_code
         data_type: text
         description: |

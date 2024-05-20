@@ -29,6 +29,7 @@ renamed as (
         {{ adapter.quote("unite") }},
         {{ adapter.quote("code_dechet") }},
         {{ adapter.quote("denomination_usuelle") }},
+        {{ adapter.quote("code_traitement") }},
         {{ adapter.quote("status") }}
     from source
 )
@@ -46,5 +47,6 @@ select
     unite,
     date_reception::date,
     heure_pesee::time,
+    code_traitement,
     status
 from renamed

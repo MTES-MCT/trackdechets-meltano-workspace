@@ -324,6 +324,18 @@ sources:
           - name: traite
             description: ""
             data_type: character varying
+          - name: _sdc_received_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_sequence
+            description: ''
+            data_type: bigint
+          - name: _sdc_table_version
+            description: ''
+            data_type: bigint
+          - name: _sdc_sync_started_at
+            description: ''
+            data_type: bigint
       - name: referentiel_codes_operation_rubriques
         columns:
           - name: _sdc_batched_at
@@ -347,3 +359,42 @@ sources:
           - name: unite
             description: ''
             data_type: character varying
+          - name: dd
+            description: ''
+            data_type: character varying
+          - name: dnd
+            description: ''
+            data_type: character varying
+          - name: d_inertes
+            description: ''
+            data_type: character varying
+          - name: rubriques
+            description: ''
+            data_type: character varying
+          - name: code_opération
+            description: ''
+            data_type: character varying
+          - name: Rubriques
+            description: ''
+            data_type: text
+          - name: DD
+            description: ''
+            data_type: text
+          - name: DND
+            description: ''
+            data_type: text
+          - name: D_inertes
+            description: ''
+            data_type: text
+          - name: _sdc_received_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_sequence
+            description: ''
+            data_type: bigint
+          - name: _sdc_table_version
+            description: ''
+            data_type: bigint
+          - name: _sdc_sync_started_at
+            description: ''
+            data_type: bigint

@@ -106,6 +106,7 @@ renamed as (
         "workerCertificationOrganisation"                     as worker_certification_organisation,
         "intermediariesOrgIds"                                as intermediaries_org_ids,
         "destinationOperationMode"                            as destination_operation_mode,
+        "transportersOrgIds"                                  as transporters_org_ids,
         "weightValue"
         / 1000                                                as weight_value,
         replace(
@@ -118,8 +119,7 @@ renamed as (
         )                                                     as destination_operation_code,
         replace(
             "destinationOperationNextDestinationPlannedOperationCode", ' ', ''
-        )                                                     as destination_operation_next_destination_planned_operation_code,
-        "transportersOrgIds"                                    as transporters_org_ids
+        )                                                     as destination_operation_next_destination_planned_operation_code
     from
         source
 )

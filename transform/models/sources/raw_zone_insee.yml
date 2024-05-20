@@ -270,7 +270,7 @@ sources:
             data_type: character varying
           - name: dateCreationEtablissement
             description: ''
-            data_type: character varying
+            data_type: date
           - name: trancheEffectifsEtablissement
             description: ''
             data_type: character varying
@@ -282,13 +282,13 @@ sources:
             data_type: character varying
           - name: dateDernierTraitementEtablissement
             description: ''
-            data_type: character varying
+            data_type: timestamp without time zone
           - name: etablissementSiege
             description: ''
-            data_type: character varying
+            data_type: boolean
           - name: nombrePeriodesEtablissement
             description: ''
-            data_type: character varying
+            data_type: integer
           - name: complementAdresseEtablissement
             description: ''
             data_type: character varying
@@ -296,6 +296,12 @@ sources:
             description: ''
             data_type: character varying
           - name: indiceRepetitionEtablissement
+            description: ''
+            data_type: character varying
+          - name: dernierNumeroVoieEtablissement
+            description: ''
+            data_type: character varying
+          - name: indiceRepetitionDernierNumeroVoieEtablissement
             description: ''
             data_type: character varying
           - name: typeVoieEtablissement
@@ -329,6 +335,15 @@ sources:
             description: ''
             data_type: character varying
           - name: libellePaysEtrangerEtablissement
+            description: ''
+            data_type: character varying
+          - name: identifiantAdresseEtablissement
+            description: ''
+            data_type: character varying
+          - name: coordonneeLambertAbscisseEtablissement
+            description: ''
+            data_type: character varying
+          - name: coordonneeLambertOrdonneeEtablissement
             description: ''
             data_type: character varying
           - name: complementAdresse2Etablissement
@@ -375,7 +390,7 @@ sources:
             data_type: character varying
           - name: dateDebut
             description: ''
-            data_type: character varying
+            data_type: date
           - name: etatAdministratifEtablissement
             description: ''
             data_type: character varying

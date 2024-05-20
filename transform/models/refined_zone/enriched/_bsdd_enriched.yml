@@ -93,11 +93,6 @@ models:
 
           '
         data_type: text
-      - name: transporter_company_phone
-        description: 'Téléphone du contact dans l''établissement collecteur - transporteur.
-
-          '
-        data_type: text
       - name: waste_details_code
         description: "Rubrique déchet au format \"00 00 00*\". \nLe symbole * permet d'identifier si le déchet est dangereux.\nLa nomenclature complète des codes déchets peut être retrouvée sur [ce lien](https://aida.ineris.fr/reglementation/liste-codification-dechets-annexe-ii-larticle-r-541-8).\n"
         data_type: text
