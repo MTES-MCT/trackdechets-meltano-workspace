@@ -22,7 +22,7 @@ select
     carriere::bool,
     eolienne::bool,
     industrie::bool,
-    longitude::float,
-    latitude::float
+    replace(longitude,'',null)::float as longitude,
+    replace(latitude,'',null)::float as latitude
 from
     {{ source('raw_zone_icpe', 'installations') }}

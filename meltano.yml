@@ -296,7 +296,7 @@ plugins:
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
-      pip_url: dbt-core~=1.5.2 dbt-postgres~=1.5.2 shandy-sqlfmt[jinjafmt] dbt-osmosis
+      pip_url: dbt-core~=1.8.0 dbt-postgres~=1.8.0 shandy-sqlfmt[jinjafmt] dbt-osmosis
       commands:
         run__trusted_zone_trackdechets:
           args: run --select trusted_zone.trackdechets+

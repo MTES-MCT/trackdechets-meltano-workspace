@@ -1,3 +1,14 @@
+{{
+  config(
+    materialized = 'table',
+    indexes=[
+        {"columns":["siret"],"unique":True},
+        {"columns":["org_id"],"unique":True},
+        {"columns":["code_commune_insee"]}
+    ]
+    )
+}}
+
 with communes as (
     --Il y a des duplicats dans les codes communes, ici on déduplique et on ajoute les données de la commune parente
     --en cas d'absence des données pour un commune déléguée. Cela concerne très peu de cas néanmoins.

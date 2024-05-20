@@ -3,7 +3,6 @@
     'createdAt',
     'updatedAt',
     'emitterCompanySiret',
-    'transporterCompanySiret',
     'destinationCompanySiret',
     'wasteCode',
     'wastePop'
@@ -59,19 +58,6 @@ renamed as (
         "destinationOperationDate"                            as destination_operation_date,
         "destinationOperationSignatureAuthor"                 as destination_operation_signature_author,
         "destinationOperationSignatureDate"                   as destination_operation_signature_date,
-        "transporterCompanyName"                              as transporter_company_name,
-        "transporterCompanySiret"                             as transporter_company_siret,
-        "transporterCompanyAddress"                           as transporter_company_address,
-        "transporterCompanyContact"                           as transporter_company_contact,
-        "transporterCompanyPhone"                             as transporter_company_phone,
-        "transporterCompanyMail"                              as transporter_company_mail,
-        "transporterCompanyVatNumber"                         as transporter_company_vat_number,
-        "transporterRecepisseNumber"                          as transporter_recepisse_number,
-        "transporterRecepisseDepartment"                      as transporter_recepisse_department,
-        cast(
-            "transporterRecepisseValidityLimit" as timestamptz
-        )                                                     as transporter_recepisse_validity_limit,
-        "transporterTransportSignatureAuthor"                 as transporter_transport_signature_author,
         cast(
             "transporterTransportSignatureDate" as timestamptz
         )                                                     as transporter_transport_signature_date,
@@ -103,17 +89,9 @@ renamed as (
         "destinationOperationNextDestinationCompanyPhone"     as destination_operation_next_destination_company_phone,
         "destinationOperationNextDestinationCompanyMail"      as destination_operation_next_destination_company_mail,
         "destinationOperationNextDestinationCap"              as destination_operation_next_destination_cap,
-        "transporterRecepisseIsExempted"                      as transporter_recepisse_is_exempted,
-        "transporterTransportMode"                            as transporter_transport_mode,
-        "transporterTransportPlates"                          as transporter_transport_plates,
-        cast(
-            "transporterTransportTakenOverAt" as timestamptz
-        )                                                     as transporter_transport_taken_over_at,
         "weightIsEstimate"                                    as weight_is_estimate,
         "emitterCustomInfo"                                   as emitter_custom_info,
         "destinationCustomInfo"                               as destination_custom_info,
-        "transporterCustomInfo"                               as transporter_custom_info,
-        "repackagedInId"                                      as repackaged_in_id,
         "ecoOrganismeName"                                    as eco_organisme_name,
         "ecoOrganismeSiret"                                   as eco_organisme_siret,
         "forwardingId"                                        as forwarding_id,
@@ -140,7 +118,8 @@ renamed as (
         )                                                     as destination_operation_code,
         replace(
             "destinationOperationNextDestinationPlannedOperationCode", ' ', ''
-        )                                                     as destination_operation_next_destination_planned_operation_code
+        )                                                     as destination_operation_next_destination_planned_operation_code,
+        "transportersOrgIds"                                    as transporters_org_ids
     from
         source
 )
@@ -191,17 +170,6 @@ select
     destination_operation_date,
     destination_operation_signature_author,
     destination_operation_signature_date,
-    transporter_company_name,
-    transporter_company_siret,
-    transporter_company_address,
-    transporter_company_contact,
-    transporter_company_phone,
-    transporter_company_mail,
-    transporter_company_vat_number,
-    transporter_recepisse_number,
-    transporter_recepisse_department,
-    transporter_recepisse_validity_limit,
-    transporter_transport_signature_author,
     transporter_transport_signature_date,
     worker_company_name,
     worker_company_siret,
@@ -230,15 +198,9 @@ select
     destination_operation_next_destination_company_mail,
     destination_operation_next_destination_cap,
     destination_operation_next_destination_planned_operation_code,
-    transporter_recepisse_is_exempted,
-    transporter_transport_mode,
-    transporter_transport_plates,
-    transporter_transport_taken_over_at,
     weight_is_estimate,
     emitter_custom_info,
     destination_custom_info,
-    transporter_custom_info,
-    repackaged_in_id,
     eco_organisme_name,
     eco_organisme_siret,
     forwarding_id,
@@ -252,5 +214,6 @@ select
     worker_certification_validity_limit,
     worker_certification_organisation,
     intermediaries_org_ids,
-    destination_operation_mode
+    destination_operation_mode,
+    transporters_org_ids
 from renamed
