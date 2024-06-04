@@ -191,4 +191,7 @@ models:
       - name: destination_naf
         description: ''
         data_type: character varying
+      - name: accepted_quantity_packagings
+        description: ''
+        data_type: numeric
 sources: []
