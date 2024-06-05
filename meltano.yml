@@ -228,9 +228,6 @@ plugins:
             takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
           default$default-Bsff:
             weightValue: float(weightValue) if weightValue is not None else weightValue
-            transporterTransportTakenOverAt:
-              str(transporterTransportTakenOverAt) if
-              transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
           default$default-Form:
             wasteDetailsQuantity:
               float(wasteDetailsQuantity) if wasteDetailsQuantity
