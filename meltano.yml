@@ -257,7 +257,7 @@ plugins:
             transporterRecepisseValidityLimit:
               str(transporterRecepisseValidityLimit)
               if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
-          default$default-BffTransporter:
+          default$default-BsffTransporter:
             transporterTransportTakenOverAt:
               str(transporterTransportTakenOverAt) if transporterTransportTakenOverAt
               is not None else transporterTransportTakenOverAt
