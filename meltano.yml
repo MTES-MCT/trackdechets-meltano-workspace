@@ -240,7 +240,7 @@ plugins:
               float(quantityReceived) if quantityReceived is not None
               else quantityReceived
             processedAt:
-              str(processedAt) if processedAt is processedAt is not None
+              str(processedAt) if processedAt is not None
               else processedAt
             brokerValidityLimit:
               str(brokerValidityLimit) if brokerValidityLimit is
@@ -257,6 +257,10 @@ plugins:
             transporterRecepisseValidityLimit:
               str(transporterRecepisseValidityLimit)
               if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+          default$default-BffTransoorter:
+            transporterTransportTakenOverAt:
+              str(transporterTransportTakenOverAt) if transporterTransportTakenOverAt
+              is not None else transporterTransportTakenOverAt
 
     - name: target-postgres--dwh-zammad
       inherit_from: target-postgres--dwh
