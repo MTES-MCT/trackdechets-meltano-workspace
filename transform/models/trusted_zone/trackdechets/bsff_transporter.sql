@@ -25,7 +25,7 @@ renamed as (
         {{ adapter.quote("transporterTransportPlates") }}          as transporter_transport_plates,
         cast(
             {{ adapter.quote("transporterTransportTakenOverAt") }} as timestamptz
-        )                                                          as transporter_transport_taken_over_at,
+        )                                     as transporter_transport_taken_over_at,
         {{ adapter.quote("transporterTransportSignatureAuthor") }} as transporter_transport_signature_author,
         {{ adapter.quote("transporterTransportSignatureDate") }}   as transporter_tranport_signature_date
 
