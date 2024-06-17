@@ -2568,3 +2568,95 @@ sources:
           - name: _sdc_sync_started_at
             description: ''
             data_type: bigint
+      - name: bsff_transporter_raw
+        identifier: BsffTransporter
+        description: >-
+          Table permettant d'avoir tous les segments de transports pour chaque BSFF.
+        columns:
+          - name: id
+            description: ''
+            data_type: text
+          - name: createdAt
+            description: ''
+            data_type: timestamp without time zone
+          - name: updatedAt
+            description: ''
+            data_type: timestamp without time zone
+          - name: number
+            description: ''
+            data_type: bigint
+          - name: bsffId
+            description: ''
+            data_type: text
+          - name: transporterCompanySiret
+            description: ''
+            data_type: text
+          - name: transporterCompanyName
+            description: ''
+            data_type: text
+          - name: transporterCompanyVatNumber
+            description: ''
+            data_type: text
+          - name: transporterCompanyAddress
+            description: ''
+            data_type: text
+          - name: transporterCompanyContact
+            description: ''
+            data_type: text
+          - name: transporterCompanyPhone
+            description: ''
+            data_type: text
+          - name: transporterCompanyMail
+            description: ''
+            data_type: text
+          - name: transporterCustomInfo
+            description: ''
+            data_type: text
+          - name: transporterRecepisseIsExempted
+            description: ''
+            data_type: boolean
+          - name: transporterRecepisseNumber
+            description: ''
+            data_type: text
+          - name: transporterRecepisseDepartment
+            description: ''
+            data_type: text
+          - name: transporterRecepisseValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: transporterTransportMode
+            description: ''
+            data_type: text
+          - name: transporterTransportPlates
+            description: ''
+            data_type: ARRAY
+          - name: transporterTransportTakenOverAt
+            description: ''
+            data_type: timestamp without time zone
+          - name: transporterTransportSignatureAuthor
+            description: ''
+            data_type: text
+          - name: transporterTransportSignatureDate
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_extracted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_received_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_batched_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_deleted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_sequence
+            description: ''
+            data_type: bigint
+          - name: _sdc_table_version
+            description: ''
+            data_type: bigint
+          - name: _sdc_sync_started_at
+            description: ''
+            data_type: bigint

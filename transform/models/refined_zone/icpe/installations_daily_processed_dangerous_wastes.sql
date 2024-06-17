@@ -1,7 +1,8 @@
 {{
   config(
     materialized = 'table',
-    indexes=[{"columns":["siret","day_of_processing","rubrique"]}]
+    indexes=[{"columns":["siret","day_of_processing","rubrique"], "unique":True}],
+    tags =  ["fiche-etablissements"]
     )
 }}
 
@@ -16,7 +17,12 @@ with installations as (
         {{ ref('installations_rubriques_2024') }}
     where
         siret is not null
-        and rubrique in ('2770', '2790', '2760-1')
+        and (
+            rubrique in ('2770', '2790', '2760-1')
+        )
+        and etat_technique_rubrique = 'Exploité'
+        and etat_administratif_rubrique = 'En vigueur'
+        and libelle_etat_site = 'Avec titre'
     group by
         siret,
         rubrique
@@ -71,5 +77,11 @@ wastes_rubriques as (
         mrco.rubrique
 )
 
-select *
-from wastes_rubriques
+select
+    installations.*,
+    wr.day_of_processing,
+    wr.quantite_traitee
+from
+    installations
+inner join wastes_rubriques as wr on
+    installations.siret = wr.siret and installations.rubrique = wr.rubrique
