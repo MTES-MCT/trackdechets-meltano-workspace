@@ -55,6 +55,7 @@ plugins:
         - default$default-BsddTransporter.*
         - default$default-AnonymousCompany.*
         - default$default-BsdaTransporter.*
+        - default$default-BsffTransporter.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -297,7 +298,7 @@ plugins:
   utilities:
     - name: sqlfluff
       variant: sqlfluff
-      pip_url: sqlfluff~=3.0.6 sqlfluff-templater-dbt~=3.0.6 dbt-core~=1.7.0 dbt-postgres~=1.7.0
+      pip_url: sqlfluff~=3.0.7 sqlfluff-templater-dbt~=3.0.7 dbt-core~=1.7.0 dbt-postgres~=1.7.0
       settings:
         - name: user
         - name: password
