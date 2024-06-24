@@ -2570,7 +2570,7 @@ sources:
             data_type: bigint
       - name: bsff_transporter_raw
         identifier: BsffTransporter
-        description: >-
+        description: >
           Table permettant d'avoir tous les segments de transports pour chaque BSFF.
         columns:
           - name: id
@@ -2632,13 +2632,93 @@ sources:
             data_type: ARRAY
           - name: transporterTransportTakenOverAt
             description: ''
-            data_type: timestamp without time zone
+            data_type: text
           - name: transporterTransportSignatureAuthor
             description: ''
             data_type: text
           - name: transporterTransportSignatureDate
             description: ''
             data_type: timestamp without time zone
+          - name: _sdc_extracted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_received_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_batched_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_deleted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_sequence
+            description: ''
+            data_type: bigint
+          - name: _sdc_table_version
+            description: ''
+            data_type: bigint
+          - name: _sdc_sync_started_at
+            description: ''
+            data_type: bigint
+      - name: bsdasri_revision_request_raw
+        identifier: BsdasriRevisionRequest
+        description: >-
+          Table permettant d'avoir les requêtes de révision relatives aux DASRI.
+        columns:
+          - name: id
+            description: ''
+            data_type: text
+          - name: createdAt
+            description: ''
+            data_type: timestamp without time zone
+          - name: updatedAt
+            description: ''
+            data_type: timestamp without time zone
+          - name: status
+            description: ''
+            data_type: text
+          - name: comment
+            description: ''
+            data_type: text
+          - name: isCanceled
+            description: ''
+            data_type: boolean
+          - name: bsdasriId
+            description: ''
+            data_type: text
+          - name: authoringCompanyId
+            description: ''
+            data_type: text
+          - name: wasteCode
+            description: ''
+            data_type: text
+          - name: destinationWastePackagings
+            description: ''
+            data_type: ARRAY
+          - name: destinationReceptionWasteWeightValue
+            description: ''
+            data_type: numeric
+          - name: destinationOperationCode
+            description: ''
+            data_type: text
+          - name: destinationOperationMode
+            description: ''
+            data_type: text
+          - name: emitterPickupSiteName
+            description: ''
+            data_type: text
+          - name: emitterPickupSiteAddress
+            description: ''
+            data_type: text
+          - name: emitterPickupSiteCity
+            description: ''
+            data_type: text
+          - name: emitterPickupSitePostalCode
+            description: ''
+            data_type: text
+          - name: emitterPickupSiteInfos
+            description: ''
+            data_type: text
           - name: _sdc_extracted_at
             description: ''
             data_type: timestamp without time zone
