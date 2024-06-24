@@ -9,11 +9,11 @@ with emetteurs as (
     select
         "_bs_type",
         substring(emitter_company_siret for 9) as siren,
-        emitter_company_siret as siret,
-        count(*)              as num_emetteur
+        emitter_company_siret                  as siret,
+        count(*)                               as num_emetteur
     from {{ ref('bordereaux_enriched') }} as be
     where be.received_at >= now() - interval '1 year'
-    group by 1, 2,3
+    group by 1, 2, 3
     order by 3 desc
 ),
 
@@ -21,7 +21,9 @@ with emetteurs as (
 emetteurs_rankes as (
     select
         emetteurs.*,
-        row_number() over (partition by "_bs_type",siren order by num_emetteur desc) as rang
+        row_number()
+            over (partition by "_bs_type", siren order by num_emetteur desc)
+        as rang
     from emetteurs
 ),
 
@@ -41,10 +43,10 @@ transporteurs as (
             bsddt.transporter_company_siret,
             bsdat.transporter_company_siret,
             bsfft.transporter_company_siret
-        ) as siret,
+        )        as siret,
         count(
             distinct be.id
-        ) as num_transporteur
+        )        as num_transporteur
     from {{ ref('bordereaux_enriched') }} as be
     left join
         {{ ref('bsdd_transporter') }} as bsddt
@@ -56,7 +58,7 @@ transporteurs as (
         {{ ref('bsff_transporter') }} as bsfft
         on be.id = bsfft.bsff_id and be."_bs_type" = 'BSFF'
     where be.received_at >= now() - interval '1 year'
-    group by 1, 2,3
+    group by 1, 2, 3
     order by 3 desc
 ),
 
@@ -64,7 +66,9 @@ transporteurs as (
 transporteurs_rankes as (
     select
         transporteurs.*,
-        row_number() over (partition by "_bs_type",siren order by num_transporteur desc) as rang
+        row_number()
+            over (partition by "_bs_type", siren order by num_transporteur desc)
+        as rang
     from transporteurs
 ),
 
@@ -73,11 +77,11 @@ destinataires as (
     select
         "_bs_type",
         substring(destination_company_siret for 9) as siren,
-        destination_company_siret as siret,
-        count(*)                  as num_destinataire
+        destination_company_siret                  as siret,
+        count(*)                                   as num_destinataire
     from {{ ref('bordereaux_enriched') }} as be
     where be.received_at >= now() - interval '1 year'
-    group by 1, 2,3
+    group by 1, 2, 3
     order by 3 desc
 ),
 
@@ -85,7 +89,9 @@ destinataires as (
 destinataires_rankes as (
     select
         destinataires.*,
-        row_number() over (partition by "_bs_type",siren order by num_destinataire desc) as rang
+        row_number()
+            over (partition by "_bs_type", siren order by num_destinataire desc)
+        as rang
     from destinataires
 ),
 
@@ -120,11 +126,12 @@ all_stats as (
     where
         coalesce(e.siret, t.siret, d.siret) is not null
         and coalesce(e.siret, t.siret, d.siret) != ''
-        and (e.rang=1 or e.rang is null)
-        and (t.rang=1 or t.rang is null)
-        and (d.rang=1 or d.rang is null)
+        and (e.rang = 1 or e.rang is null)
+        and (t.rang = 1 or t.rang is null)
+        and (d.rang = 1 or d.rang is null)
     order by 1, 6 desc
 ),
+
 --- Sélection de cohortes indépendantes pour chaque type de bordereaux (TOP 100 SIRETs en nombre de mentions)
 top_bsdd as (
     select *

@@ -56,6 +56,7 @@ plugins:
         - default$default-AnonymousCompany.*
         - default$default-BsdaTransporter.*
         - default$default-BsffTransporter.*
+        - default$default-BsdasriRevisionRequest.*
       metadata:
         "*":
           replication-method: INCREMENTAL
