@@ -120,6 +120,29 @@ plugins:
           wasteDetailsParcelNumbers:
             type: [object, array, "null"]
 
+    - name: tap-postgres--gerico
+      inherit_from: tap-postgres
+      config:
+        dates_as_string: true
+      select:
+        - public-sheets_computedinspectiondata.id
+        - public-sheets_computedinspectiondata.org_id
+        - public-sheets_computedinspectiondata.created
+        - public-sheets_computedinspectiondata.created_by
+        - public-sheets_computedinspectiondata.creation_mode
+        - public-sheets_computedinspectiondata.state
+        - public-sheets_computedinspectiondata.data_start_date
+        - public-sheets_computedinspectiondata.data_end_date
+        - public-sheets_computedinspectiondata.pdf_rendering_start
+        - public-sheets_computedinspectiondata.pdf_rendering_end
+        - public-sheets_computedinspectiondata.processing_start
+        - public-sheets_computedinspectiondata.processing_end
+        - public-sheets_registrydownload.*
+      metadata:
+        "*":
+          replication-method: INCREMENTAL
+          replication-key: created
+
     - name: tap-zammad
       namespace: tap_zammad
       pip_url: git+https://github.com/Lawiss/tap-zammad.git
@@ -262,6 +285,11 @@ plugins:
             transporterTransportTakenOverAt:
               str(transporterTransportTakenOverAt) if transporterTransportTakenOverAt
               is not None else transporterTransportTakenOverAt
+    
+    - name: target-postgres--dwh-gerico
+      inherit_from: target-postgres--dwh
+      config:
+        default_target_schema: raw_zone_gerico
 
     - name: target-postgres--dwh-zammad
       inherit_from: target-postgres--dwh
