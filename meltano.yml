@@ -304,6 +304,7 @@ plugins:
     - name: target-clickhouse
       variant: shaped-ai
       pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
+  
   transformers:
     - name: dbt-postgres
       variant: dbt-labs
@@ -368,6 +369,14 @@ jobs:
       - dbt-postgres:test__trusted_zone_trackdechets
       - dbt-postgres:docs-generate
       - elementary:monitor-report
+  - name: elt--gerico-database
+    tasks:
+      - tap-postgres--gerico target-postgres--dwh-gerico
+      - dbt-postgres:freshness
+      - dbt-postgres:run__trusted_zone_gerico
+      - dbt-postgres:test__trusted_zone_gerico
+      - dbt-postgres:docs-generate
+      - elementary:monitor-report
   - name: transform-icpe
     tasks:
       - dbt-postgres:run__trusted_zone_icpe
@@ -393,6 +402,9 @@ jobs:
 
 schedules:
   - name: daily-elt-td-database
+    interval: "@daily"
+    job: elt--td-database
+  - name: daily-elt-gerico
     interval: "@daily"
     job: elt--td-database
   - name: daily-transform-icpe
