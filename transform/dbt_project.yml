@@ -24,6 +24,10 @@ clean-targets:
   - logs
 tests:
   +store_failures: true
+flags:
+  require_explicit_package_overrides_for_builtin_materializations: false
+  send_anonymous_usage_stats: False
+  use_colors: True
 vars:
   dbt-osmosis:
     raw_zone: "sources/raw_zone.yml"
@@ -33,6 +37,7 @@ vars:
     raw_zone_icpe: "sources/raw_zone_icpe.yml"
     raw_zone_zammad: "sources/raw_zone_zammad.yml"
     raw_zone_gistrid: "sources/raw_zone_gistrid.yml"
+
 models:
   trackdechets_data_platform:
     +dbt-osmosis: "_{model}.yml"
