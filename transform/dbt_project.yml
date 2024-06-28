@@ -83,6 +83,8 @@ models:
         +schema: trusted_zone_gistrid
       rndts:
         +schema: trusted_zone_rndts
+      gerico:
+        +schema: trusted_zone_gerico
 
   elementary:
     +schema: "elementary"
