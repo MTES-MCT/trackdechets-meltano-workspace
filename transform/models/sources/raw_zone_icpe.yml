@@ -161,3 +161,6 @@ sources:
           - name: Etat administratif de la rubrique
             description: ''
             data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
