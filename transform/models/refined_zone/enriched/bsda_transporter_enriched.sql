@@ -7,7 +7,8 @@
         {'columns': ['updated_at'] },
         { 'columns': ['emitter_company_siret'] },
         { 'columns' :['destination_company_siret'] },
-        { 'columns' :['transporter_company_siret'], },
+        { 'columns' :['transporter_company_siret'] },
+        { 'columns' :['eco_organisme_siret']},
         { 'columns' :['waste_code'] },
     ]
     )
@@ -19,6 +20,7 @@ select
     b.created_at as bordereau_created_at,
     b.emitter_company_siret,
     b.destination_company_siret,
+    b.eco_organisme_siret,
     b.waste_code,
     b.destination_reception_weight
 from {{ ref('bsda_transporter') }} as bt
