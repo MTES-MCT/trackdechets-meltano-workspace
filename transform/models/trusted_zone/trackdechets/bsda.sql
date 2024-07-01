@@ -5,7 +5,10 @@
     'emitterCompanySiret',
     'destinationCompanySiret',
     'wasteCode',
-    'wastePop'
+    'wastePop',
+    'ecoOrganismeSiret',
+    'transporterTransportSignatureDate',
+    'destinationOperationDate'
   ]) }}"
 ) }}
 

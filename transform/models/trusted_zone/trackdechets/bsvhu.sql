@@ -5,7 +5,10 @@
     'emitterCompanySiret',
     'transporterCompanySiret',
     'destinationCompanySiret',
-    'wasteCode'
+    'wasteCode',
+    'destinationOperationDate',
+    'transporterTransportTakenOverAt',
+    'destinationReceptionDate'
     ]) }}"
 ) }}
 with source as (

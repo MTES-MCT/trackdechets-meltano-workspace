@@ -5,7 +5,8 @@
     'emitterCompanySiret',
     'transporterCompanySiret',
     'destinationCompanySiret', 
-    'wasteCode']) }}"
+    'wasteCode',
+    'destinationReceptionDate']) }}"
 ) }}
 with source as (
     select *

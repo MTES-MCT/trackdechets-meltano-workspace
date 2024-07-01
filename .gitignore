@@ -6,3 +6,4 @@
 .vscode/*
 logs/dbt.log
 transform/profiles/postgres/edr_target/*
+transform/profiles/postgres/.user.yml

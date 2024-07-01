@@ -61,7 +61,7 @@ models:
         data_type: ARRAY
       - name: transporter_transport_taken_over_at
         description: ''
-        data_type: timestamp without time zone
+        data_type: timestamp with time zone
       - name: transporter_transport_signature_author
         description: ''
         data_type: text
