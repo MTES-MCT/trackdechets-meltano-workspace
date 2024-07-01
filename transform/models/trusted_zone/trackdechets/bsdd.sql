@@ -12,7 +12,9 @@
     'transportersSirets',
     'sentAt',
     'receivedAt',
-    'processedAt']) }}"
+    'processedAt',
+    'ecoOrganismeSiret'
+    ]) }}"
 ) }}
 
 with source as (
