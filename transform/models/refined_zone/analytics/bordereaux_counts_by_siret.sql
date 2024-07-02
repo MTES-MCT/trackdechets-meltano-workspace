@@ -46,7 +46,8 @@ WITH emitter_counts AS (
         SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                     AS quantity_bsvhu_as_emitter
+        )                     AS quantity_bsvhu_as_emitter,
+        max(created_at) as last_bordereau_created_at_as_emitter
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -95,7 +96,8 @@ transporter_counts AS (
         SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                         AS quantity_bsvhu_as_transporter
+        )                         AS quantity_bsvhu_as_transporter,
+        max(created_at) as last_bordereau_created_at_as_transporter
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -144,7 +146,8 @@ destination_counts AS (
         SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                         AS quantity_bsvhu_as_destination
+        )                         AS quantity_bsvhu_as_destination,
+        max(created_at) as last_bordereau_created_at_as_destination
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -199,6 +202,7 @@ full_ AS (
             emitter_counts.quantity_bsvhu_as_emitter,
             0
         ) AS quantity_bsvhu_as_emitter,
+        last_bordereau_created_at_as_emitter,
         COALESCE(
             transporter_counts.num_bsdd_as_transporter,
             0
@@ -239,6 +243,7 @@ full_ AS (
             transporter_counts.quantity_bsvhu_as_transporter,
             0
         ) AS quantity_bsvhu_as_transporter,
+        last_bordereau_created_at_as_transporter,
         COALESCE(
             destination_counts.num_bsdd_as_destination, 0
         ) AS num_bsdd_as_destination,
@@ -273,7 +278,8 @@ full_ AS (
         COALESCE(
             destination_counts.quantity_bsvhu_as_destination,
             0
-        ) AS quantity_bsvhu_as_destination
+        ) AS quantity_bsvhu_as_destination,
+        last_bordereau_created_at_as_destination
     FROM
         emitter_counts
     FULL
@@ -300,6 +306,7 @@ full_ AS (
 
 SELECT
     *,
+    greatest(last_bordereau_created_at_as_emitter,last_bordereau_created_at_as_transporter,last_bordereau_created_at_as_destination) as last_bordereau_created_at,
     num_bsdd_as_emitter
     + num_bsda_as_emitter
     + num_bsff_as_emitter
