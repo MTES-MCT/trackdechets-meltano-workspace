@@ -411,7 +411,7 @@ schedules:
     interval: "@daily"
     job: elt--td-database
   - name: daily-elt-gerico
-    interval: "@daily"
+    interval: "0 */4 * * *"
     job: elt--gerico-database
   - name: daily-transform-icpe
     interval: 0 14 * * *
