@@ -35,6 +35,9 @@ models:
       - name: quantity_bsvhu_as_emitter
         description: ''
         data_type: numeric
+      - name: last_bordereau_created_at_as_emitter
+        description: ''
+        data_type: timestamp without time zone
       - name: num_bsdd_as_transporter
         description: ''
         data_type: bigint
@@ -65,6 +68,9 @@ models:
       - name: quantity_bsvhu_as_transporter
         description: ''
         data_type: numeric
+      - name: last_bordereau_created_at_as_transporter
+        description: ''
+        data_type: timestamp without time zone
       - name: num_bsdd_as_destination
         description: ''
         data_type: bigint
@@ -95,6 +101,12 @@ models:
       - name: quantity_bsvhu_as_destination
         description: ''
         data_type: numeric
+      - name: last_bordereau_created_at_as_destination
+        description: ''
+        data_type: timestamp without time zone
+      - name: last_bordereau_created_at
+        description: ''
+        data_type: timestamp without time zone
       - name: total_mentions_bordereaux
         description: ''
         data_type: bigint

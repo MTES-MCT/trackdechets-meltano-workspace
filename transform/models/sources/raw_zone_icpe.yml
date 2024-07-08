@@ -152,6 +152,12 @@ sources:
           - name: Quantité totale
             description: ''
             data_type: double precision
+          - name: Capacité Projet
+            description: ''
+            data_type: double precision
+          - name: Capacité Totale
+            description: ''
+            data_type: double precision
           - name: Unité
             description: ''
             data_type: text

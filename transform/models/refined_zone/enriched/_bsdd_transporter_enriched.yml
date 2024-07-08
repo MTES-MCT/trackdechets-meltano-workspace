@@ -80,6 +80,9 @@ models:
       - name: recipient_company_siret
         description: ''
         data_type: text
+      - name: eco_organisme_siret
+        description: ''
+        data_type: text
       - name: waste_details_code
         description: ''
         data_type: text
