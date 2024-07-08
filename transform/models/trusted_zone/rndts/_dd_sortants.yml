@@ -4,43 +4,148 @@ models:
     columns:
       - name: id
         description: ''
-        data_type: integer
-      - name: created_date
+        data_type: text
+      - name: last_modified_date
         description: ''
         data_type: timestamp with time zone
       - name: created_year_utc
         description: ''
-        data_type: smallint
-      - name: last_modified_date
-        description: ''
-        data_type: timestamp with time zone
-      - name: numero_identification_declarant
-        description: ''
         data_type: text
-      - name: raison_sociale_declarant
+      - name: numero_identification_declarant
         description: ''
         data_type: text
       - name: code_dechet
         description: ''
         data_type: text
-      - name: dechet_pop
+      - name: code_dechet_bale
+        description: ''
+        data_type: text
+      - name: created_date
+        description: ''
+        data_type: timestamp with time zone
+      - name: date_expedition
+        description: ''
+        data_type: date
+      - name: is_dechet_pop
         description: ''
         data_type: text
       - name: denomination_usuelle
         description: ''
         data_type: text
+      - name: numero_document
+        description: ''
+        data_type: text
+      - name: numero_notification
+        description: ''
+        data_type: text
+      - name: numero_saisie
+        description: ''
+        data_type: text
       - name: quantite
         description: ''
         data_type: numeric
-      - name: unite
+      - name: qualification_code
         description: ''
         data_type: text
-      - name: date_expedition
-        description: ''
-        data_type: date
       - name: code_traitement
         description: ''
         data_type: text
-      - name: status
+      - name: unite_code
         description: ''
         data_type: text
+      - name: identifiant_metier
+        description: ''
+        data_type: text
+      - name: producteur_type
+        description: ''
+        data_type: text
+      - name: producteur_numero_identification
+        description: ''
+        data_type: text
+      - name: producteur_raison_sociale
+        description: ''
+        data_type: text
+      - name: producteur_adresse_libelle
+        description: ''
+        data_type: text
+      - name: producteur_adresse_commune
+        description: ''
+        data_type: text
+      - name: producteur_adresse_code_postal
+        description: ''
+        data_type: text
+      - name: producteur_adresse_pays
+        description: ''
+        data_type: text
+      - name: destinataire_type
+        description: ''
+        data_type: text
+      - name: destinataire_numero_identification
+        description: ''
+        data_type: text
+      - name: destinataire_raison_sociale
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_destination
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_libelle
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_commune
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_code_postal
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_pays
+        description: ''
+        data_type: text
+      - name: etablissement_origine_id
+        description: ''
+        data_type: text
+      - name: etablissement_origine_adresse_prise_en_charge
+        description: ''
+        data_type: text
+      - name: etablissement_origine_adresse_libelle
+        description: ''
+        data_type: text
+      - name: etablissement_origine_adresse_commune
+        description: ''
+        data_type: text
+      - name: etablissement_origine_adresse_code_postal
+        description: ''
+        data_type: text
+      - name: etablissement_origine_adresse_pays
+        description: ''
+        data_type: text
+      - name: eco_organisme_type
+        description: ''
+        data_type: text
+      - name: eco_organisme_numero_identification
+        description: ''
+        data_type: text
+      - name: eco_organisme_raison_sociale
+        description: ''
+        data_type: text
+      - name: courtier_type
+        description: ''
+        data_type: text
+      - name: courtier_numero_identification
+        description: ''
+        data_type: text
+      - name: courtier_raison_sociale
+        description: ''
+        data_type: text
+      - name: courtier_numero_recepisse
+        description: ''
+        data_type: text
+      - name: dd_sortant_transporteur
+        description: ''
+        data_type: jsonb
+      - name: dd_sortant_commune
+        description: ''
+        data_type: jsonb
+      - name: inserted_at
+        description: ''
+        data_type: timestamp with time zone

@@ -8,169 +8,430 @@ sources:
         description: >
           Registre des déchets entrants suivis dans le RNDTS
         columns:
-          - name: declarant.numero_identification
-            description: ""
-            data_type: text
-          - name: declarant.raison_sociale
-            description: ""
-            data_type: text
           - name: created_year_utc
             description: ""
             data_type: text
-          - name: id
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: code_dechet
             description: ""
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
             data_type: text
           - name: created_date
-            description: ""
-            data_type: text
-          - name: last_modified_date
             description: ""
             data_type: text
           - name: date_reception
             description: ""
             data_type: text
-          - name: heure_pesee
-            description: ""
-            data_type: text
           - name: is_dechet_pop
-            description: ""
-            data_type: text
-          - name: quantite
-            description: ""
-            data_type: text
-          - name: unite
-            description: ""
-            data_type: text
-          - name: code_dechet
             description: ""
             data_type: text
           - name: denomination_usuelle
             description: ""
             data_type: text
+          - name: heure_pesee
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
           - name: code_traitement
             description: ''
             data_type: text
-          - name: status
-            description: ""
+          - name: unite_code
+            description: ''
             data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: expediteur_type
+            description: ''
+            data_type: text
+          - name: expediteur_numero_identification
+            description: ''
+            data_type: text
+          - name: expediteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_prise_en_charge
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: eco_organisme_type
+            description: ''
+            data_type: text
+          - name: eco_organisme_numero_identification
+            description: ''
+            data_type: text
+          - name: eco_organisme_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: dd_entrant_transporteur
+            description: ''
+            data_type: text
+          - name: dd_entrant_commune
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
       - name: dd_sortants
         description: >
           Registre des déchets sortants suivis dans le RNDTS
         columns:
-          - name: declarant.numero_identification
-            description: ""
-            data_type: text
-          - name: declarant.raison_sociale
-            description: ""
-            data_type: text
           - name: created_year_utc
             description: ""
             data_type: text
-          - name: id
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: code_dechet
             description: ""
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
             data_type: text
           - name: created_date
             description: ""
             data_type: text
-          - name: last_modified_date
-            description: ""
-            data_type: text
           - name: date_expedition
-            description: ""
+            description: ''
             data_type: text
           - name: is_dechet_pop
-            description: ""
-            data_type: text
-          - name: quantite
-            description: ""
-            data_type: text
-          - name: unite
-            description: ""
-            data_type: text
-          - name: code_dechet
             description: ""
             data_type: text
           - name: denomination_usuelle
             description: ""
             data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
+          - name: qualification_code
+            description: ''
+            data_type: text
           - name: code_traitement
             description: ''
             data_type: text
-          - name: libelle
+          - name: unite_code
             description: ''
             data_type: text
-          - name: status
-            description: ""
+          - name: identifiant_metier
+            description: ''
             data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: destinataire_type
+            description: ''
+            data_type: text
+          - name: destinataire_numero_identification
+            description: ''
+            data_type: text
+          - name: destinataire_raison_sociale
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_destination
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_libelle
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_commune
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_pays
+            description: ''
+            data_type: text
+          - name: etablissement_origine_id
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_prise_en_charge
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_libelle
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_commune
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_pays
+            description: ''
+            data_type: text
+          - name: eco_organisme_type
+            description: ''
+            data_type: text
+          - name: eco_organisme_numero_identification
+            description: ''
+            data_type: text
+          - name: eco_organisme_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: dd_sortant_transporteur
+            description: ''
+            data_type: text
+          - name: dd_sortant_commune
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
       - name: dnd_entrants
         description: >
           Registre des déchets dangereux entrants suivis dans la RNDTS
         columns:
-          - name: declarant.numero_identification
-            description: ""
-            data_type: text
-          - name: declarant.raison_sociale
-            description: ""
-            data_type: text
           - name: created_year_utc
             description: ""
             data_type: text
-          - name: id
+          - name: code_dechet
             description: ""
             data_type: text
           - name: created_date
-            description: ""
-            data_type: text
-          - name: last_modified_date
             description: ""
             data_type: text
           - name: date_reception
             description: ""
             data_type: text
-          - name: heure_pesee
-            description: ""
-            data_type: text
           - name: is_dechet_pop
-            description: ""
-            data_type: text
-          - name: quantite
-            description: ""
-            data_type: text
-          - name: unite
-            description: ""
-            data_type: text
-          - name: code_dechet
             description: ""
             data_type: text
           - name: denomination_usuelle
             description: ""
             data_type: text
+          - name: heure_pesee
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ""
+            data_type: text
           - name: code_traitement
             description: ''
             data_type: text
-          - name: status
-            description: ""
+          - name: unite_code
+            description: ''
             data_type: text
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
+            data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: expediteur_type
+            description: ''
+            data_type: text
+          - name: expediteur_numero_identification
+            description: ''
+            data_type: text
+          - name: expediteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_prise_en_charge
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: eco_organisme_type
+            description: ''
+            data_type: text
+          - name: eco_organisme_numero_identification
+            description: ''
+            data_type: text
+          - name: eco_organisme_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: dnd_entrant_transporteur
+            description: ''
+            data_type: text
+          - name: dnd_entrant_commune
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
       - name: dnd_sortants
         description: >
           Registre des déchets dangereux sortants suivis dans la RNDTS
         columns:
-          - name: declarant.numero_identification
-            description: ""
-            data_type: text
-          - name: declarant.raison_sociale
-            description: ""
-            data_type: text
           - name: created_year_utc
             description: ""
             data_type: text
-          - name: id
+          - name: code_dechet
             description: ""
             data_type: text
           - name: created_date
-            description: ""
-            data_type: text
-          - name: last_modified_date
             description: ""
             data_type: text
           - name: date_expedition
@@ -179,24 +440,132 @@ sources:
           - name: is_dechet_pop
             description: ""
             data_type: text
-          - name: quantite
-            description: ""
-            data_type: text
-          - name: unite
-            description: ""
-            data_type: text
-          - name: code_dechet
-            description: ""
-            data_type: text
           - name: denomination_usuelle
+            description: ""
+            data_type: text
+          - name: last_modified_date
+            description: ""
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
             description: ""
             data_type: text
           - name: code_traitement
             description: ''
             data_type: text
-          - name: libelle
+          - name: unite_code
             description: ''
             data_type: text
-          - name: status
-            description: ""
+          - name: public_id
+            description: ''
             data_type: text
+          - name: qualification_code
+            description: ''
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
+            data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: destinataire_type
+            description: ''
+            data_type: text
+          - name: destinataire_numero_identification
+            description: ''
+            data_type: text
+          - name: destinataire_raison_sociale
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_destination
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_libelle
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_commune
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_pays
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_prise_en_charge
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_libelle
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_commune
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: etablissement_origine_adresse_pays
+            description: ''
+            data_type: text
+          - name: eco_organisme_type
+            description: ''
+            data_type: text
+          - name: eco_organisme_numero_identification
+            description: ''
+            data_type: text
+          - name: eco_organisme_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: dnd_sortant_transporteur
+            description: ''
+            data_type: text
+          - name: dnd_sortant_commune
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
