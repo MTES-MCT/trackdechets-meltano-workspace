@@ -1,34 +1,34 @@
 version: 2
 models:
-  - name: dnd_entrant
+  - name: texs_sortant
     columns:
       - name: id
         description: ''
         data_type: text
+      - name: created_date
+        description: ''
+        data_type: timestamp with time zone
       - name: last_modified_date
         description: ''
         data_type: timestamp with time zone
       - name: created_year_utc
         description: ''
-        data_type: integer
+        data_type: text
+      - name: numero_identification_declarant
+        description: ''
+        data_type: text
       - name: code_dechet
         description: ''
         data_type: text
-      - name: created_date
+      - name: date_expedition
         description: ''
         data_type: date
-      - name: date_reception
-        description: ''
-        data_type: date
-      - name: is_dechet_pop
-        description: ''
-        data_type: text
       - name: denomination_usuelle
         description: ''
         data_type: text
-      - name: heure_pesee
+      - name: identifiant_terrain_sis
         description: ''
-        data_type: time without time zone
+        data_type: text
       - name: numero_document
         description: ''
         data_type: text
@@ -41,10 +41,25 @@ models:
       - name: quantite
         description: ''
         data_type: numeric
+      - name: is_tex_pop
+        description: ''
+        data_type: text
       - name: code_traitement
         description: ''
         data_type: text
-      - name: unite_code
+      - name: unite
+        description: ''
+        data_type: text
+      - name: numero_bordereau
+        description: ''
+        data_type: text
+      - name: coordonnees_geographiques
+        description: ''
+        data_type: text
+      - name: coordonnees_geographiques_valorisee
+        description: ''
+        data_type: text
+      - name: qualification_code
         description: ''
         data_type: text
       - name: code_dechet_bale
@@ -74,37 +89,28 @@ models:
       - name: producteur_adresse_pays
         description: ''
         data_type: text
-      - name: expediteur_type
+      - name: destinataire_type
         description: ''
         data_type: text
-      - name: expediteur_numero_identification
+      - name: destinataire_numero_identification
         description: ''
         data_type: text
-      - name: expediteur_raison_sociale
+      - name: destinataire_raison_sociale
         description: ''
         data_type: text
-      - name: expediteur_adresse_prise_en_charge
+      - name: destinataire_adresse_destination
         description: ''
         data_type: text
-      - name: expediteur_adresse_libelle
+      - name: destinataire_adresse_libelle
         description: ''
         data_type: text
-      - name: expediteur_adresse_commune
+      - name: destinataire_adresse_commune
         description: ''
         data_type: text
-      - name: expediteur_adresse_code_postal
+      - name: destinataire_adresse_code_postal
         description: ''
         data_type: text
-      - name: expediteur_adresse_pays
-        description: ''
-        data_type: text
-      - name: eco_organisme_type
-        description: ''
-        data_type: text
-      - name: eco_organisme_numero_identification
-        description: ''
-        data_type: text
-      - name: eco_organisme_raison_sociale
+      - name: destinataire_adresse_pays
         description: ''
         data_type: text
       - name: courtier_type
@@ -119,15 +125,12 @@ models:
       - name: courtier_numero_recepisse
         description: ''
         data_type: text
-      - name: numero_identification_declarant
+      - name: texs_sortant_transporteur
         description: ''
         data_type: text
-      - name: dnd_entrant_transporteur
+      - name: texs_sortant_parcelle_cadastrale
         description: ''
         data_type: text
-      - name: dnd_entrant_commune
+      - name: texs_sortant_parcelle_valorisee
         description: ''
         data_type: text
-      - name: inserted_at
-        description: ''
-        data_type: timestamp with time zone

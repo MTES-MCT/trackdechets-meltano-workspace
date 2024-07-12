@@ -5,21 +5,21 @@ models:
       - name: semaine
         description: ''
         data_type: timestamp with time zone
-      - name: nombre_declarations_dnd_entrants
+      - name: nombre_declarations_dnd_entrant
         description: ''
         data_type: bigint
-      - name: nombre_declarations_dnd_sortants
+      - name: nombre_declarations_dnd_sortant
         description: ''
         data_type: bigint
-      - name: quantite_dnd_entrants
+      - name: quantite_dnd_entrant
         description: ''
         data_type: numeric
-      - name: volume_dnd_entrants
+      - name: volume_dnd_entrant
         description: ''
         data_type: numeric
-      - name: quantite_dnd_sortants
+      - name: quantite_dnd_sortant
         description: ''
         data_type: numeric
-      - name: volume_dnd_sortants
+      - name: volume_dnd_sortant
         description: ''
         data_type: numeric

@@ -29,6 +29,6 @@ select
             else quantite
         end
     ) filter (where unite = 'M3') as volume_traite
-from {{ ref('dnd_entrants') }}
+from {{ ref('dnd_entrant') }}
 group by 1, 2
 order by 1 desc

@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: dnd_sortants
+  - name: dnd_sortant
     columns:
       - name: id
         description: ''
