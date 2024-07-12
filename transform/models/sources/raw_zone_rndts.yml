@@ -4,7 +4,7 @@ sources:
   - name: raw_zone_rndts
     description: Données brutes fournies par le RNDTS.
     tables:
-      - name: dd_entrants
+      - name: dd_entrant
         description: >
           Registre des déchets entrants suivis dans le RNDTS
         columns:
@@ -137,7 +137,7 @@ sources:
           - name: inserted_at
             description: ''
             data_type: timestamp with time zone
-      - name: dd_sortants
+      - name: dd_sortant
         description: >
           Registre des déchets sortants suivis dans le RNDTS
         columns:
@@ -288,7 +288,7 @@ sources:
           - name: inserted_at
             description: ''
             data_type: timestamp with time zone
-      - name: dnd_entrants
+      - name: dnd_entrant
         description: >
           Registre des déchets dangereux entrants suivis dans la RNDTS
         columns:
@@ -421,7 +421,7 @@ sources:
           - name: inserted_at
             description: ''
             data_type: timestamp with time zone
-      - name: dnd_sortants
+      - name: dnd_sortant
         description: >
           Registre des déchets dangereux sortants suivis dans la RNDTS
         columns:
@@ -564,6 +564,372 @@ sources:
             description: ''
             data_type: text
           - name: dnd_sortant_commune
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
+      - name: sorties_statut_dechet
+        description: >
+          Registre des sorties de statut de déchet suivies dans la RNDTS
+        columns:
+          - name: created_year_utc
+            description: ''
+            data_type: text
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: created_date
+            description: ''
+            data_type: text
+          - name: last_modified_date
+            description: ''
+            data_type: text
+          - name: denomination_usuelle
+            description: ''
+            data_type: text
+          - name: code_dechet
+            description: ''
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
+            data_type: text
+          - name: date_utilisation
+            description: ''
+            data_type: text
+          - name: date_expedition
+            description: ''
+            data_type: text
+          - name: nature
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ''
+            data_type: text
+          - name: unite_code
+            description: ''
+            data_type: text
+          - name: date_traitement
+            description: ''
+            data_type: text
+          - name: date_fin_traitement
+            description: ''
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: qualification_code
+            description: ''
+            data_type: text
+          - name: reference_acte_administratif
+            description: ''
+            data_type: text
+          - name: destinataire_type
+            description: ''
+            data_type: text
+          - name: destinataire_numero_identification
+            description: ''
+            data_type: text
+          - name: destinataire_raison_sociale
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_destination
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_libelle
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_commune
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_pays
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: sortie_statut_dechet_code_dechet
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
+      - name: texs_sortant
+        description: >
+          Registre sortant des terres excavées suivies dans la RNDTS
+        columns:
+          - name: created_year_utc
+            description: ''
+            data_type: text
+          - name: code_dechet
+            description: ''
+            data_type: text
+          - name: created_date
+            description: ''
+            data_type: text
+          - name: date_expedition
+            description: ''
+            data_type: text
+          - name: denomination_usuelle
+            description: ''
+            data_type: text
+          - name: identifiant_terrain_sis
+            description: ''
+            data_type: text
+          - name: last_modified_date
+            description: ''
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ''
+            data_type: text
+          - name: is_tex_pop
+            description: ''
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: unite_code
+            description: ''
+            data_type: text
+          - name: numero_bordereau
+            description: ''
+            data_type: text
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: coordonnees_geographiques
+            description: ''
+            data_type: text
+          - name: coordonnees_geographiques_valorisee
+            description: ''
+            data_type: text
+          - name: qualification_code
+            description: ''
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
+            data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: destinataire_type
+            description: ''
+            data_type: text
+          - name: destinataire_numero_identification
+            description: ''
+            data_type: text
+          - name: destinataire_raison_sociale
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_destination
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_libelle
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_commune
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: destinataire_adresse_pays
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: texs_sortant_transporteur
+            description: ''
+            data_type: text
+          - name: texs_sortant_parcelle_cadastrale
+            description: ''
+            data_type: text
+          - name: texs_sortant_parcelle_valorisee
+            description: ''
+            data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp with time zone
+      - name: texs_entrant
+        description: >-
+          Registre entrant des terres excavées suivies dans la RNDTS
+        columns:
+          - name: created_year_utc
+            description: ''
+            data_type: text
+          - name: code_dechet
+            description: ''
+            data_type: text
+          - name: created_date
+            description: ''
+            data_type: text
+          - name: date_reception
+            description: ''
+            data_type: text
+          - name: denomination_usuelle
+            description: ''
+            data_type: text
+          - name: identifiant_terrain_sis
+            description: ''
+            data_type: text
+          - name: last_modified_date
+            description: ''
+            data_type: text
+          - name: numero_document
+            description: ''
+            data_type: text
+          - name: numero_notification
+            description: ''
+            data_type: text
+          - name: numero_saisie
+            description: ''
+            data_type: text
+          - name: quantite
+            description: ''
+            data_type: text
+          - name: is_tex_pop
+            description: ''
+            data_type: text
+          - name: code_traitement
+            description: ''
+            data_type: text
+          - name: unite_code
+            description: ''
+            data_type: text
+          - name: numero_bordereau
+            description: ''
+            data_type: text
+          - name: public_id
+            description: ''
+            data_type: text
+          - name: coordonnees_geographiques
+            description: ''
+            data_type: text
+          - name: coordonnees_geographiques_valorisee
+            description: ''
+            data_type: text
+          - name: code_dechet_bale
+            description: ''
+            data_type: text
+          - name: identifiant_metier
+            description: ''
+            data_type: text
+          - name: producteur_type
+            description: ''
+            data_type: text
+          - name: producteur_numero_identification
+            description: ''
+            data_type: text
+          - name: producteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: producteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: producteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: producteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: producteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: expediteur_type
+            description: ''
+            data_type: text
+          - name: expediteur_numero_identification
+            description: ''
+            data_type: text
+          - name: expediteur_raison_sociale
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_prise_en_charge
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_libelle
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_commune
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_code_postal
+            description: ''
+            data_type: text
+          - name: expediteur_adresse_pays
+            description: ''
+            data_type: text
+          - name: courtier_type
+            description: ''
+            data_type: text
+          - name: courtier_numero_identification
+            description: ''
+            data_type: text
+          - name: courtier_raison_sociale
+            description: ''
+            data_type: text
+          - name: courtier_numero_recepisse
+            description: ''
+            data_type: text
+          - name: numero_identification
+            description: ''
+            data_type: text
+          - name: texs_entrant_transporteur
+            description: ''
+            data_type: text
+          - name: texs_entrant_parcelle_cadastrale
+            description: ''
+            data_type: text
+          - name: texs_entrant_parcelle_valorisee
             description: ''
             data_type: text
           - name: inserted_at

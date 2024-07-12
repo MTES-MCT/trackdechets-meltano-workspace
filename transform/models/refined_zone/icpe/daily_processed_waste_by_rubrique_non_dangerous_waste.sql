@@ -28,7 +28,7 @@ wastes as (
         date_reception,
         code_traitement,
         sum(quantite)                   as quantite
-    from {{ ref('dnd_entrants') }}
+    from {{ ref('dnd_entrant') }}
     where
         unite = 'T'
         and date_reception >= '2022-01-01'

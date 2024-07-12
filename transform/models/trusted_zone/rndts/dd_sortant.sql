@@ -11,7 +11,14 @@
 }}
 
 with source as (
-    select * from {{ source('raw_zone_rndts', 'dd_sortants') }}
+    select * from {{ source('raw_zone_rndts', 'dd_sortant') }}
+    where
+        inserted_at
+        = (
+            select max(inserted_at)
+            from
+                {{ source('raw_zone_rndts', 'dd_sortant') }}
+        )
 ),
 
 renamed as (
@@ -31,7 +38,7 @@ renamed as (
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("qualification_code") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }},
+        {{ adapter.quote("unite_code") }} as unite,
         {{ adapter.quote("identifiant_metier") }},
         {{ adapter.quote("producteur_type") }},
         {{ adapter.quote("producteur_numero_identification") }},
@@ -63,8 +70,7 @@ renamed as (
         {{ adapter.quote("courtier_numero_recepisse") }},
         {{ adapter.quote("numero_identification") }} as numero_identification_declarant,
         {{ adapter.quote("dd_sortant_transporteur") }},
-        {{ adapter.quote("dd_sortant_commune") }},
-        {{ adapter.quote("inserted_at") }}
+        {{ adapter.quote("dd_sortant_commune") }}
 
     from source
 )
@@ -86,7 +92,7 @@ select
     quantite::numeric,
     qualification_code,
     code_traitement,
-    unite_code,
+    unite,
     identifiant_metier,
     producteur_type,
     producteur_numero_identification,
@@ -117,6 +123,5 @@ select
     courtier_raison_sociale,
     courtier_numero_recepisse,
     dd_sortant_transporteur::jsonb,
-    dd_sortant_commune::jsonb,
-    inserted_at
+    dd_sortant_commune::jsonb
 from renamed

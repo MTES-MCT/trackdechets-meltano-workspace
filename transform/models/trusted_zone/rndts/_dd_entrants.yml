@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: dd_entrants
+  - name: dd_entrant
     columns:
       - name: id
         description: ''
