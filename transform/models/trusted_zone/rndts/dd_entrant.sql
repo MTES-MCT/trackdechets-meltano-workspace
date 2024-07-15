@@ -38,7 +38,7 @@ renamed as (
         {{ adapter.quote("numero_saisie") }},
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("identifiant_metier") }},
         {{ adapter.quote("producteur_type") }},
         {{ adapter.quote("producteur_numero_identification") }},
@@ -65,7 +65,6 @@ renamed as (
         {{ adapter.quote("numero_identification") }} as numero_identification_declarant,
         {{ adapter.quote("dd_entrant_transporteur") }},
         {{ adapter.quote("dd_entrant_commune") }}
-
     from source
 )
 

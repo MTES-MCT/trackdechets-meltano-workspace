@@ -11,8 +11,8 @@
 }}
 
 with source as (
-      select * from {{ source('raw_zone_rndts', 'texs_sortant') }}
-      where
+    select * from {{ source('raw_zone_rndts', 'texs_sortant') }}
+    where
         inserted_at
         = (
             select max(inserted_at)
@@ -20,6 +20,7 @@ with source as (
                 {{ source('raw_zone_rndts', 'texs_sortant') }}
         )
 ),
+
 renamed as (
     select
         {{ adapter.quote("created_year_utc") }},
@@ -35,9 +36,9 @@ renamed as (
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("is_tex_pop") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("numero_bordereau") }},
-        {{ adapter.quote("public_id") }} as id,
+        {{ adapter.quote("public_id") }}             as id,
         {{ adapter.quote("coordonnees_geographiques") }},
         {{ adapter.quote("coordonnees_geographiques_valorisee") }},
         {{ adapter.quote("qualification_code") }},
@@ -68,12 +69,13 @@ renamed as (
         {{ adapter.quote("texs_sortant_parcelle_valorisee") }}
     from source
 )
-select 
+
+select
     id,
     created_date::timestamptz,
     last_modified_date::timestamptz,
     created_year_utc,
-    numero_identification_declarant, 
+    numero_identification_declarant,
     code_dechet,
     date_expedition::date,
     denomination_usuelle,
@@ -84,7 +86,7 @@ select
     quantite::numeric,
     is_tex_pop,
     code_traitement,
-    unite, 
+    unite,
     numero_bordereau,
     coordonnees_geographiques,
     coordonnees_geographiques_valorisee,
@@ -114,4 +116,3 @@ select
     texs_sortant_parcelle_cadastrale::jsonb,
     texs_sortant_parcelle_valorisee::jsonb
 from renamed
-  

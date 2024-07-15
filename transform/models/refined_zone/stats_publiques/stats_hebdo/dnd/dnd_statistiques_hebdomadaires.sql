@@ -57,11 +57,11 @@ select
     coalesce(
         entrants.quantite_dnd_entrant, 0
     )                                            as quantite_dnd_entrant,
-    coalesce(entrants.volume_dnd_entrant, 0)    as volume_dnd_entrant,
+    coalesce(entrants.volume_dnd_entrant, 0)     as volume_dnd_entrant,
     coalesce(
         sortants.quantite_dnd_sortant, 0
     )                                            as quantite_dnd_sortant,
-    coalesce(sortants.volume_dnd_sortant)       as volume_dnd_sortant
+    coalesce(sortants.volume_dnd_sortant)        as volume_dnd_sortant
 from entrants
 full outer join sortants on entrants.semaine = sortants.semaine
 order by 1 desc

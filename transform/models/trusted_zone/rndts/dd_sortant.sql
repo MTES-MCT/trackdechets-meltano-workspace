@@ -38,7 +38,7 @@ renamed as (
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("qualification_code") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("identifiant_metier") }},
         {{ adapter.quote("producteur_type") }},
         {{ adapter.quote("producteur_numero_identification") }},

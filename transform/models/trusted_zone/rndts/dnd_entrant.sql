@@ -36,7 +36,7 @@ renamed as (
         {{ adapter.quote("numero_saisie") }},
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("public_id") }}             as id,
         {{ adapter.quote("code_dechet_bale") }},
         {{ adapter.quote("identifiant_metier") }},
