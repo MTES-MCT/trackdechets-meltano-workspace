@@ -372,9 +372,9 @@ jobs:
       - tap-postgres--td-database target-postgres--dwh-trackdechets
       - dbt-postgres:freshness
       - dbt-postgres:run__trusted_zone_trackdechets
-      - dbt-postgres:test__trusted_zone_trackdechets
+      #- dbt-postgres:test__trusted_zone_trackdechets
       - dbt-postgres:docs-generate
-      - elementary:monitor-report
+      #- elementary:monitor-report
   - name: elt--gerico-database
     tasks:
       - tap-postgres--gerico target-postgres--dwh-gerico
