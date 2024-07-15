@@ -11,8 +11,8 @@
 }}
 
 with source as (
-      select * from {{ source('raw_zone_rndts', 'sorties_statut_dechet') }}
-      where
+    select * from {{ source('raw_zone_rndts', 'sorties_statut_dechet') }}
+    where
         inserted_at
         = (
             select max(inserted_at)
@@ -20,10 +20,11 @@ with source as (
                 {{ source('raw_zone_rndts', 'sorties_statut_dechet') }}
         )
 ),
+
 renamed as (
     select
         {{ adapter.quote("created_year_utc") }},
-        {{ adapter.quote("public_id") }} as id,
+        {{ adapter.quote("public_id") }}             as id,
         {{ adapter.quote("identifiant_metier") }},
         {{ adapter.quote("created_date") }},
         {{ adapter.quote("last_modified_date") }},
@@ -34,7 +35,7 @@ renamed as (
         {{ adapter.quote("date_expedition") }},
         {{ adapter.quote("nature") }},
         {{ adapter.quote("quantite") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("date_traitement") }},
         {{ adapter.quote("date_fin_traitement") }},
         {{ adapter.quote("code_traitement") }},
@@ -54,7 +55,8 @@ renamed as (
 
     from source
 )
-select 
+
+select
     id,
     created_date::timestamptz,
     last_modified_date::timestamptz,
@@ -83,5 +85,4 @@ select
     destinataire_adresse_code_postal,
     destinataire_adresse_pays,
     sortie_statut_dechet_code_dechet::jsonb
- from renamed
-  
+from renamed

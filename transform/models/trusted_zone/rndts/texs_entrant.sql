@@ -12,8 +12,8 @@
 
 
 with source as (
-      select * from {{ source('raw_zone_rndts', 'texs_entrant') }}
-      where
+    select * from {{ source('raw_zone_rndts', 'texs_entrant') }}
+    where
         inserted_at
         = (
             select max(inserted_at)
@@ -21,6 +21,7 @@ with source as (
                 {{ source('raw_zone_rndts', 'texs_entrant') }}
         )
 ),
+
 renamed as (
     select
         {{ adapter.quote("created_year_utc") }},
@@ -36,9 +37,9 @@ renamed as (
         {{ adapter.quote("quantite") }},
         {{ adapter.quote("is_tex_pop") }},
         {{ adapter.quote("code_traitement") }},
-        {{ adapter.quote("unite_code") }} as unite,
+        {{ adapter.quote("unite_code") }}            as unite,
         {{ adapter.quote("numero_bordereau") }},
-        {{ adapter.quote("public_id") }} as id,
+        {{ adapter.quote("public_id") }}             as id,
         {{ adapter.quote("coordonnees_geographiques") }},
         {{ adapter.quote("coordonnees_geographiques_valorisee") }},
         {{ adapter.quote("code_dechet_bale") }},
@@ -69,49 +70,49 @@ renamed as (
 
     from source
 )
-select 
-id,
-created_date::timestamptz,
-last_modified_date::timestamptz,
-created_year_utc::int,
-numero_identification_declarant,
-code_dechet,
-date_reception::date,
-denomination_usuelle,
-identifiant_terrain_sis,
-numero_document,
-numero_notification,
-numero_saisie,
-quantite::numeric,
-is_tex_pop,
-code_traitement,
-unite,
-numero_bordereau,
-coordonnees_geographiques,
-coordonnees_geographiques_valorisee,
-code_dechet_bale,
-identifiant_metier,
-producteur_type,
-producteur_numero_identification,
-producteur_raison_sociale,
-producteur_adresse_libelle,
-producteur_adresse_commune,
-producteur_adresse_code_postal,
-producteur_adresse_pays,
-expediteur_type,
-expediteur_numero_identification,
-expediteur_raison_sociale,
-expediteur_adresse_prise_en_charge,
-expediteur_adresse_libelle,
-expediteur_adresse_commune,
-expediteur_adresse_code_postal,
-expediteur_adresse_pays,
-courtier_type,
-courtier_numero_identification,
-courtier_raison_sociale,
-courtier_numero_recepisse,
-texs_entrant_transporteur::jsonb,
-texs_entrant_parcelle_cadastrale::jsonb,
-texs_entrant_parcelle_valorisee::jsonb
+
+select
+    id,
+    created_date::timestamptz,
+    last_modified_date::timestamptz,
+    created_year_utc::int,
+    numero_identification_declarant,
+    code_dechet,
+    date_reception::date,
+    denomination_usuelle,
+    identifiant_terrain_sis,
+    numero_document,
+    numero_notification,
+    numero_saisie,
+    quantite::numeric,
+    is_tex_pop,
+    code_traitement,
+    unite,
+    numero_bordereau,
+    coordonnees_geographiques,
+    coordonnees_geographiques_valorisee,
+    code_dechet_bale,
+    identifiant_metier,
+    producteur_type,
+    producteur_numero_identification,
+    producteur_raison_sociale,
+    producteur_adresse_libelle,
+    producteur_adresse_commune,
+    producteur_adresse_code_postal,
+    producteur_adresse_pays,
+    expediteur_type,
+    expediteur_numero_identification,
+    expediteur_raison_sociale,
+    expediteur_adresse_prise_en_charge,
+    expediteur_adresse_libelle,
+    expediteur_adresse_commune,
+    expediteur_adresse_code_postal,
+    expediteur_adresse_pays,
+    courtier_type,
+    courtier_numero_identification,
+    courtier_raison_sociale,
+    courtier_numero_recepisse,
+    texs_entrant_transporteur::jsonb,
+    texs_entrant_parcelle_cadastrale::jsonb,
+    texs_entrant_parcelle_valorisee::jsonb
 from renamed
-  
