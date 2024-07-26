@@ -66,7 +66,9 @@ renamed as (
                 ''
             ),
             ','
-        )                                      as company_types
+        )                                      as company_types,
+        "collectorTypes" as collector_types,
+        "wasteProcessorTypes" as waste_processor_types
     from
         source
     where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
@@ -105,5 +107,7 @@ select
     contact,
     code_departement,
     worker_certification_id,
-    org_id
+    org_id,
+    collector_types,
+    waste_processor_types
 from renamed
