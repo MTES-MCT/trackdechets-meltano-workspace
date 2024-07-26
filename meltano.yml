@@ -306,7 +306,7 @@ plugins:
 
     - name: target-clickhouse
       variant: shaped-ai
-      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git@v0.1.21
+      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git@v0.2.5
     - name: target-clickhouse--dwh-trackdechets
       inherit_from: target-clickhouse
       config:
