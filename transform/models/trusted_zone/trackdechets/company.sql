@@ -67,8 +67,22 @@ renamed as (
             ),
             ','
         )                                      as company_types,
-        "collectorTypes" as collector_types,
-        "wasteProcessorTypes" as waste_processor_types
+        string_to_array(
+            replace(
+                array_to_string("collectorTypes", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as collector_types,
+        string_to_array(
+            replace(
+                array_to_string("wasteProcessorTypes", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as waste_processor_types
     from
         source
     where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
