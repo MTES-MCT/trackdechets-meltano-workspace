@@ -101,6 +101,8 @@ plugins:
         default$default-Bsda:
           packagings:
             type: [object, array, "null"]
+          #wasteSealNumbers:
+          #  type: [array,"null"]
         default$default-BsdaRevisionRequest:
           packagings:
             type: [object, array, "null"]
@@ -199,7 +201,7 @@ plugins:
   loaders:
     - name: target-postgres
       variant: meltanolabs
-      pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
+      pip_url: meltanolabs-target-postgres==0.0.13
     - name: target-postgres--dwh
       inherit_from: target-postgres
       config:
