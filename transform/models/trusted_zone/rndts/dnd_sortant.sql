@@ -5,6 +5,7 @@
         {"columns":['id'],"unique":True},
         {"columns":['created_date']},
         {"columns":['numero_identification_declarant']},
+        {"columns":['numeros_indentification_transporteurs'],"type":"GIN"},
         ]
 
     )
@@ -121,5 +122,10 @@ select
     courtier_raison_sociale,
     courtier_numero_recepisse,
     dnd_sortant_transporteur,
-    dnd_sortant_commune
+    dnd_sortant_commune,
+    string_to_array(regexp_replace((dnd_sortant_transporteur::jsonb->'transporteur_numero_identification')::text,
+	'\[? ?"]?',
+	'',
+	'g'),
+	',') as numeros_indentification_transporteurs
 from renamed
