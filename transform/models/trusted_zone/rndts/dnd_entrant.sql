@@ -113,9 +113,14 @@ select
     courtier_numero_recepisse,
     dnd_entrant_transporteur,
     dnd_entrant_commune,
-    string_to_array(regexp_replace((dnd_entrant_transporteur::jsonb->'transporteur_numero_identification')::text,
-	'\[? ?"]?',
-	'',
-	'g'),
-	',') as numeros_indentification_transporteurs
+    string_to_array(regexp_replace(
+        (
+            dnd_entrant_transporteur::jsonb
+            -> 'transporteur_numero_identification'
+        )::text,
+        '\[? ?"]?',
+        '',
+        'g'
+    ),
+    ',') as numeros_indentification_transporteurs
 from renamed

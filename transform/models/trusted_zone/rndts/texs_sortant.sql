@@ -116,9 +116,14 @@ select
     texs_sortant_transporteur::jsonb,
     texs_sortant_parcelle_cadastrale::jsonb,
     texs_sortant_parcelle_valorisee::jsonb,
-    string_to_array(regexp_replace((texs_sortant_transporteur::jsonb->'transporteur_numero_identification')::text,
-	'\[? ?"]?',
-	'',
-	'g'),
-	',') as numeros_indentification_transporteurs
+    string_to_array(regexp_replace(
+        (
+            texs_sortant_transporteur::jsonb
+            -> 'transporteur_numero_identification'
+        )::text,
+        '\[? ?"]?',
+        '',
+        'g'
+    ),
+    ',') as numeros_indentification_transporteurs
 from renamed
