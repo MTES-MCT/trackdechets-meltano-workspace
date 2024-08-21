@@ -8,7 +8,10 @@
 with installations_data as (
     select
         i.code_aiot,
-        i.rubrique,
+        case 
+        	when rubrique !~* '^2791.*' then substring(rubrique for 6)
+        	else '2791' -- take into account the 'alineas' of 2791
+        end as rubrique,
         max(i.raison_sociale)         as raison_sociale,
         max(i.siret)                  as siret,
         max(i.adresse1)               as adresse1,
@@ -24,8 +27,8 @@ with installations_data as (
         max(i.unite)                  as unite
     from {{ ref('installations_icpe_2024') }} as i
     group by
-        i.code_aiot,
-        i.rubrique
+        1,
+        2
 )
 
 select

@@ -8,7 +8,7 @@
 with installations as (
     select
         siret,
-        rubrique,
+        substring(rubrique for 6) as rubrique,
         max(raison_sociale)           as raison_sociale,
         array_agg(distinct code_aiot) as codes_aiot,
         sum(quantite_totale)          as quantite_autorisee
@@ -18,8 +18,8 @@ with installations as (
         siret is not null
         and rubrique in ('2770', '2790', '2760-1')
     group by
-        siret,
-        rubrique
+        1,
+        2
 ),
 
 wastes as (
