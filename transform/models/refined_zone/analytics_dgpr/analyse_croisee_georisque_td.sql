@@ -9,36 +9,20 @@ with rubriques_data as (
         ir.code_aiot,
         ir.siret,
         ir.quantite_totale,
-        ir.etat_activite,
-        ir.rubrique || coalesce(
-            '-' || ir.alinea,
-            ''
-        ) as rubrique,
-        coalesce(
-            code_insee,
-            se.code_commune_etablissement
-        ) as "code_commune_insee"
+        ir.libelle_etat_site,
+        ir.rubrique,
+        se.code_commune_etablissement as "code_commune_insee"
     from
-        {{ ref('installations_rubriques') }} as ir
+        {{ ref('installations_rubriques_2024') }} as ir
     left join {{ ref('stock_etablissement') }} as se
         on
             ir.siret = se.siret
     where
         (
-            rubrique in ('2770', '2771', '2790', '2791')
-            or (
-                rubrique = '2760'
-                and alinea = '1'
-            )
-            or (
-                rubrique = '2760'
-                and alinea = '2'
-            )
+            rubrique ~ '^2770.*|^2771.*|^2790.*|^2791.*|^2760-1.*|^2760-2.*'
+            
         )
-        and coalesce(
-            code_insee,
-            se.code_commune_etablissement
-        ) is not null
+        and se.code_commune_etablissement is not null
 ),
 
 wastes_data as (
@@ -81,9 +65,7 @@ wastes_data as (
             'year',
             b.processed_at
         ) = 2023
-        and mrco.rubrique in (
-            '2760-1', '2760-2', '2770', '2790', '2791', '2771'
-        )
+        and mrco.rubrique ~ '^2770.*|^2771.*|^2790.*|^2791.*|^2760-1.*|^2760-2.*'
     group by
         b.destination_company_siret,
         mrco.rubrique
@@ -97,7 +79,7 @@ select
     cgr.nom_en_clair                 as nom_region,
     cgc.code_departement             as code_departement_insee,
     cgd.nom_en_clair                 as nom_departement,
-    r.etat_activite                  as etat_activite_georisque,
+    r.libelle_etat_site                  as etat_activite_georisque,
     r.quantite_totale                as quantite_autorisee_georisque,
     w.quantite_dd_traitee_2023_td,
     w.quantite_dnd_traitee_2023_td,

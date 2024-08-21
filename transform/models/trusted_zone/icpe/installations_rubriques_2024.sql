@@ -45,11 +45,11 @@ select
     libelle_etat_site,
     regime,
     quantite_projet,
-    quantite_totale,
     capacite_projet,
     capacite_totale,
     unite,
     etat_technique_rubrique,
     etat_administratif_rubrique,
-    replace(rubrique, '.', '-') as rubrique
+    coalesce(quantite_totale, capacite_totale) as quantite_totale,
+    replace(rubrique, '.', '-')                as rubrique
 from renamed
