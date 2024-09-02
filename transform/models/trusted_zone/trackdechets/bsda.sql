@@ -4,6 +4,7 @@
     'updatedAt',
     'emitterCompanySiret',
     'destinationCompanySiret',
+    'workerCompanySiret',
     'wasteCode',
     'wastePop',
     'ecoOrganismeSiret',
