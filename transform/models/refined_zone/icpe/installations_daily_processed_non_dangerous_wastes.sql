@@ -94,6 +94,9 @@ wastes_rubriques as (
     left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
         on
             wastes.code_traitement = mrco.code_operation
+        and (
+            rubrique ~* '^2771.*|^2791.*|^2760\-2.*'
+        )
     group by
         wastes.siret,
         wastes.date_reception,

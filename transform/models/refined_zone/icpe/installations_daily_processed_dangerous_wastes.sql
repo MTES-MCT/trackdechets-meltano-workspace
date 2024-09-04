@@ -71,6 +71,9 @@ wastes_rubriques as (
     left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
         on
             wastes.processing_operation = mrco.code_operation
+        and (
+            rubrique in ('2770', '2790', '2760-1')
+        )
     group by
         wastes.siret,
         wastes.day_of_processing,
