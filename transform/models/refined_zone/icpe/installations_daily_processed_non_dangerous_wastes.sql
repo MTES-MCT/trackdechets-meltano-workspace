@@ -9,13 +9,13 @@
 with installations as (
     select
         siret,
-        case 
-        	when rubrique !~* '^2791.*' then substring(rubrique for 6)
-        	else '2791' -- take into account the 'alineas'
-        end as rubrique,
-        max(raison_sociale)                     as raison_sociale,
-        array_agg(distinct code_aiot)           as codes_aiot,
-        sum(quantite_totale)                    as quantite_autorisee
+        case
+            when rubrique !~* '^2791.*' then substring(rubrique for 6)
+            else '2791' -- take into account the 'alineas'
+        end                           as rubrique,
+        max(raison_sociale)           as raison_sociale,
+        array_agg(distinct code_aiot) as codes_aiot,
+        sum(quantite_totale)          as quantite_autorisee
     from
         {{ ref('installations_rubriques_2024') }}
     where
@@ -88,7 +88,7 @@ wastes_rubriques as (
         wastes.siret,
         wastes.date_reception as "day_of_processing",
         mrco.rubrique,
-        sum(quantite) as quantite_traitee
+        sum(quantite)         as quantite_traitee
     from
         wastes
     left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco

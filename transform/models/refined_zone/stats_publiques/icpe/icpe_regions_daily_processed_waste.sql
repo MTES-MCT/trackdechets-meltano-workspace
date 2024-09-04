@@ -8,14 +8,14 @@
 with stats as (
     select
         code_region_insee,
-        case 
-        	when rubrique !~* '^2791.*' then substring(rubrique for 6)
-        	else '2791' -- take into account the 'alineas' of 2791
-        end as rubrique,
+        case
+            when rubrique !~* '^2791.*' then substring(rubrique for 6)
+            else '2791' -- take into account the 'alineas' of 2791
+        end                       as rubrique,
         count(distinct code_aiot) as nombre_installations,
         sum(quantite_autorisee)   as quantite_autorisee
     from
-        {{ ref('installations_icpe_2024') }} as ii
+        {{ ref('installations_icpe_2024') }}
     group by
         1,
         2

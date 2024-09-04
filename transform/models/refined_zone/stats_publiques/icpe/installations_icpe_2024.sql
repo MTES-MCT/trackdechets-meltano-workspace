@@ -5,16 +5,26 @@
     )
 }}
 
-with cp_data as (
+with coord_cp_data as (
     select
         code_postal,
-        max(code_commune_insee) as code_commune_insee,
-        avg(latitude)           as latitude,
-        avg(longitude)          as longitude
+        avg(latitude)  as latitude,
+        avg(longitude) as longitude
     from
         {{ ref('base_codes_postaux') }}
     group by
-        code_postal
+        1
+),
+
+coord_commune_data as (
+    select
+        code_commune_insee,
+        avg(latitude)  as latitude,
+        avg(longitude) as longitude
+    from
+        {{ ref('base_codes_postaux') }}
+    group by
+        1
 ),
 
 installations as (
@@ -59,24 +69,31 @@ select
     cgc.code_region      as code_region_insee,
     coalesce(
         i.latitude,
-        bcp.latitude
+        coord1.latitude,
+        coord2.latitude
     )                    as latitude,
     coalesce(
         i.longitude,
-        bcp.longitude
+        coord1.longitude,
+        coord2.longitude
     )                    as longitude,
     coalesce(
-        i.code_insee,
-        bcp.code_commune_insee
+        se.code_commune_etablissement,
+        i.code_insee
     )                    as code_commune_insee
 from
     installations as i
-left join cp_data as bcp
+left join {{ ref('stock_etablissement') }} as se
+    on i.siret = se.siret
+left join coord_commune_data as coord1
     on
-        i.code_postal::integer = bcp.code_postal
+        coalesce(se.code_commune_etablissement, i.code_insee)
+        = coord1.code_commune_insee
+left join coord_cp_data as coord2
+    on i.code_postal::int = coord2.code_postal
 left join {{ ref('code_geo_communes') }} as cgc on
     coalesce(
-        i.code_insee,
-        bcp.code_commune_insee
+        se.code_commune_etablissement,
+        i.code_insee
     ) = cgc.code_commune
     and cgc.type_commune = 'COM'

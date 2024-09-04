@@ -6,23 +6,26 @@
 }}
 
 with installations as (
-select
-    siret,
-    case 
-        when rubrique !~* '^2791.*' then substring(rubrique for 6)
-        else '2791' -- take into account the 'alineas'
-    end as rubrique,
-    max(raison_sociale)           as raison_sociale,
-    array_agg(distinct code_aiot) as codes_aiot,
-    sum(quantite_totale)          as quantite_autorisee
-from
-    {{ ref('installations_rubriques_2024') }}
-where
-    siret is not null
-    and rubrique ~* '^2771.*|^2791.*|^2760\-2.*'
-group by
-    1,
-    2
+    select
+        siret,
+        case
+            when rubrique !~* '^2791.*' then substring(rubrique for 6)
+            else '2791' -- take into account the 'alineas'
+        end                           as rubrique,
+        max(raison_sociale)           as raison_sociale,
+        array_agg(distinct code_aiot) as codes_aiot,
+        sum(quantite_totale)          as quantite_autorisee
+    from
+        {{ ref('installations_rubriques_2024') }}
+    where
+        siret is not null
+        and rubrique ~* '^2771.*|^2791.*|^2760\-2.*'
+        and etat_technique_rubrique = 'Exploité'
+        and etat_administratif_rubrique = 'En vigueur'
+        and libelle_etat_site = 'Avec titre'
+    group by
+        1,
+        2
 ),
 
 dnd_wastes as (
@@ -85,9 +88,10 @@ wastes_rubriques as (
         sum(quantite) as quantite
     from
         wastes
-    left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
+    inner join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
         on
             wastes.code_traitement = mrco.code_operation
+            and mrco.rubrique ~* '^2771.*|^2791.*|^2760\-2.*'
     group by
         wastes.siret,
         wastes.date_reception,

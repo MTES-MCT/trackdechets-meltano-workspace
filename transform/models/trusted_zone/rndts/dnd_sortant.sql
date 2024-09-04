@@ -5,6 +5,7 @@
         {"columns":['id'],"unique":True},
         {"columns":['created_date']},
         {"columns":['numero_identification_declarant']},
+        {"columns":['date_expedition']},
         {"columns":['numeros_indentification_transporteurs'],"type":"GIN"},
         ]
 

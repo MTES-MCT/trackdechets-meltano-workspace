@@ -8,7 +8,7 @@
 with installations as (
     select
         siret,
-        substring(rubrique for 6) as rubrique,
+        substring(rubrique for 6)     as rubrique,
         max(raison_sociale)           as raison_sociale,
         array_agg(distinct code_aiot) as codes_aiot,
         sum(quantite_totale)          as quantite_autorisee
@@ -17,6 +17,9 @@ with installations as (
     where
         siret is not null
         and rubrique in ('2770', '2790', '2760-1')
+        and etat_technique_rubrique = 'Exploité'
+        and etat_administratif_rubrique = 'En vigueur'
+        and libelle_etat_site = 'Avec titre'
     group by
         1,
         2
@@ -62,9 +65,10 @@ wastes_rubriques as (
         sum(quantite_traitee) as quantite_traitee
     from
         wastes
-    left join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
+    inner join {{ ref('referentiel_codes_operation_rubriques') }} as mrco
         on
             wastes.processing_operation = mrco.code_operation
+            and mrco.rubrique in ('2770', '2790', '2760-1')
     group by
         wastes.siret,
         wastes.day_of_processing,
