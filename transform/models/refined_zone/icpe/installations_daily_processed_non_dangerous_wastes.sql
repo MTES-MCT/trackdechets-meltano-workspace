@@ -110,5 +110,5 @@ select
     wr.quantite_traitee
 from
     installations
-inner join wastes_rubriques as wr on
+left join wastes_rubriques as wr on
     installations.siret = wr.siret and installations.rubrique = wr.rubrique
