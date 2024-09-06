@@ -23,6 +23,8 @@ renamed as (
         "Raison sociale/nom"                as raison_sociale,
         "SIRET"                             as siret,
         "Code AIOT"                         as code_aiot,
+        "X" as x,
+        "Y" as y,
         "Etat du site (code)"               as code_etat_site,
         "Etat du site (libellé)"            as libelle_etat_site,
         "Numéro rubrique"                   as rubrique,

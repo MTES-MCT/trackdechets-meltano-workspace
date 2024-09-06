@@ -1,6 +1,10 @@
 {{
   config(
     materialized = 'table',
+    indexes = [{
+        "columns" : ["siret"],
+        "unique":true
+    }]
     )
 }}
 
@@ -138,7 +142,7 @@ top_bsdd as (
     from all_stats
     where "_bs_type" = 'BSDD'
     order by total desc
-    limit 2000
+    limit 70000
 ),
 
 top_bsda as (
@@ -148,7 +152,7 @@ top_bsda as (
             "_bs_type" = 'BSDA'
             and siren not in (select siren from top_bsdd)
         order by total desc
-        limit 1500
+        limit 30000
     )
     union all
     select *
@@ -162,7 +166,7 @@ top_bsdasri as (
             "_bs_type" = 'BSDASRI'
             and siren not in (select siren from top_bsda)
         order by total desc
-        limit 100
+        limit 25000
     )
     union all
     select *
@@ -176,7 +180,7 @@ top_bsff as (
             "_bs_type" = 'BSFF'
             and siren not in (select siren from top_bsdasri)
         order by total desc
-        limit 1000
+        limit 25000
     )
     union all
     select *
@@ -190,7 +194,7 @@ top_bsvhu as (
             "_bs_type" = 'BSVHU'
             and siren not in (select siren from top_bsff)
         order by total desc
-        limit 1000
+        limit 20000
     )
     union all
     select *
