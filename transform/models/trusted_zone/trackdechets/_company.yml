@@ -111,4 +111,10 @@ models:
       - name: org_id
         description: ''
         data_type: text
+      - name: collector_types
+        description: ''
+        data_type: ARRAY
+      - name: waste_processor_types
+        description: ''
+        data_type: ARRAY
 sources: []

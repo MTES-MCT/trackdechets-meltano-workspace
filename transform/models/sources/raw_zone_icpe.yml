@@ -134,6 +134,12 @@ sources:
           - name: Code AIOT
             description: ''
             data_type: text
+          - name: X
+            description: ''
+            data_type: bigint
+          - name: Y
+            description: ''
+            data_type: bigint
           - name: Etat du site (code)
             description: ''
             data_type: text

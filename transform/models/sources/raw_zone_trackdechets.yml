@@ -2476,6 +2476,9 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: etatAdministratif
+            description: ''
+            data_type: text
       - name: bsda_transporter_raw
         identifier: BsdaTransporter
         description: >

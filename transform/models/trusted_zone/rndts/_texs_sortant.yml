@@ -1,10 +1,13 @@
 version: 2
 models:
-  - name: dd_sortant
+  - name: texs_sortant
     columns:
       - name: id
         description: ''
         data_type: text
+      - name: created_date
+        description: ''
+        data_type: timestamp with time zone
       - name: last_modified_date
         description: ''
         data_type: timestamp with time zone
@@ -17,19 +20,13 @@ models:
       - name: code_dechet
         description: ''
         data_type: text
-      - name: code_dechet_bale
-        description: ''
-        data_type: text
-      - name: created_date
-        description: ''
-        data_type: timestamp with time zone
       - name: date_expedition
         description: ''
         data_type: date
-      - name: is_dechet_pop
+      - name: denomination_usuelle
         description: ''
         data_type: text
-      - name: denomination_usuelle
+      - name: identifiant_terrain_sis
         description: ''
         data_type: text
       - name: numero_document
@@ -44,13 +41,28 @@ models:
       - name: quantite
         description: ''
         data_type: numeric
-      - name: qualification_code
+      - name: is_tex_pop
         description: ''
         data_type: text
       - name: code_traitement
         description: ''
         data_type: text
-      - name: unite_code
+      - name: unite
+        description: ''
+        data_type: text
+      - name: numero_bordereau
+        description: ''
+        data_type: text
+      - name: coordonnees_geographiques
+        description: ''
+        data_type: text
+      - name: coordonnees_geographiques_valorisee
+        description: ''
+        data_type: text
+      - name: qualification_code
+        description: ''
+        data_type: text
+      - name: code_dechet_bale
         description: ''
         data_type: text
       - name: identifiant_metier
@@ -101,33 +113,6 @@ models:
       - name: destinataire_adresse_pays
         description: ''
         data_type: text
-      - name: etablissement_origine_id
-        description: ''
-        data_type: text
-      - name: etablissement_origine_adresse_prise_en_charge
-        description: ''
-        data_type: text
-      - name: etablissement_origine_adresse_libelle
-        description: ''
-        data_type: text
-      - name: etablissement_origine_adresse_commune
-        description: ''
-        data_type: text
-      - name: etablissement_origine_adresse_code_postal
-        description: ''
-        data_type: text
-      - name: etablissement_origine_adresse_pays
-        description: ''
-        data_type: text
-      - name: eco_organisme_type
-        description: ''
-        data_type: text
-      - name: eco_organisme_numero_identification
-        description: ''
-        data_type: text
-      - name: eco_organisme_raison_sociale
-        description: ''
-        data_type: text
       - name: courtier_type
         description: ''
         data_type: text
@@ -140,12 +125,15 @@ models:
       - name: courtier_numero_recepisse
         description: ''
         data_type: text
-      - name: dd_sortant_transporteur
+      - name: texs_sortant_transporteur
         description: ''
         data_type: jsonb
-      - name: dd_sortant_commune
+      - name: texs_sortant_parcelle_cadastrale
         description: ''
         data_type: jsonb
-      - name: inserted_at
+      - name: texs_sortant_parcelle_valorisee
         description: ''
-        data_type: timestamp with time zone
+        data_type: jsonb
+      - name: numeros_indentification_transporteurs
+        description: ''
+        data_type: ARRAY

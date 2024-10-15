@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: texs_sortant
+  - name: texs_entrant
     columns:
       - name: id
         description: ''
@@ -13,14 +13,14 @@ models:
         data_type: timestamp with time zone
       - name: created_year_utc
         description: ''
-        data_type: text
+        data_type: integer
       - name: numero_identification_declarant
         description: ''
         data_type: text
       - name: code_dechet
         description: ''
         data_type: text
-      - name: date_expedition
+      - name: date_reception
         description: ''
         data_type: date
       - name: denomination_usuelle
@@ -59,9 +59,6 @@ models:
       - name: coordonnees_geographiques_valorisee
         description: ''
         data_type: text
-      - name: qualification_code
-        description: ''
-        data_type: text
       - name: code_dechet_bale
         description: ''
         data_type: text
@@ -89,28 +86,28 @@ models:
       - name: producteur_adresse_pays
         description: ''
         data_type: text
-      - name: destinataire_type
+      - name: expediteur_type
         description: ''
         data_type: text
-      - name: destinataire_numero_identification
+      - name: expediteur_numero_identification
         description: ''
         data_type: text
-      - name: destinataire_raison_sociale
+      - name: expediteur_raison_sociale
         description: ''
         data_type: text
-      - name: destinataire_adresse_destination
+      - name: expediteur_adresse_prise_en_charge
         description: ''
         data_type: text
-      - name: destinataire_adresse_libelle
+      - name: expediteur_adresse_libelle
         description: ''
         data_type: text
-      - name: destinataire_adresse_commune
+      - name: expediteur_adresse_commune
         description: ''
         data_type: text
-      - name: destinataire_adresse_code_postal
+      - name: expediteur_adresse_code_postal
         description: ''
         data_type: text
-      - name: destinataire_adresse_pays
+      - name: expediteur_adresse_pays
         description: ''
         data_type: text
       - name: courtier_type
@@ -125,12 +122,15 @@ models:
       - name: courtier_numero_recepisse
         description: ''
         data_type: text
-      - name: texs_sortant_transporteur
+      - name: texs_entrant_transporteur
         description: ''
-        data_type: text
-      - name: texs_sortant_parcelle_cadastrale
+        data_type: jsonb
+      - name: texs_entrant_parcelle_cadastrale
         description: ''
-        data_type: text
-      - name: texs_sortant_parcelle_valorisee
+        data_type: jsonb
+      - name: texs_entrant_parcelle_valorisee
         description: ''
-        data_type: text
+        data_type: jsonb
+      - name: numeros_indentification_transporteurs
+        description: ''
+        data_type: ARRAY

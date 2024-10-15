@@ -101,6 +101,12 @@ models:
       - name: org_id
         data_type: text
         description: ''
+      - name: collector_types
+        description: ''
+        data_type: ARRAY
+      - name: waste_processor_types
+        description: ''
+        data_type: ARRAY
       - name: code_section
         description: ''
         data_type: character varying

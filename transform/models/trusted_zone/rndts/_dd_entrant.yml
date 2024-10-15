@@ -1,22 +1,28 @@
 version: 2
 models:
-  - name: dnd_entrant
+  - name: dd_entrant
     columns:
       - name: id
         description: ''
         data_type: text
+      - name: created_date
+        description: ''
+        data_type: timestamp with time zone
       - name: last_modified_date
         description: ''
         data_type: timestamp with time zone
       - name: created_year_utc
         description: ''
         data_type: integer
+      - name: numero_identification_declarant
+        description: ''
+        data_type: text
       - name: code_dechet
         description: ''
         data_type: text
-      - name: created_date
+      - name: code_dechet_bale
         description: ''
-        data_type: date
+        data_type: text
       - name: date_reception
         description: ''
         data_type: date
@@ -44,10 +50,7 @@ models:
       - name: code_traitement
         description: ''
         data_type: text
-      - name: unite_code
-        description: ''
-        data_type: text
-      - name: code_dechet_bale
+      - name: unite
         description: ''
         data_type: text
       - name: identifiant_metier
@@ -119,15 +122,12 @@ models:
       - name: courtier_numero_recepisse
         description: ''
         data_type: text
-      - name: numero_identification_declarant
+      - name: dd_entrant_transporteur
         description: ''
-        data_type: text
-      - name: dnd_entrant_transporteur
+        data_type: jsonb
+      - name: dd_entrant_commune
         description: ''
-        data_type: text
-      - name: dnd_entrant_commune
+        data_type: jsonb
+      - name: numeros_indentification_transporteurs
         description: ''
-        data_type: text
-      - name: inserted_at
-        description: ''
-        data_type: timestamp with time zone
+        data_type: ARRAY

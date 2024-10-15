@@ -7,7 +7,7 @@ models:
         data_type: text
       - name: siret_georisque
         description: ''
-        data_type: character varying
+        data_type: text
       - name: siret_td
         description: ''
         data_type: text
@@ -37,7 +37,7 @@ models:
         data_type: numeric
       - name: code_commune_insee
         description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.'
-        data_type: text
+        data_type: character varying
       - name: rubrique
         description: ''
         data_type: text

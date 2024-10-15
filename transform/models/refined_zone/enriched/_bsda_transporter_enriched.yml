@@ -77,6 +77,9 @@ models:
       - name: destination_company_siret
         description: ''
         data_type: text
+      - name: worker_company_siret
+        description: ''
+        data_type: text
       - name: eco_organisme_siret
         description: ''
         data_type: text
@@ -86,3 +89,6 @@ models:
       - name: destination_reception_weight
         description: ''
         data_type: numeric
+      - name: destination_operation_code
+        description: ''
+        data_type: text

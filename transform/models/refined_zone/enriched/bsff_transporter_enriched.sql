@@ -95,7 +95,8 @@ select
     max(b.emitter_company_siret)      as emitter_company_siret,
     max(b.destination_company_siret)  as destination_company_siret,
     max(b.waste_code)                 as waste_code,
-    sum(bp.acceptation_weight)        as acceptation_weight
+    sum(bp.acceptation_weight)        as acceptation_weight,
+    max(bp.operation_code)            as operation_code
 from bsff_transporter_with_bsff as b
 left join {{ ref('bsff_packaging') }} as bp on b.bsff_id = bp.bsff_id
 group by 1

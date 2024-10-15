@@ -83,3 +83,6 @@ models:
       - name: acceptation_weight
         description: ''
         data_type: numeric
+      - name: operation_code
+        description: ''
+        data_type: text

@@ -26,6 +26,7 @@ select
     b.waste_details_code,
     b.waste_details_is_dangerous,
     b.waste_details_pop,
-    b.quantity_received
+    b.quantity_received,
+    b.processing_operation_done
 from {{ ref('bsdd_transporter') }} as bt
 left join {{ ref('bsdd') }} as b on bt.form_id = b.id

@@ -9,7 +9,7 @@ models:
         description: ''
         data_type: text
       - name: siret
-        description: ''
+        description: 'Code région'
         data_type: text
       - name: rubrique
         description: ''
@@ -49,4 +49,4 @@ models:
         data_type: double precision
       - name: code_commune_insee
         description: Code commune correspondant à celui dans la base géographique des communes de l'INSEE.
-        data_type: text
+        data_type: character varying

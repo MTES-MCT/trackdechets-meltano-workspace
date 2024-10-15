@@ -23,9 +23,6 @@ models:
       - name: quantite_projet
         description: ''
         data_type: double precision
-      - name: quantite_totale
-        description: ''
-        data_type: double precision
       - name: capacite_projet
         description: ''
         data_type: double precision
@@ -41,6 +38,9 @@ models:
       - name: etat_administratif_rubrique
         description: ''
         data_type: text
+      - name: quantite_totale
+        description: ''
+        data_type: double precision
       - name: rubrique
         description: ''
         data_type: text

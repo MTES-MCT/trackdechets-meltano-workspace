@@ -95,3 +95,6 @@ models:
       - name: quantity_received
         description: ''
         data_type: numeric
+      - name: processing_operation_done
+        description: ''
+        data_type: text
