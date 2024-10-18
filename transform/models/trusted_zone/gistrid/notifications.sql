@@ -8,7 +8,8 @@
 }}
 
 with source as (
-    select * from {{ source('raw_zone_gistrid', 'notifications') }}
+    select * 
+    from {{ source('raw_zone_gistrid', 'notifications') }}
 ),
 
 renamed as (
@@ -49,7 +50,7 @@ renamed as (
         row_number()
             over (
                 partition by {{ adapter.quote("numéro de notification") }}
-                order by {{ adapter.quote("annee") }} desc
+                order by {{ adapter.quote("annee") }} desc,{{ adapter.quote("inserted_at") }} desc nulls last
             )
         as rn
     from source
