@@ -30,15 +30,15 @@ with installations as (
 
 dnd_wastes as (
     select
-        numero_identification_declarant as siret,
+        etablissement_numero_identification as siret,
         date_reception,
         code_traitement,
-        sum(quantite)                   as quantite
+        sum(quantite)                       as quantite
     from {{ ref('dnd_entrant') }}
     where
-        unite = 'T'
+        code_unite = 'T'
         and date_reception >= '2022-01-01'
-        and numero_identification_declarant in (
+        and etablissement_numero_identification in (
             select siret
             from
                 installations
@@ -48,15 +48,15 @@ dnd_wastes as (
 
 texs_wastes as (
     select
-        numero_identification_declarant as siret,
+        etablissement_numero_identification as siret,
         date_reception,
         code_traitement,
-        sum(quantite)                   as quantite
+        sum(quantite)                       as quantite
     from {{ ref('texs_entrant') }}
     where
-        unite = 'T'
+        code_unite = 'T'
         and date_reception >= '2022-01-01'
-        and numero_identification_declarant in (
+        and etablissement_numero_identification in (
             select siret
             from
                 installations

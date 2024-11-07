@@ -163,6 +163,9 @@ models:
         tests:
           - elementary.column_anomalies:
               timestamp_column: updated_at
+      - name: quantity_refused
+        description: ''
+        data_type: numeric
       - name: processing_operation_done
         data_type: text
         description: |

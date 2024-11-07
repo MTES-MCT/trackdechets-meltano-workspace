@@ -546,4 +546,7 @@ models:
       - name: recipient_naf
         description: ''
         data_type: character varying
+      - name: quantity_refused
+        description: ''
+        data_type: numeric
 sources: []

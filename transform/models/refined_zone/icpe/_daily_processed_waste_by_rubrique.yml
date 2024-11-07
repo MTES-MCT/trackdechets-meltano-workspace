@@ -4,7 +4,7 @@ models:
     columns:
       - name: siret
         description: 'Code région'
-        data_type: text
+        data_type: character varying
       - name: day_of_processing
         description: ''
         data_type: timestamp with time zone

@@ -108,6 +108,9 @@ sources:
           - name: pays de transit
             description: ''
             data_type: text
+          - name: inserted_at
+            description: ''
+            data_type: timestamp without time zone
       - name: installations
         description: >
           Données sur les installations GISTRID.

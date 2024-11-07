@@ -99,7 +99,13 @@ destination_counts AS (
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSDD'
+            AND ({{ dangerous_waste_filter('bordereaux_enriched') }})
         )                         AS num_bsdd_as_destination,
+        COUNT(id) FILTER (
+            WHERE
+            _bs_type = 'BSDD'
+            AND NOT ({{ dangerous_waste_filter('bordereaux_enriched') }})
+        )                         AS num_bsdnd_as_destination,
         COUNT(id) FILTER (
             WHERE
             _bs_type = 'BSDA'
@@ -119,7 +125,13 @@ destination_counts AS (
         SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDD'
+            AND ({{ dangerous_waste_filter('bordereaux_enriched') }})
         )                         AS quantity_bsdd_as_destination,
+        SUM(quantity_received) FILTER (
+            WHERE
+            _bs_type = 'BSDD'
+            AND NOT ({{ dangerous_waste_filter('bordereaux_enriched') }})
+        )                         AS quantity_bsdnd_as_destination,
         SUM(quantity_received) FILTER (
             WHERE
             _bs_type = 'BSDA'
@@ -141,7 +153,42 @@ destination_counts AS (
         )                         AS last_bordereau_created_at_as_destination,
         ARRAY_AGG(
             DISTINCT processing_operation
-        )                         AS processing_operations_as_destination
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSDD'
+            AND ({{ dangerous_waste_filter('bordereaux_enriched') }})
+        )                         AS processing_operations_as_destination_bsdd,
+        ARRAY_AGG(
+            DISTINCT processing_operation
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSDD'
+            AND NOT ({{ dangerous_waste_filter('bordereaux_enriched') }})
+        )                         AS processing_operations_as_destination_bsdnd,
+        ARRAY_AGG(
+            DISTINCT processing_operation
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSDA'
+        )                         AS processing_operations_as_destination_bsda,
+        ARRAY_AGG(
+            DISTINCT processing_operation
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSFF'
+        )                         AS processing_operations_as_destination_bsff,
+        ARRAY_AGG(
+            DISTINCT processing_operation
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSDASRI'
+        )                         AS processing_operations_as_destination_bsdasri,
+        ARRAY_AGG(
+            DISTINCT processing_operation
+        ) FILTER (
+            WHERE
+            _bs_type = 'BSVHU'
+        )                         AS processing_operations_as_destination_bsvhu
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -155,7 +202,12 @@ full_ AS (
         last_bordereau_created_at_as_destination,
         processing_operations_as_emitter,
         processing_operations_as_transporter,
-        processing_operations_as_destination,
+        processing_operations_as_destination_bsdd,
+        processing_operations_as_destination_bsdnd,
+        processing_operations_as_destination_bsda,
+        processing_operations_as_destination_bsff,
+        processing_operations_as_destination_bsdasri,
+        processing_operations_as_destination_bsvhu,
         COALESCE(
             emitter_counts.siret,
             transporter_counts.siret,

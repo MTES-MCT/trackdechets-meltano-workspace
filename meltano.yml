@@ -1,429 +1,416 @@
 version: 1
 default_environment: dev
 environments:
-  - name: dev
-    config:
-      plugins:
-        utilities:
-          - name: elementary
-            config:
-              project_dir: ${MELTANO_PROJECT_ROOT}/transform/
-          - name: dbt-osmosis
-            config:
-              adapter: postgres
+- name: dev
+  config:
+    plugins:
+      utilities:
+      - name: elementary
+        config:
+          project_dir: ${MELTANO_PROJECT_ROOT}/transform/
+      - name: dbt-osmosis
+        config:
+          adapter: postgres
 
-  - name: prod
-    config:
-      plugins:
-        extractors:
-          - name: tap-postgres--td-database
-            config:
-              ssl: true
-        loaders:
-          - name: target-postgres--dwh
-            config:
-              ssl: true
+
+
+
+- name: prod
+  config:
+    plugins:
+      extractors:
+      - name: tap-postgres--td-database
+        config:
+          ssl: true
+      loaders:
+      - name: target-postgres--dwh
+        config:
+          ssl: true
 
 project_id: 8a35e99a-f240-4ef5-96aa-b5687139b894
 plugins:
   extractors:
-    - name: tap-postgres
-      variant: meltanolabs
-      pip_url: meltanolabs-tap-postgres==0.0.8
-    - name: tap-postgres--td-database
-      inherit_from: tap-postgres
-      config:
-        dates_as_string: true
-      select:
-        - default$default-Company.*
-        - default$default-CompanyAssociation.*
-        - default$default-User.*
-        - "!default$default-User.password*"
-        - default$default-Form.*
-        - default$default-Bsda.*
-        - default$default-Bsdasri.*
-        - default$default-Bsff.*
-        - default$default-Bsvhu.*
-        - default$default-EcoOrganisme.*
-        - default$default-BsffPackaging.*
-        - default$default-BsddRevisionRequest.*
-        - default$default-BsdaRevisionRequest.*
-        - default$default-VhuAgrement.*
-        - default$default-TransporterReceipt.*
-        - default$default-BrokerReceipt.*
-        - default$default-TraderReceipt.*
-        - default$default-BsddTransporter.*
-        - default$default-AnonymousCompany.*
-        - default$default-BsdaTransporter.*
-        - default$default-BsffTransporter.*
-        - default$default-BsdasriRevisionRequest.*
-      metadata:
-        "*":
-          replication-method: INCREMENTAL
-          replication-key: updatedAt
-        default$default-CompanyAssociation:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-EcoOrganisme:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BsffPackaging:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-VhuAgrement:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-TransporterReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BrokerReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-TraderReceipt:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-AnonymousCompany:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-Company:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-User:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BsddRevisionRequest:
-          replication-method: FULL_TABLE
-          replication-key: ""
-        default$default-BsdaRevisionRequest:
-          replication-method: FULL_TABLE
-          replication-key: ""
-      schema:
-        default$default-Bsda:
-          packagings:
-            type: [object, array, "null"]
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-tap-postgres==0.0.16
+  - name: tap-postgres--td-database
+    inherit_from: tap-postgres
+    config:
+      dates_as_string: true
+    select:
+    - default$default-Company.*
+    - default$default-CompanyAssociation.*
+    - default$default-User.*
+    - '!default$default-User.password*'
+    - default$default-Form.*
+    - default$default-Bsda.*
+    - default$default-Bsdasri.*
+    - default$default-Bsff.*
+    - default$default-Bsvhu.*
+    - default$default-EcoOrganisme.*
+    - default$default-BsffPackaging.*
+    - default$default-BsddRevisionRequest.*
+    - default$default-BsdaRevisionRequest.*
+    - default$default-VhuAgrement.*
+    - default$default-TransporterReceipt.*
+    - default$default-BrokerReceipt.*
+    - default$default-TraderReceipt.*
+    - default$default-BsddTransporter.*
+    - default$default-AnonymousCompany.*
+    - default$default-BsdaTransporter.*
+    - default$default-BsffTransporter.*
+    - default$default-BsdasriRevisionRequest.*
+    metadata:
+      '*':
+        replication-method: INCREMENTAL
+        replication-key: updatedAt
+      default$default-CompanyAssociation:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-EcoOrganisme:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-BsffPackaging:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-VhuAgrement:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-TransporterReceipt:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-BrokerReceipt:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-TraderReceipt:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-AnonymousCompany:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-Company:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-User:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-BsddRevisionRequest:
+        replication-method: FULL_TABLE
+        replication-key: ''
+      default$default-BsdaRevisionRequest:
+        replication-method: FULL_TABLE
+        replication-key: ''
+    schema:
+      default$default-Bsda:
+        packagings:
+          type: [object, array, 'null']
           #wasteSealNumbers:
           #  type: [array,"null"]
-        default$default-BsdaRevisionRequest:
-          packagings:
-            type: [object, array, "null"]
-        default$default-Bsdasri:
-          emitterWastePackagings:
-            type: [object, array, "null"]
-          transporterWastePackagings:
-            type: [object, array, "null"]
-          destinationWastePackagings:
-            type: [object, array, "null"]
-        default$default-BsddRevisionRequest:
-          wasteDetailsPackagingInfos:
-            type: [object, array, "null"]
-        default$default-Form:
-          wasteDetailsPackagingInfos:
-            type: [object, array, "null"]
-          wasteDetailsParcelNumbers:
-            type: [object, array, "null"]
+      default$default-BsdaRevisionRequest:
+        packagings:
+          type: [object, array, 'null']
+      default$default-Bsdasri:
+        emitterWastePackagings:
+          type: [object, array, 'null']
+        transporterWastePackagings:
+          type: [object, array, 'null']
+        destinationWastePackagings:
+          type: [object, array, 'null']
+      default$default-BsddRevisionRequest:
+        wasteDetailsPackagingInfos:
+          type: [object, array, 'null']
+      default$default-Form:
+        wasteDetailsPackagingInfos:
+          type: [object, array, 'null']
+        wasteDetailsParcelNumbers:
+          type: [object, array, 'null']
 
-    - name: tap-postgres--gerico
-      inherit_from: tap-postgres
-      config:
-        dates_as_string: true
-      select:
-        - public-sheets_computedinspectiondata.id
-        - public-sheets_computedinspectiondata.org_id
-        - public-sheets_computedinspectiondata.created
-        - public-sheets_computedinspectiondata.created_by
-        - public-sheets_computedinspectiondata.creation_mode
-        - public-sheets_computedinspectiondata.state
-        - public-sheets_computedinspectiondata.data_start_date
-        - public-sheets_computedinspectiondata.data_end_date
-        - public-sheets_computedinspectiondata.pdf_rendering_start
-        - public-sheets_computedinspectiondata.pdf_rendering_end
-        - public-sheets_computedinspectiondata.processing_start
-        - public-sheets_computedinspectiondata.processing_end
-        - public-sheets_registrydownload.*
-      metadata:
-        "*":
-          replication-method: INCREMENTAL
-          replication-key: created
+  
+      
 
-    - name: tap-zammad
-      namespace: tap_zammad
-      pip_url: git+https://github.com/Lawiss/tap-zammad.git
-      executable: tap-zammad
-      capabilities:
-        - state
-        - catalog
-        - discover
-      config:
-        auth_token:
-        api_base_url:
-        start_date:
-      select:
-        - "*.*"
-      metadata:
-        tickets:
-          replication-method: INCREMENTAL
-          replication-key: updated_at
-        users:
-          replication-method: INCREMENTAL
-          replication-key: updated_at
-        organizations:
-          replication-method: INCREMENTAL
-          replication-key: updated_at
-        groups:
-          replication-method: FULL_TABLE
 
-    - name: tap-google-sheets
-      variant: matatika
-      pip_url: git+https://github.com/Matatika/tap-google-sheets.git
-    - name: tap-google-sheets--matching_td_georisques
-      inherit_from: tap-google-sheets
-      config:
-        sheet_id: 1DDkQ6NfBi7dGXd7LxUxDFg_LVYAnS-WmzYIHCax2pxg
-        key_properties:
-          - code_aiot
-      select:
-        - "!*.trai*"
-        - "*.*"
-      metadata:
-        "*":
-          replication-method: FULL_TABLE
-    - name: tap-google-sheets--referentiel_codes_operation_rubriques
-      inherit_from: tap-google-sheets
-      config:
-        sheet_id: 16o0U3A6unTT2XqFTQ6mDg7cySE2-JeWoUO4wFrS7b2g
-        key_properties:
-          - code_operation
-          - rubrique
-      metadata:
-        "*":
-          replication-method: FULL_TABLE
+  - name: tap-postgres--gerico
+    inherit_from: tap-postgres
+    config:
+      dates_as_string: true
+    select:
+    - public-sheets_computedinspectiondata.id
+    - public-sheets_computedinspectiondata.org_id
+    - public-sheets_computedinspectiondata.created
+    - public-sheets_computedinspectiondata.created_by
+    - public-sheets_computedinspectiondata.creation_mode
+    - public-sheets_computedinspectiondata.state
+    - public-sheets_computedinspectiondata.data_start_date
+    - public-sheets_computedinspectiondata.data_end_date
+    - public-sheets_computedinspectiondata.pdf_rendering_start
+    - public-sheets_computedinspectiondata.pdf_rendering_end
+    - public-sheets_computedinspectiondata.processing_start
+    - public-sheets_computedinspectiondata.processing_end
+    - public-sheets_registrydownload.*
+    metadata:
+      '*':
+        replication-method: INCREMENTAL
+        replication-key: created
+
+  - name: tap-zammad
+    namespace: tap_zammad
+    pip_url: git+https://github.com/Lawiss/tap-zammad.git
+    executable: tap-zammad
+    capabilities:
+    - state
+    - catalog
+    - discover
+    config:
+      auth_token:
+      api_base_url:
+      start_date:
+    select:
+    - '*.*'
+    metadata:
+      tickets:
+        replication-method: INCREMENTAL
+        replication-key: updated_at
+      users:
+        replication-method: INCREMENTAL
+        replication-key: updated_at
+      organizations:
+        replication-method: INCREMENTAL
+        replication-key: updated_at
+      groups:
+        replication-method: FULL_TABLE
+
+  - name: tap-google-sheets
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-google-sheets.git
+  - name: tap-google-sheets--matching_td_georisques
+    inherit_from: tap-google-sheets
+    config:
+      sheet_id: 1DDkQ6NfBi7dGXd7LxUxDFg_LVYAnS-WmzYIHCax2pxg
+      key_properties:
+      - code_aiot
+    select:
+    - '!*.trai*'
+    - '*.*'
+    metadata:
+      '*':
+        replication-method: FULL_TABLE
+  - name: tap-google-sheets--referentiel_codes_operation_rubriques
+    inherit_from: tap-google-sheets
+    config:
+      sheet_id: 16o0U3A6unTT2XqFTQ6mDg7cySE2-JeWoUO4wFrS7b2g
+      key_properties:
+      - code_operation
+      - rubrique
+    metadata:
+      '*':
+        replication-method: FULL_TABLE
 
   loaders:
-    - name: target-postgres
-      variant: meltanolabs
-      pip_url: meltanolabs-target-postgres==0.0.13
-    - name: target-postgres--dwh
-      inherit_from: target-postgres
-      config:
-        load_method: upsert
-    - name: target-postgres--dwh-trackdechets
-      inherit_from: target-postgres--dwh
-      config:
-        default_target_schema: raw_zone_trackdechets
-        stream_maps:
-          default$default-BrokerReceipt:
-            validityLimit: str(validityLimit)
-          default$default-TraderReceipt:
-            validityLimit: str(validityLimit)
-          default$default-Bsda:
-            weightValue: float(weightValue) if weightValue is not None else weightValue
-            destinationReceptionWeight:
-              float(destinationReceptionWeight) if destinationReceptionWeight
-              is not None else destinationReceptionWeight
-            emitterEmissionSignatureDate:
-              str(emitterEmissionSignatureDate) if emitterEmissionSignatureDate
-              is not None else emitterEmissionSignatureDate
-            transporterTransportSignatureDate:
-              str(transporterTransportSignatureDate)
-              if transporterTransportSignatureDate is not None else transporterTransportSignatureDate
-            brokerRecepisseValidityLimit:
-              str(brokerRecepisseValidityLimit) if brokerRecepisseValidityLimit
-              is not None else brokerRecepisseValidityLimit
-          default$default-Bsdasri:
-            emitterWasteWeightValue:
-              float(emitterWasteWeightValue) if emitterWasteWeightValue
-              is not None else emitterWasteWeightValue
-            transporterWasteWeightValue:
-              float(transporterWasteWeightValue) if transporterWasteWeightValue
-              is not None else transporterWasteWeightValue
-            destinationReceptionWasteWeightValue:
-              float(destinationReceptionWasteWeightValue)
-              if destinationReceptionWasteWeightValue is not None else destinationReceptionWasteWeightValue
-            transporterWasteRefusedWeightValue:
-              float(transporterWasteRefusedWeightValue)
-              if transporterWasteRefusedWeightValue is not None else transporterWasteRefusedWeightValue
-            destinationReceptionWasteRefusedWeightValue:
-              float(destinationReceptionWasteRefusedWeightValue)
-              if destinationReceptionWasteRefusedWeightValue is not None else destinationReceptionWasteRefusedWeightValue
-            transporterRecepisseValidityLimit:
-              str(transporterRecepisseValidityLimit)
-              if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
-          default$default-BsddTransporter:
-            transporterValidityLimit:
-              str(transporterValidityLimit) if transporterValidityLimit
-              is not None else transporterValidityLimit
-            takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
-          default$default-Bsff:
-            weightValue: float(weightValue) if weightValue is not None else weightValue
-          default$default-Form:
-            wasteDetailsQuantity:
-              float(wasteDetailsQuantity) if wasteDetailsQuantity
-              is not None else wasteDetailsQuantity
-            traderValidityLimit:
-              str(traderValidityLimit) if traderValidityLimit is
-              not None else traderValidityLimit
-            quantityReceived:
-              float(quantityReceived) if quantityReceived is not None
-              else quantityReceived
-            processedAt:
-              str(processedAt) if processedAt is not None
-              else processedAt
-            brokerValidityLimit:
-              str(brokerValidityLimit) if brokerValidityLimit is
-              not None else brokerValidityLimit
-            receivedAt: str(receivedAt) if receivedAt is not None else receivedAt
-            sentAt: str(sentAt) if sentAt is not None else sentAt
-            takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
-            emittedAt: str(emittedAt) if emittedAt is not None else emittedAt
-            signedAt: str(signedAt) if signedAt is not None else signedAt
-          default$default-Bsvhu:
-            destinationOperationDate:
-              str(destinationOperationDate) if destinationOperationDate
-              is not None else destinationOperationDate
-            transporterRecepisseValidityLimit:
-              str(transporterRecepisseValidityLimit)
-              if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
-          default$default-BsffTransporter:
-            transporterTransportTakenOverAt:
-              str(transporterTransportTakenOverAt) if transporterTransportTakenOverAt
-              is not None else transporterTransportTakenOverAt
-    
-    - name: target-postgres--dwh-gerico
-      inherit_from: target-postgres--dwh
-      config:
-        default_target_schema: raw_zone_gerico
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres==0.0.17
+  - name: target-postgres--dwh
+    inherit_from: target-postgres
+    config:
+      load_method: upsert
+  - name: target-postgres--dwh-trackdechets
+    inherit_from: target-postgres--dwh
+    config:
+      default_target_schema: raw_zone_trackdechets
+      stream_maps:
+        default$default-BrokerReceipt:
+          validityLimit: str(validityLimit)
+        default$default-TraderReceipt:
+          validityLimit: str(validityLimit)
+        default$default-Bsda:
+          weightValue: float(weightValue) if weightValue is not None else weightValue
+          destinationReceptionWeight: float(destinationReceptionWeight) if destinationReceptionWeight
+            is not None else destinationReceptionWeight
+          emitterEmissionSignatureDate: str(emitterEmissionSignatureDate) if emitterEmissionSignatureDate
+            is not None else emitterEmissionSignatureDate
+          transporterTransportSignatureDate: str(transporterTransportSignatureDate)
+            if transporterTransportSignatureDate is not None else transporterTransportSignatureDate
+          brokerRecepisseValidityLimit: str(brokerRecepisseValidityLimit) if brokerRecepisseValidityLimit
+            is not None else brokerRecepisseValidityLimit
+        default$default-Bsdasri:
+          emitterWasteWeightValue: float(emitterWasteWeightValue) if emitterWasteWeightValue
+            is not None else emitterWasteWeightValue
+          transporterWasteWeightValue: float(transporterWasteWeightValue) if transporterWasteWeightValue
+            is not None else transporterWasteWeightValue
+          destinationReceptionWasteWeightValue: float(destinationReceptionWasteWeightValue)
+            if destinationReceptionWasteWeightValue is not None else destinationReceptionWasteWeightValue
+          transporterWasteRefusedWeightValue: float(transporterWasteRefusedWeightValue)
+            if transporterWasteRefusedWeightValue is not None else transporterWasteRefusedWeightValue
+          destinationReceptionWasteRefusedWeightValue: float(destinationReceptionWasteRefusedWeightValue)
+            if destinationReceptionWasteRefusedWeightValue is not None else destinationReceptionWasteRefusedWeightValue
+          transporterRecepisseValidityLimit: str(transporterRecepisseValidityLimit)
+            if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+        default$default-BsddTransporter:
+          transporterValidityLimit: str(transporterValidityLimit) if transporterValidityLimit
+            is not None else transporterValidityLimit
+          takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
+        default$default-Bsff:
+          weightValue: float(weightValue) if weightValue is not None else weightValue
+        default$default-Form:
+          wasteDetailsQuantity: float(wasteDetailsQuantity) if wasteDetailsQuantity
+            is not None else wasteDetailsQuantity
+          traderValidityLimit: str(traderValidityLimit) if traderValidityLimit is
+            not None else traderValidityLimit
+          quantityReceived: float(quantityReceived) if quantityReceived is not None
+            else quantityReceived
+          processedAt: str(processedAt) if processedAt is not None else processedAt
+          brokerValidityLimit: str(brokerValidityLimit) if brokerValidityLimit is
+            not None else brokerValidityLimit
+          receivedAt: str(receivedAt) if receivedAt is not None else receivedAt
+          sentAt: str(sentAt) if sentAt is not None else sentAt
+          takenOverAt: str(takenOverAt) if takenOverAt is not None else takenOverAt
+          emittedAt: str(emittedAt) if emittedAt is not None else emittedAt
+          signedAt: str(signedAt) if signedAt is not None else signedAt
+        default$default-Bsvhu:
+          destinationOperationDate: str(destinationOperationDate) if destinationOperationDate
+            is not None else destinationOperationDate
+          transporterRecepisseValidityLimit: str(transporterRecepisseValidityLimit)
+            if transporterRecepisseValidityLimit is not None else transporterRecepisseValidityLimit
+        default$default-BsffTransporter:
+          transporterTransportTakenOverAt: str(transporterTransportTakenOverAt) if
+            transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
 
-    - name: target-postgres--dwh-zammad
-      inherit_from: target-postgres--dwh
-      config:
-        default_target_schema: raw_zone_zammad
-    - name: target-postgres--dwh-gsheet
-      inherit_from: target-postgres--dwh
-      config:
-        default_target_schema: raw_zone_gsheet
-        primary_key_required: false
+  - name: target-postgres--dwh-gerico
+    inherit_from: target-postgres--dwh
+    config:
+      default_target_schema: raw_zone_gerico
 
-    - name: target-clickhouse
-      variant: shaped-ai
-      pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
-  
+
+  - name: target-postgres--dwh-zammad
+    inherit_from: target-postgres--dwh
+    config:
+      default_target_schema: raw_zone_zammad
+  - name: target-postgres--dwh-gsheet
+    inherit_from: target-postgres--dwh
+    config:
+      default_target_schema: raw_zone_gsheet
+      primary_key_required: false
+
+  - name: target-clickhouse
+    variant: shaped-ai
+    pip_url: git+https://github.com/shaped-ai/target-clickhouse.git
   transformers:
-    - name: dbt-postgres
-      variant: dbt-labs
-      pip_url: dbt-core~=1.8.0 dbt-postgres~=1.8.0 shandy-sqlfmt[jinjafmt] dbt-osmosis
-      commands:
-        run__trusted_zone_trackdechets:
-          args: run --select trusted_zone.trackdechets+ --exclude refined_zone.analytics.ad_hoc
-          description: Run trusted_zone_trackdechets models
-        run__trusted_zone_gerico:
-          args: run --select trusted_zone.gerico+ --exclude refined_zone.analytics.ad_hoc
-          description: Run trusted_zone_gerico models
-        run__trusted_zone_insee:
-          args: run --select trusted_zone.insee+ --exclude refined_zone.analytics.ad_hoc
-          description: Run dbt 'trusted_zone.insee' models
-        run__trusted_zone_icpe:
-          args: run --select trusted_zone.icpe+ --exclude refined_zone.analytics.ad_hoc
-          description: Run dbt 'trusted_zone.icpe' models
-        run__trusted_zone_zammad:
-          args: run --select trusted_zone.zammad+ --exclude refined_zone.analytics.ad_hoc
-          description: Run dbt 'trusted_zone.zammad' models
-        run__trusted_zone_gsheet:
-          args: run --select trusted_zone.gsheet+ --exclude refined_zone.analytics.ad_hoc
-          description: Run dbt 'trusted_zone.gsheet' models
-        test__trusted_zone_trackdechets:
-          args: test --select trusted_zone.trackdechets+ --exclude refined_zone.analytics.ad_hoc
-          description: Test trusted_zone_trackdechets models
-        test__trusted_zone_gerico:
-          args: test --select trusted_zone.gerico+ --exclude refined_zone.analytics.ad_hoc
-          description: Test trusted_zone_gerico models 
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core~=1.8.0 dbt-postgres~=1.8.0 shandy-sqlfmt[jinjafmt] dbt-osmosis
+    commands:
+      run__trusted_zone_trackdechets:
+        args: run --select trusted_zone.trackdechets+ --exclude refined_zone.analytics.ad_hoc
+        description: Run trusted_zone_trackdechets models
+      run__trusted_zone_gerico:
+        args: run --select trusted_zone.gerico+ --exclude refined_zone.analytics.ad_hoc
+        description: Run trusted_zone_gerico models
+      run__trusted_zone_insee:
+        args: run --select trusted_zone.insee+ --exclude refined_zone.analytics.ad_hoc
+        description: Run dbt 'trusted_zone.insee' models
+      run__trusted_zone_icpe:
+        args: run --select trusted_zone.icpe+ --exclude refined_zone.analytics.ad_hoc
+        description: Run dbt 'trusted_zone.icpe' models
+      run__trusted_zone_zammad:
+        args: run --select trusted_zone.zammad+ --exclude refined_zone.analytics.ad_hoc
+        description: Run dbt 'trusted_zone.zammad' models
+      run__trusted_zone_gsheet:
+        args: run --select trusted_zone.gsheet+ --exclude refined_zone.analytics.ad_hoc
+        description: Run dbt 'trusted_zone.gsheet' models
+      test__trusted_zone_trackdechets:
+        args: test --select trusted_zone.trackdechets+ --exclude refined_zone.analytics.ad_hoc
+        description: Test trusted_zone_trackdechets models
+      test__trusted_zone_gerico:
+        args: test --select trusted_zone.gerico+ --exclude refined_zone.analytics.ad_hoc
+        description: Test trusted_zone_gerico models
 
   utilities:
-    - name: sqlfluff
-      variant: sqlfluff
-      pip_url: sqlfluff~=3.0.7 sqlfluff-templater-dbt~=3.0.7 dbt-core~=1.7.0 dbt-postgres~=1.7.0
-      settings:
-        - name: user
-        - name: password
-          kind: password
-        - name: schema
-        - name: database
+  - name: sqlfluff
+    variant: sqlfluff
+    pip_url: sqlfluff~=3.0.7 sqlfluff-templater-dbt~=3.0.7 dbt-core~=1.7.0 dbt-postgres~=1.7.0
+    settings:
+    - name: user
+    - name: password
+      kind: string
+      sensitive: true
+    - name: schema
+    - name: database
 
-    - name: elementary
-      variant: elementary
-      pip_url: elementary-data[postgres]==0.15.1 git+https://github.com/potloc/elementary-ext.git
-      config:
-        profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
-        project_dir: ${MELTANO_PROJECT_ROOT}/transform/
-        file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
+  - name: elementary
+    variant: elementary
+    pip_url: elementary-data[postgres]==0.15.1 git+https://github.com/potloc/elementary-ext.git
+    config:
+      profiles_dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
+      project_dir: ${MELTANO_PROJECT_ROOT}/transform/
+      file-path: ${MELTANO_PROJECT_ROOT}/output/elementary/elementary.html
 
-    - name: dbt-osmosis
-      namespace: dbt_postgres
-      variant: z3z1ma
-      pip_url: dbt-osmosis dbt-postgres~=1.7.0
-      commands:
-        refactor:
-          args:
-            yaml refactor --profiles-dir transform/profiles/postgres --project-dir
-            transform
-          description: Run yaml refactor command
-      config:
-        adapter: postgres
+  - name: dbt-osmosis
+    namespace: dbt_postgres
+    variant: z3z1ma
+    pip_url: dbt-osmosis dbt-postgres~=1.7.0
+    commands:
+      refactor:
+        args: yaml refactor --profiles-dir transform/profiles/postgres --project-dir
+          transform
+        description: Run yaml refactor command
+    config:
+      adapter: postgres
 jobs:
-  - name: elt--td-database
-    tasks:
-      - tap-postgres--td-database target-postgres--dwh-trackdechets
-      - dbt-postgres:freshness
-      - dbt-postgres:run__trusted_zone_trackdechets
+- name: elt--td-database
+  tasks:
+  - tap-postgres--td-database target-postgres--dwh-trackdechets
+  - dbt-postgres:freshness
+  - dbt-postgres:run__trusted_zone_trackdechets
       #- dbt-postgres:test__trusted_zone_trackdechets
-      - dbt-postgres:docs-generate
+  - dbt-postgres:docs-generate
       #- elementary:monitor-report
-  - name: elt--gerico-database
-    tasks:
-      - tap-postgres--gerico target-postgres--dwh-gerico
-      - dbt-postgres:freshness
-      - dbt-postgres:run__trusted_zone_gerico
-      - dbt-postgres:test__trusted_zone_gerico
-      - dbt-postgres:docs-generate
-      - elementary:monitor-report
-  - name: transform-icpe
-    tasks:
-      - dbt-postgres:run__trusted_zone_icpe
-      - dbt-postgres:docs-generate
-      - elementary:monitor-report
-  - name: transform-insee
-    tasks:
-      - dbt-postgres:freshness
-      - dbt-postgres:run__trusted_zone_insee
-      - dbt-postgres:docs-generate
-      - elementary:monitor-report
-  - name: elt--zammad
-    tasks:
-      - tap-zammad target-postgres--dwh-zammad
-      - dbt-postgres:run__trusted_zone_zammad
-      - dbt-postgres:docs-generate
-      - elementary:monitor-report
-  - name: elt--gsheet
-    tasks:
-      - tap-google-sheets--matching_td_georisques target-postgres--dwh-gsheet
-      - tap-google-sheets--referentiel_codes_operation_rubriques target-postgres--dwh-gsheet
-      - dbt-postgres:run__trusted_zone_gsheet
+- name: elt--gerico-database
+  tasks:
+  - tap-postgres--gerico target-postgres--dwh-gerico
+  - dbt-postgres:freshness
+  - dbt-postgres:run__trusted_zone_gerico
+  - dbt-postgres:test__trusted_zone_gerico
+  - dbt-postgres:docs-generate
+  - elementary:monitor-report
+- name: transform-icpe
+  tasks:
+  - dbt-postgres:run__trusted_zone_icpe
+  - dbt-postgres:docs-generate
+  - elementary:monitor-report
+- name: transform-insee
+  tasks:
+  - dbt-postgres:freshness
+  - dbt-postgres:run__trusted_zone_insee
+  - dbt-postgres:docs-generate
+  - elementary:monitor-report
+- name: elt--zammad
+  tasks:
+  - tap-zammad target-postgres--dwh-zammad
+  - dbt-postgres:run__trusted_zone_zammad
+  - dbt-postgres:docs-generate
+  - elementary:monitor-report
+- name: elt--gsheet
+  tasks:
+  - tap-google-sheets--matching_td_georisques target-postgres--dwh-gsheet
+  - tap-google-sheets--referentiel_codes_operation_rubriques target-postgres--dwh-gsheet
+  - dbt-postgres:run__trusted_zone_gsheet
 
 schedules:
-  - name: daily-elt-td-database
-    interval: "@daily"
-    job: elt--td-database
-  - name: daily-elt-gerico
-    interval: "0 */4 * * *"
-    job: elt--gerico-database
-  - name: daily-transform-icpe
-    interval: 0 14 * * *
-    job: transform-icpe
-  - name: monthly-transform-insee
-    interval: 0 20 1 * *
-    job: transform-insee
-  - name: daily-elt-zammad
-    interval: "@daily"
-    job: elt--zammad
-  - name: daily-elt-gsheet
-    interval: "@daily"
-    job: elt--gsheet
+- name: daily-elt-td-database
+  interval: '@daily'
+  job: elt--td-database
+- name: daily-elt-gerico
+  interval: 0 */4 * * *
+  job: elt--gerico-database
+- name: daily-transform-icpe
+  interval: 0 14 * * *
+  job: transform-icpe
+- name: monthly-transform-insee
+  interval: 0 20 1 * *
+  job: transform-insee
+- name: daily-elt-zammad
+  interval: '@daily'
+  job: elt--zammad
+- name: daily-elt-gsheet
+  interval: '@daily'
+  job: elt--gsheet

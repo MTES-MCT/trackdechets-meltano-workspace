@@ -8,18 +8,18 @@ with entrants as (
     select
         date_trunc(
             'week', date_reception
-        )                               as semaine,
+        )                                    as semaine,
         count(
             distinct id
-        )                               as nombre_declarations_dnd_entrant,
+        )                                    as nombre_declarations_dnd_entrant,
         sum(case
             when quantite > 60
                 then quantite / 1000
             else quantite
-        end) filter (where unite = 'T') as quantite_dnd_entrant,
+        end) filter (where code_unite = 'T') as quantite_dnd_entrant,
         sum(quantite) filter (
-            where unite = 'M3'
-        )                               as volume_dnd_entrant
+            where code_unite = 'M3'
+        )                                    as volume_dnd_entrant
     from {{ ref("dnd_entrant") }}
     where date_trunc('week', date_reception) < date_trunc('week', now())
     group by 1
@@ -29,18 +29,18 @@ sortants as (
     select
         date_trunc(
             'week', date_expedition
-        )                               as semaine,
+        )                                    as semaine,
         count(
             distinct id
-        )                               as nombre_declarations_dnd_sortant,
+        )                                    as nombre_declarations_dnd_sortant,
         sum(case
             when quantite > 60
                 then quantite / 1000
             else quantite
-        end) filter (where unite = 'T') as quantite_dnd_sortant,
+        end) filter (where code_unite = 'T') as quantite_dnd_sortant,
         sum(quantite) filter (
-            where unite = 'M3'
-        )                               as volume_dnd_sortant
+            where code_unite = 'M3'
+        )                                    as volume_dnd_sortant
     from {{ ref("dnd_sortant") }}
     where date_trunc('week', date_expedition) < date_trunc('week', now())
     group by 1

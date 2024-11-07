@@ -1,7 +1,10 @@
 version: 2
 models:
-  - name: bordereaux_counts_by_siret
+  - name: statistics_by_siret
     columns:
+      - name: siret
+        description: 'Code région'
+        data_type: text
       - name: last_bordereau_created_at_as_emitter
         description: ''
         data_type: timestamp without time zone
@@ -17,12 +20,24 @@ models:
       - name: processing_operations_as_transporter
         description: ''
         data_type: ARRAY
-      - name: processing_operations_as_destination
+      - name: processing_operations_as_destination_bsdd
         description: ''
         data_type: ARRAY
-      - name: siret
-        description: 'Code région'
-        data_type: text
+      - name: processing_operations_as_destination_bsdnd
+        description: ''
+        data_type: ARRAY
+      - name: processing_operations_as_destination_bsda
+        description: ''
+        data_type: ARRAY
+      - name: processing_operations_as_destination_bsff
+        description: ''
+        data_type: ARRAY
+      - name: processing_operations_as_destination_bsdasri
+        description: ''
+        data_type: ARRAY
+      - name: processing_operations_as_destination_bsvhu
+        description: ''
+        data_type: ARRAY
       - name: num_bsdd_as_emitter
         description: ''
         data_type: bigint
@@ -137,4 +152,84 @@ models:
       - name: total_mentions_bordereaux
         description: ''
         data_type: bigint
-sources: []
+      - name: num_dnd_statements_as_destination
+        description: ''
+        data_type: bigint
+      - name: quantity_dnd_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: volume_dnd_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: num_dnd_statements_as_emitter
+        description: ''
+        data_type: bigint
+      - name: quantity_dnd_statements_as_emitter
+        description: ''
+        data_type: numeric
+      - name: volume_dnd_statements_as_emitter
+        description: ''
+        data_type: numeric
+      - name: num_dnd_statements_as_transporteur
+        description: ''
+        data_type: bigint
+      - name: quantity_dnd_statements_as_transporteur
+        description: ''
+        data_type: numeric
+      - name: volume_dnd_statements_as_transporteur
+        description: ''
+        data_type: numeric
+      - name: num_texs_statements_as_destination
+        description: ''
+        data_type: bigint
+      - name: quantity_texs_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: volume_texs_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: num_texs_statements_as_emitter
+        description: ''
+        data_type: bigint
+      - name: quantity_texs_statements_as_emitter
+        description: ''
+        data_type: numeric
+      - name: volume_texs_statements_as_emitter
+        description: ''
+        data_type: numeric
+      - name: num_texs_statements_as_transporteur
+        description: ''
+        data_type: bigint
+      - name: quantity_texs_statements_as_transporteur
+        description: ''
+        data_type: numeric
+      - name: volume_texs_statements_as_transporteur
+        description: ''
+        data_type: numeric
+      - name: num_ssd_statements_as_destination
+        description: ''
+        data_type: bigint
+      - name: quantity_ssd_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: volume_ssd_statements_as_destination
+        description: ''
+        data_type: numeric
+      - name: dnd_processing_operations_as_destination
+        description: ''
+        data_type: ARRAY
+      - name: texs_processing_operations_as_destination
+        description: ''
+        data_type: ARRAY
+      - name: num_pnttd_statements_as_emitter
+        description: ''
+        data_type: bigint
+      - name: quantity_pnttd_as_emitter
+        description: ''
+        data_type: double precision
+      - name: num_pnttd_statements_as_destination
+        description: ''
+        data_type: bigint
+      - name: quantity_pnttd_as_destination
+        description: ''
+        data_type: double precision

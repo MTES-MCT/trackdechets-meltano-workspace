@@ -377,6 +377,18 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: quantityRefused
+            description: ''
+            data_type: numeric
+          - name: citerneNotWashedOutReason
+            description: ''
+            data_type: text
+          - name: hasCiterneBeenWashedOut
+            description: ''
+            data_type: boolean
+          - name: emptyReturnADR
+            description: ''
+            data_type: text
       - name: bsda_raw
         identifier: Bsda
         description: >
@@ -686,6 +698,9 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: canAccessDraftOrgIds
+            description: ''
+            data_type: ARRAY
       - name: bsdasri_raw
         identifier: Bsdasri
         config:
@@ -1172,6 +1187,9 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: transportersOrgIds
+            description: ''
+            data_type: ARRAY
       - name: bsvhu_raw
         identifier: Bsvhu
         description: >
@@ -1412,6 +1430,27 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: emitterIrregularSituation
+            description: ''
+            data_type: boolean
+          - name: emitterNoSiret
+            description: ''
+            data_type: boolean
+          - name: emitterCompanyCity
+            description: ''
+            data_type: text
+          - name: emitterCompanyCountry
+            description: ''
+            data_type: text
+          - name: emitterCompanyPostalCode
+            description: ''
+            data_type: text
+          - name: emitterCompanyStreet
+            description: ''
+            data_type: text
+          - name: intermediariesOrgIds
+            description: ''
+            data_type: ARRAY
       - name: user_raw
         identifier: User
         description: >
@@ -1622,6 +1661,18 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: allowAppendix1SignatureAutomation
+            description: ''
+            data_type: boolean
+          - name: featureFlags
+            description: ''
+            data_type: ARRAY
+          - name: wasteVehiclesTypes
+            description: ''
+            data_type: ARRAY
+          - name: isDormantSince
+            description: ''
+            data_type: timestamp without time zone
       - name: company_association_raw
         identifier: CompanyAssociation
         description: >
@@ -2162,6 +2213,78 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: initialBrokerCompanyAddress
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyContact
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyMail
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyName
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyPhone
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanySiret
+            description: ''
+            data_type: text
+          - name: initialBrokerRecepisseDepartment
+            description: ''
+            data_type: text
+          - name: initialBrokerRecepisseNumber
+            description: ''
+            data_type: text
+          - name: initialBrokerRecepisseValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: initialDestinationCap
+            description: ''
+            data_type: text
+          - name: initialDestinationOperationCode
+            description: ''
+            data_type: text
+          - name: initialDestinationOperationDescription
+            description: ''
+            data_type: text
+          - name: initialDestinationOperationMode
+            description: ''
+            data_type: text
+          - name: initialDestinationReceptionWeight
+            description: ''
+            data_type: numeric
+          - name: initialEmitterPickupSiteAddress
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteCity
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteInfos
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteName
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSitePostalCode
+            description: ''
+            data_type: text
+          - name: initialPackagings
+            description: ''
+            data_type: ARRAY
+          - name: initialWasteCode
+            description: ''
+            data_type: text
+          - name: initialWasteMaterialName
+            description: ''
+            data_type: text
+          - name: initialWastePop
+            description: ''
+            data_type: boolean
+          - name: initialWasteSealNumbers
+            description: ''
+            data_type: ARRAY
       - name: bsdd_revision_request_raw
         identifier: BsddRevisionRequest
         description: >
@@ -2315,6 +2438,120 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: quantityRefused
+            description: ''
+            data_type: numeric
+          - name: wasteAcceptationStatus
+            description: ''
+            data_type: text
+          - name: wasteRefusalReason
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyAddress
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyContact
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyMail
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyName
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanyPhone
+            description: ''
+            data_type: text
+          - name: initialBrokerCompanySiret
+            description: ''
+            data_type: text
+          - name: initialBrokerDepartment
+            description: ''
+            data_type: text
+          - name: initialBrokerReceipt
+            description: ''
+            data_type: text
+          - name: initialBrokerValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: initialDestinationOperationMode
+            description: ''
+            data_type: text
+          - name: initialProcessingOperationDescription
+            description: ''
+            data_type: text
+          - name: initialProcessingOperationDone
+            description: ''
+            data_type: text
+          - name: initialQuantityReceived
+            description: ''
+            data_type: numeric
+          - name: initialQuantityRefused
+            description: ''
+            data_type: numeric
+          - name: initialRecipientCap
+            description: ''
+            data_type: text
+          - name: initialTemporaryStorageDestinationCap
+            description: ''
+            data_type: text
+          - name: initialTemporaryStorageDestinationProcessingOperation
+            description: ''
+            data_type: text
+          - name: initialTemporaryStorageTemporaryStorerQuantityReceived
+            description: ''
+            data_type: numeric
+          - name: initialTraderCompanyAddress
+            description: ''
+            data_type: text
+          - name: initialTraderCompanyContact
+            description: ''
+            data_type: text
+          - name: initialTraderCompanyMail
+            description: ''
+            data_type: text
+          - name: initialTraderCompanyName
+            description: ''
+            data_type: text
+          - name: initialTraderCompanyPhone
+            description: ''
+            data_type: text
+          - name: initialTraderCompanySiret
+            description: ''
+            data_type: text
+          - name: initialTraderDepartment
+            description: ''
+            data_type: text
+          - name: initialTraderReceipt
+            description: ''
+            data_type: text
+          - name: initialTraderValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: initialWasteAcceptationStatus
+            description: ''
+            data_type: text
+          - name: initialWasteDetailsCode
+            description: ''
+            data_type: text
+          - name: initialWasteDetailsName
+            description: ''
+            data_type: text
+          - name: initialWasteDetailsPackagingInfos
+            description: ''
+            data_type: ARRAY
+          - name: initialWasteDetailsPop
+            description: ''
+            data_type: boolean
+          - name: initialWasteDetailsQuantity
+            description: ''
+            data_type: numeric
+          - name: initialWasteDetailsSampleNumber
+            description: ''
+            data_type: text
+          - name: initialWasteRefusalReason
+            description: ''
+            data_type: text
       - name: bsdd_transporter_raw
         identifier: BsddTransporter
         description: >
@@ -2743,3 +2980,33 @@ sources:
           - name: _sdc_sync_started_at
             description: ''
             data_type: bigint
+          - name: initialDestinationOperationCode
+            description: ''
+            data_type: text
+          - name: initialDestinationOperationMode
+            description: ''
+            data_type: text
+          - name: initialDestinationReceptionWasteWeightValue
+            description: ''
+            data_type: numeric
+          - name: initialDestinationWastePackagings
+            description: ''
+            data_type: ARRAY
+          - name: initialEmitterPickupSiteAddress
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteCity
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteInfos
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSiteName
+            description: ''
+            data_type: text
+          - name: initialEmitterPickupSitePostalCode
+            description: ''
+            data_type: text
+          - name: initialWasteCode
+            description: ''
+            data_type: text

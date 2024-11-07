@@ -1,0 +1,4 @@
+version: 2
+models:
+  - name: base_raw_zone_rndts_texs_entrant
+    columns: []

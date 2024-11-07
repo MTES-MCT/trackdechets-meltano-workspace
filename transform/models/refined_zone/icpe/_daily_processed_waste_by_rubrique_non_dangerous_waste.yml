@@ -4,7 +4,7 @@ models:
     columns:
       - name: siret
         description: ''
-        data_type: text
+        data_type: character varying
       - name: date_reception
         description: ''
         data_type: date

@@ -7,7 +7,7 @@ models:
         data_type: timestamp with time zone
       - name: code_operation
         description: ''
-        data_type: text
+        data_type: character varying
       - name: type_operation
         description: ''
         data_type: text

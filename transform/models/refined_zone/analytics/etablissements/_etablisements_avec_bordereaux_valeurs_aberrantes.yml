@@ -23,4 +23,3 @@ models:
       - name: num_bordereaux
         description: ''
         data_type: integer
-sources: []
