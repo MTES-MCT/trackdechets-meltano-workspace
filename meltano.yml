@@ -32,7 +32,7 @@ plugins:
   extractors:
   - name: tap-postgres
     variant: meltanolabs
-    pip_url: meltanolabs-tap-postgres==0.0.16
+    pip_url: meltanolabs-tap-postgres==0.0.8
   - name: tap-postgres--td-database
     inherit_from: tap-postgres
     config:
@@ -208,7 +208,7 @@ plugins:
   loaders:
   - name: target-postgres
     variant: meltanolabs
-    pip_url: meltanolabs-target-postgres==0.0.17
+    pip_url: meltanolabs-target-postgres==0.0.13
   - name: target-postgres--dwh
     inherit_from: target-postgres
     config:
