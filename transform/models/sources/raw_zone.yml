@@ -50,4 +50,68 @@ sources:
         description: >
           Une ligne par SIRET avec son adresse et ses coordonnées géopgraphiques calculées par la Base des Adresses Nationales.
         loader: Airflow
-        
+
+        columns:
+          - name: siret
+            description: ''
+            data_type: text
+          - name: adresse
+            description: ''
+            data_type: text
+          - name: code_commune_insee
+            description: ''
+            data_type: text
+          - name: latitude
+            description: ''
+            data_type: text
+          - name: longitude
+            description: ''
+            data_type: text
+          - name: result_label
+            description: ''
+            data_type: text
+          - name: result_score
+            description: ''
+            data_type: text
+          - name: result_score_next
+            description: ''
+            data_type: text
+          - name: result_type
+            description: ''
+            data_type: text
+          - name: result_id
+            description: ''
+            data_type: text
+          - name: result_housenumber
+            description: ''
+            data_type: text
+          - name: result_name
+            description: ''
+            data_type: text
+          - name: result_street
+            description: ''
+            data_type: text
+          - name: result_postcode
+            description: ''
+            data_type: text
+          - name: result_city
+            description: ''
+            data_type: text
+          - name: result_context
+            description: ''
+            data_type: text
+          - name: result_citycode
+            description: ''
+            data_type: text
+          - name: result_oldcitycode
+            description: ''
+            data_type: text
+          - name: result_oldcity
+            description: ''
+            data_type: text
+          - name: result_district
+            description: ''
+            data_type: text
+          - name: result_status
+            description: ''
+            data_type: text

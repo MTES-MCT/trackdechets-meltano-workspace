@@ -45,43 +45,53 @@ with "stats" as (
     from {{ ref('statistics_by_siret') }} as sbs
     where char_length(siret) = 14
 ),
+
 joined as (
-select
-    s.*,
-    c.company_types               as profils,
-    c.collector_types             as profils_collecteur,
-    c.waste_processor_types       as profils_installation,
-    se.code_commune_etablissement as code_commune_insee,
-    cgc.code_departement          as code_departement_insee,
-    cgc.code_region               as code_region_insee,
-    c.address                     as adresse_td,
-    c.latitude                    as latitude_td,
-    c.longitude                   as longitude_td,
-    cban.latitude as latitude_ban,
-    cban.longitude as longitude_ban,
-    ST_SetSRID(ST_Point( coalesce(c.latitude,cban.latitude), coalesce(c.longitude,cban.longitude)), 4326) as coords,
-    nullif(
-        coalesce(se.complement_adresse_etablissement || ' ', '')
-        || coalesce(se.numero_voie_etablissement || ' ', '')
-        || coalesce(se.indice_repetition_etablissement || ' ', '')
-        || coalesce(se.type_voie_etablissement || ' ', '')
-        || coalesce(se.libelle_voie_etablissement || ' ', '')
-        || coalesce(se.code_postal_etablissement || ' ', '')
-        || coalesce(se.libelle_commune_etablissement || ' ', '')
-        || coalesce(se.libelle_commune_etranger_etablissement || ' ', '')
-        || coalesce(se.distribution_speciale_etablissement, ''), ''
-    )                             as adresse_insee
-from "stats" as s
-left join {{ ref("stock_etablissement") }} as se on s.siret = se.siret
-left join {{ ref("company") }} as c on s.siret = c.siret
-left join
-    {{ ref("code_geo_communes") }} as cgc
-    on
-        se.code_commune_etablissement = cgc.code_commune
-        and cgc.type_commune != 'COMD'
-left join {{ ref("companies_geocoded_by_ban") }} cban on s.siret=cban.siret and cban.result_status='ok'
+    select
+        s.*,
+        c.company_types               as profils,
+        c.collector_types             as profils_collecteur,
+        c.waste_processor_types       as profils_installation,
+        se.code_commune_etablissement as code_commune_insee,
+        cgc.code_departement          as code_departement_insee,
+        cgc.code_region               as code_region_insee,
+        c.address                     as adresse_td,
+        c.latitude                    as latitude_td,
+        c.longitude                   as longitude_td,
+        cban.latitude                 as latitude_ban,
+        cban.longitude                as longitude_ban,
+        st_setsrid(
+            st_point(
+                coalesce(c.latitude, cban.latitude),
+                coalesce(c.longitude, cban.longitude)
+            ),
+            4326
+        )                             as coords,
+        nullif(
+            coalesce(se.complement_adresse_etablissement || ' ', '')
+            || coalesce(se.numero_voie_etablissement || ' ', '')
+            || coalesce(se.indice_repetition_etablissement || ' ', '')
+            || coalesce(se.type_voie_etablissement || ' ', '')
+            || coalesce(se.libelle_voie_etablissement || ' ', '')
+            || coalesce(se.code_postal_etablissement || ' ', '')
+            || coalesce(se.libelle_commune_etablissement || ' ', '')
+            || coalesce(se.libelle_commune_etranger_etablissement || ' ', '')
+            || coalesce(se.distribution_speciale_etablissement, ''), ''
+        )                             as adresse_insee
+    from "stats" as s
+    left join {{ ref("stock_etablissement") }} as se on s.siret = se.siret
+    left join {{ ref("company") }} as c on s.siret = c.siret
+    left join
+        {{ ref("code_geo_communes") }} as cgc
+        on
+            se.code_commune_etablissement = cgc.code_commune
+            and cgc.type_commune != 'COMD'
+    left join
+        {{ ref("companies_geocoded_by_ban") }} as cban
+        on s.siret = cban.siret and cban.result_status = 'ok'
 )
-select 
+
+select
     siret,
     profils,
     profils_collecteur,

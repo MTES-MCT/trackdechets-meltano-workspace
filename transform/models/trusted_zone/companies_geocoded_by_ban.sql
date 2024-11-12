@@ -11,8 +11,9 @@
 }}
 
 with source as (
-      select * from {{ source('raw_zone', 'companies_geocoded_by_ban') }}
+    select * from {{ source('raw_zone', 'companies_geocoded_by_ban') }}
 ),
+
 renamed as (
     select
         {{ adapter.quote("siret") }},
@@ -38,7 +39,8 @@ renamed as (
         {{ adapter.quote("result_status") }}
     from source
 )
-select 
+
+select
     siret,
     adresse,
     code_commune_insee,
