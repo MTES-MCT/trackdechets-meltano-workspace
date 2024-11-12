@@ -3,6 +3,7 @@
     materialized = 'table',
     indexes = [ {'columns': ['siret'],
     'unique': True },],
+    tags = ['fiche_etablissement']
     )
 }}
 
@@ -43,8 +44,8 @@ with "stats" as (
         sbs.num_pnttd_statements_as_destination > 0      as pnttd
     from {{ ref('statistics_by_siret') }} as sbs
     where char_length(siret) = 14
-)
-
+),
+joined as (
 select
     s.*,
     c.company_types               as profils,
@@ -56,6 +57,9 @@ select
     c.address                     as adresse_td,
     c.latitude                    as latitude_td,
     c.longitude                   as longitude_td,
+    cban.latitude as latitude_ban,
+    cban.longitude as longitude_ban,
+    ST_SetSRID(ST_Point( coalesce(c.latitude,cban.latitude), coalesce(c.longitude,cban.longitude)), 4326) as coords,
     nullif(
         coalesce(se.complement_adresse_etablissement || ' ', '')
         || coalesce(se.numero_voie_etablissement || ' ', '')
@@ -75,3 +79,39 @@ left join
     on
         se.code_commune_etablissement = cgc.code_commune
         and cgc.type_commune != 'COMD'
+left join {{ ref("companies_geocoded_by_ban") }} cban on s.siret=cban.siret and cban.result_status='ok'
+)
+select 
+    siret,
+    profils,
+    profils_collecteur,
+    profils_installation,
+    bsdd,
+    bsdnd,
+    bsda,
+    bsff,
+    bsdasri,
+    bsvhu,
+    dnd,
+    texs,
+    ssd,
+    pnttd,
+    processing_operations_bsdd,
+    processing_operations_bsdnd,
+    processing_operations_bsda,
+    processing_operations_bsff,
+    processing_operations_bsdasri,
+    processing_operations_bsvhu,
+    processing_operation_dnd,
+    processing_operation_texs,
+    code_commune_insee,
+    code_departement_insee,
+    code_region_insee,
+    adresse_td,
+    adresse_insee,
+    latitude_td,
+    longitude_td,
+    latitude_ban,
+    longitude_ban,
+    coords
+from joined

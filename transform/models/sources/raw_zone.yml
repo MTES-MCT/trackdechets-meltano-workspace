@@ -46,4 +46,8 @@ sources:
             tests:
               - not_null
               - unique
-
+      - name: companies_geocoded_by_ban
+        description: >
+          Une ligne par SIRET avec son adresse et ses coordonnées géopgraphiques calculées par la Base des Adresses Nationales.
+        loader: Airflow
+        
