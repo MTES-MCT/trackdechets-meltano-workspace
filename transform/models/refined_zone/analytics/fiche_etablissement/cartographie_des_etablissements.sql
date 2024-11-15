@@ -49,24 +49,27 @@ with "stats" as (
 joined as (
     select
         s.*,
-        c.company_types               as profils,
-        c.collector_types             as profils_collecteur,
-        c.waste_processor_types       as profils_installation,
-        se.code_commune_etablissement as code_commune_insee,
-        cgc.code_departement          as code_departement_insee,
-        cgc.code_region               as code_region_insee,
-        c.address                     as adresse_td,
-        c.latitude                    as latitude_td,
-        c.longitude                   as longitude_td,
-        cban.latitude                 as latitude_ban,
-        cban.longitude                as longitude_ban,
+        c.company_types                      as profils,
+        c.collector_types                    as profils_collecteur,
+        c.waste_processor_types              as profils_installation,
+        se.code_commune_etablissement        as code_commune_insee,
+        cgc.code_departement                 as code_departement_insee,
+        cgc.code_region                      as code_region_insee,
+        c.address                            as adresse_td,
+        c.latitude                           as latitude_td,
+        c.longitude                          as longitude_td,
+        cban.latitude                        as latitude_ban,
+        cban.longitude                       as longitude_ban,
+        et.num_texs_dd_as_emitter > 0
+        or et.num_texs_dd_as_transporter > 0
+        or et.num_texs_dd_as_destination > 0 as texs_dd,
         st_setsrid(
             st_point(
                 coalesce(c.latitude, cban.latitude),
                 coalesce(c.longitude, cban.longitude)
             ),
             4326
-        )                             as coords,
+        )                                    as coords,
         nullif(
             coalesce(se.complement_adresse_etablissement || ' ', '')
             || coalesce(se.numero_voie_etablissement || ' ', '')
@@ -77,8 +80,15 @@ joined as (
             || coalesce(se.libelle_commune_etablissement || ' ', '')
             || coalesce(se.libelle_commune_etranger_etablissement || ' ', '')
             || coalesce(se.distribution_speciale_etablissement, ''), ''
-        )                             as adresse_insee
+        )                                    as adresse_insee,
+        coalesce(
+            c.name, se.enseigne_1_etablissement,
+            se.enseigne_2_etablissement,
+            se.enseigne_3_etablissement,
+            se.denomination_usuelle_etablissement
+        )                                    as nom_etablissement
     from "stats" as s
+    left join {{ ref('etablissements_texs_dd') }} as et on s.siret = et.siret
     left join {{ ref("stock_etablissement") }} as se on s.siret = se.siret
     left join {{ ref("company") }} as c on s.siret = c.siret
     left join
@@ -93,6 +103,7 @@ joined as (
 
 select
     siret,
+    nom_etablissement,
     profils,
     profils_collecteur,
     profils_installation,
@@ -102,6 +113,7 @@ select
     bsff,
     bsdasri,
     bsvhu,
+    texs_dd,
     dnd,
     texs,
     ssd,

@@ -5,6 +5,9 @@ models:
       - name: siret
         description: 'Code région'
         data_type: text
+      - name: nom_etablissement
+        description: ''
+        data_type: text
       - name: profils
         description: ''
         data_type: ARRAY
@@ -30,6 +33,9 @@ models:
         description: ''
         data_type: boolean
       - name: bsvhu
+        description: ''
+        data_type: boolean
+      - name: texs_dd
         description: ''
         data_type: boolean
       - name: dnd
