@@ -26,6 +26,7 @@ tests:
   +store_failures: true
 flags:
   require_explicit_package_overrides_for_builtin_materializations: false
+  source_freshness_run_project_hooks: True
   send_anonymous_usage_stats: False
   use_colors: True
 vars:

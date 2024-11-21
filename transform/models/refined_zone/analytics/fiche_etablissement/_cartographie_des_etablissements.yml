@@ -1,22 +1,28 @@
 version: 2
 models:
   - name: cartographie_des_etablissements
+    config:
+        contract:
+          enforced: true
     columns:
       - name: siret
-        description: 'Code région'
+        constraints:
+          - type: not_null
+          - type: primary_key
+        description: "SIRET de l'etablissement"
         data_type: text
       - name: nom_etablissement
         description: ''
         data_type: text
       - name: profils
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: profils_collecteur
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: profils_installation
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: bsdd
         description: ''
         data_type: boolean
@@ -52,28 +58,28 @@ models:
         data_type: boolean
       - name: processing_operations_bsdd
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operations_bsdnd
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operations_bsda
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operations_bsff
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operations_bsdasri
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operations_bsvhu
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operation_dnd
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: processing_operation_texs
         description: ''
-        data_type: ARRAY
+        data_type: text[]
       - name: code_commune_insee
         description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.'
         data_type: character varying
@@ -103,4 +109,4 @@ models:
         data_type: double precision
       - name: coords
         description: ''
-        data_type: USER-DEFINED
+        data_type: geometry
