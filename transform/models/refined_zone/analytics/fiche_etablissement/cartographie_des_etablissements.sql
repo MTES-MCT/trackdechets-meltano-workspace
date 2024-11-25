@@ -73,8 +73,8 @@ joined as (
         or et.num_texs_dd_as_destination > 0 as texs_dd,
         st_setsrid(
             st_point(
-                coalesce(c.latitude, cban.latitude),
-                coalesce(c.longitude, cban.longitude)
+                coalesce(c.longitude, cban.longitude),
+                coalesce(c.latitude, cban.latitude)
             ),
             4326
         )                                    as coords,
