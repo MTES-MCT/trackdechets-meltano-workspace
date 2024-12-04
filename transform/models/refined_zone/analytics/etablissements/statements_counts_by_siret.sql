@@ -119,13 +119,13 @@ ssd_stats as (
         etablissement_numero_identification as siret,
         count(
             distinct id
-        )                                   as num_ssd_statements_as_destination,
+        )                                   as num_ssd_statements_as_emitter,
         sum(quantite) filter (
             where code_unite = 'T'
-        )                                   as quantity_ssd_statements_as_destination,
+        )                                   as quantity_ssd_statements_as_emitter,
         sum(quantite) filter (
             where code_unite = 'M3'
-        )                                   as volume_ssd_statements_as_destination
+        )                                   as volume_ssd_statements_as_emitter
     from {{ ref("sortie_statut_dechet") }}
     group by 1
 )
@@ -197,14 +197,14 @@ select
         volume_texs_statements_as_transporteur, 0
     ) as volume_texs_statements_as_transporteur,
     coalesce(
-        num_ssd_statements_as_destination, 0
-    ) as num_ssd_statements_as_destination,
+        num_ssd_statements_as_emitter, 0
+    ) as num_ssd_statements_as_emitter,
     coalesce(
-        quantity_ssd_statements_as_destination, 0
-    ) as quantity_ssd_statements_as_destination,
+        quantity_ssd_statements_as_emitter, 0
+    ) as quantity_ssd_statements_as_emitter,
     coalesce(
-        volume_ssd_statements_as_destination, 0
-    ) as volume_ssd_statements_as_destination
+        volume_ssd_statements_as_emitter, 0
+    ) as volume_ssd_statements_as_emitter
 from dnd_entrant_stats as dnd1
 full outer join dnd_sortant_stats as dnd2 on dnd1.siret = dnd2.siret
 full outer join

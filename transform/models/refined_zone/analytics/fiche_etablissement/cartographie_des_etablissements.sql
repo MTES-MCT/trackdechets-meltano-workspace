@@ -26,29 +26,51 @@ with "stats" as (
         sbs.processing_operations_as_destination_bsvhu   as processing_operations_bsvhu,
         dnd_processing_operations_as_destination         as processing_operation_dnd,
         texs_processing_operations_as_destination        as processing_operation_texs,
+        sbs.num_bsdd_as_emitter > 0 as bsdd_emitter,
+        sbs.num_bsdd_as_transporter > 0 as bsdd_transporter,
+        sbs.num_bsdd_as_destination > 0 as bsdd_destination,
         sbs.num_bsdd_as_emitter > 0
         or sbs.num_bsdd_as_transporter > 0
         or sbs.num_bsdd_as_destination > 0               as bsdd,
+        sbs.num_bsdnd_as_emitter > 0 as bsdnd_emitter,
+        sbs.num_bsdnd_as_transporter > 0 as bsdnd_transporter,
+        sbs.num_bsdnd_as_destination > 0 as bsdnd_destination,
         sbs.num_bsdnd_as_emitter > 0
         or sbs.num_bsdnd_as_transporter > 0
         or sbs.num_bsdnd_as_destination > 0              as bsdnd,
+        sbs.num_bsda_as_emitter > 0 as bsda_emitter,
+        sbs.num_bsda_as_transporter > 0 as bsda_transporter,
+        sbs.num_bsda_as_destination > 0 as bsda_destination,
         sbs.num_bsda_as_emitter > 0
         or sbs.num_bsda_as_transporter > 0
         or sbs.num_bsda_as_destination > 0               as bsda,
+        sbs.num_bsff_as_emitter > 0 as bsff_emitter,
+        sbs.num_bsff_as_transporter > 0 as bsff_transporter,
+        sbs.num_bsff_as_destination > 0 as bsff_destination,
         sbs.num_bsff_as_emitter > 0
         or sbs.num_bsff_as_transporter > 0
         or sbs.num_bsff_as_destination > 0               as bsff,
+        sbs.num_bsdasri_as_emitter > 0  as bsdasri_emitter,
+        sbs.num_bsdasri_as_transporter > 0  as bsdasri_transporter,
+        sbs.num_bsdasri_as_destination > 0  as bsdasri_destination,
         sbs.num_bsdasri_as_emitter > 0
         or sbs.num_bsdasri_as_transporter > 0
         or sbs.num_bsdasri_as_destination > 0            as bsdasri,
+        sbs.num_bsvhu_as_emitter > 0 as bsvhu_emitter,
+        sbs.num_bsvhu_as_transporter > 0 as bsvhu_transporter,
+        sbs.num_bsvhu_as_destination > 0 as bsvhu_destination,
         sbs.num_bsvhu_as_emitter > 0
         or sbs.num_bsvhu_as_transporter > 0
         or sbs.num_bsvhu_as_destination > 0              as bsvhu,
+        sbs.num_dnd_statements_as_emitter > 0  as dnd_emitter, 
+        sbs.num_texs_statements_as_destination > 0 dnd_destination,
         sbs.num_dnd_statements_as_destination > 0
         or sbs.num_dnd_statements_as_emitter > 0         as dnd,
+        sbs.num_texs_statements_as_destination > 0 texs_destination,
+        sbs.num_texs_statements_as_emitter > 0 texs_emitter,
         sbs.num_texs_statements_as_destination > 0
         or sbs.num_texs_statements_as_emitter > 0        as texs,
-        sbs.num_ssd_statements_as_destination > 0        as ssd,
+        sbs.num_ssd_statements_as_emitter > 0        as ssd,
         sbs.num_pnttd_statements_as_destination > 0      as pnttd
     from {{ ref('statistics_by_siret') }} as sbs
     where char_length(siret) = 14
@@ -68,6 +90,9 @@ joined as (
         c.longitude                          as longitude_td,
         cban.latitude                        as latitude_ban,
         cban.longitude                       as longitude_ban,
+        et.num_texs_dd_as_emitter >0 as texs_dd_emitter,
+        et.num_texs_dd_as_transporter >0 as texs_dd_transporter,
+        et.num_texs_dd_as_destination >0 as texs_dd_destination,
         et.num_texs_dd_as_emitter > 0
         or et.num_texs_dd_as_transporter > 0
         or et.num_texs_dd_as_destination > 0 as texs_dd,
@@ -116,14 +141,39 @@ select
     profils_collecteur,
     profils_installation,
     bsdd,
+    bsdd_emitter,
+    bsdd_transporter,
+    bsdd_destination,
     bsdnd,
+    bsdnd_emitter,
+    bsdnd_transporter,
+    bsdnd_destination,
     bsda,
+    bsda_emitter,
+    bsda_transporter,
+    bsda_destination,
     bsff,
+    bsff_emitter,
+    bsff_transporter,
+    bsff_destination,
     bsdasri,
+    bsdasri_emitter,
+    bsdasri_transporter,
+    bsdasri_destination,
     bsvhu,
+    bsvhu_emitter,
+    bsvhu_transporter,
+    bsvhu_destination,
     texs_dd,
+    texs_dd_emitter,
+    texs_dd_transporter,
+    texs_dd_destination,
     dnd,
+    dnd_emitter,
+    dnd_destination,
     texs,
+    texs_destination,
+    texs_emitter,
     ssd,
     pnttd,
     processing_operations_bsdd,

@@ -1,6 +1,7 @@
 {{
   config(
-    materialized = 'table',
+    materialized = 'incremental',
+    unique_key='id',
     indexes = [ 
         {'columns': ['id'] , 'unique': True },
         {'columns': ['created_at'] },
@@ -16,7 +17,14 @@
     )
 }}
 
-
+with filtered_data as (
+    select
+        *
+    from {{ ref('bsdd_transporter') }} bt
+    {% if is_incremental() %}
+      where bt.updated_at >= (select max(updated_at) from {{ this }})
+    {% endif %}
+)
 select
     bt.*,
     b.created_at as bordereau_created_at,
@@ -28,5 +36,5 @@ select
     b.waste_details_pop,
     b.quantity_received,
     b.processing_operation_done
-from {{ ref('bsdd_transporter') }} as bt
+from filtered_data as bt
 left join {{ ref('bsdd') }} as b on bt.form_id = b.id

@@ -26,28 +26,103 @@ models:
       - name: bsdd
         description: ''
         data_type: boolean
+      - name: bsdd_emitter
+        description: ''
+        data_type: boolean
+      - name: bsdd_transporter
+        description: ''
+        data_type: boolean
+      - name: bsdd_destination
+        description: ''
+        data_type: boolean
       - name: bsdnd
+        description: ''
+        data_type: boolean
+      - name: bsdnd_emitter
+        description: ''
+        data_type: boolean
+      - name: bsdnd_transporter
+        description: ''
+        data_type: boolean
+      - name: bsdnd_destination
         description: ''
         data_type: boolean
       - name: bsda
         description: ''
         data_type: boolean
+      - name: bsda_emitter
+        description: ''
+        data_type: boolean
+      - name: bsda_transporter
+        description: ''
+        data_type: boolean
+      - name: bsda_destination
+        description: ''
+        data_type: boolean        
       - name: bsff
+        description: ''
+        data_type: boolean
+      - name: bsff_emitter
+        description: ''
+        data_type: boolean
+      - name: bsff_transporter
+        description: ''
+        data_type: boolean
+      - name: bsff_destination
         description: ''
         data_type: boolean
       - name: bsdasri
         description: ''
         data_type: boolean
+      - name: bsdasri_emitter
+        description: ''
+        data_type: boolean
+      - name: bsdasri_transporter
+        description: ''
+        data_type: boolean
+      - name: bsdasri_destination
+        description: ''
+        data_type: boolean
       - name: bsvhu
+        description: ''
+        data_type: boolean
+      - name: bsvhu_emitter
+        description: ''
+        data_type: boolean
+      - name: bsvhu_transporter
+        description: ''
+        data_type: boolean
+      - name: bsvhu_destination
         description: ''
         data_type: boolean
       - name: texs_dd
         description: ''
         data_type: boolean
+      - name: texs_dd_emitter
+        description: ''
+        data_type: boolean
+      - name: texs_dd_transporter
+        description: ''
+        data_type: boolean
+      - name: texs_dd_destination
+        description: ''
+        data_type: boolean
       - name: dnd
         description: ''
         data_type: boolean
+      - name: dnd_emitter
+        description: ''
+        data_type: boolean
+      - name: dnd_destination
+        description: ''
+        data_type: boolean
       - name: texs
+        description: ''
+        data_type: boolean
+      - name: texs_emitter
+        description: ''
+        data_type: boolean
+      - name: texs_destination
         description: ''
         data_type: boolean
       - name: ssd

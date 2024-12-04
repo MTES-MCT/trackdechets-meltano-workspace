@@ -1,0 +1,37 @@
+version: 2
+models:
+  - name: liste_des_installations
+    columns:
+      - name: siret
+        description: 'Code région'
+        data_type: text
+      - name: nom_etablissement
+        description: ''
+        data_type: text
+      - name: adresse
+        description: ''
+        data_type: text
+      - name: code_commune
+        description: ''
+        data_type: character varying
+      - name: code_departement
+        description: ''
+        data_type: character varying
+      - name: present_td
+        description: ''
+        data_type: boolean
+      - name: present_gun
+        description: ''
+        data_type: boolean
+      - name: codes_operation
+        description: ''
+        data_type: ARRAY
+      - name: types_bordereaux
+        description: ''
+        data_type: ARRAY
+      - name: codes_aiot
+        description: ''
+        data_type: ARRAY
+      - name: rubriques
+        description: ''
+        data_type: ARRAY
