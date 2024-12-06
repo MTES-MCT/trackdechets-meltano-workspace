@@ -18,13 +18,13 @@
 }}
 
 with filtered_data as (
-    select
-        *
-    from {{ ref('bsdd_transporter') }} bt
+    select *
+    from {{ ref('bsdd_transporter') }} as bt
     {% if is_incremental() %}
-      where bt.updated_at >= (select max(updated_at) from {{ this }})
+        where bt.updated_at >= (select max(updated_at) from {{ this }})
     {% endif %}
 )
+
 select
     bt.*,
     b.created_at as bordereau_created_at,

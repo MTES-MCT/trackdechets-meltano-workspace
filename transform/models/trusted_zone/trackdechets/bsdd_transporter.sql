@@ -9,7 +9,7 @@ with source as (
 renamed as (
     select
         id,
-        "number",
+        number,
         "transporterCompanySiret"          as transporter_company_siret,
         "transporterCompanyName"           as transporter_company_name,
         "transporterCompanyAddress"        as transporter_company_address,
@@ -39,7 +39,7 @@ renamed as (
 
 select
     id,
-    "number",
+    number,
     transporter_company_siret,
     transporter_company_name,
     transporter_company_address,

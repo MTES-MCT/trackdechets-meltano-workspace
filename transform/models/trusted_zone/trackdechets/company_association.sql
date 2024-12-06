@@ -17,7 +17,7 @@ with source as (
 renamed as (
     select
         id,
-        "role",
+        role,
         "companyId"             as company_id,
         "userId"                as user_id,
         "createdAt"             as created_at,
@@ -29,7 +29,7 @@ renamed as (
 
 select
     id,
-    "role",
+    role,
     company_id,
     user_id,
     created_at,

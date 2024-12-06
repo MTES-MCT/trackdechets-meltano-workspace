@@ -18,7 +18,7 @@ renamed as (
     select
         id,
         siret,
-        "name",
+        name,
         address,
         "handleBsdasri" as handle_bsdasri
     from
@@ -29,7 +29,7 @@ renamed as (
 select
     id,
     siret,
-    "name",
+    name,
     address,
     handle_bsdasri
 from renamed

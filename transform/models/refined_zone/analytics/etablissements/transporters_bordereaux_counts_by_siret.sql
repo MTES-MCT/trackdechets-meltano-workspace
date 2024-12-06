@@ -8,7 +8,7 @@
 
 with bsdd_transporter_counts as (
     select
-        transporter_company_siret as "siret",
+        transporter_company_siret as siret,
         COUNT(id) filter (
             where {{ dangerous_waste_filter('bsdd') }}
         )                         as num_bsdd_as_transporter,
@@ -37,7 +37,7 @@ with bsdd_transporter_counts as (
 
 bsda_transporter_counts as (
     select
-        transporter_company_siret as "siret",
+        transporter_company_siret as siret,
         COUNT(
             id
         )                         as num_bsda_as_transporter,
@@ -58,7 +58,7 @@ bsda_transporter_counts as (
 
 bsff_transporter_counts as (
     select
-        transporter_company_siret as "siret",
+        transporter_company_siret as siret,
         COUNT(id)                 as num_bsff_as_transporter,
         SUM(acceptation_weight)   as quantity_bsff_as_transporter,
         MAX(
@@ -76,7 +76,7 @@ bsff_transporter_counts as (
 
 transporter_counts_legacy as (
     select
-        transporter_company_siret as "siret",
+        transporter_company_siret as siret,
         COUNT(id) filter (
             where
             _bs_type = 'BSDASRI'

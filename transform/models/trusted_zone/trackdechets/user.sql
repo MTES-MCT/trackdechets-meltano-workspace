@@ -17,7 +17,7 @@ renamed as (
     select
         id,
         email,
-        "name",
+        name,
         phone,
         "createdAt"            as created_at,
         "updatedAt"            as updated_at,
@@ -35,7 +35,7 @@ renamed as (
 select
     id,
     email,
-    "name",
+    name,
     phone,
     created_at,
     updated_at,

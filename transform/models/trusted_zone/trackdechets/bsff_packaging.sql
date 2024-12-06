@@ -42,7 +42,7 @@ renamed as (
         "operationNextDestinationCompanyVatNumber" as operation_next_destination_company_vat_number,
         "nextPackagingId"                          as next_packaging_id,
         other,
-        "type"                                     as type,
+        type,
         "emissionNumero"                           as emission_numero,
         "operationMode"                            as operation_mode,
         volume

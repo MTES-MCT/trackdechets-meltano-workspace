@@ -13,13 +13,13 @@ with bs_data as (
         worker_company_siret,
         readable_id,
         quantity_received,
-        "_bs_type",
+        _bs_type,
         received_at
     from
         {{ ref('bordereaux_enriched') }}
     where
         (
-            "_bs_type" in ('BSDD', 'BSDA')
+            _bs_type in ('BSDD', 'BSDA')
             and quantity_received > 40
             and transport_mode = 'ROAD'
         )
@@ -36,7 +36,7 @@ recipients_data as (
             'quantity',
             quantity_received,
             'bordereau_type',
-            "_bs_type",
+            _bs_type,
             'received_at',
             received_at
         ))                        as bs_data_json
@@ -56,7 +56,7 @@ emitters_data as (
             'quantity',
             quantity_received,
             'bordereau_type',
-            "_bs_type",
+            _bs_type,
             'received_at',
             received_at
         ))                    as bs_data_json
@@ -76,7 +76,7 @@ workers_company_data as (
             'quantity',
             quantity_received,
             'bordereau_type',
-            "_bs_type",
+            _bs_type,
             'received_at',
             received_at
         ))                      as bs_data_json
@@ -96,7 +96,7 @@ eo_data as (
             'quantity',
             quantity_received,
             'bordereau_type',
-            "_bs_type",
+            _bs_type,
             'received_at',
             received_at
         ))                  as bs_data_json

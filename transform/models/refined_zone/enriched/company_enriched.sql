@@ -30,9 +30,9 @@ select
     c.*,
     naf.*,
     etabs.etat_administratif_etablissement,
-    communes.code_commune     as "code_commune_insee",
-    communes.code_departement as "code_departement_insee",
-    communes.code_region      as "code_region_insee"
+    communes.code_commune     as code_commune_insee,
+    communes.code_departement as code_departement_insee,
+    communes.code_region      as code_region_insee
 from
     {{ ref('company') }} as c
 left join

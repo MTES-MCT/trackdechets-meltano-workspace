@@ -23,7 +23,7 @@ renamed as (
         "updatedAt"                       as updated_at,
         "bsdaId"                          as bsda_id,
         "authoringCompanyId"              as authoring_company_id,
-        "comment",
+        comment,
         status,
         "wasteCode"                       as waste_code,
         "wastePop"                        as waste_pop,

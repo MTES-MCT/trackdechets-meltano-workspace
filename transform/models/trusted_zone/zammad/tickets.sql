@@ -3,7 +3,7 @@
 ) }}
 SELECT
     id,
-    "number",
+    number,
     created_at,
     created_by_id,
     updated_at,
@@ -37,7 +37,7 @@ SELECT
     state_id,
     ticket_time_accounting_ids,
     time_unit,
-    "type",
+    type,
     update_diff_in_min,
     update_escalation_at,
     update_in_min

@@ -20,7 +20,7 @@ with rubriques_data as (
         coalesce(
             ir.code_insee,
             se.code_commune_etablissement
-        ) as "code_commune_insee"
+        ) as code_commune_insee
     from
         {{ ref('installations_rubriques') }} as ir
     left join {{ ref('stock_etablissement') }} as se

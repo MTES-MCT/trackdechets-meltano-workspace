@@ -23,7 +23,7 @@ renamed as (
         "updatedAt"                                       as updated_at,
         "bsddId"                                          as bsdd_id,
         "authoringCompanyId"                              as authoring_company_id,
-        "comment",
+        comment,
         status,
         "recipientCap"                                    as recipient_cap,
         "wasteDetailsCode"                                as waste_details_code,

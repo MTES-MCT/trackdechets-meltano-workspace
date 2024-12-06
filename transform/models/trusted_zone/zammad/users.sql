@@ -32,7 +32,7 @@ SELECT
     out_of_office_start_at,
     phone,
     role_ids,
-    "source",
+    source,
     street,
     vip,
     web,

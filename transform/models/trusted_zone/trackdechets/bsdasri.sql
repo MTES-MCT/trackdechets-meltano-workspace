@@ -82,7 +82,7 @@ renamed as (
         "operationSignatoryId"                   as operation_signatory_id,
         "groupedInId"                            as grouped_in_id,
         "transporterTransportMode"               as transporter_transport_mode,
-        "type"                                   as type,
+        type,
         "emitterWasteWeightIsEstimate"           as emitter_waste_weight_is_estimate,
         "transporterWasteWeightIsEstimate"       as transporter_waste_weight_is_estimate,
         "ecoOrganismeName"                       as eco_organisme_name,

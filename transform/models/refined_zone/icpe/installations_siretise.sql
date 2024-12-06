@@ -48,10 +48,10 @@ select
     i.regime,
     i.longitude,
     i.latitude,
-    i."adresse1",
-    i."adresse2",
+    i.adresse1,
+    i.adresse2,
     i.code_postal,
-    i."commune",
+    i.commune,
     i.code_insee,
     coalesce(mm.siret_td, i.num_siret, gt.siret, gp.siret) as siret
 from

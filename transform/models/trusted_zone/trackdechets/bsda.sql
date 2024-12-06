@@ -25,7 +25,7 @@ renamed as (
         "isDraft"                                             as is_draft,
         "isDeleted"                                           as is_deleted,
         status,
-        "type",
+        type,
         "emitterIsPrivateIndividual"                          as emitter_is_private_individual,
         "emitterCompanyName"                                  as emitter_company_name,
         "emitterCompanySiret"                                 as emitter_company_siret,

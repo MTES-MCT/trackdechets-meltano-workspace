@@ -11,7 +11,7 @@ renamed as (
         id,
         "createdAt"                           as created_at,
         "updatedAt"                           as updated_at,
-        "number"                              as number,
+        number,
         "bsdaId"                              as bsda_id,
         "transporterCompanySiret"             as transporter_company_siret,
         "transporterCompanyName"              as transporter_company_name,

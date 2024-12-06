@@ -8,7 +8,7 @@
 with hardcoded_eo as (
     select
         *,
-        1 as "dans_table_eo"
+        1 as dans_table_eo
     from
         {{ ref('eco_organisme') }}
 ),
@@ -24,9 +24,9 @@ eo_agrees as (
 
 companies_eo as (
     select
-        id,
-        siret,
-        name,
+        c.id,
+        c.siret,
+        c.name,
         case
             when
                 array_length(c.eco_organisme_agreements, 1) != 0 then 1
@@ -34,22 +34,22 @@ companies_eo as (
         end as "a_entré_un_agrément_eo",
         case
             when
-                'ECO_ORGANISME' = any(company_types) then 1
+                'ECO_ORGANISME' = any(c.company_types) then 1
             else 0
-        end as "a_choisi_profil_eo"
+        end as a_choisi_profil_eo
     from
         {{ ref('company') }} as c
     where
         array_length(c.eco_organisme_agreements, 1) != 0
-        or 'ECO_ORGANISME' = any(company_types)
+        or 'ECO_ORGANISME' = any(c.company_types)
 ),
 
 bsdd_eo as (
     select distinct on
-    (eco_organisme_siret)
-        eco_organisme_siret as siret,
-        eco_organisme_name  as name,
-        1                   as "visé_dans_bsdd"
+    (b.eco_organisme_siret)
+        b.eco_organisme_siret as siret,
+        b.eco_organisme_name  as name,
+        1                     as "visé_dans_bsdd"
     from
         {{ ref('bsdd') }} as b
     where
@@ -58,10 +58,10 @@ bsdd_eo as (
 
 bsda_eo as (
     select distinct on
-    (eco_organisme_siret)
-        eco_organisme_siret as siret,
-        eco_organisme_name  as name,
-        1                   as "visé_dans_bsda"
+    (b2.eco_organisme_siret)
+        b2.eco_organisme_siret as siret,
+        b2.eco_organisme_name  as name,
+        1                      as "visé_dans_bsda"
     from
         {{ ref('bsda') }} as b2
     where
@@ -70,10 +70,10 @@ bsda_eo as (
 
 bsdasri_eo as (
     select distinct on
-    (eco_organisme_siret)
-        eco_organisme_siret as siret,
-        eco_organisme_name  as name,
-        1                   as "visé_dans_bsdasri"
+    (b3.eco_organisme_siret)
+        b3.eco_organisme_siret as siret,
+        b3.eco_organisme_name  as name,
+        1                      as "visé_dans_bsdasri"
     from
         {{ ref('bsdasri') }} as b3
     where
@@ -84,10 +84,10 @@ grouped as (
     select
         max(
             case when companies_eo.siret is null then 0 else 1 end
-        )::bool as "inscrit_sur_td",
+        )::bool as inscrit_sur_td,
         max(
             case when eo_agrees.siret is null then 0 else 1 end
-        )::bool as "eco_organisme_agree",
+        )::bool as eco_organisme_agree,
         max(
             coalesce(hardcoded_eo.dans_table_eo, 0)
         )::bool as dans_table_eo,
@@ -95,8 +95,8 @@ grouped as (
             coalesce(companies_eo."a_entré_un_agrément_eo", 0)
         )::bool as "a_entré_un_agrément_eo",
         max(
-            coalesce(companies_eo."a_choisi_profil_eo", 0)
-        )::bool as "a_choisi_profil_eo",
+            coalesce(companies_eo.a_choisi_profil_eo, 0)
+        )::bool as a_choisi_profil_eo,
         max(
             coalesce(bsdd_eo."visé_dans_bsdd", 0)
         )::bool as "visé_dans_bsdd",
@@ -160,13 +160,13 @@ grouped as (
 admins as (
     select
         c2.siret,
-        u2."name" as nom_contact,
-        u2.email  as email_contact,
+        u2.name  as nom_contact,
+        u2.email as email_contact,
         row_number() over (
             partition by (c2.siret)
             order by
                 u2.created_at desc
-        )         as rn
+        )        as rn
     from
         {{ ref('company') }} as c2
     left join
@@ -178,13 +178,13 @@ admins as (
         on
             ca2.user_id = u2.id
     where
-        ca2."role" = 'ADMIN'
+        ca2.role = 'ADMIN'
 )
 
 select
     grouped.*,
-    admins.nom_contact   as "admin_name",
-    admins.email_contact as "admin_email"
+    admins.nom_contact   as admin_name,
+    admins.email_contact as admin_email
 from
     grouped
 left join
