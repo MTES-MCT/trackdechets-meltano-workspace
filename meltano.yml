@@ -274,6 +274,9 @@ plugins:
         default$default-BsffTransporter:
           transporterTransportTakenOverAt: str(transporterTransportTakenOverAt) if
             transporterTransportTakenOverAt is not None else transporterTransportTakenOverAt
+        default$default-BsdaRevisionRequest:
+          initialBrokerRecepisseValidityLimit: str(initialBrokerRecepisseValidityLimit) if
+            initialBrokerRecepisseValidityLimit is not None else initialBrokerRecepisseValidityLimit
 
   - name: target-postgres--dwh-gerico
     inherit_from: target-postgres--dwh

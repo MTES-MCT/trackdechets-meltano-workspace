@@ -82,7 +82,16 @@ renamed as (
                 ''
             ),
             ','
-        )                                      as waste_processor_types
+        )                                      as waste_processor_types,
+        string_to_array(
+            replace(
+                array_to_string("wasteVehiclesTypes", ','),
+                '"',
+                ''
+            ),
+            ','
+        )                                      as waste_vehicles_types,
+        "isDormantSince" as is_dormant_since
     from
         source
     where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
@@ -123,5 +132,7 @@ select
     worker_certification_id,
     org_id,
     collector_types,
-    waste_processor_types
+    waste_processor_types,
+    waste_vehicles_types,
+    is_dormant_since
 from renamed
