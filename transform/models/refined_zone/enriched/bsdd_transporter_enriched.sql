@@ -12,7 +12,8 @@
         { 'columns' :['eco_organisme_siret'] },
         { 'columns' :['waste_details_code'] },
         { 'columns' :['waste_details_is_dangerous']},
-        { 'columns' :['waste_details_pop']}
+        { 'columns' :['waste_details_pop']},
+        { 'columns' :['form_id']}
     ]
     )
 }}
@@ -35,6 +36,7 @@ select
     b.waste_details_is_dangerous,
     b.waste_details_pop,
     b.quantity_received,
+    b.quantity_refused,
     b.processing_operation_done
 from filtered_data as bt
 left join {{ ref('bsdd') }} as b on bt.form_id = b.id
