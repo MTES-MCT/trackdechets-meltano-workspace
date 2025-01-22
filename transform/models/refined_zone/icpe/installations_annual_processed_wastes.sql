@@ -18,15 +18,12 @@ with installations as (
         array_agg(distinct code_aiot)           as codes_aiot,
         sum(quantite_totale)                    as quantite_autorisee
     from
-        {{ ref('installations_rubriques') }}
+        {{ ref('installations_rubriques_2024') }}
     where
         siret is not null
         and (
             rubrique in ('2770', '2790')
-            or (
-                rubrique = '2760'
-                and alinea = '1'
-            )
+            or rubrique like '2760-1%'
         )
     group by
         siret, rubrique || coalesce('-' || alinea, '')

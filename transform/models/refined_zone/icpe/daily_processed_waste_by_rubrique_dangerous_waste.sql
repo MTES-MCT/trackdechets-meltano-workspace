@@ -33,7 +33,7 @@ wastes as (
             'day',
             b.processed_at
         )                           as day_of_processing,
-        sum(b.quantity_received)    as quantite_traitee
+        sum(b.quantity_received) - coalesce(sum(b.quantity_refused),0)    as quantite_traitee
     from
         {{ ref('bordereaux_enriched') }} as b
     where

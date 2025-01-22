@@ -40,15 +40,12 @@ agg_data as (
         max(b.quantity_bsda)      as quantite_bsda_traitee_en_d5,
         case
             when count(ir.siret) = 0 then 'Pas de données ICPE'
-            when '2760-1' = any(array_agg(ir.rubrique || coalesce(
-                '-' || ir.alinea,
-                ''
-            ))) then 'Rubrique 2760-1'
+            when '2760-1' = any(array_agg(ir.rubrique))) then 'Rubrique 2760-1'
             else 'Données ICPE mais pas de rubrique 2760-1'
         end                       as statut_icpe
     from
         bordereaux_data as b
-    left join {{ ref('installations_rubriques') }} as ir
+    left join {{ ref('installations_rubriques_2024') }} as ir
         on
             b.destination_company_siret = ir.siret
     group by

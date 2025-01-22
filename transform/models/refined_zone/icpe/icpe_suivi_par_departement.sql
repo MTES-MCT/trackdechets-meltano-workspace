@@ -22,7 +22,7 @@ with rubriques_data as (
             se.code_commune_etablissement
         ) as code_commune_insee
     from
-        {{ ref('installations_rubriques') }} as ir
+        {{ ref('installations_rubriques_2024') }} as ir
     left join {{ ref('stock_etablissement') }} as se
         on
             ir.siret = se.siret
@@ -34,11 +34,9 @@ with rubriques_data as (
             ) = cgc.code_commune
     where
         (
-            rubrique = '2770'
-            or (
-                rubrique = '2760'
-                and alinea = '1'
-            )
+            rubrique like '2770%'
+            or rubrique like '2760-1%'
+            
         )
         and ir.siret is not null
         and coalesce(
