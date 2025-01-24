@@ -1,14 +1,15 @@
 {{
   config(
     materialized = 'table',
-    indexes=[{"columns":["siret"]},{"columns":["rubrique"]}]
+    indexes=[{"columns":["siret"]},{"columns":["rubrique"]}],
+    enabled=false
     )
 }}
 
 with installations as (
     select
         siret,
-        rubrique || coalesce('-' || alinea, '') as rubrique,
+        rubrique,
         max(raison_sociale)                     as raison_sociale,
         avg(longitude)                          as longitude,
         avg(latitude)                           as latitude,
@@ -26,7 +27,7 @@ with installations as (
             or rubrique like '2760-1%'
         )
     group by
-        siret, rubrique || coalesce('-' || alinea, '')
+        siret, rubrique
 ),
 
 wastes as (

@@ -10,28 +10,18 @@ with rubriques_data as (
         ir.code_aiot,
         ir.siret,
         ir.quantite_totale,
-        ir.etat_activite,
+        ir.libelle_etat_site,
         cgc.code_departement,
         cgc.code_region,
-        ir.rubrique || coalesce(
-            '-' || ir.alinea,
-            ''
-        ) as rubrique,
-        coalesce(
-            ir.code_insee,
-            se.code_commune_etablissement
-        ) as code_commune_insee
+        ir.rubrique,
+        se.code_commune_etablissement as code_commune_insee
     from
         {{ ref('installations_rubriques_2024') }} as ir
     left join {{ ref('stock_etablissement') }} as se
         on
             ir.siret = se.siret
     left join {{ ref('code_geo_communes') }} as cgc
-        on
-            coalesce(
-                code_insee,
-                se.code_commune_etablissement
-            ) = cgc.code_commune
+        on se.code_commune_etablissement = cgc.code_commune
     where
         (
             rubrique like '2770%'
@@ -39,10 +29,7 @@ with rubriques_data as (
             
         )
         and ir.siret is not null
-        and coalesce(
-            code_insee,
-            se.code_commune_etablissement
-        ) is not null
+        and se.code_commune_etablissement is not null
 ),
 
 wastes_data as (

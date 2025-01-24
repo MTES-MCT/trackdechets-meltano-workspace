@@ -8,10 +8,7 @@
 with installations as (
     select
         siret,
-        rubrique || coalesce(
-            '-' || alinea,
-            ''
-        )                             as rubrique,
+        rubrique               as rubrique,
         max(raison_sociale)           as raison_sociale,
         array_agg(distinct code_aiot) as codes_aiot,
         sum(quantite_totale)          as quantite_autorisee
@@ -22,10 +19,7 @@ with installations as (
         and rubrique = '2718-1'
     group by
         siret,
-        rubrique || coalesce(
-            '-' || alinea,
-            ''
-        )
+        rubrique
 ),
 
 incoming_wastes as (
