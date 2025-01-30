@@ -40,7 +40,7 @@ agg_data as (
         max(b.quantity_bsda)      as quantite_bsda_traitee_en_d5,
         case
             when count(ir.siret) = 0 then 'Pas de données ICPE'
-            when '2760-1' = any(array_agg(ir.rubrique))) then 'Rubrique 2760-1'
+            when '2760-1' = any(array_agg(ir.rubrique)) then 'Rubrique 2760-1'
             else 'Données ICPE mais pas de rubrique 2760-1'
         end                       as statut_icpe
     from

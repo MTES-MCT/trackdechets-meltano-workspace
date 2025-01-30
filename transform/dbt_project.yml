@@ -42,6 +42,7 @@ vars:
 models:
   trackdechets_data_platform:
     +dbt-osmosis: "_{model}.yml"
+
     refined_zone:
       analytics:
         +materialized: view
@@ -50,7 +51,6 @@ models:
           +materialized: table
         etablissements_par_departements:
           +materialized: table
-
       icpe:
         +schema: refined_zone_icpe
         gerep:
@@ -61,15 +61,14 @@ models:
           +materialized: table
         reconciliation_exutoires_georisques_td:
           +materialized: table
-
       enriched:
         +schema: refined_zone_enriched
-
       stats_publiques:
         +schema: refined_zone_stats_publiques
-
       gistrid:
         +schema: refined_zone_gistrid
+      observatoires:
+        +schema: refined_zone_observatoires
 
     trusted_zone:
       +schema: trusted_zone

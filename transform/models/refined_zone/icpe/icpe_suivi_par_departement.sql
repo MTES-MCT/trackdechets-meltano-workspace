@@ -26,7 +26,7 @@ with rubriques_data as (
         (
             rubrique like '2770%'
             or rubrique like '2760-1%'
-            
+
         )
         and ir.siret is not null
         and se.code_commune_etablissement is not null

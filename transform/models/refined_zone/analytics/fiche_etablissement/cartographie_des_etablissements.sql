@@ -82,7 +82,7 @@ joined as (
         c.company_types                      as profils,
         c.collector_types                    as profils_collecteur,
         c.waste_processor_types              as profils_installation,
-        c.waste_vehicles_types as profils_installation_traitement_vhu,
+        c.waste_vehicles_types               as profils_installation_traitement_vhu,
         se.code_commune_etablissement        as code_commune_insee,
         cgc.code_departement                 as code_departement_insee,
         cgc.code_region                      as code_region_insee,

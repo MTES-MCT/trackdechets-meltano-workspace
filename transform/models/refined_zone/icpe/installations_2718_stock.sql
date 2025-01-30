@@ -8,7 +8,7 @@
 with installations as (
     select
         siret,
-        rubrique               as rubrique,
+        rubrique,
         max(raison_sociale)           as raison_sociale,
         array_agg(distinct code_aiot) as codes_aiot,
         sum(quantite_totale)          as quantite_autorisee

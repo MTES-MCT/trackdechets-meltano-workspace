@@ -51,6 +51,7 @@ renamed as (
         "codeDepartement"                      as code_departement,
         "workerCertificationId"                as worker_certification_id,
         "orgId"                                as org_id,
+        "isDormantSince"                       as is_dormant_since,
         string_to_array(
             replace(
                 array_to_string("ecoOrganismeAgreements", ','),
@@ -90,8 +91,7 @@ renamed as (
                 ''
             ),
             ','
-        )                                      as waste_vehicles_types,
-        "isDormantSince" as is_dormant_since
+        )                                      as waste_vehicles_types
     from
         source
     where _sdc_sync_started_at >= (select max(_sdc_sync_started_at) from source)
