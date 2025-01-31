@@ -1,5 +1,5 @@
 {{ config(
-    materialized = 'incremental',
+    materialized = 'table',
     unique_key = 'id',
     on_schema_change='append_new_columns',
     indexes = [ 
