@@ -145,7 +145,7 @@ plugins:
         - public-sheets_computedinspectiondata.pdf_rendering_end
         - public-sheets_computedinspectiondata.processing_start
         - public-sheets_computedinspectiondata.processing_end
-        - public-sheets_registrydownload.*
+        - public-registry_registrydownload.*
       metadata:
         "*":
           replication-method: INCREMENTAL
