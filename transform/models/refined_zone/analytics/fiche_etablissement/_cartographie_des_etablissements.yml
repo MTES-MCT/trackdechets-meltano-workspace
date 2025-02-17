@@ -155,6 +155,18 @@ models:
       - name: processing_operation_texs
         description: ''
         data_type: text[]
+      - name: waste_codes_bordereaux
+        description: ''
+        data_type: text[]
+      - name: waste_codes_dnd_statements
+        description: ''
+        data_type: text[]
+      - name: waste_codes_texs_statements
+        description: ''
+        data_type: text[]
+      - name: waste_codes_processed
+        description: ''
+        data_type: text[]
       - name: code_commune_insee
         description: 'Code commune correspondant à celui dans la base géographique des communes de l''INSEE.'
         data_type: character varying

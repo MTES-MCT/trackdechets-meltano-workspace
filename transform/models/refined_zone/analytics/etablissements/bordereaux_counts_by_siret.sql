@@ -188,7 +188,10 @@ destination_counts AS (
         ) FILTER (
             WHERE
             _bs_type = 'BSVHU'
-        )                         AS processing_operations_as_destination_bsvhu
+        )                         AS processing_operations_as_destination_bsvhu,
+        ARRAY_AGG(
+            distinct waste_code  
+        ) as waste_codes_as_destination
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY
@@ -208,6 +211,7 @@ full_ AS (
         processing_operations_as_destination_bsff,
         processing_operations_as_destination_bsdasri,
         processing_operations_as_destination_bsvhu,
+        waste_codes_as_destination,
         COALESCE(
             emitter_counts.siret,
             transporter_counts.siret,

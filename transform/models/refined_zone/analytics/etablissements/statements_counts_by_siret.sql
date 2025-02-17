@@ -20,7 +20,8 @@ with dnd_entrant_stats as (
         )                                   as volume_dnd_statements_as_destination,
         array_agg(
             distinct code_traitement
-        )                                   as dnd_processing_operations_as_destination
+        )                                   as dnd_processing_operations_as_destination,
+        array_agg(distinct code_dechet) as dnd_waste_codes_as_destination
     from {{ ref('dnd_entrant') }}
     group by 1
 ),
@@ -74,7 +75,8 @@ texs_entrant_stats as (
         )                                   as volume_texs_statements_as_destination,
         array_agg(
             distinct code_traitement
-        )                                   as texs_processing_operations_as_destination
+        )                                   as texs_processing_operations_as_destination,
+        array_agg(distinct code_dechet) as texs_waste_codes_as_destination
     from {{ ref('texs_entrant') }}
     group by 1
 ),
@@ -133,6 +135,8 @@ ssd_stats as (
 select
     dnd_processing_operations_as_destination,
     texs_processing_operations_as_destination,
+    dnd_waste_codes_as_destination,
+    texs_waste_codes_as_destination,
     coalesce(
         dnd1.siret,
         dnd2.siret,
