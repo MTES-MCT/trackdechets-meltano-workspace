@@ -74,7 +74,16 @@ models:
       - name: bordereau_created_at
         description: ''
         data_type: timestamp without time zone
+      - name: bordereau_updated_at
+        description: ''
+        data_type: timestamp without time zone
+      - name: status
+        description: "Statut du BSD (brouillon, envoyé, reçu, traité, etc)\n"
+        data_type: text
       - name: emitter_company_siret
+        description: ''
+        data_type: text
+      - name: emitter_type
         description: ''
         data_type: text
       - name: recipient_company_siret
@@ -92,7 +101,13 @@ models:
       - name: waste_details_pop
         description: ''
         data_type: boolean
+      - name: waste_details_quantity
+        description: ''
+        data_type: numeric
       - name: quantity_received
+        description: ''
+        data_type: numeric
+      - name: quantity_refused
         description: ''
         data_type: numeric
       - name: processing_operation_done

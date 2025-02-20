@@ -105,12 +105,12 @@ sources:
           - name: annee
             description: ''
             data_type: bigint
-          - name: pays de transit
-            description: ''
-            data_type: text
           - name: inserted_at
             description: ''
             data_type: timestamp without time zone
+          - name: pays de transit
+            description: ''
+            data_type: character varying
       - name: installations
         description: >
           Données sur les installations GISTRID.

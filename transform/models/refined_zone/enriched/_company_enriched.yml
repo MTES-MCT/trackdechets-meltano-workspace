@@ -107,6 +107,12 @@ models:
       - name: waste_processor_types
         description: ''
         data_type: ARRAY
+      - name: waste_vehicles_types
+        description: ''
+        data_type: ARRAY
+      - name: is_dormant_since
+        description: ''
+        data_type: timestamp without time zone
       - name: code_section
         description: ''
         data_type: character varying

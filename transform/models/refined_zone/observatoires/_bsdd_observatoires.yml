@@ -1,0 +1,232 @@
+version: 2
+models:
+  - name: bsdd_observatoires
+    columns:
+      - name: id
+        description: 'Identifiant unique du BSDD en base.'
+        data_type: text
+      - name: date_creation
+        description: ''
+        data_type: timestamp without time zone
+      - name: date_mise_a_jour
+        description: ''
+        data_type: timestamp without time zone
+      - name: statut
+        description: ''
+        data_type: text
+      - name: emis_par_eco_organisme
+        description: ''
+        data_type: boolean
+      - name: emetteur_type
+        description: ''
+        data_type: text
+      - name: emetteur_navire_etranger
+        description: ''
+        data_type: boolean
+      - name: emetteur_numero_omi
+        description: ''
+        data_type: text
+      - name: emetteur_est_particulier
+        description: ''
+        data_type: boolean
+      - name: emetteur_nom_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_siret_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_nom_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_adresse_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_ville_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_code_postal_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_informations_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_code_commune
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_departement
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_region
+        description: ''
+        data_type: integer
+      - name: emetteur_code_naf
+        description: ''
+        data_type: character varying
+      - name: emetteur_date_signature_emission
+        description: ''
+        data_type: timestamp with time zone
+      - name: emetteur_quantite_groupee
+        description: ''
+        data_type: numeric
+      - name: transporteurs_noms_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteurs_sirets_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteurs_adresses_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteur_date_prise_en_charge
+        description: ''
+        data_type: timestamp with time zone
+      - name: destinataire_nom_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_siret_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_code_commune
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_departement
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_region
+        description: ''
+        data_type: integer
+      - name: destinataire_code_naf
+        description: ''
+        data_type: character varying
+      - name: destinataire_cap_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_entreposage_provisoire
+        description: ''
+        data_type: boolean
+      - name: destinataire_date_reception
+        description: ''
+        data_type: timestamp with time zone
+      - name: destinataire_date_signature_acceptation
+        description: ''
+        data_type: timestamp with time zone
+      - name: destinataire_quantite_recue
+        description: ''
+        data_type: numeric
+      - name: destinataire_quantite_recue_type
+        description: ''
+        data_type: text
+      - name: destinataire_dechet_statut_acceptation
+        description: ''
+        data_type: text
+      - name: destinataire_dechet_raison_refus
+        description: ''
+        data_type: text
+      - name: destinataire_quantite_refusee
+        description: ''
+        data_type: numeric
+      - name: destinataire_operation_traitement_prevue_code
+        description: ''
+        data_type: text
+      - name: destinataire_date_operation_traitement
+        description: ''
+        data_type: timestamp with time zone
+      - name: destinataire_operation_traitement_realisee_code
+        description: ''
+        data_type: text
+      - name: destinataire_operation_traitement_realisee_description
+        description: ''
+        data_type: text
+      - name: destinataire_operation_traitement_realisee_mode
+        description: ''
+        data_type: text
+      - name: dechet_code
+        description: ''
+        data_type: text
+      - name: dechet_code_onu
+        description: ''
+        data_type: text
+      - name: dechet_pop
+        description: ''
+        data_type: boolean
+      - name: dechet_declare_dangereux
+        description: ''
+        data_type: boolean
+      - name: dechet_denomination_usuelle
+        description: ''
+        data_type: text
+      - name: dechet_quantite
+        description: ''
+        data_type: numeric
+      - name: dechet_quantite_type
+        description: ''
+        data_type: text
+      - name: dechet_consistance
+        description: ''
+        data_type: text
+      - name: dechets_conditionnements
+        description: ''
+        data_type: ARRAY
+      - name: dechet_identifiants_parcelles
+        description: ''
+        data_type: ARRAY
+      - name: dechet_identifiants_terrains
+        description: ''
+        data_type: ARRAY
+      - name: rupture_tracabilite
+        description: ''
+        data_type: boolean
+      - name: destinataire_ulterieur_numero_tva_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_ulterieur_nom_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_ulterieur_siret_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_ulterieur_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_ulterieur_pays_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_ulterieur_operation_prevue_code
+        description: ''
+        data_type: text
+      - name: eco_organisme_nom
+        description: ''
+        data_type: text
+      - name: eco_organisme_siret
+        description: ''
+        data_type: text
+      - name: negociant_nom_etablissement
+        description: ''
+        data_type: text
+      - name: negociant_siret_etablissement
+        description: ''
+        data_type: text
+      - name: negociant_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: negociant_code_departement_etablissement
+        description: ''
+        data_type: text
+      - name: courtier_nom_etablissement
+        description: ''
+        data_type: text
+      - name: courtier_siret_etablissement
+        description: ''
+        data_type: text
+      - name: courtier_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: courtier_code_departement_etablissement
+        description: ''
+        data_type: text

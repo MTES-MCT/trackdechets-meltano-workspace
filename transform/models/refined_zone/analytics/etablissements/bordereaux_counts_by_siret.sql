@@ -190,8 +190,8 @@ destination_counts AS (
             _bs_type = 'BSVHU'
         )                         AS processing_operations_as_destination_bsvhu,
         ARRAY_AGG(
-            distinct waste_code  
-        ) as waste_codes_as_destination
+            DISTINCT waste_code
+        )                         AS waste_codes_as_destination
     FROM
         {{ ref('bordereaux_enriched') }}
     GROUP BY

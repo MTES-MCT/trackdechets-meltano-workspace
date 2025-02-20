@@ -2239,7 +2239,7 @@ sources:
             data_type: text
           - name: initialBrokerRecepisseValidityLimit
             description: ''
-            data_type: timestamp without time zone
+            data_type: text
           - name: initialDestinationCap
             description: ''
             data_type: text

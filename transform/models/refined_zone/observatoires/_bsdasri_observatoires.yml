@@ -1,0 +1,172 @@
+version: 2
+models:
+  - name: bsdasri_observatoires
+    columns:
+      - name: id
+        description: 'Clé primaire'
+        data_type: text
+      - name: date_creation
+        description: ''
+        data_type: timestamp without time zone
+      - name: date_mise_a_jour
+        description: ''
+        data_type: timestamp without time zone
+      - name: bsdasri_type
+        description: ''
+        data_type: text
+      - name: statut
+        description: ''
+        data_type: text
+      - name: emis_par_eco_organisme
+        description: ''
+        data_type: boolean
+      - name: emetteur_nom_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_siret_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_code_commune
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_departement
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_region
+        description: ''
+        data_type: integer
+      - name: emetteur_code_naf
+        description: ''
+        data_type: character varying
+      - name: emetteur_nom_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_adresse_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_ville_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_code_postal_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_informations_chantier
+        description: ''
+        data_type: text
+      - name: emetteur_date_signature_emission
+        description: ''
+        data_type: timestamp without time zone
+      - name: transporteur_nom_etablissement
+        description: ''
+        data_type: text
+      - name: transporteur_siret_etablissement
+        description: ''
+        data_type: text
+      - name: transporteur_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: transporteur_dechet_statut_acceptation
+        description: ''
+        data_type: text
+      - name: transporteur_dechet_quantite
+        description: ''
+        data_type: numeric
+      - name: transporteur_dechet_volume
+        description: ''
+        data_type: numeric
+      - name: transporteur_dechet_raison_refus
+        description: ''
+        data_type: text
+      - name: transporteur_dechet_quantite_refus
+        description: ''
+        data_type: numeric
+      - name: transporteur_date_prise_en_charge
+        description: ''
+        data_type: timestamp without time zone
+      - name: transporteur_date_signature
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_nom_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_siret_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_code_commune
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_departement
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_region
+        description: ''
+        data_type: integer
+      - name: destinataire_code_naf
+        description: ''
+        data_type: character varying
+      - name: destinataire_dechet_statut_acceptation
+        description: ''
+        data_type: text
+      - name: destinataire_dechet_raison_refus
+        description: ''
+        data_type: text
+      - name: destinataire_dechet_quantite_refus
+        description: ''
+        data_type: numeric
+      - name: destinataire_quantite_recue
+        description: ''
+        data_type: numeric
+      - name: destinataire_volume_recu
+        description: ''
+        data_type: numeric
+      - name: destinataire_date_signature_reception
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_date_reception
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_operation_traitement_realisee_code
+        description: ''
+        data_type: text
+      - name: destinataire_operation_traitement_realisee_mode
+        description: ''
+        data_type: text
+      - name: destinataire_date_signature_traitement
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_date_operation_traitement
+        description: ''
+        data_type: timestamp without time zone
+      - name: transporteur_mode_transport
+        description: ''
+        data_type: text
+      - name: dechet_code
+        description: ''
+        data_type: text
+      - name: dechet_adr
+        description: ''
+        data_type: text
+      - name: dechet_quantite
+        description: ''
+        data_type: numeric
+      - name: dechet_type_quantite
+        description: ''
+        data_type: boolean
+      - name: dechet_volume
+        description: ''
+        data_type: numeric
+      - name: contenants
+        description: ''
+        data_type: ARRAY
+      - name: eco_organisme_nom
+        description: ''
+        data_type: text
+      - name: eco_organisme_siret
+        description: ''
+        data_type: text

@@ -61,19 +61,19 @@ sources:
           - name: code_commune_insee
             description: ''
             data_type: text
-          - name: latitude
-            description: ''
-            data_type: text
           - name: longitude
             description: ''
             data_type: text
-          - name: result_label
+          - name: latitude
             description: ''
             data_type: text
           - name: result_score
             description: ''
             data_type: text
           - name: result_score_next
+            description: ''
+            data_type: text
+          - name: result_label
             description: ''
             data_type: text
           - name: result_type

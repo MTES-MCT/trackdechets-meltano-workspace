@@ -47,6 +47,9 @@ models:
 
           '
         data_type: numeric
+      - name: quantity_refused
+        description: ''
+        data_type: numeric
       - name: accepted_quantity_packagings
         description: ''
         data_type: numeric

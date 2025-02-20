@@ -38,6 +38,9 @@ models:
       - name: processing_operations_as_destination_bsvhu
         description: ''
         data_type: ARRAY
+      - name: waste_codes_as_destination
+        description: ''
+        data_type: ARRAY
       - name: num_bsdd_as_emitter
         description: ''
         data_type: bigint
@@ -156,6 +159,12 @@ models:
         description: ''
         data_type: ARRAY
       - name: texs_processing_operations_as_destination
+        description: ''
+        data_type: ARRAY
+      - name: dnd_waste_codes_as_destination
+        description: ''
+        data_type: ARRAY
+      - name: texs_waste_codes_as_destination
         description: ''
         data_type: ARRAY
       - name: num_dnd_statements_as_destination

@@ -1,0 +1,124 @@
+version: 2
+models:
+  - name: bsff_observatoires
+    columns:
+      - name: id
+        description: 'Clé primaire'
+        data_type: text
+      - name: date_creation
+        description: ''
+        data_type: timestamp without time zone
+      - name: date_mise_a_jour
+        description: ''
+        data_type: timestamp without time zone
+      - name: statut
+        description: ''
+        data_type: text
+      - name: bsff_type
+        description: ''
+        data_type: text
+      - name: emetteur_nom_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_siret_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: emetteur_code_commune
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_departement
+        description: ''
+        data_type: character varying
+      - name: emetteur_code_region
+        description: ''
+        data_type: integer
+      - name: emetteur_code_naf
+        description: ''
+        data_type: character varying
+      - name: emetteur_date_signature_emission
+        description: ''
+        data_type: timestamp without time zone
+      - name: transporteurs_noms_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteurs_sirets_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteurs_adresses_etablissements
+        description: ''
+        data_type: ARRAY
+      - name: transporteur_date_prise_en_charge
+        description: ''
+        data_type: timestamp with time zone
+      - name: transporteur_date_signature
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_nom_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_siret_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_adresse_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_code_commune
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_departement
+        description: ''
+        data_type: character varying
+      - name: destinataire_code_region
+        description: ''
+        data_type: integer
+      - name: destinataire_code_naf
+        description: ''
+        data_type: character varying
+      - name: destinataire_cap_etablissement
+        description: ''
+        data_type: text
+      - name: destinataire_date_signature_reception
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_date_reception
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_operation_traitement_prevue_code
+        description: ''
+        data_type: text
+      - name: destinataire_date_derniere_operation_traitement_contenants
+        description: ''
+        data_type: timestamp without time zone
+      - name: destinataire_operations_traitements_realisees_codes_contenants
+        description: ''
+        data_type: ARRAY
+      - name: contenants_nombre_acceptes
+        description: ''
+        data_type: bigint
+      - name: contenants_nombre_traites
+        description: ''
+        data_type: bigint
+      - name: contenants_nombre
+        description: ''
+        data_type: bigint
+      - name: dechet_code
+        description: ''
+        data_type: text
+      - name: dechet_denomination_usuelle
+        description: ''
+        data_type: text
+      - name: dechet_adr
+        description: ''
+        data_type: text
+      - name: dechet_quantite
+        description: ''
+        data_type: numeric
+      - name: dechet_quantite_type
+        description: ''
+        data_type: boolean
+      - name: dechet_quantite_acceptee_contenants
+        description: ''
+        data_type: numeric

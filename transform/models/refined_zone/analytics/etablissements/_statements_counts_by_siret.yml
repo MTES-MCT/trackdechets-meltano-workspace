@@ -8,6 +8,12 @@ models:
       - name: texs_processing_operations_as_destination
         description: ''
         data_type: ARRAY
+      - name: dnd_waste_codes_as_destination
+        description: ''
+        data_type: ARRAY
+      - name: texs_waste_codes_as_destination
+        description: ''
+        data_type: ARRAY
       - name: siret
         description: ''
         data_type: character varying

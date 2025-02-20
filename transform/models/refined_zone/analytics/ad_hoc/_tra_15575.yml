@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: tra_15575
+    columns:
+      - name: origine_donnee
+        description: ''
+        data_type: text
+      - name: annee
+        description: ''
+        data_type: double precision
+      - name: code_dechet
+        description: ''
+        data_type: text
+      - name: unite
+        description: ''
+        data_type: text
+      - name: quantite_traitee
+        description: ''
+        data_type: numeric

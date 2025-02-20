@@ -191,7 +191,22 @@ models:
       - name: destination_naf
         description: ''
         data_type: character varying
+      - name: num_packagings
+        description: ''
+        data_type: bigint
+      - name: num_accepted_packagings
+        description: ''
+        data_type: bigint
+      - name: num_processed_packagings
+        description: ''
+        data_type: bigint
       - name: accepted_quantity_packagings
         description: ''
         data_type: numeric
+      - name: operations_codes_packagings
+        description: ''
+        data_type: ARRAY
+      - name: last_operation_date_packagings
+        description: ''
+        data_type: timestamp without time zone
 sources: []

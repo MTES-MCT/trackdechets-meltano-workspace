@@ -5,12 +5,6 @@ models:
       - name: siret
         description: 'Code région'
         data_type: text
-      - name: nom_etablissement
-        description: ''
-        data_type: text
-      - name: adresse
-        description: ''
-        data_type: text
       - name: code_commune
         description: ''
         data_type: character varying
@@ -35,3 +29,9 @@ models:
       - name: rubriques
         description: ''
         data_type: ARRAY
+      - name: nom_etablissement
+        description: ''
+        data_type: text
+      - name: adresse
+        description: ''
+        data_type: text

@@ -21,7 +21,7 @@ with dnd_entrant_stats as (
         array_agg(
             distinct code_traitement
         )                                   as dnd_processing_operations_as_destination,
-        array_agg(distinct code_dechet) as dnd_waste_codes_as_destination
+        array_agg(distinct code_dechet)     as dnd_waste_codes_as_destination
     from {{ ref('dnd_entrant') }}
     group by 1
 ),
@@ -76,7 +76,7 @@ texs_entrant_stats as (
         array_agg(
             distinct code_traitement
         )                                   as texs_processing_operations_as_destination,
-        array_agg(distinct code_dechet) as texs_waste_codes_as_destination
+        array_agg(distinct code_dechet)     as texs_waste_codes_as_destination
     from {{ ref('texs_entrant') }}
     group by 1
 ),
