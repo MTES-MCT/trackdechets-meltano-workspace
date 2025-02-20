@@ -29,7 +29,7 @@ with stats as (
         sbs.waste_codes_as_destination as waste_codes_bordereaux,
         sbs.dnd_waste_codes_as_destination as waste_codes_dnd_statements,
         sbs.texs_waste_codes_as_destination as waste_codes_texs_statements,
-        sbs.waste_codes_as_destination || sbs.dnd_waste_codes_as_destination || sbs.texs_waste_codes_as_destination as waste_codes_processed,
+        sbs.waste_codes_as_destination::text[] || sbs.dnd_waste_codes_as_destination::text[] || sbs.texs_waste_codes_as_destination::text[] as waste_codes_processed,
         sbs.num_bsdd_as_emitter > 0                      as bsdd_emitter,
         sbs.num_bsdd_as_transporter > 0                  as bsdd_transporter,
         sbs.num_bsdd_as_destination > 0                  as bsdd_destination,
