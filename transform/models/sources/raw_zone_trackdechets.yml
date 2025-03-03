@@ -389,6 +389,12 @@ sources:
           - name: emptyReturnADR
             description: ''
             data_type: text
+          - name: wasteDetailsNonRoadRegulationMention
+            description: ''
+            data_type: text
+          - name: wasteDetailsIsSubjectToADR
+            description: ''
+            data_type: boolean
       - name: bsda_raw
         identifier: Bsda
         description: >
@@ -1451,6 +1457,72 @@ sources:
           - name: intermediariesOrgIds
             description: ''
             data_type: ARRAY
+          - name: ecoOrganismeName
+            description: ''
+            data_type: text
+          - name: ecoOrganismeSiret
+            description: ''
+            data_type: text
+          - name: brokerCompanyAddress
+            description: ''
+            data_type: text
+          - name: brokerCompanyContact
+            description: ''
+            data_type: text
+          - name: brokerCompanyMail
+            description: ''
+            data_type: text
+          - name: brokerCompanyName
+            description: ''
+            data_type: text
+          - name: brokerCompanyPhone
+            description: ''
+            data_type: text
+          - name: brokerCompanySiret
+            description: ''
+            data_type: text
+          - name: brokerRecepisseDepartment
+            description: ''
+            data_type: text
+          - name: brokerRecepisseNumber
+            description: ''
+            data_type: text
+          - name: brokerRecepisseValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: traderCompanyAddress
+            description: ''
+            data_type: text
+          - name: traderCompanyContact
+            description: ''
+            data_type: text
+          - name: traderCompanyMail
+            description: ''
+            data_type: text
+          - name: traderCompanyName
+            description: ''
+            data_type: text
+          - name: traderCompanyPhone
+            description: ''
+            data_type: text
+          - name: traderCompanySiret
+            description: ''
+            data_type: text
+          - name: traderRecepisseDepartment
+            description: ''
+            data_type: text
+          - name: traderRecepisseNumber
+            description: ''
+            data_type: text
+          - name: traderRecepisseValidityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: canAccessDraftOrgIds
+            description: ''
+            data_type: ARRAY
+          - name: customId
+            description: ''
+            data_type: text
       - name: user_raw
         identifier: User
         description: >
@@ -1724,6 +1796,21 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: notificationIsActiveBsdRefusal
+            description: ''
+            data_type: boolean
+          - name: notificationIsActiveBsdaFinalDestinationUpdate
+            description: ''
+            data_type: boolean
+          - name: notificationIsActiveMembershipRequest
+            description: ''
+            data_type: boolean
+          - name: notificationIsActiveRevisionRequest
+            description: ''
+            data_type: boolean
+          - name: notificationIsActiveSignatureCodeRenewal
+            description: ''
+            data_type: boolean
       - name: eco_organisme_raw
         identifier: EcoOrganisme
         description: >
@@ -1775,6 +1862,9 @@ sources:
           - name: _sdc_sync_started_at
             description: ""
             data_type: bigint
+          - name: handleBsvhu
+            description: ''
+            data_type: boolean
       - name: bsff_packaging_raw
         identifier: BsffPackaging
         description: >
@@ -2473,7 +2563,7 @@ sources:
             data_type: text
           - name: initialBrokerValidityLimit
             description: ''
-            data_type: timestamp without time zone
+            data_type: text
           - name: initialDestinationOperationMode
             description: ''
             data_type: text
@@ -2527,7 +2617,7 @@ sources:
             data_type: text
           - name: initialTraderValidityLimit
             description: ''
-            data_type: timestamp without time zone
+            data_type: text
           - name: initialWasteAcceptationStatus
             description: ''
             data_type: text
@@ -2550,6 +2640,9 @@ sources:
             description: ''
             data_type: text
           - name: initialWasteRefusalReason
+            description: ''
+            data_type: text
+          - name: initialBrokerRecepisseValidityLimit
             description: ''
             data_type: text
       - name: bsdd_transporter_raw
@@ -3010,3 +3103,47 @@ sources:
           - name: initialWasteCode
             description: ''
             data_type: text
+      - name: worker_certification_raw
+        identifier: WorkerCertification
+        description: >-
+          Table contenant les certifications des entreprises de travaux.
+        columns:
+          - name: id
+            description: ''
+            data_type: text
+          - name: hasSubSectionFour
+            description: ''
+            data_type: boolean
+          - name: hasSubSectionThree
+            description: ''
+            data_type: boolean
+          - name: certificationNumber
+            description: ''
+            data_type: text
+          - name: validityLimit
+            description: ''
+            data_type: timestamp without time zone
+          - name: organisation
+            description: ''
+            data_type: text
+          - name: _sdc_extracted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_received_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_batched_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_deleted_at
+            description: ''
+            data_type: timestamp without time zone
+          - name: _sdc_sequence
+            description: ''
+            data_type: bigint
+          - name: _sdc_table_version
+            description: ''
+            data_type: bigint
+          - name: _sdc_sync_started_at
+            description: ''
+            data_type: bigint

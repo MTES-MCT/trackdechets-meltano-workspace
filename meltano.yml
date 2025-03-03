@@ -57,6 +57,7 @@ plugins:
         - default$default-BsdaTransporter.*
         - default$default-BsffTransporter.*
         - default$default-BsdasriRevisionRequest.*
+        - default$default-WorkerCertification.*
       metadata:
         "*":
           replication-method: INCREMENTAL
@@ -95,6 +96,9 @@ plugins:
           replication-method: FULL_TABLE
           replication-key: ""
         default$default-BsdaRevisionRequest:
+          replication-method: FULL_TABLE
+          replication-key: ""
+        default$default-WorkerCertification:
           replication-method: FULL_TABLE
           replication-key: ""
       schema:
