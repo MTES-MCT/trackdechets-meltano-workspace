@@ -10,7 +10,7 @@ analysis-paths:
 test-paths:
   - tests
 seed-paths:
-  - data
+  - seeds
 macro-paths:
   - macros
 snapshot-paths:
@@ -93,3 +93,7 @@ models:
 
   elementary:
     +schema: "elementary"
+
+seeds:
+  trackdechets_data_platform:
+    +schema: raw_zone

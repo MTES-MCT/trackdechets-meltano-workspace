@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: worker_certification
+    columns:
+      - name: id
+        description: ''
+        data_type: text
+      - name: has_sub_section_four
+        description: ''
+        data_type: boolean
+      - name: has_sub_section_three
+        description: ''
+        data_type: boolean
+      - name: certification_number
+        description: ''
+        data_type: text
+      - name: validity_limit
+        description: ''
+        data_type: timestamp without time zone
+      - name: organisation
+        description: ''
+        data_type: text

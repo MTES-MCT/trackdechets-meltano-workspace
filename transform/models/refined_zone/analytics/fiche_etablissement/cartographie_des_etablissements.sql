@@ -19,43 +19,43 @@ with stats as (
     select
         sbs.siret,
         coalesce(
-            sbs.processing_operations_as_destination_bsdd, array[]::text []
+            sbs.processing_operations_as_destination_bsdd, array[]::text[]
         ) as processing_operations_bsdd,
         coalesce(
-            sbs.processing_operations_as_destination_bsdnd, array[]::text []
+            sbs.processing_operations_as_destination_bsdnd, array[]::text[]
         ) as processing_operations_bsdnd,
         coalesce(
-            sbs.processing_operations_as_destination_bsda, array[]::text []
+            sbs.processing_operations_as_destination_bsda, array[]::text[]
         ) as processing_operations_bsda,
         coalesce(
-            sbs.processing_operations_as_destination_bsff, array[]::text []
+            sbs.processing_operations_as_destination_bsff, array[]::text[]
         ) as processing_operations_bsff,
         coalesce(
-            sbs.processing_operations_as_destination_bsdasri, array[]::text []
+            sbs.processing_operations_as_destination_bsdasri, array[]::text[]
         ) as processing_operations_bsdasri,
         coalesce(
-            sbs.processing_operations_as_destination_bsvhu, array[]::text []
+            sbs.processing_operations_as_destination_bsvhu, array[]::text[]
         ) as processing_operations_bsvhu,
         coalesce(
-            sbs.dnd_processing_operations_as_destination, array[]::text []
+            sbs.dnd_processing_operations_as_destination, array[]::text[]
         ) as processing_operation_dnd,
         coalesce(
-            sbs.texs_processing_operations_as_destination, array[]::text []
+            sbs.texs_processing_operations_as_destination, array[]::text[]
         ) as processing_operation_texs,
         coalesce(
-            sbs.waste_codes_as_destination, array[]::text []
+            sbs.waste_codes_as_destination, array[]::text[]
         ) as waste_codes_bordereaux,
         coalesce(
-            sbs.dnd_waste_codes_as_destination, array[]::text []
+            sbs.dnd_waste_codes_as_destination, array[]::text[]
         ) as waste_codes_dnd_statements,
         coalesce(
-            sbs.texs_waste_codes_as_destination, array[]::text []
+            sbs.texs_waste_codes_as_destination, array[]::text[]
         ) as waste_codes_texs_statements,
         coalesce(
-            sbs.waste_codes_as_destination::text []
-            || sbs.dnd_waste_codes_as_destination::text []
-            || sbs.texs_waste_codes_as_destination::text [],
-            array[]::text []
+            sbs.waste_codes_as_destination
+            || sbs.dnd_waste_codes_as_destination
+            || sbs.texs_waste_codes_as_destination,
+            array[]::text[]
         ) as waste_codes_processed,
         coalesce(
             sbs.num_bsdd_as_emitter > 0, false
@@ -182,15 +182,15 @@ joined as (
         c.longitude                                    as longitude_td,
         cban.latitude                                  as latitude_ban,
         cban.longitude                                 as longitude_ban,
-        coalesce(c.company_types, array[]::text [])    as profils,
+        coalesce(c.company_types, array[]::text[])    as profils,
         coalesce(
-            c.collector_types, array[]::text []
+            c.collector_types, array[]::text[]
         )                                              as profils_collecteur,
         coalesce(
-            c.waste_processor_types, array[]::text []
+            c.waste_processor_types, array[]::text[]
         )                                              as profils_installation,
         coalesce(
-            c.waste_vehicles_types, array[]::text []
+            c.waste_vehicles_types, array[]::text[]
         )                                              as profils_installation_traitement_vhu,
         coalesce(et.num_texs_dd_as_emitter > 0, false) as texs_dd_emitter,
         coalesce(

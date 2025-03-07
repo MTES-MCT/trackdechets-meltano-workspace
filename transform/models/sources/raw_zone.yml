@@ -115,3 +115,38 @@ sources:
           - name: result_status
             description: ''
             data_type: text
+      - name: isdd_capacites_limites_50pct
+        columns:
+          - name: RÉGION
+            description: ''
+            data_type: text
+          - name: DÉPARTEMENT
+            description: ''
+            data_type: text
+          - name: NOM SITE
+            description: ''
+            data_type: text
+          - name: COMMUNE
+            description: ''
+            data_type: text
+          - name: CAPACITÉ AUTORISÉE 50
+            description: ''
+            data_type: integer
+          - name: SIRET
+            description: ''
+            data_type: text
+          - name: INSCRIT
+            description: ''
+            data_type: text
+          - name: PROFIL ISDND
+            description: ''
+            data_type: text
+          - name: PROFIL MAJ
+            description: ''
+            data_type: text
+          - name: INSCRIT RNDTS
+            description: ''
+            data_type: text
+          - name: commentaires
+            description: ''
+            data_type: text
