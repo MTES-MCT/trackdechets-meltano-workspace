@@ -52,9 +52,9 @@ with stats as (
             sbs.texs_waste_codes_as_destination, array[]::text[]
         ) as waste_codes_texs_statements,
         coalesce(
-            sbs.waste_codes_as_destination
-            || sbs.dnd_waste_codes_as_destination
-            || sbs.texs_waste_codes_as_destination,
+            sbs.waste_codes_as_destination::text[]
+            || sbs.dnd_waste_codes_as_destination::text[]
+            || sbs.texs_waste_codes_as_destination::text[],
             array[]::text[]
         ) as waste_codes_processed,
         coalesce(
